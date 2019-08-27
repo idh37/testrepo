@@ -1,0 +1,8 @@
+#pragma once
+
+//Scene ID
+#define ID_LOBBYNOTIFY				0x00000046
+
+//Scene Object ID
+#define ID_LOBBYNOTIFY_CHKBOX_TODAY	0x00000001
+#define ID_LOBBYNOTIFY_BTN_OK		0x00000002

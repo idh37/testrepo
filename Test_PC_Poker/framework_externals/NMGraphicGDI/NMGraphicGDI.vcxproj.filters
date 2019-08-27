@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="GraphicGDILib">
+      <UniqueIdentifier>{fe8a5880-f428-4b88-822e-7e053a73da45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicGDILib\ScreenCapture">
+      <UniqueIdentifier>{2ab048c0-0c41-47ea-9490-fc341fcb4b6e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="NMGraphicGDI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\Display.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\Dither.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\Graphic.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\GraphMod.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\GraphMod8.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\GraphMod_RotateZoom.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\GraphMod_Zoom.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\Jpegfile.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\Sprite8.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\TgaFile.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xAniFile.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xAniMan.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xHan.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xLayer.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xMultiScene.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xScene.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\xSprite.cpp">
+      <Filter>GraphicGDILib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicGDILib\ScreenCapture.cpp">
+      <Filter>GraphicGDILib\ScreenCapture</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NMGraphicGDI.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\NMGraphicGDI.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\Display.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\Dither.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\Graphic.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\GraphicGDIDefine.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\GraphicGDIInclude.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\GraphMod.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\GraphMod8.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\Jpegfile.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\Sprite8.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\TgaFile.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xAniFile.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xAniMan.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xHan.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xLayer.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xMultiScene.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xScene.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\xSprite.h">
+      <Filter>GraphicGDILib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmgraphicgdi\ScreenCapture.h">
+      <Filter>GraphicGDILib\ScreenCapture</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMGraphicGDI.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

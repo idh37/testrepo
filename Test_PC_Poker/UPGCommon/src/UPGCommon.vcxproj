@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EC51AE0E-6D15-4174-A589-CEB82EB54A25}</ProjectGuid>
+    <RootNamespace>UPGCommon</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../lib/$(Configuration)\</OutDir>
+    <IntDir>../lib/Intermediate Files/$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../lib/$(Configuration)\</OutDir>
+    <IntDir>../lib/Intermediate Files/$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Debug\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../externals/CommonFile;../externals/Camel.Base/include;../externals/Camel.Dar/include;../externals/SSConnector/include/;../externals/GSConnector/include/;../externals/jsoncpp/trunkver(int64 support)/include;../../LSYLib/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_DEPRECATE;_NEXTUP_DUALPOKER_MAXROOM;__JSON_LIB_SUPPORT__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPGCommon_D.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>LSYLib_D.lib;Pigeon.SS.ConnectorD.lib;Camel.Base.SystemD.lib;json_vc71_libmdD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_D.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../LSYLib/Lib/$(Configuration);../externals/SSConnector/lib;../externals/Camel.Base/lib;../externals/GSConnector/lib;../externals/jsoncpp/trunkver(int64 support)/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;libcmtd.lib;nafxcwd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGCommon_D.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(TargetDir)$(TargetName).map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug
+copy /y ..\externals\GSConnector\bin\Pigeon.GS.ConnectorD.dll $(SolutionDir)bin\Debug
+copy /y ..\externals\SSConnector\bin\Pigeon.SS.ConnectorD.dll $(SolutionDir)bin\Debug
+copy /y ..\externals\Camel.Base\bin\Camel.Base.DatabaseD.dll $(SolutionDir)bin\Debug
+copy /y ..\externals\Camel.Base\bin\Camel.Base.LoggerD.dll $(SolutionDir)bin\Debug
+copy /y ..\externals\Camel.Base\bin\Camel.Base.NetworkD.dll $(SolutionDir)bin\Debug
+copy /y ..\externals\Camel.Base\bin\Camel.Base.SystemD.dll $(SolutionDir)bin\Debug
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Release\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../Externals/CommonFile;../externals/Camel.Base/include;../externals/Camel.Dar/include;../externals/SSConnector/include/;../externals/GSConnector/include/;../externals/jsoncpp/trunkver(int64 support)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;_NEXTUP_DUALPOKER_MAXROOM;__JSON_LIB_SUPPORT__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ProgramDataBaseFileName>../lib/Release/UPGCommon.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>LSYLib.lib;Pigeon.SS.Connector.lib;Camel.Base.System.lib;json_vc71_libmd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../LSYLib/lib/$(Configuration);../externals/SSConnector/lib;../externals/Camel.Base/lib;../externals/GSConnector/lib;../externals/jsoncpp/trunkver(int64 support)/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGCommon.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(TargetDir)$(TargetName).map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release
+copy /y ..\externals\GSConnector\bin\Pigeon.GS.Connector.dll $(SolutionDir)bin\Release
+copy /y ..\externals\SSConnector\bin\Pigeon.SS.Connector.dll $(SolutionDir)bin\Release
+copy /y ..\externals\Camel.Base\bin\Camel.Base.Database.dll $(SolutionDir)bin\Release
+copy /y ..\externals\Camel.Base\bin\Camel.Base.Logger.dll $(SolutionDir)bin\Release
+copy /y ..\externals\Camel.Base\bin\Camel.Base.Network.dll $(SolutionDir)bin\Release
+copy /y ..\externals\Camel.Base\bin\Camel.Base.System.dll $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\externals\CommonFile\CommMsg.cpp" />
+    <ClCompile Include="..\externals\CommonFile\CommMsgString.cpp" />
+    <ClCompile Include="..\externals\CommonFile\CommUtil.cpp" />
+    <ClCompile Include="..\externals\CommonFile\UserStruct.cpp" />
+    <ClCompile Include="AdminMessageDlg.cpp" />
+    <ClCompile Include="AdminRemoveRoomDlg.cpp" />
+    <ClCompile Include="AdminTitleDlg.cpp" />
+    <ClCompile Include="AskContinueGameDlg.cpp" />
+    <ClCompile Include="AskMoveGameDlg.cpp" />
+    <ClCompile Include="BadUserComplete.cpp" />
+    <ClCompile Include="BadUserDlg.cpp" />
+    <ClCompile Include="BanishmentDlg.cpp" />
+    <ClCompile Include="BanishVoteDlg.cpp" />
+    <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="BuyLuckAvataDlg.cpp" />
+    <ClCompile Include="BuyTimeLimitAvataDlg.cpp" />
+    <ClCompile Include="CharView.cpp" />
+    <ClCompile Include="ClientStats.cpp" />
+    <ClCompile Include="ClubDlg.cpp" />
+    <ClCompile Include="ComboBoxImageDlg.cpp" />
+    <ClCompile Include="Community\AddUserSelectDlg.cpp" />
+    <ClCompile Include="Community\AddUserSelectDlgBuddyList.cpp" />
+    <ClCompile Include="Community\AddUserSelectDlgConnectUserList.cpp" />
+    <ClCompile Include="Community\BlackBuddyAddDlg.cpp" />
+    <ClCompile Include="Community\BlackBuddyRemoveDlg.cpp" />
+    <ClCompile Include="Community\Buddy.cpp" />
+    <ClCompile Include="Community\BuddyAddDlg.cpp" />
+    <ClCompile Include="Community\BuddyAddResultDlg.cpp" />
+    <ClCompile Include="Community\BuddyGroupAddDlg.cpp" />
+    <ClCompile Include="Community\BuddyGroupRemoveDlg.cpp" />
+    <ClCompile Include="Community\BuddyListItem.cpp" />
+    <ClCompile Include="Community\BuddyMoveGroupDlg.cpp" />
+    <ClCompile Include="Community\BuddyRemoveDlg.cpp" />
+    <ClCompile Include="Community\ChattingPopupMemu.cpp" />
+    <ClCompile Include="Community\ChattingRoomAddUserDlg.cpp" />
+    <ClCompile Include="Community\ChattingRoomDlg.cpp" />
+    <ClCompile Include="Community\ChattingRoomInviteDlg.cpp" />
+    <ClCompile Include="Community\CommunityManager.cpp" />
+    <ClCompile Include="Community\CongMessageDlg.cpp" />
+    <ClCompile Include="Community\ConnectUserListItem.cpp" />
+    <ClCompile Include="Community\MemoNotifyDlg.cpp" />
+    <ClCompile Include="Community\MessageBox.cpp" />
+    <ClCompile Include="Community\MessageBoxImgFull.cpp" />
+    <ClCompile Include="Community\MessageBoxListITem.cpp" />
+    <ClCompile Include="Community\MessageNotificationPopup.cpp" />
+    <ClCompile Include="Community\ReceiveAdminMessageDlg.cpp" />
+    <ClCompile Include="Community\ReceiveMessageDlg.cpp" />
+    <ClCompile Include="Community\SendMessageDlg.cpp" />
+    <ClCompile Include="Community\SendMessageItem.cpp" />
+    <ClCompile Include="ConfirmVote.cpp" />
+    <ClCompile Include="CWebCallThread.cpp" />
+    <ClCompile Include="DailyPopup.cpp" />
+    <ClCompile Include="DataList.cpp" />
+    <ClCompile Include="DataRoomList.cpp" />
+    <ClCompile Include="DataRoomOptionList.cpp" />
+    <ClCompile Include="DataUserList.cpp" />
+    <ClCompile Include="Delegate.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="EndEventPopup.cpp" />
+    <ClCompile Include="EndPopup.cpp" />
+    <ClCompile Include="EventInfopopup.cpp" />
+    <ClCompile Include="Functor.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\ChipAttendSubPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokAttendanceDlg.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\ChuSeokSubPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\GoldAttendanceBookSubPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldBigWheel\GoldBigWheelDlg.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldLuckyBag\GoldLuckyBagPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldMileage\GoldMileagePopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldSupportFund\GoldSupportFundPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldWithdraw\GoldWithdrawPopup.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\LobbyNotify\LobbyNotifyDlg.cpp" />
+    <ClCompile Include="GameBase\GameCommon\Popup\NewYearAttendance\NewYearAttendancePopup.cpp" />
+    <ClCompile Include="GameDataManager.cpp" />
+    <ClCompile Include="GameGradeDlg.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameManualDlg.cpp" />
+    <ClCompile Include="GameProcess.cpp" />
+    <ClCompile Include="GameRes.cpp" />
+    <ClCompile Include="GameURL.cpp" />
+    <ClCompile Include="GameViewBase.cpp" />
+    <ClCompile Include="GlobalBase.cpp" />
+    <ClCompile Include="GoldChangeDlg.cpp" />
+    <ClCompile Include="HideChatList.cpp" />
+    <ClCompile Include="ImageDef.cpp" />
+    <ClCompile Include="InGameBadUserComplainMsgBox.cpp" />
+    <ClCompile Include="InviteDlg.cpp" />
+    <ClCompile Include="InviteUserListView.cpp" />
+    <ClCompile Include="InviteWidget.cpp" />
+    <ClCompile Include="JackpotRankPopupDlg.cpp" />
+    <ClCompile Include="JackpotTimepopup.cpp" />
+    <ClCompile Include="KisaDlg.cpp" />
+    <ClCompile Include="LoadingDlg.cpp" />
+    <ClCompile Include="LobbyEventDlg.cpp" />
+    <ClCompile Include="LogFile.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
+    <ClCompile Include="LoginInfoPopup.cpp" />
+    <ClCompile Include="Md5.cpp" />
+    <ClCompile Include="MessageManager.cpp" />
+    <ClCompile Include="MsgBoxChkDlg.cpp" />
+    <ClCompile Include="MsgBoxDlg.cpp" />
+    <ClCompile Include="MsgBoxModelessDlg.cpp" />
+    <ClCompile Include="MsgImgBox.cpp" />
+    <ClCompile Include="MyFamilyDlg.cpp" />
+    <ClCompile Include="MyVoteDlg.cpp" />
+    <ClCompile Include="NewAskChargeDlg.cpp" />
+    <ClCompile Include="NewGameItemDlg.cpp" />
+    <ClCompile Include="ObjectList.cpp" />
+    <ClCompile Include="ObserverDlg.cpp" />
+    <ClCompile Include="ObserverListView.cpp" />
+    <ClCompile Include="OptionDlg.cpp" />
+    <ClCompile Include="OptionFrameBase.cpp" />
+    <ClCompile Include="OptionFrameHoola.cpp" />
+    <ClCompile Include="OptionFrameSutda.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayTimeWarning.cpp" />
+    <ClCompile Include="PostBoxDlg.cpp" />
+    <ClCompile Include="PrevRoomInfo.cpp" />
+    <ClCompile Include="ProfileDlg.cpp" />
+    <ClCompile Include="RecvInviteDlg.cpp" />
+    <ClCompile Include="RefuseQJDlg.cpp" />
+    <ClCompile Include="ResetQuickStarterDlg.cpp" />
+    <ClCompile Include="RestrictionInfoPopup.cpp" />
+    <ClCompile Include="RestrictionOverPopup.cpp" />
+    <ClCompile Include="RestrictionPopup.cpp" />
+    <ClCompile Include="RewardItemMan.cpp" />
+    <ClCompile Include="SelectQuickstarterDlg.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ThreadLock.cpp" />
+    <ClCompile Include="TimerNotifierDlg.cpp" />
+    <ClCompile Include="UniversalItemDlg.cpp" />
+    <ClCompile Include="UPGCommon.cpp" />
+    <ClCompile Include="UPGDlgBase.cpp" />
+    <ClCompile Include="UPPDlg.cpp" />
+    <ClCompile Include="UPPInfoPopup.cpp" />
+    <ClCompile Include="UPPPopup.cpp" />
+    <ClCompile Include="VIPChanceAlert.cpp" />
+    <ClCompile Include="VipCloseDlg.cpp" />
+    <ClCompile Include="VipService.cpp" />
+    <ClCompile Include="VipServiceDlg.cpp" />
+    <ClCompile Include="VipServiceSockCmnd.cpp" />
+    <ClCompile Include="WhisperDlg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\externals\CommonFile\CommMsg.h" />
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef.h" />
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef_Game.h" />
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef_Tournament.h" />
+    <ClInclude Include="..\externals\CommonFile\CommMsgIDHeader.h" />
+    <ClInclude Include="..\externals\CommonFile\CommMsgString.h" />
+    <ClInclude Include="..\externals\CommonFile\CommonmsgDef_TMS.h" />
+    <ClInclude Include="..\externals\CommonFile\CommUtil.h" />
+    <ClInclude Include="..\externals\CommonFile\GameCommon.h" />
+    <ClInclude Include="..\externals\CommonFile\PromotionDefine.h" />
+    <ClInclude Include="..\externals\CommonFile\UserStruct.h" />
+    <ClInclude Include="..\externals\CommonFile\UserStructDefine.h" />
+    <ClInclude Include="..\include\GameDef.h" />
+    <ClInclude Include="..\include\UPGCommon.h" />
+    <ClInclude Include="AdminMessageDlg.h" />
+    <ClInclude Include="AdminRemoveRoomDlg.h" />
+    <ClInclude Include="AdminTitleDlg.h" />
+    <ClInclude Include="AskContinueGameDlg.h" />
+    <ClInclude Include="AskMoveGameDlg.h" />
+    <ClInclude Include="BadUserComplete.h" />
+    <ClInclude Include="badusercompleteid.h" />
+    <ClInclude Include="BadUserDlg.h" />
+    <ClInclude Include="baduserdlgid.h" />
+    <ClInclude Include="baduserscamid.h" />
+    <ClInclude Include="BanishmentDlg.h" />
+    <ClInclude Include="BanishVoteDlg.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="BuyLuckAvataDlg.h" />
+    <ClInclude Include="BuyTimeLimitAvataDlg.h" />
+    <ClInclude Include="CharView.h" />
+    <ClInclude Include="ClientStats.h" />
+    <ClInclude Include="ClubDlg.h" />
+    <ClInclude Include="clubdlgid.h" />
+    <ClInclude Include="ComboBoxImageDlg.h" />
+    <ClInclude Include="Community\AddUserSelectDlg.h" />
+    <ClInclude Include="Community\AddUserSelectDlgBuddyList.h" />
+    <ClInclude Include="Community\AddUserSelectDlgConnectUserList.h" />
+    <ClInclude Include="Community\adduserselectdlgid.h" />
+    <ClInclude Include="Community\BlackBuddyAddDlg.h" />
+    <ClInclude Include="Community\blackbuddyadddlgid.h" />
+    <ClInclude Include="Community\BlackBuddyRemoveDlg.h" />
+    <ClInclude Include="Community\blackbuddyremovedlgid.h" />
+    <ClInclude Include="Community\Buddy.h" />
+    <ClInclude Include="Community\BuddyAddDlg.h" />
+    <ClInclude Include="Community\buddyadddlgid.h" />
+    <ClInclude Include="Community\BuddyAddResultDlg.h" />
+    <ClInclude Include="Community\buddyaddresultdlgid.h" />
+    <ClInclude Include="Community\BuddyGroupAddDlg.h" />
+    <ClInclude Include="Community\buddygroupadddlgid.h" />
+    <ClInclude Include="Community\BuddyGroupRemoveDlg.h" />
+    <ClInclude Include="Community\buddygroupremovedlgid.h" />
+    <ClInclude Include="Community\BuddyListItem.h" />
+    <ClInclude Include="Community\BuddyMoveGroupDlg.h" />
+    <ClInclude Include="Community\buddymovegroupdlgid.h" />
+    <ClInclude Include="Community\BuddyRemoveDlg.h" />
+    <ClInclude Include="Community\buddyremovedlgid.h" />
+    <ClInclude Include="Community\ChattingPopupMemu.h" />
+    <ClInclude Include="Community\chattingpopupmemuid.h" />
+    <ClInclude Include="Community\ChattingRoomAddUserDlg.h" />
+    <ClInclude Include="Community\chattingroomadduserdlgid.h" />
+    <ClInclude Include="Community\ChattingRoomDlg.h" />
+    <ClInclude Include="Community\chattingroomdlgid.h" />
+    <ClInclude Include="Community\ChattingRoomInviteDlg.h" />
+    <ClInclude Include="Community\chattingroominvitedlgid.h" />
+    <ClInclude Include="Community\CommunityManager.h" />
+    <ClInclude Include="Community\CongMessageDlg.h" />
+    <ClInclude Include="Community\congmessagedlgid.h" />
+    <ClInclude Include="Community\ConnectUserListItem.h" />
+    <ClInclude Include="Community\gameinfo.h" />
+    <ClInclude Include="Community\MemoNotifyDlg.h" />
+    <ClInclude Include="Community\memonotifydlgid.h" />
+    <ClInclude Include="Community\MessageBox.h" />
+    <ClInclude Include="Community\messageboxid.h" />
+    <ClInclude Include="Community\MessageBoxImgFull.h" />
+    <ClInclude Include="Community\MessageBoxListITem.h" />
+    <ClInclude Include="Community\MessageNotificationPopup.h" />
+    <ClInclude Include="Community\messagenotificationpopupid.h" />
+    <ClInclude Include="Community\ReceiveAdminMessageDlg.h" />
+    <ClInclude Include="Community\receiveadminmessagedlgid.h" />
+    <ClInclude Include="Community\ReceiveMessageDlg.h" />
+    <ClInclude Include="Community\receivemessagedlgid.h" />
+    <ClInclude Include="Community\SendMessageDlg.h" />
+    <ClInclude Include="Community\sendmessagedlgid.h" />
+    <ClInclude Include="Community\SendMessageItem.h" />
+    <ClInclude Include="ConfirmVote.h" />
+    <ClInclude Include="CWebCallThread.h" />
+    <ClInclude Include="daiilypopupid.h" />
+    <ClInclude Include="DailyPopup.h" />
+    <ClInclude Include="DataList.h" />
+    <ClInclude Include="DataRoomList.h" />
+    <ClInclude Include="DataRoomOptionList.h" />
+    <ClInclude Include="DataUserList.h" />
+    <ClInclude Include="Delegate.h" />
+    <ClInclude Include="EndEventPopup.h" />
+    <ClInclude Include="endeventpopup2id.h" />
+    <ClInclude Include="endeventpopupid.h" />
+    <ClInclude Include="EndPopup.h" />
+    <ClInclude Include="EventInfopopup.h" />
+    <ClInclude Include="Functor.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\chipattendpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\ChipAttendSubPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\chipattendsubpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokAttendanceDlg.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\chuseokattendancedlgid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\chuseokpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\ChuSeokSubPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\chuseoksubpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\goldattendancebookpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\GoldAttendanceBookSubPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\goldattendancebooksubpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldBigWheel\GoldBigWheelDlg.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldBigWheel\goldbigwheelid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldLuckyBag\GoldLuckyBagPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldLuckyBag\goldluckybagpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldMileage\GoldMileagePopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldMileage\goldmileagepopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldSupportFund\GoldSupportFundPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldSupportFund\goldsupportfundpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldWithdraw\GoldWithdrawPopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldWithdraw\goldwithdrawpopupid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\LobbyNotify\LobbyNotifyDlg.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\LobbyNotify\lobbynotifydlgid.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\NewYearAttendance\NewYearAttendancePopup.h" />
+    <ClInclude Include="GameBase\GameCommon\Popup\NewYearAttendance\newyearattendancepopupid.h" />
+    <ClInclude Include="GameDataManager.h" />
+    <ClInclude Include="GameGradeDlg.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameManualDlg.h" />
+    <ClInclude Include="GameProcess.h" />
+    <ClInclude Include="GameRes.h" />
+    <ClInclude Include="GameURL.h" />
+    <ClInclude Include="GameViewBase.h" />
+    <ClInclude Include="GlobalBase.h" />
+    <ClInclude Include="GoldChangeDlg.h" />
+    <ClInclude Include="goldchangedlgid.h" />
+    <ClInclude Include="HideChatList.h" />
+    <ClInclude Include="ImageDef.h" />
+    <ClInclude Include="InGameBadUserComplainMsgBox.h" />
+    <ClInclude Include="InviteDlg.h" />
+    <ClInclude Include="InviteUserListView.h" />
+    <ClInclude Include="InviteWidget.h" />
+    <ClInclude Include="JackpotRankPopupDlg.h" />
+    <ClInclude Include="JackpotTimepopup.h" />
+    <ClInclude Include="KisaDlg.h" />
+    <ClInclude Include="LoadingDlg.h" />
+    <ClInclude Include="LobbyEventDlg.h" />
+    <ClInclude Include="LogFile.h" />
+    <ClInclude Include="LoginDlg.h" />
+    <ClInclude Include="LoginInfoPopup.h" />
+    <ClInclude Include="logininfopopupid.h" />
+    <ClInclude Include="Md5.h" />
+    <ClInclude Include="MessageManager.h" />
+    <ClInclude Include="MsgBoxChkDlg.h" />
+    <ClInclude Include="msgboxchkdlgid.h" />
+    <ClInclude Include="MsgBoxDlg.h" />
+    <ClInclude Include="msgboxdlgid.h" />
+    <ClInclude Include="MsgBoxModelessDlg.h" />
+    <ClInclude Include="MsgImgBox.h" />
+    <ClInclude Include="MyFamilyDlg.h" />
+    <ClInclude Include="MyVoteDlg.h" />
+    <ClInclude Include="NewAskChargeDlg.h" />
+    <ClInclude Include="NewGameItemDlg.h" />
+    <ClInclude Include="ObjectList.h" />
+    <ClInclude Include="ObserverDlg.h" />
+    <ClInclude Include="ObserverListView.h" />
+    <ClInclude Include="OptionDlg.h" />
+    <ClInclude Include="optiondlgid.h" />
+    <ClInclude Include="OptionFrameBase.h" />
+    <ClInclude Include="OptionFrameHoola.h" />
+    <ClInclude Include="OptionFrameSutda.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayTimeWarning.h" />
+    <ClInclude Include="PostBoxDlg.h" />
+    <ClInclude Include="PrevRoomInfo.h" />
+    <ClInclude Include="ProfileDlg.h" />
+    <ClInclude Include="profiledlgid.h" />
+    <ClInclude Include="RecvInviteDlg.h" />
+    <ClInclude Include="RefuseQJDlg.h" />
+    <ClInclude Include="ResetQuickStarterDlg.h" />
+    <ClInclude Include="resetquickstarterdlgid.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RestrictionInfoPopup.h" />
+    <ClInclude Include="RestrictionOverPopup.h" />
+    <ClInclude Include="restrictionoverpopupid.h" />
+    <ClInclude Include="RestrictionPopup.h" />
+    <ClInclude Include="restrictionpopupid.h" />
+    <ClInclude Include="RewardItemMan.h" />
+    <ClInclude Include="SelectQuickstarterDlg.h" />
+    <ClInclude Include="selectquickstarterdlgid.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ThreadLock.h" />
+    <ClInclude Include="TimerNotifierDlg.h" />
+    <ClInclude Include="UniversalItemDlg.h" />
+    <ClInclude Include="UPGDlgBase.h" />
+    <ClInclude Include="UPPDlg.h" />
+    <ClInclude Include="UPPInfoPopup.h" />
+    <ClInclude Include="UPPPopup.h" />
+    <ClInclude Include="VIPChanceAlert.h" />
+    <ClInclude Include="VipCloseDlg.h" />
+    <ClInclude Include="VipCommMsg.h" />
+    <ClInclude Include="VipService.h" />
+    <ClInclude Include="VipServiceDlg.h" />
+    <ClInclude Include="VipServiceSockCmnd.h" />
+    <ClInclude Include="VipStruct.h" />
+    <ClInclude Include="WhisperDlg.h" />
+    <ClInclude Include="whisperdlgid.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\cur00001.cur" />
+    <None Include="res\cur00002.cur" />
+    <None Include="res\cursor_i.cur" />
+    <None Include="res\cursor_m.cur" />
+    <None Include="res\cursor_s.cur" />
+    <None Include="res\UMCommon.rc2" />
+    <None Include="UPGCommon.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGCommon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework_externals\NMAvatar\NMAvatar.vcxproj">
+      <Project>{711417ec-299a-45a0-9328-073172d73f2e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMGraphicGDI\NMGraphicGDI.vcxproj">
+      <Project>{7db017df-2635-457c-8b4d-bc451879ad15}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSkinGDI\NMSkinGDI.vcxproj">
+      <Project>{4f0488c1-7536-4578-8e3c-900c0e8d038d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSock\NMSock.vcxproj">
+      <Project>{27d620a4-28e1-4f41-8690-34781e38e602}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSound\NMSound.vcxproj">
+      <Project>{50690e68-1a94-4ca4-bce4-c6280a0f47e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMUtil\NMUtil.vcxproj">
+      <Project>{7a5af20b-6dc2-49d2-910c-beccc8fa1318}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lsylib\src\LSYLib.vcxproj">
+      <Project>{b1ba6ed8-a218-4299-9a49-8b9629983259}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPGCommon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

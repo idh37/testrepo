@@ -1,0 +1,20 @@
+
+
+namespace SS
+{
+	namespace ChatMessage
+	{
+		class Send : SS::Common::_SSHeader
+		{
+			string senderID;
+			string recverID;
+			string content;
+		};
+
+		class Recv : SS::Common::_SSHeader
+		{
+			string senderID;
+			string content;
+		};
+	};
+};

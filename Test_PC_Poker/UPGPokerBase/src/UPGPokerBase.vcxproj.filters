@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Player">
+      <UniqueIdentifier>{0b7fb28f-099c-4d42-920f-2d0ccbf2eacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\SidePotMoney">
+      <UniqueIdentifier>{d0f0cb11-6587-4e8e-a3f5-6df1e1d53064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\BettingChip">
+      <UniqueIdentifier>{9856ecc7-57d9-41b4-b700-e8626d4a9582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\shared">
+      <UniqueIdentifier>{d7df04e6-0b86-40fd-88b6-711a8eaf4ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ChattingWindowMan">
+      <UniqueIdentifier>{3237190f-c32e-4624-82db-933e015004a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\관전자">
+      <UniqueIdentifier>{8b094e94-fadc-420d-9802-1ba8dc1bfccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Seatkeeper">
+      <UniqueIdentifier>{28d74ef2-6e36-4706-be94-1c6af6eef403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\한방충전">
+      <UniqueIdentifier>{15dece46-8b3f-40af-af3f-e71a64c1961b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\보유한도">
+      <UniqueIdentifier>{81d57ed2-39fa-4430-a72a-221edfac5f49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\게임도우미">
+      <UniqueIdentifier>{3162095e-c01f-4935-a670-0acc043f0f81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CreateRoom">
+      <UniqueIdentifier>{d4d4043f-d495-4f2f-b952-18ad3ff69530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\SelectCard">
+      <UniqueIdentifier>{f6885410-fcc5-4800-bb6e-8d81520a0911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\방제목">
+      <UniqueIdentifier>{a772193f-b6d2-46fb-88bb-d7c8d8fb1b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\DisplayBoard">
+      <UniqueIdentifier>{e168039e-c991-487c-881b-5e1fc253e51a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\DisplayBoard\GameButtonMan">
+      <UniqueIdentifier>{92058a7a-04a2-49db-8600-1f026d564c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\QuickjoinDlg">
+      <UniqueIdentifier>{453637f8-4bdf-4098-b84e-773d77e9677e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\추방관리자">
+      <UniqueIdentifier>{63091d4f-16e3-4ffb-8b9e-971bc4feba1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Promotion">
+      <UniqueIdentifier>{42ab3cfb-132a-45dc-a0a1-5db135be0e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\BackGround">
+      <UniqueIdentifier>{263af801-4712-45f1-8052-bade1f7a9941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\TotalBetMoney">
+      <UniqueIdentifier>{00dd13db-b3f1-4be9-b025-7169abbb8885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\VipJackpot">
+      <UniqueIdentifier>{8836ccbd-6f2d-4ab9-a4c9-31b5328df2e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{3a80c3d7-a9d8-409e-83ba-90177e5d150b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonFiles">
+      <UniqueIdentifier>{c987ac28-86b6-4b2a-adf1-b3c0f4b2ed7f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalPokerBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UIInfoData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGPokerBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerDraw.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerDrawManager.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\SprMoneyDraw.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SidePotMoney\SidePotMoney.cpp">
+      <Filter>소스 파일\SidePotMoney</Filter>
+    </ClCompile>
+    <ClCompile Include="BettingChip\AllBetChip.cpp">
+      <Filter>소스 파일\BettingChip</Filter>
+    </ClCompile>
+    <ClCompile Include="BettingChip\MyBetChip.cpp">
+      <Filter>소스 파일\BettingChip</Filter>
+    </ClCompile>
+    <ClCompile Include="ChattingWindowMan\ChattingWindowMan.cpp">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClCompile>
+    <ClCompile Include="ChattingWindowMan\WhisperlistComboPopup.cpp">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClCompile>
+    <ClCompile Include="ChattingWindowMan\WhisperlistComboPopupInfo.cpp">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverMan\ObserverMan.cpp">
+      <Filter>소스 파일\관전자</Filter>
+    </ClCompile>
+    <ClCompile Include="seatkeeper\SeatKeeper.cpp">
+      <Filter>소스 파일\Seatkeeper</Filter>
+    </ClCompile>
+    <ClCompile Include="OneShotCharge\OneShotCharge.cpp">
+      <Filter>소스 파일\한방충전</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnLimit\OwnLimit.cpp">
+      <Filter>소스 파일\보유한도</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnLimit\OwnLimitDlg.cpp">
+      <Filter>소스 파일\보유한도</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper\GameHelperMan.cpp">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper\JokboProbability.cpp">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper\OtherUserJokboCheckMan.cpp">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateRoom\CreateRoomDlg.cpp">
+      <Filter>소스 파일\CreateRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectCard\SelectCard.cpp">
+      <Filter>소스 파일\SelectCard</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomTitle\RoomTitle.cpp">
+      <Filter>소스 파일\방제목</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayBoard\DisplayBoard.cpp">
+      <Filter>소스 파일\DisplayBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="GameButtonMan\GameViewButtonMan.cpp">
+      <Filter>소스 파일\DisplayBoard\GameButtonMan</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphComboBox.cpp">
+      <Filter>소스 파일\DisplayBoard\GameButtonMan</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickjoinDlg\QuickJoinDlg.cpp">
+      <Filter>소스 파일\QuickjoinDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="BanishMan\BanishMan.cpp">
+      <Filter>소스 파일\추방관리자</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionBase.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionChuSeokGoldCoin.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionComeBack.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionComeBackDlg.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionJackpotRelease.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionJokboJackpot.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionLuckyWheel.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionManager.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionNewYearLuckyBag.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionPokerTime.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionSpecialJackpot.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionSuperMoon.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionTotalDdengab.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="Promotion\PromotionUPP.cpp">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround\BackGround.cpp">
+      <Filter>소스 파일\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="TotalBetMoney\TotalBetMoney.cpp">
+      <Filter>소스 파일\TotalBetMoney</Filter>
+    </ClCompile>
+    <ClCompile Include="VipJackpot\VipJackpot.cpp">
+      <Filter>소스 파일\VipJackpot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\PromotionDefine.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalPokerBase.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInfoData.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\PlayerDraw.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\PlayerDrawManager.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\SprMoneyDraw.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SidePotMoney\SidePotMoney.h">
+      <Filter>소스 파일\SidePotMoney</Filter>
+    </ClInclude>
+    <ClInclude Include="BettingChip\AllBetChip.h">
+      <Filter>소스 파일\BettingChip</Filter>
+    </ClInclude>
+    <ClInclude Include="BettingChip\MyBetChip.h">
+      <Filter>소스 파일\BettingChip</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\CardDefine.h">
+      <Filter>소스 파일\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\KeyDefine.h">
+      <Filter>소스 파일\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="shared\SharedDefine.h">
+      <Filter>소스 파일\shared</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingWindowMan\ChattingWindowMan.h">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingWindowMan\WhisperlistComboPopup.h">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingWindowMan\whisperlistcombopopupid.h">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingWindowMan\WhisperlistComboPopupInfo.h">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingWindowMan\whisperlistcombopopupinfoid.h">
+      <Filter>소스 파일\ChattingWindowMan</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverMan\ObserverMan.h">
+      <Filter>소스 파일\관전자</Filter>
+    </ClInclude>
+    <ClInclude Include="seatkeeper\SeatKeeper.h">
+      <Filter>소스 파일\Seatkeeper</Filter>
+    </ClInclude>
+    <ClInclude Include="OneShotCharge\OneShotCharge.h">
+      <Filter>소스 파일\한방충전</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnLimit\OwnLimit.h">
+      <Filter>소스 파일\보유한도</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnLimit\OwnLimitDlg.h">
+      <Filter>소스 파일\보유한도</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper\GameHelperMan.h">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper\JokboProbability.h">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper\OtherUserJokboCheckMan.h">
+      <Filter>소스 파일\게임도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateRoom\CreateRoomDlg.h">
+      <Filter>소스 파일\CreateRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCard\SelectCard.h">
+      <Filter>소스 파일\SelectCard</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomTitle\RoomTitle.h">
+      <Filter>소스 파일\방제목</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayBoard\DisplayBoard.h">
+      <Filter>소스 파일\DisplayBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="GameButtonMan\GameViewButtonMan.h">
+      <Filter>소스 파일\DisplayBoard\GameButtonMan</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphComboBox.h">
+      <Filter>소스 파일\DisplayBoard\GameButtonMan</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickjoinDlg\QuickJoinDlg.h">
+      <Filter>소스 파일\QuickjoinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="BanishMan\BanishMan.h">
+      <Filter>소스 파일\추방관리자</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionBase.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionChuSeokGoldCoin.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionComeBack.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionComeBackDlg.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionJackpotRelease.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionJokboJackpot.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionLuckyWheel.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionManager.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionNewYearLuckyBag.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionPokerTime.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionSpecialJackpot.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionSuperMoon.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionTotalDdengab.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="Promotion\PromotionUPP.h">
+      <Filter>소스 파일\Promotion</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround\BackGround.h">
+      <Filter>소스 파일\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="TotalBetMoney\TotalBetMoney.h">
+      <Filter>소스 파일\TotalBetMoney</Filter>
+    </ClInclude>
+    <ClInclude Include="VipJackpot\VipJackpot.h">
+      <Filter>소스 파일\VipJackpot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGPokerBase.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\EventCommon.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\PromotionDefine.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStructDefine.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGPokerBase.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGPokerBase.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGPokerBase.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

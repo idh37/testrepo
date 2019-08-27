@@ -1,0 +1,231 @@
+
+
+namespace SS
+{
+	namespace Roster
+	{
+		class GroupEntryList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string serviceCode;
+		};
+		
+		class GroupEntryList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string serviceCode;
+			BuddyGroupEntryList entryList;
+		};
+		
+		class AddGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string groupName;
+		};
+		
+		class AddGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string groupName;
+		};
+		
+		class UpdateGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string oldgroupName;
+			string newgroupName;
+		};
+		
+		class UpdateGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string oldgroupName;
+			string newgroupName;
+		};
+		
+		class RemoveGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string groupName;			
+		};		
+		
+		class RemoveGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string groupName;			
+		};
+		
+		class UpdateGroupList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			BuddyGroupList groupList;
+		};		
+		
+		class UpdateGroupList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BuddyGroupList groupList;
+		};			
+		
+		class Roster_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string targetJID;
+			string serviceCode;		
+		};
+		
+		class Roster_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string targetJID;
+			string serviceCode;	
+			BuddyInfoList buddyList;			
+		};			
+	
+		class AddBuddy_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID; 
+			string memo;
+		};
+		
+		class AddBuddy_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BuddyInfo buddyInfo;
+		};
+		
+		class UpdateBuddyMemo_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID;
+			string memo;
+		};
+		
+		class UpdateBuddyMemo_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string buddyJID;
+			string memo;
+		};
+	
+		class RemoveBuddy_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID;
+		};
+		
+		class RemoveBuddy_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string buddyJID;
+		};
+		
+		class MoveBuddy_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string targetGroup;
+			SelectedBuddyList selectedBuddyList;
+		};
+		
+		class MoveBuddy_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string targetGroup;
+			BuddyResultList resultList;
+		};	
+		
+		class BlackRoster_Req : SS::Common::_SSHeader
+		{
+			string reqJID;		
+		};
+		
+		class BlackRoster_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BlackList blackList;			
+		};			
+	
+		class AddBlackBuddy_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID;
+		};
+		
+		class AddBlackBuddy_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BlackBuddy buddyInfo;
+		};
+	
+		class RemoveBlackBuddy_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID;
+		};
+		
+		class ReverseBuddyList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;		
+		};
+		
+		class ReverseBuddyList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BuddyInfoList buddyList;			
+		};			
+		
+		class RemoveBlackBuddy_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string buddyJID;
+		};		
+		
+		class AddBuddyToGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string buddyJID;
+			string groupName;	
+		};
+		
+		class AddBuddyToGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string buddyJID;
+			string groupName;	
+		};
+		
+		class RemoveBuddyFromGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			SelectedBuddyList buddyList;
+			string targetGroup;
+		};
+		
+		class RemoveBuddyFromGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BuddyResultList resultList;
+			string targetGroup;
+		};	
+		
+		class MoveBuddyToGroup_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			SelectedBuddyList buddyList;
+			string targetGroup;
+		};
+		
+		class MoveBuddyToGroup_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			BuddyResultList resultList;
+			string targetGroup;
+		};	
+		
+		class UpdateBuddy_Ntf
+		{
+			BuddyInfo buddyInfo;
+		};		
+	};
+};

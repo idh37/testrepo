@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CommonFiles">
+      <UniqueIdentifier>{9a28fa6f-ecab-414c-8595-86424073ec4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{18e1e62a-09e0-4137-abfb-3a3c4a1303b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby">
+      <UniqueIdentifier>{bc3f79c5-f9b9-42fa-b129-113fc148f389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby\Widgets">
+      <UniqueIdentifier>{c2977eda-05c4-438a-9dc5-84e177364365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{a573bdf4-1961-467c-bd9a-1cd262cf593c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TitleButton">
+      <UniqueIdentifier>{867e643e-bf46-441c-b6bc-e7e411061ab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TabGame">
+      <UniqueIdentifier>{7b6a5f31-d84a-4955-b3d1-6ad022d54cfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\UserInfo">
+      <UniqueIdentifier>{8493007b-0af7-4cfc-92db-2b9d52541f4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\JackpotGroup">
+      <UniqueIdentifier>{154dcaa3-ffdb-4828-9578-438190512ec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\UserList">
+      <UniqueIdentifier>{eaf0ce16-4321-4b71-8bd3-e361f3678e1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\RoomList">
+      <UniqueIdentifier>{e3e9d93d-3275-42db-badb-6a9cfb9c8e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\RoomInfoDlg">
+      <UniqueIdentifier>{6106dc2e-e319-463b-b577-7e9976866f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ChatGroup">
+      <UniqueIdentifier>{1b38243f-7c77-4279-b76f-21ddcc82ea44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ShopTab">
+      <UniqueIdentifier>{536a65bb-7579-4f04-afd7-3c964d79e6bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\BuddyList">
+      <UniqueIdentifier>{c5da8771-ed15-4685-8f86-895b6e544c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ChanceTooltips">
+      <UniqueIdentifier>{c17010e7-1bd6-4673-b88d-947fe622e075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\UPPPopup">
+      <UniqueIdentifier>{f6665a3d-bebd-40b5-982e-ede8b3197376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\VipJackpot">
+      <UniqueIdentifier>{a6385bd7-78ab-4dd9-983b-0d63db4be48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TargetNotiGroup">
+      <UniqueIdentifier>{1bc3a735-11b5-4f0f-a61a-a17ed4fc80d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Captcha">
+      <UniqueIdentifier>{c210ef87-652f-4d15-a174-9a84998c1dbc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLobbyDef.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGLobby.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyProcess.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyView.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="PopupMemu.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\TileButton\TitleButton.cpp">
+      <Filter>Object\TitleButton</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\TabGame\ChanceButton.cpp">
+      <Filter>Object\TabGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\TabGame\TabGame.cpp">
+      <Filter>Object\TabGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UserInfo\UserInfoDetailDlg.cpp">
+      <Filter>Object\UserInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UserInfo\UserInfoGroup.cpp">
+      <Filter>Object\UserInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Jackpot\JackpotCurrentInfoDlg.cpp">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Jackpot\JackpotGroup.cpp">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Jackpot\JackpotMoney.cpp">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UserList\UserListGroup.cpp">
+      <Filter>Object\UserList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UserList\UserListItem.cpp">
+      <Filter>Object\UserList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\CompareFunction.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RadGoldRoomListNormal.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RadGoldRoomListVIP.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListGroup.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeader.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeaderHoola.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeaderHoolaJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeaderJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeaderLowBD.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListHeaderLowBDJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItem.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItemHoola.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItemHoolaJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItemJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItemLowBD.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomList\RoomListItemLowBDJoin.cpp">
+      <Filter>Object\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomInfoDlg\RoomInfoDialog.cpp">
+      <Filter>Object\RoomInfoDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\RoomInfoDlg\RoomInfoUserListItem.cpp">
+      <Filter>Object\RoomInfoDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\ChatGroup\ChatGroup.cpp">
+      <Filter>Object\ChatGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\ChatGroup\WhisperlistCombo.cpp">
+      <Filter>Object\ChatGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\ShopTab\ShopTabControl.cpp">
+      <Filter>Object\ShopTab</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\BlackBuddyListGroup.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\BlackBuddyListItem.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\BuddyListGroup.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\BuddyListItem.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\ReverseBuddyListGroup.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\ReverseBuddyListItem.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\ChanceTooltip\ChanceTooltips.cpp">
+      <Filter>Object\ChanceTooltips</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\VipJackpot\VipJackpotDlg.cpp">
+      <Filter>Object\VipJackpot</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\VipJackpot\VipJackpotGroup.cpp">
+      <Filter>Object\VipJackpot</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\VipJackpot\VipJackpotMoney.cpp">
+      <Filter>Object\VipJackpot</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\TargetNotiGroup\CongNotiGroup.cpp">
+      <Filter>Object\TargetNotiGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\TargetNotiGroup\TargetNotiGroup.cpp">
+      <Filter>Object\TargetNotiGroup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Captcha\CaptchaDlg.cpp">
+      <Filter>Object\Captcha</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\CafeListGroup.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BuddyList\CafeListItem.cpp">
+      <Filter>Object\BuddyList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ImageLobbyDef.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="objectid.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Tournament.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStructDefine.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGLobby.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyProcess.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyView.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="PopupMemu.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="WidgetID.h">
+      <Filter>Lobby\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\TileButton\TitleButton.h">
+      <Filter>Object\TitleButton</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\TabGame\ChanceButton.h">
+      <Filter>Object\TabGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\TabGame\TabGame.h">
+      <Filter>Object\TabGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\UserInfo\UserInfoDetailDlg.h">
+      <Filter>Object\UserInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\UserInfo\UserInfoGroup.h">
+      <Filter>Object\UserInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Jackpot\JackpotCurrentInfoDlg.h">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Jackpot\JackpotGroup.h">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Jackpot\JackpotMoney.h">
+      <Filter>Object\JackpotGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\UserList\UserListGroup.h">
+      <Filter>Object\UserList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\UserList\UserListItem.h">
+      <Filter>Object\UserList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\CompareFunction.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RadGoldRoomListNormal.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RadGoldRoomListVIP.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListGroup.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeader.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeaderHoola.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeaderHoolaJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeaderJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeaderLowBD.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListHeaderLowBDJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItem.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItemHoola.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItemHoolaJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItemJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItemLowBD.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomList\RoomListItemLowBDJoin.h">
+      <Filter>Object\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomInfoDlg\RoomInfoDialog.h">
+      <Filter>Object\RoomInfoDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\RoomInfoDlg\RoomInfoUserListItem.h">
+      <Filter>Object\RoomInfoDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\ChatGroup\ChatGroup.h">
+      <Filter>Object\ChatGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\ChatGroup\WhisperlistCombo.h">
+      <Filter>Object\ChatGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\ShopTab\ShopTabControl.h">
+      <Filter>Object\ShopTab</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\BlackBuddyListGroup.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\BlackBuddyListItem.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\BuddyListGroup.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\BuddyListItem.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\ReverseBuddyListGroup.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\ReverseBuddyListItem.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\ChanceTooltip\ChanceTooltips.h">
+      <Filter>Object\ChanceTooltips</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\VipJackpot\VipJackpotDlg.h">
+      <Filter>Object\VipJackpot</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\VipJackpot\VipJackpotGroup.h">
+      <Filter>Object\VipJackpot</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\VipJackpot\VipJackpotMoney.h">
+      <Filter>Object\VipJackpot</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\TargetNotiGroup\CongNotiGroup.h">
+      <Filter>Object\TargetNotiGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\TargetNotiGroup\TargetNotiGroup.h">
+      <Filter>Object\TargetNotiGroup</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Captcha\CaptchaDlg.h">
+      <Filter>Object\Captcha</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\CafeListGroup.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BuddyList\CafeListItem.h">
+      <Filter>Object\BuddyList</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGLobby.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGLobby.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGLobby.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

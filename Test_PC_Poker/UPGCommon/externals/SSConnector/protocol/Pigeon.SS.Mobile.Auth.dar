@@ -1,0 +1,34 @@
+
+namespace SS
+{
+	namespace MOBILE
+	{
+		namespace Auth
+		{
+			class GenerateToken_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				string currentToken;
+				int64  uuid;
+				string mainDomain;
+				string subDomain;
+				string serviceCode;	
+			};
+			
+			class GenerateToken_Res : SS::Common::_SSHeader
+			{
+				int32 errorCode;
+				int64  uuid;
+				string previousToken;
+				string generatedToken;
+			};
+			
+			class RecieveTokenSucceeded_Dlv
+			{
+				string reqJID;
+				string oldToken;
+				int64  uuid;
+			};
+		};		
+	};
+};

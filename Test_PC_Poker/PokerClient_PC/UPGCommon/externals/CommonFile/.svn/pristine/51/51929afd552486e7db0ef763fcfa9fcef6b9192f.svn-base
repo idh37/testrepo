@@ -1,0 +1,127 @@
+#pragma once
+
+/********************************************************************
+	created:	2010/06/01
+	created:	1:6:2010   18:45
+	file Path:  \CommonFile
+	file base:	PromotionDefine
+	file ext:	h
+	author:		CHOI YEONSIK
+	
+	purpose:	이벤트 서버, 클라이언트 공통( 새로운 이벤트 등록시 반드시 추가 )
+				
+				새로운 이벤트 추가시
+				1) CUser 추가( 유저마다 정보저장이 필요하다면 )
+				2) CServerPromotionManager 추가
+
+■프로모션 이력■
+
+	 ■ PC방 활성화  
+		 PMCODE : PM000220
+		 PROMOTION_EVENT_PCROOMACT
+		 기간 : 20110315 - 0419
+		 사용SP문
+			USP_Event_GetIsEntryType2
+			USP_Event_PokerCommon_GetPoint
+			USP_Event_PokerCommon_SetPoint
+			USP_Event_PokerCommon_SetPointLog
+	
+	 ■ 포커존 
+		 PMCODE : PM000224
+		 PROMOTION_EVENT_PCEXPZONE
+		 기간 : 20110419 - 0519
+		 사용SP문
+			USP_Event_PokerCommon_GetIsAllowIP 대상 아이피
+			USP_Event_PokerCommon_GetTime      남은 시간
+			USP_Event_PokerCommon_SetTime	   남은 시간 저장
+			USP_Event_PokerCommon_SetTimeLog   로그
+
+	 ■ 포커머니 배팅 프로모션 
+		 PMCODE : PM000223
+		 PROMOTION_EVENT_BETTING
+		 오픈 : 2011.04.19(화)~2011.05.16(월)
+		 사용SP문
+			USP_Event_GetIsEntryType2         신규/휴면 -1, 0, 1
+			USP_Event_GetIsEntryType2Set	  신규/휴면 특별지급 
+			USP_Event_PokerCommon_GetPointBetting
+			USP_Event_PokerCommon_SetPointBetting
+			USP_Event_PokerCommon_SetPointLog
+
+	
+
+*********************************************************************/
+
+namespace promotion
+{
+
+#define PMCODE_LEN		( 9 )
+#define UMCODE_LEN		( 9 )
+
+enum EPROMOTION_EVENT_SEQ
+{
+	PROMOTION_EVENT_UNKNOWN		= -1,
+	PROMOTION_EVENT_JACKPOT,		  //잭팟			상시
+	PROMOTION_EVENT_GTIME,			  //골든타임		상시
+	PROMOTION_EVENT_CHAMP,			  //바둑이 경기장	상시
+	PROMOTION_EVENT_PCROOMACT,		  //PC방 활성화		20110315 - 0418
+	PROMOTION_EVENT_PCEXPZONE,		  //PC방 포커존		20110419 - 0516
+	PROMOTION_EVENT_BETTING,		  //포커머니 배팅	20110419 - 0516
+
+// #if defined(__PROMOTION_CHANCEAVATA__) (2011.07.28 찬스아바타프로모션)
+	PROMOTION_EVENT_CHANCEAVATA,	  // 찬스아바타 프로모션 20110804 - 0818
+// #endif // (__PROMOTION_CHANCEAVATA__)
+
+	PROMOTION_EVENT_RETENTION,		  // 로우바둑이 리텐션프로모션 201117 - 1229
+	PROMOTION_EVENT_NEWYEARRETENTION,	// 포커 신년 리텐션 프로모션 20120117 - 
+	PROMOTION_EVENT_USERCARE,
+	PROMOTION_EVENT_GOLDCARD,
+	PROMOTION_EVENT_ADULTCARD,
+	PROMOTION_EVENT_MISSION003,
+	PROMOTION_EVENT_POKERADVENTURE,
+	PROMOTION_EVENT_HALFJACKPOT,
+	PROMOTION_EVENT_MISSION201304,
+	PROMOTION_EVENT_BORNIN1996,
+	PROMOTION_EVENT_LOTTERY201406,
+	PROMOTION_EVENT_HALF,	//Harf
+	PROMOTION_EVENT_VISITE,	//Visite
+	PROMOTION_EVENT_MISSION201502,
+	PROMOTION_EVENT_PLAY_COUPON,
+	PROMOTION_EVENT_VIPJACKPOT,
+	PROMOTION_EVENT_ALL				
+};
+
+enum PROMOTION_MISSION_STEP
+{
+	MISSION_STEP_NONE = 0,
+	MISSION_PLAYROUND_STEP,
+	MISSION_WIN_STEP,
+	MISSION_JOKBO_STEP,
+	MISSION_ALLIN_STEP,
+
+	MISSION_STEP_LAST,
+
+	// 현재 포함되지 않는
+	MISSION_CONT_WIN_STEP,
+	MISSION_PLAYTIME_STEP,
+	MISSION_STEP_MAX
+};
+
+#define LOTTERY201406_MISSION_STEP_MAX	6
+
+class IPromotion
+{
+public:
+	virtual bool IsPromotion() = 0;
+	virtual void SetPromotion( bool bPromotion ) = 0;
+
+protected:
+	WORD m_wdEventType;
+};
+
+#define MISSION_201502_STEP_MAX	6
+#define MISSION_201502_REWARD_STEP_MAX	11
+#define MAX_RETENTION_MISSION_DAY 10
+}
+
+
+

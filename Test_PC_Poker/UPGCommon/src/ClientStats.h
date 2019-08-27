@@ -1,0 +1,395 @@
+#pragma once
+
+//클라이언트 통계코드
+
+//----------------------------------------------------------------------------------------------
+// UI CODE
+//----------------------------------------------------------------------------------------------
+
+//basic		
+#define CLSTATS_UINO_POKER_LOBBY_USERLIST_GAMECOMBO_WHOLEGAME		(77)		// 대기실 유저리스트 게임콤보 (전체게임)
+#define CLSTATS_UINO_POKER_LOBBY_CHANCEAVATAR						(82)		// 대기실 찬스아바타 버튼
+#define CLSTATS_UINO_POKER_LOBBY_CREATEROOM							(105)			// 대기실 방만들기 버튼
+#define CLSTATS_UINO_POKER_LOBBY_DIRECTROOM							(104)			// 대기실 바로시작 버튼
+//#define CLSTATS_UINO_POKER_LOBBY_ROOMLIST_JOIN						(106)		// 대기실 방리스트 참여가능 버튼
+//#define CLSTATS_UINO_POKER_LOBBY_ROOMLIST_OBSERVE					(107)		// 대기실 방리스트 관전 버튼
+#define CLSTATS_UINO_POKER_LOBBY_ROOMINFO_JOIN						(108)		// 대기실 방정보창에서 참여가능/관전 입장버튼
+#define CLSTATS_UINO_POKER_LOBBY_ROOMINFO_OBSERVE					(109)		// 대기실 방정보창에서 참여가능/관전 입장버튼
+#define CLSTATS_UINO_POKER_PROFILE_JOIN_FRIENDROOM					(110)		// 프로필창 같은방입장 버튼
+
+
+//game별
+#define CLSTATS_UINO_POKER_LOBBY_USERLIST_GAMECOMBO					(69)		// 대기실 유저리스트 게임콤보 (7포커 기준)
+#define CLSTATS_UINO_POKER_LOBBY_GAMETAB							(52)		// 대기실 게임탭 (7포커 기준)
+
+
+
+//GauageButtons
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_1Y					(93)		// 대기실 게이지영역에 참여 가능한 방버튼 (1억)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_10Y					(92)		// 대기실 게이지영역에 참여 가능한 방버튼 (10억)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_100Y					(91)		// 대기실 게이지영역에 참여 가능한 방버튼 (100억)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_1000Y					(90)		// 대기실 게이지영역에 참여 가능한 방버튼 (1000억)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_1J					(89)		// 대기실 게이지영역에 참여 가능한 방버튼 (1조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_3J					(88)		// 대기실 게이지영역에 참여 가능한 방버튼 (3조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_5J					(111)		// 대기실 게이지영역에 참여 가능한 방버튼 (5조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_10J					(87)		// 대기실 게이지영역에 참여 가능한 방버튼 (10조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_30J					(86)		// 대기실 게이지영역에 참여 가능한 방버튼 (30조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_50J					(85)		// 대기실 게이지영역에 참여 가능한 방버튼 (50조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_100J					(84)		// 대기실 게이지영역에 참여 가능한 방버튼 (100조)
+#define CLSTATS_UINO_POKER_LOBBY_GAUGE_BUTTON_200J					(83)		// 대기실 게이지영역에 참여 가능한 방버튼 (200조)
+
+
+// 타이틀바
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_PCROOM_BENIFIT			(44)		// 대기실 타이틀바영역 PC방 혜택
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_CAPTURE					(45)		// 대기실 타이틀바영역 캡쳐
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_OPTION					(46)		// 대기실 타이틀바영역 옵션
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_GAMERULE					(47)		// 대기실 타이틀바영역 게임방법
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_GAME_USE_GRADE			(48)		// 대기실 타이틀바영역 게임이용등급
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_MINIMIZE					(49)		// 대기실 타이틀바영역 창 최소화
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_WINDOW_MODE				(50)		// 대기실 타이틀바영역 창모드
+#define CSSTATS_UINO_POKER_LOBBY_TITLEBAR_CLOSE						(51)		// 대기실 타이틀바영역 종료
+
+// 게임방리스트
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_VIP						(60)		// 대기실 게임방리스트 VIP
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_NOMAL						(61)		// 대기실 게임방리스트 일반
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_FREE						(62)		// 대기실 게임방리스트 자유
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_VIP_GOLD					(65)		// 대기실 게임방리스트 VIP 골드
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_NORMAL_GOLD				(66)		// 대기실 게임방리스트 일반 골드
+#define CLSTATS_UINO_POKER_LOBBY_RANGEDETAIL						(63)		// 대기실 입장구간 상세보기 버튼
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_ENTERROOM_BEFORE			(64)		// 대기실 게임방리스트 직전참여방
+#define CLSTATS_UINO_POKER_LOBBY_ROOMLIST_JOIN						(106)		// 대기실 게임방리스트 참여가능
+#define CLSTATS_UINO_POKER_LOBBY_ROOMLIST_OBSERVE					(107)		// 대기실 게임방리스트 관전
+#define CSSTATS_UINO_POKER_LOBBY_ROOMLIST_SHOW_ROOM_WITH_MYMONEY	(67)		// 대기실 게임방리스트 보유머니에 맞는 방만 보기
+
+// 접속자리스트
+#define CSSTATS_UINO_POKER_LOBBY_USERLIST_FIND_USER					(78)		// 대기실 접속자리스트 사용자 검색
+#define CSSTATS_UINO_POKER_LOBBY_USERLIST_FIND_ROOMNO				(79)		// 대기실 접속자리스트 방번호 검색
+#define CSSTATS_UINO_POKER_LOBBY_USERLIST_PROFILE					(80)		// 대기실 접속자리스트 접속자우클릭 - 프로필
+#define CSSTATS_UINO_POKER_LOBBY_USERLIST_WHISPER					(81)		// 대기실 접속자리스트 접속자우클릭 - 귓말하기
+
+// 채팅창
+#define CSSTATS_UINO_POKER_LOBBY_CHAT_OPEN							(94)		// 대기실 채팅창 열기
+#define CSSTATS_UINO_POKER_LOBBY_CHAT_CLOSE							(95)		// 대기실 채팅창 닫기
+
+// 개인화영역
+#define CSSTATS_UINO_POKER_LOBBY_PERSONAL_AREA_FREECHARGE			(96)		// 대기실 개인화영역 무료충전
+#define CSSTATS_UINO_POKER_LOBBY_PERSONAL_AREA_GET_MONEY			(97)		// 대기실 개인화영역 지급받기
+#define CSSTATS_UINO_POKER_LOBBY_PERSONAL_AREA_GET_BENEFIT			(98)		// 대기실 개인화영역 혜택받기
+#define CSSTATS_UINO_POKER_LOBBY_PERSONAL_AREA_SHOW_BENEFIT			(99)		// 대기실 개인화영역 혜택보기
+
+// DP영역 탭
+#define CSSTATS_UINO_POKER_LOBBY_DP_AREA_RECOMMEND_ITEM				(100)		// 대기실 DP영역탭 추천상품
+#define CSSTATS_UINO_POKER_LOBBY_DP_AREA_EVENT						(101)		// 대기실 DP영역탭 이벤트
+
+// 게임방
+#define CSSTATS_UINO_POKER_ROOM_PERSONAL_AREA_FUNCTION_KEY_TYPE_N	(112)		// 게임방 개인화영역 N타입버튼
+#define CSSTATS_UINO_POKER_ROOM_PERSONAL_AREA_FUNCTION_KEY_TYPE_P	(113)		// 게임방 개인화영역 P타입버튼
+#define CSSTATS_UINO_POKER_ROOM_PERSONAL_AREA_FUNCTION_KEY_TYPE_H	(114)		// 게임방 개인화영역 H타입버튼
+
+// 클릭로그 항목추가
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_FRIEND_ICON	(115)		// 대기실 개인화영역 포커 친구 아이콘
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMO_ICON		(116)		// 대기실 개인화영역 포커 쪽지함 아이콘
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND		(117)		// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVER_ENTER		(118)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받는사람 입력 ENTER 버튼
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_FRIEND_LIST			(119)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_친구목록
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_USER_LIST			(120)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_접속자목록
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_SEND					(121)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_보내기
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_CANCEL				(122)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_취소
+
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO				(123)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_DELETE		(124)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_삭제
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_KEEP		(125)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_보관
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_REPORT		(126)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_신고
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_CONTENT		(127)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_내용
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_ID_NICKNAME	(128)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_아이디/닉네임
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_SEARCH		(129)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_검색
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_RECEIVEDMEMO_CLOSE		(130)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_받은쪽지함_닫기
+
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE				(131)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_DELETE		(132)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_삭제
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_KEEP			(133)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_보관
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_REPORT		(134)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_신고
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_CONTENT		(135)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_내용
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_ID_NICKNAME	(136)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_아이디/닉네임
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_SEARCH		(137)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_검색
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_POKER_MEMOSEND_MEMO_CUBBYHOLE_CLOSE			(138)	// 대기실 개인화영역 포커 쪽지함 아이콘 쪽지보내기_쪽지보관함_닫기
+
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR						(139)	// 대기실 개인화영역 프로필(내 아바타 클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_NEWPOKER	(140)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_뉴포커
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_7POKER	(141)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_7포커
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_HOOLA		(142)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_훌라
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_HIGHLOW	(143)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_하이로우
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_LOWBD		(144)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_로우바둑이
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_DUALPOKER	(145)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_맞포커
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_GAMERECORD_SUTDA		(146)	// 대기실 개인화영역 프로필(내 아바타 클릭)_게임기록_섯다
+#define CSSTATUS_UINO_POKER_LOBBY_PERSONAL_AREA_PROFILE_CLICK_MYAVATAR_CLOSE				(147)	// 대기실 개인화영역 프로필(내 아바타 클릭)_닫기
+
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_NO				(148)	// 대기실 방목록 방목록탭_No
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_ENTER_LIMIT		(149)	// 대기실 방목록 방목록탭_입장제한
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_ROOMNAME			(150)	// 대기실 방목록 방목록탭_방제목
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_MODE				(151)	// 대기실 방목록 방목록탭_모드
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_SEED_BETRULE		(152)	// 대기실 방목록 방목록탭_시드/베팅룰
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_PERSON_NUM		(153)	// 대기실 방목록 방목록탭_인원
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_TAB_CAN_ENTER_ROOM	(154)	// 대기실 방목록 방목록탭_참여가능방
+
+#define CSSTATUS_UINO_POKER_LOBBY_ROOMLIST_ENTER_ROOM_DBCLK		(155)	// 대기실 방목록_더블클릭 입장
+
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION						(156)	// 대기실 입장버튼 영역 바로시작 설정버튼
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_SEARCH_DISABLE		(157)	// 대기실 입장버튼 영역 바로시작 설정버튼_검색기능_사용하지않음
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_SEARCH_ENABLE		(158)	// 대기실 입장버튼 영역 바로시작 설정버튼_검색기능_사용
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMEMODE_DISABLE	(159)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임모드_사용하지않음
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMEMODE_ENABLE		(160)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임모드_사용
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_BETRULE_NOTSET		(161)	// 대기실 입장버튼 영역 바로시작 설정버튼_베팅룰_설정안함
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_BETRULE_MANUAL		(162)	// 대기실 입장버튼 영역 바로시작 설정버튼_베팅룰_수동
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_BETRULE_AUTO		(163)	// 대기실 입장버튼 영역 바로시작 설정버튼_베팅룰_자동
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMESIZE_NOTSET		(164)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임규모_설정안함
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMESIZE_DEFAULT	(165)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임규모_기본방
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMESIZE_BIG		(166)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임규모_큰방
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_GAMESIZE_SMALL		(167)	// 대기실 입장버튼 영역 바로시작 설정버튼_게임규모_작은방
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_ENTER_BY_MYMONEY	(168)	// 대기실 입장버튼 영역 바로시작 설정버튼_자산에 맞는 빈방으로 입장
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_RESET				(169)	// 대기실 입장버튼 영역 바로시작 설정버튼_입장하지 않고 다시 설정
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_SET					(170)	// 대기실 입장버튼 영역 바로시작 설정버튼_설정
+#define CSSTATUS_UINO_POKER_LOBBY_ENTERBTN_AUTOENTER_OPTION_CANCEL				(171)	// 대기실 입장버튼 영역 바로시작 설정버튼_취소
+
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERSHOP				(172)	// 대기실 접속자리스트 방만들기 버튼 옆 포커상정
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_EVENT					(173)	// 대기실 접속자리스트 방만들기 버튼 옆 이벤트
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_USERTAB					(174)	// 대기실 접속자리스트 접속자탭
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_USERTAB_RCLICK_SEND_MEMO		(175)	// 대기실 접속자리스트 접속자탭_쪽지보내기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_USERTAB_RCLICK_TALK			(176)	// 대기실 접속자리스트 접속자탭_대하하기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_USERTAB_RCLICK_ADD_FRIEND	(177)	// 대기실 접속자리스트 접속자탭_친구추가 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_USERTAB_RCLICK_ADD_BLACKLIST	(178)	// 대기실 접속자리스트 접속자탭_블랙리스트추가 (우클릭)
+
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB									(179)	// 대기실 접속자리스트 포커친구탭
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND							(180)	// 대기실 접속자리스트 포커친구탭_내친구 탭
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_MOVE_SELECTED			(181)	// 대기실 접속자리스트 포커친구탭_내친구 탭_선택한 친구를 이동
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_DELETE_SELECTED			(182)	// 대기실 접속자리스트 포커친구탭_내친구 탭_선택한 친구를 삭제
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_SHOW_ONLINE				(183)	// 대기실 접속자리스트 포커친구탭_내친구 탭_접손자만 보기 체크박스
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_ADD_FRIEND				(184)	// 대기실 접속자리스트 포커친구탭_내친구 탭_친구 추가
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_ADD_GROUP				(185)	// 대기실 접속자리스트 포커친구탭_내친구 탭_그룹 추가
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_SEND_MEMO				(186)	// 대기실 접속자리스트 포커친구탭_내친구 탭_쪽지보내기
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_SHOW_PROFILE		(187)	// 대기실 접속자리스트 포커친구탭_내친구 탭_프로필보기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_WHISPER			(188)	// 대기실 접속자리스트 포커친구탭_내친구 탭_귓말하기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_TALK				(189)	// 대기실 접속자리스트 포커친구탭_내친구 탭_대화하기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_SEND_MEMO			(190)	// 대기실 접속자리스트 포커친구탭_내친구 탭_대화하기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_DELETE			(191)	// 대기실 접속자리스트 포커친구탭_내친구 탭_친구삭제 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_MOVE				(192)	// 대기실 접속자리스트 포커친구탭_내친구 탭_친구이동 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_ADD_BLACKLIST		(193)	// 대기실 접속자리스트 포커친구탭_내친구 탭_블랙리스트 추가 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_MYFRIEND_RCLICK_ENTER_SAME_ROOM	(194)	// 대기실 접속자리스트 포커친구탭_내친구 탭_같은방입장 (우클릭)
+
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME						(195)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME_ADD_FRIEND			(196)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭_내친구에 추가
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME_SHOW_IGNORE_FRIEND	(197)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭_내친구를 제외하고 보기
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME_RCLICK_PROFILE		(198)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭_프로필 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME_RCLICK_ADD_FRIEND		(199)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭_친구추가 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_FRIEND_ADDED_ME_RCLICK_ADD_BLACKLIST	(200)	// 대기실 접속자리스트 포커친구탭_나를 추가한 친구 탭_블랙리스트추가 (우클릭)
+
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_BLACKLIST							(201)	// 대기실 접속자리스트 포커친구탭_블랙리스트 탭
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_BLACKLIST_ADD_BLACKLIST			(202)	// 대기실 접속자리스트 포커친구탭_블랙리스트 탭_블랙리스트추가
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_BLACKLIST_DELETE_BLACKLIST		(203)	// 대기실 접속자리스트 포커친구탭_블랙리스트 탭_블랙리스트삭제
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_BLACKLIST_RCLICK_PROFILE			(204)	// 대기실 접속자리스트 포커친구탭_블랙리스트 탭_프로필보기 (우클릭)
+#define CSSTATUS_UINO_POKER_LOBBY_USERLIST_POKERFRIENDTAB_BLACKLIST_RCLICK_DELETE_BLACKLIST	(205)	// 대기실 접속자리스트 포커친구탭_블랙리스트 탭_블랙리스트삭제 (우클릭)
+
+#define CSSTATUS_UINO_POKER_LOBBY_CHIPGAUGE_ENTERROOM_BEFORE				(206)	// 대기실 칩게이지 직전참여방
+
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION				(207)	// 대기실 타이틀바 설정_게임설정 탭
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_SOUND_ON		(208)	// 대기실 타이틀바 설정_게임설정 탭_효과음_켜기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_SOUND_OFF		(209)	// 대기실 타이틀바 설정_게임설정 탭_효과음_끄기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_BETBTN_N		(210)	// 대기실 타이틀바 설정_게임설정 탭_베팅버튼_N타입
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_BETBTN_H		(211)	// 대기실 타이틀바 설정_게임설정 탭_베팅버튼_H타입
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_BETBTN_P		(212)	// 대기실 타이틀바 설정_게임설정 탭_베팅버튼_P타입
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_CUTBTN_FKEY	(213)	// 대기실 타이틀바 설정_게임설정 탭_컷팅패단출키_F1F2F3F4
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_CUTBTN_NUM		(214)	// 대기실 타이틀바 설정_게임설정 탭_컷팅패단출키_1234
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_SHOW_OBSERVER_CHAT_ON		(215)	// 대기실 타이틀바 설정_게임설정 탭_관전자 채팅보기_켜기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_SHOW_OBSERVER_CHAT_OFF		(216)	// 대기실 타이틀바 설정_게임설정 탭_관전자 채팅보기_끄기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_MEMO_ALARM_ON				(217)	// 대기실 타이틀바 설정_게임설정 탭_쪽지도착알림_켜기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_MEMO_ALARM_OFF				(218)	// 대기실 타이틀바 설정_게임설정 탭_쪽지도착알림_끄기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_FRIEND_LOGIN_ALARM_ON		(219)	// 대기실 타이틀바 설정_게임설정 탭_친구접속알림_켜기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_FRIEND_LOGIN_ALARM_OFF		(220)	// 대기실 타이틀바 설정_게임설정 탭_친구접속알림_끄기
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_SET			(221)	// 대기실 타이틀바 설정_게임설정 탭_적용
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_GAMEOPTION_CANCEL			(222)	// 대기실 타이틀바 설정_게임설정 탭_취소
+
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION								(223)	// 대기실 타이틀바 설정_수신설정 탭
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_FROMFRIEND	(224)	// 대기실 타이틀바 설정_수신설정 탭_게임초대수신_내친구에게만받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_ALL			(225)	// 대기실 타이틀바 설정_수신설정 탭_게임초대수신_모두받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_IGNORE		(226)	// 대기실 타이틀바 설정_수신설정 탭_게임초대수신_모두받지않음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_FROMFRIEND		(227)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_내친구에게만받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_ALL			(228)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_모두받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_IGNORE			(229)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_모두받지않음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_FROMFRIEND	(230)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_내친구에게만받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_ALL			(231)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_모두받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_IGNORE		(232)	// 대기실 타이틀바 설정_수신설정 탭_대화신청_모두받지않음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_FROMFRIEND		(233)	// 대기실 타이틀바 설정_수신설정 탭_쪽지수신_내친구에게만받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_ALL			(234)	// 대기실 타이틀바 설정_수신설정 탭_쪽지수신_모두받음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_IGNORE			(235)	// 대기실 타이틀바 설정_수신설정 탭_쪽지수신_모두받지않음
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_SET							(236)	// 대기실 타이틀바 설정_수신설정 탭_적용
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_RECEIVEOPTION_CANCEL						(237)	// 대기실 타이틀바 설정_수신설정 탭_취소
+
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM							(238)	// 대기실 타이틀바 시간알리미 버튼
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_GAMEEND_RESERVE_NOTUSE	(239)	// 대기실 타이틀바 시간알리미 버튼_게임종료하기예약_사용안함
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_GAMEEND_RESERVE_ONETIME	(240)	// 대기실 타이틀바 시간알리미 버튼_게임종료하기예약_한번
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_GAMEEND_RESERVE_ALWAYS	(241)	// 대기실 타이틀바 시간알리미 버튼_게임종료하기예약_항상
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_1HOUR		(242)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_1시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_2HOUR		(243)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_2시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_3HOUR		(244)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_3시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_4HOUR		(245)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_4시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_5HOUR		(246)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_5시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_ENDTIME_CHECK_6HOUR		(247)	// 대기실 타이틀바 시간알리미 버튼_종료시간확인_6시간
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_PLAYTIME_CHECK_NOTUSE	(248)	// 대기실 타이틀바 시간알리미 버튼_게임경과시간안내_사용안함
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_PLAYTIME_CHECK_30M		(249)	// 대기실 타이틀바 시간알리미 버튼_게임경과시간안내_30분마다
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_PLAYTIME_CHECK_1H		(250)	// 대기실 타이틀바 시간알리미 버튼_게임경과시간안내_1시간마다
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_RESET					(251)	// 대기실 타이틀바 시간알리미 버튼_초기화
+#define CSSTATUS_UINO_POKER_LOBBY_TITLEBAR_OPTION_TIMEALARM_SET						(252)	// 대기실 타이틀바 시간알리미 버튼_저장
+
+#define CSSTATUS_UINO_POKER_LOBBY_DP_BUY_RECOMMEND_ITEM				(253)	// 대기실 DP 영역 탭 추천상품_구입하기 버튼
+#define CSSTATUS_UINO_POKER_LOBBY_DP_EVENT1							(254)	// 대기실 DP 영역 탭 이벤트_1번 버튼
+#define CSSTATUS_UINO_POKER_LOBBY_DP_EVENT2							(255)	// 대기실 DP 영역 탭 이벤트_2번 버튼
+#define CSSTATUS_UINO_POKER_LOBBY_DP_EVENT3							(256)	// 대기실 DP 영역 탭 이벤트_3번 버튼
+
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE							(257)	// 게임방 상대유저프로필 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_SEND_MEMO				(258)	// 게임방 상대유저프로필_쪽지보내기 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_SEND_WHISPER			(259)	// 게임방 상대유저프로필_귓말보내기 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_TALK					(260)	// 게임방 상대유저프로필_대화하기 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_ADD_FRIEND				(261)	// 게임방 상대유저프로필_친구추가 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_ADD_BLACKLIST			(262)	// 게임방 상대유저프로필_블랙리스트추가 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_NEWPOKER		(263)	// 게임방 상대유저프로필_게임기록_뉴포커 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_7POKER		(264)	// 게임방 상대유저프로필_게임기록_7포커 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_HOOLA		(265)	// 게임방 상대유저프로필_게임기록_훌라 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_HIGHLOW		(266)	// 게임방 상대유저프로필_게임기록_하이로우 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_LOWBD		(267)	// 게임방 상대유저프로필_게임기록_로우바둑이 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_DUALPOKER	(268)	// 게임방 상대유저프로필_게임기록_맞포커 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_GAMERECORD_SUTDA		(269)	// 게임방 상대유저프로필_게임기록_섯다 (상대유저 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_OTHER_USER_PROFILE_CLOSE					(270)	// 게임방 상대유저프로필_닫기 (상대유저 아바타 클릭)
+
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_OBSERVE_STATUS					(271)	// 게임방 베팅영역 관전현황
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_OBSERVE_STATUS_CLOSE			(272)	// 게임방 베팅영역 관전현황_닫기
+
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE							(273)	// 게임방 베팅영역 초대하기 버튼
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_NOWGAME					(274)	// 게임방 베팅영역 초대하기 버튼_현재 플레이중인 게임
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_NOWGAME_INVITE			(275)	// 게임방 베팅영역 초대하기 버튼_현재 플레이중인 게임_초대
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_NOWGAME_CANCEL			(276)	// 게임방 베팅영역 초대하기 버튼_현재 플레이중인 게임_취소
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_ALLGAME					(277)	// 게임방 베팅영역 초대하기 버튼_전체게임
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_ALLGAME_INVITE			(278)	// 게임방 베팅영역 초대하기 버튼_전체게임_초대
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_INVITE_ALLGAME_CANCEL			(279)	// 게임방 베팅영역 초대하기 버튼_전체게임_취소
+
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_POKERSHOP						(280)	// 게임방 베팅영역 포커상정
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_OBSERVE_RESERVE				(281)	// 게임방 베팅영역 관전 참여예약
+#define CSSTATUS_UINO_POKER_ROOM_BETAREA_OBSERVE_RESERVE_CANCEL			(282)	// 게임방 베팅영역 관전 예약취소
+
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_OBSERVE							(283)	// 게임방 게인패 영역 관전
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_EXIT							(284)	// 게임방 게인패 영역 나가기
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_SEETKEEPER						(285)	// 게임방 게인패 영역 자리지킴이
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE							(286)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_NEWPOKER		(287)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_뉴포커
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_7POKER		(288)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_7포커
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_HOOLA		(289)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_훌라
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_HIGHLOW		(290)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_하이로우
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_LOWBD		(291)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_로우바둑이
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_DUALPOKER	(292)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_맞포커
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_GAMERECORD_SUTDA		(293)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_섯다
+#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_PROFILE_CLOSE					(294)	// 게임방 게인패 영역 프로필 (내 아바타 클릭)_ 게임기록_닫기
+
+//#define CSSTATUS_UINO_POKER_ROOM_MYCARDAREA_SEETKEEPER						(295)	// 게임방 게인패 영역 자리지킴이
+
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_GAMERULE									(296)	// 게임방 타이틀바 게임방법
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_GAME_USE_GRADE							(297)	// 게임방 타이틀바 게임이용등급
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_CAPTURE									(298)	// 게임방 타이틀바 캡쳐
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION									(299)	// 게임방 타이틀바 설정
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION							(300)	// 게임방 타이틀바 설정_게임설정탭
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_SOUND_ON				(301)	// 게임방 타이틀바 설정_게임설정탭_효과음_켜기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_SOUND_OFF				(302)	// 게임방 타이틀바 설정_게임설정탭_효과음_끄기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_BETBTN_N				(303)	// 게임방 타이틀바 설정_게임설정탭_베팅버튼_N타입
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_BETBTN_H				(304)	// 게임방 타이틀바 설정_게임설정탭_베팅버튼_H타입
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_BETBTN_P				(305)	// 게임방 타이틀바 설정_게임설정탭_베팅버튼_P타입
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_CUTBTN_FKEY				(306)	// 게임방 타이틀바 설정_게임설정탭_컷팅패단축키_F1F2F3F4
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_CUTBTN_NUM				(307)	// 게임방 타이틀바 설정_게임설정탭_컷팅패단축키_1234
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_OBSERVER_SHOWCHAT_ON	(308)	// 게임방 타이틀바 설정_게임설정탭_관전자_채팅보기_켜기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_OBSERVER_SHOWCHAT_OFF	(309)	// 게임방 타이틀바 설정_게임설정탭_관전자_채팅보기_끄기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_MEMO_ALARM_ON			(310)	// 게임방 타이틀바 설정_게임설정탭_쪽지도착알림_켜기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_MEMO_ALARM_OFF			(311)	// 게임방 타이틀바 설정_게임설정탭_쪽지도착알림_끄기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_FRIEND_LOGIN_ALARM_ON	(312)	// 게임방 타이틀바 설정_게임설정탭_친구접속알림_켜기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_FRIEND_LOGIN_ALARM_OFF	(313)	// 게임방 타이틀바 설정_게임설정탭_친구접속알림_끄기
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_SET						(314)	// 게임방 타이틀바 설정_게임설정탭_적용
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_GAMEOPTION_CANCEL					(315)	// 게임방 타이틀바 설정_게임설정탭_취소
+
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION								(316)	// 게임방 타이틀바 설정_수신설정탭
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_FROMFRIEND	(317)	// 게임방 타이틀바 설정_수신설정탭_게임초대수신_내친구에게만받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_ALL			(318)	// 게임방 타이틀바 설정_수신설정탭_게임초대수신_모두받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_INVITE_IGNORE		(319)	// 게임방 타이틀바 설정_수신설정탭_게임초대수신_모두받지않음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_FROMFRIEND		(320)	// 게임방 타이틀바 설정_수신설정탭_대화신청_내친구에게만받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_ALL				(321)	// 게임방 타이틀바 설정_수신설정탭_대화신청_모두받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_TALK_IGNORE			(322)	// 게임방 타이틀바 설정_수신설정탭_대화신청_모두받지않음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_FROMFRIEND	(323)	// 게임방 타이틀바 설정_수신설정탭_귓말수신_내친구에게만받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_ALL			(324)	// 게임방 타이틀바 설정_수신설정탭_귓말수신_모두받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_WHISPER_IGNORE		(325)	// 게임방 타이틀바 설정_수신설정탭_귓말수신_모두받지않음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_FROMFRIEND		(326)	// 게임방 타이틀바 설정_수신설정탭_쪽지수신_내친구에게만받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_ALL				(327)	// 게임방 타이틀바 설정_수신설정탭_쪽지수신_모두받음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_REQUEST_MEMO_IGNORE			(328)	// 게임방 타이틀바 설정_수신설정탭_쪽지수신_모두받지않음
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_SET							(329)	// 게임방 타이틀바 설정_수신설정탭_설정
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_OPTION_RECEIVEOPTION_CANCEL						(330)	// 게임방 타이틀바 설정_수신설정탭_취소
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_MINIMIZE											(331)	// 게임방 타이틀바 창 최소화
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_WINDOWMODE										(332)	// 게임방 타이틀바 창모드
+#define CSSTATUS_UINO_POKER_ROOM_TITLEBAR_CLOSE												(333)	// 게임방 타이틀바 닫기(종료)
+
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_CHATTING										(334)	// 게임방 채팅창 영역 채팅
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_CHATTING_REPORT									(335)	// 게임방 채팅창 영역 채팅_신고
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_CHATTING_TALK									(336)	// 게임방 채팅창 영역 채팅_일반대화
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_CHATTING_RECENT_WHISPER_USER					(337)	// 게임방 채팅창 영역 채팅_최근귓말상대
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_CHATTING_FRIEND									(338)	// 게임방 채팅창 영역 채팅_친구
+
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_JOKBO									(339)	// 게임방 채팅창 영역 족보
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_EVENT									(340)	// 게임방 채팅창 영역 이벤트
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_EVENT_SQUARE_1							(341)	// 게임방 채팅창 영역 이벤트_1번네모
+#define CSSTATUS_UINO_POKER_ROOM_CHATWINDOW_EVENT_SQUARE_2							(342)	// 게임방 채팅창 영역 이벤트_2번네모
+
+
+#define CSSTATUS_UINO_LOWBD_ROOM_MYCARDAREA_AUTO_SELECT_TO_OFF							(343)	// 자동선택 버튼_ON->OFF_로우바둑이
+#define CSSTATUS_UINO_LOWBD_ROOM_MYCARDAREA_AUTO_SELECT_TO_ON							(344)	// 자동선택 버튼_OFF->ON_로우바둑이
+#define CSSTATUS_UINO_LOWBD_ROOM_MYCARDAREA_AUTO_SORT_TO_OFF							(345)	// 자동정렬 버튼_ON->OFF_로우바둑이
+#define CSSTATUS_UINO_LOWBD_ROOM_MYCARDAREA_AUTO_SORT_TO_ON								(346)	// 자동정렬 버튼_OFF->ON_로우바둑이
+
+//----------------------------------------------------------------------------------------------
+// Members CODE
+//----------------------------------------------------------------------------------------------
+// 		members_code	members_nm	
+// 		1	미니패밀리	고스톱
+// 		2	블루패밀리	고스톱
+// 		3	골드패밀리	고스톱
+// 		4	VIP패밀리	고스톱
+// 		5	VVIP패밀리	고스톱
+// 		6	미니	포커
+// 		7	실버	포커
+// 		8	골드	포커
+// 		9	다이아몬드	포커
+
+// gostop members code
+#define CLSTATS_MEMBERSCODE_GOSTOP_NONE (0)
+#define CLSTATS_MEMBERSCODE_GOSTOP_MINI (1)
+#define CLSTATS_MEMBERSCODE_GOSTOP_BLUE (2)
+#define CLSTATS_MEMBERSCODE_GOSTOP_GOLD (3)
+#define CLSTATS_MEMBERSCODE_GOSTOP_VIP (4)
+#define CLSTATS_MEMBERSCODE_GOSTOP_VVIP (5)
+
+// poker members code
+#define CLSTATS_MEMBERSCODE_POKER_NONE (0)
+#define CLSTATS_MEMBERSCODE_POKER_MINI (6)
+#define CLSTATS_MEMBERSCODE_POKER_SILVER (7)
+#define CLSTATS_MEMBERSCODE_POKER_GOLD (8)
+#define CLSTATS_MEMBERSCODE_POKER_DIAMOND (9)
+
+
+
+
+
+//----------------------------------------------------------------------------------------------
+// functions
+//----------------------------------------------------------------------------------------------
+extern bool g_bUILogEnable;											//로그를 기록 ON, OFF
+int GetCLStatsPremCode(USERINFO *pUI);
+
+UPG_COMMON_EXPORT extern void SendUILog_Enable(bool bEnable);		//로그를 켜고 끈다.
+UPG_COMMON_EXPORT extern void SendUILog_Basic(int nUINo);	
+UPG_COMMON_EXPORT extern void SendUILog_GameOffset(int nUINo, IDX_GAME nGame);
+UPG_COMMON_EXPORT extern void SendUILog_GaugeButton(INT64 llEnterLimitMoney);		//게이지의  버튼
+
+
+

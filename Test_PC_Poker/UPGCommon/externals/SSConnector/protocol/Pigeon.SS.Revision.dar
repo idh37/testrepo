@@ -1,0 +1,52 @@
+
+
+namespace SS
+{
+	namespace Revision
+	{
+		class RevisionList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+		};		
+		
+		class RevisionList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			RevisionDataList revisionDataList;
+		};
+		
+		class AllExternalSync_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string reqCN;
+		};
+		
+		class AllExternalSync_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string reqJID;
+			string reqCN;
+		};
+		
+		class ExternalSync_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			RevisionDataType revisionDataType;
+			string masterRevision;
+		};
+		
+		class ExternalSync_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			RevisionDataType revisionDataType;
+			string masterRevision;
+		};
+		
+		class ExternalSync_Ntf
+		{
+			int32 errorCode;
+			RevisionDataType revisionDataType;
+			string masterRevision;
+		};
+	};
+};	

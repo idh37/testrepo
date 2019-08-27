@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F1153D23-A274-41B0-8692-4F5A60F41D33}</ProjectGuid>
+    <RootNamespace>UPGNewPoker</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../lib/Debug\</OutDir>
+    <IntDir>../lib/Intermediate Files/Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../lib/Release\</OutDir>
+    <IntDir>../lib/Intermediate Files/Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Debug\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);../../UPGCommon/include;../../UPGCommon/externals/CommonFile;../../UPGPokerBase/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;__NEWPOKER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPGNewPoker_D.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>UPGCommon_D.lib;UPGPokerBase_D.lib;Pigeon.SS.ConnectorD.lib;Camel.Base.SystemD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Debug/UPGNewPoker_D.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../UPGCommon/lib/Debug;../../UPGPokerBase/lib/Debug;../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;libcmtd.lib;nafxcwd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGNewPoker_D.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Debug/UPGNewPoker_D.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Debug/UPGNewPoker_D.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Release\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../UPGCommon/include;../../UPGCommon/externals/CommonFile;../../UPGPokerBase/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;__NEWPOKER__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPGNewPokder.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>../lib/Release/UPGNewPoker.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>UPGCommon.lib;UPGPokerBase.lib;Pigeon.SS.Connector.lib;Camel.Base.System.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Release/UPGNewPoker.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../UPGCommon/lib/Release;../../UPGPokerBase/lib/Release;../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;libcmtd.lib;nafxcw.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGNewPoker.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Release/UPGNewPoker.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Release/UPGNewPoker.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp" />
+    <ClCompile Include="AniListMan\AniFileListMan.cpp" />
+    <ClCompile Include="AutoBet\AutoBetSettingDlg.cpp" />
+    <ClCompile Include="AutoBet\AutoBetSetUpWnd.cpp" />
+    <ClCompile Include="Dialog\Admin\AdminControlMan.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="Etc\CurveControl.cpp" />
+    <ClCompile Include="GameNewPoker.cpp" />
+    <ClCompile Include="GameOverResult.cpp" />
+    <ClCompile Include="GameProcess\GameProcess_NewPoker.cpp" />
+    <ClCompile Include="GameRes.cpp" />
+    <ClCompile Include="GameView.cpp" />
+    <ClCompile Include="GlobalGame.cpp" />
+    <ClCompile Include="ImageDef.cpp" />
+    <ClCompile Include="Module\GameHelper\JokboProbabilityNewPoker.cpp" />
+    <ClCompile Include="Module\GameHelper\OtherUserJokboCheckManNewPoker.cpp" />
+    <ClCompile Include="Player\MyCard.cpp" />
+    <ClCompile Include="Player\Player_NP.cpp" />
+    <ClCompile Include="ResultFocus.cpp" />
+    <ClCompile Include="SelectCardNewPoker.cpp" />
+    <ClCompile Include="SevenPoker\BombCard.cpp" />
+    <ClCompile Include="SevenPoker\MovementEx.cpp" />
+    <ClCompile Include="SprDlg\SprDlgBase.cpp" />
+    <ClCompile Include="SprDlg\SprDlgList.cpp" />
+    <ClCompile Include="SprDlg\SprDlgObjectMan.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UPGNewPoker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStructDefine.h" />
+    <ClInclude Include="..\include\UPGNewPoker.h" />
+    <ClInclude Include="AniListMan\AniFileListMan.h" />
+    <ClInclude Include="AniListMan\ObjectDef.h" />
+    <ClInclude Include="AutoBet\AutoBetSettingDlg.h" />
+    <ClInclude Include="AutoBet\AutoBetSetUpWnd.h" />
+    <ClInclude Include="Dialog\Admin\AdminControlMan.h" />
+    <ClInclude Include="Etc\CurveControl.h" />
+    <ClInclude Include="Etc\spline.h" />
+    <ClInclude Include="GameNewPoker.h" />
+    <ClInclude Include="GameOverResult.h" />
+    <ClInclude Include="GameProcess\GameProcess_NewPoker.h" />
+    <ClInclude Include="GameRes.h" />
+    <ClInclude Include="GameView.h" />
+    <ClInclude Include="GlobalGame.h" />
+    <ClInclude Include="ImageDef.h" />
+    <ClInclude Include="Module\GameHelper\JokboProbabilityNewPoker.h" />
+    <ClInclude Include="Module\GameHelper\OtherUserJokboCheckManNewPoker.h" />
+    <ClInclude Include="Player\MyCard.h" />
+    <ClInclude Include="Player\Player_NP.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ResultFocus.h" />
+    <ClInclude Include="SelectCardNewPoker.h" />
+    <ClInclude Include="SevenPoker\BombCard.h" />
+    <ClInclude Include="SevenPoker\MovementEx.h" />
+    <ClInclude Include="SprDlg\SprDlgBase.h" />
+    <ClInclude Include="SprDlg\SprDlgList.h" />
+    <ClInclude Include="SprDlg\SprDlgObjectMan.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\UPGNewPoker.rc2" />
+    <None Include="UPGNewPoker.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ImageLevel_New.bmp" />
+    <Image Include="res\NP.ico" />
+    <Image Include="res\NP_Chat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGNewPoker.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework_externals\NMAvatar\NMAvatar.vcxproj">
+      <Project>{711417ec-299a-45a0-9328-073172d73f2e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMGraphicGDI\NMGraphicGDI.vcxproj">
+      <Project>{7db017df-2635-457c-8b4d-bc451879ad15}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSkinGDI\NMSkinGDI.vcxproj">
+      <Project>{4f0488c1-7536-4578-8e3c-900c0e8d038d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSock\NMSock.vcxproj">
+      <Project>{27d620a4-28e1-4f41-8690-34781e38e602}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSound\NMSound.vcxproj">
+      <Project>{50690e68-1a94-4ca4-bce4-c6280a0f47e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMUtil\NMUtil.vcxproj">
+      <Project>{7a5af20b-6dc2-49d2-910c-beccc8fa1318}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lsylib\src\LSYLib.vcxproj">
+      <Project>{b1ba6ed8-a218-4299-9a49-8b9629983259}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGCommon\src\UPGCommon.vcxproj">
+      <Project>{ec51ae0e-6d15-4174-a589-ceb82eb54a25}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGPokerBase\src\UPGPokerBase.vcxproj">
+      <Project>{4b4eb56b-a280-4df4-993c-fc19a9a78a74}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPGNewPoker.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

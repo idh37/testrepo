@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="SkinLib">
+      <UniqueIdentifier>{69e42b6c-08cc-4e76-847a-a9da4ba80649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkinLib\nmwidget">
+      <UniqueIdentifier>{5959ced5-e654-4c1b-b0c3-0c4f3339fe03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkinLib\nmwidget\Script">
+      <UniqueIdentifier>{05cfcc4c-80f7-40ef-9036-104b06ddc829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkinLib\NWindows">
+      <UniqueIdentifier>{0260cc8f-7f99-4fcd-9201-cda21b1bc89d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="NMSkinGDI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\BmpCheckButton.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\BmpRadioBtn.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\BmpToRegion.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\ChatViewEdit.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\CustomHtml.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GraphButton.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GraphButton_Text.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GraphButtonEx.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GraphButtonList.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GraphScrollThumbButton.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GrpChatEdit.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\GrpChatEdit2.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\HTransRegion.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\ListCtrlEx.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\MyBitmap.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\MyButton.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\MyEdit.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\MyTextButton.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\ProgressCtrlEx.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\SkinVerticleScrollbar.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\SkinVerticleScrollbar2.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\SliderCtrlEx.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\TitleTip.cpp">
+      <Filter>SkinLib</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMButton.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMChatWidget.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMComboBox.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMDialog.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMEdit.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMListWidget.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMResourceManager.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMScrollChatWidget.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMTab.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMTextButton.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMTimeGauge.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMTimer.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMToggleButton.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMUnitWdget.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\NMWidgetManager.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMWidget\SSOWebWidget.cpp">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalLib\include\lua\lua_tinker.cpp">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NChatView.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NEditBox.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NMultiScene.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NScene.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NText.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\NTextScroll.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinLib\SendEdit.cpp">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NMSkinGDI.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\NMSkinGDI.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NMSound\stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NMSound\targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\BmpCheckButton.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\BmpRadioBtn.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\BmpToRegion.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\ChatViewEdit.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\CustomHtml.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GraphButton.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GraphButton_Text.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GraphButtonEx.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GraphButtonList.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GraphScrollThumbButton.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GrpChatEdit.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\GrpChatEdit2.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\HTransRegion.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\ListCtrlEx.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\MEMDC.H">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\MyBitmap.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\MyButton.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\MyEdit.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\MyTextButton.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\ProgressCtrlEx.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\NMSkinGDI\SkinGDIDefine.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\SkinGDIInclude.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\SkinVerticleScrollbar.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\SkinVerticleScrollbar2.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\SliderCtrlEx.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\TitleTip.h">
+      <Filter>SkinLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMButton.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMChatWidget.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMComboBox.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMDialog.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMEdit.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMListWidget.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMScrollChatWidget.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMTab.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMTextButton.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMTimeGauge.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMTimer.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMToggleButton.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMUnitWdget.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\NMWidgetManager.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMWidget\SSOWebWidget.h">
+      <Filter>SkinLib\nmwidget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\lauxlib.h">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\lua.h">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\lua.hpp">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\lua_tinker.h">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\luaconf.h">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ExternalLib\include\lua\lualib.h">
+      <Filter>SkinLib\nmwidget\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NChatView.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NEditBox.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NMultiScene.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NScene.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NText.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\NTextScroll.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmskingdi\SendEdit.h">
+      <Filter>SkinLib\NWindows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMSkinGDI.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

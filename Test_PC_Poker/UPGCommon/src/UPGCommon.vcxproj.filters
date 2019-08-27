@@ -1,0 +1,1236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{26537bb0-cc45-4129-b902-dab132f1be5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonFile">
+      <UniqueIdentifier>{5a5715f7-7e87-4883-9f35-be9fbe126ed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{04eb245d-bd50-4786-995c-440cb43d49c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\UserList">
+      <UniqueIdentifier>{51cfd7fc-cb77-4f7e-86f5-653b26854c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\RoomList">
+      <UniqueIdentifier>{62073035-94e8-4d5a-b70f-3763a02c8fb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\MoneyRange">
+      <UniqueIdentifier>{d85e82cd-0f1d-47bf-94c4-f8bcb28637cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\PrevRoomInfo">
+      <UniqueIdentifier>{49422b60-9a2a-4eb5-be9f-cf042d12a87a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase">
+      <UniqueIdentifier>{3de4c8c5-c78e-4cd9-8d96-929ac6fc631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon">
+      <UniqueIdentifier>{0cbd63b0-bcf4-4bff-ace0-f224d7a8d7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Managers">
+      <UniqueIdentifier>{34df5f8d-0fe3-4dd5-b9d1-1076672ab6f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Managers\찬스아이템 구매">
+      <UniqueIdentifier>{9ef176e4-f337-4661-a5a7-0cf2ad8b381f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Managers\VIP서비스">
+      <UniqueIdentifier>{7c61cbd1-c369-4da0-8528-1de828cd6f4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Managers\Delegate">
+      <UniqueIdentifier>{1eb134cc-6ea0-4bbe-9259-7bb405d06d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\ETC">
+      <UniqueIdentifier>{acd6c962-83ec-4096-9583-d3e4f5a83d9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs">
+      <UniqueIdentifier>{4ac039e2-124d-41e1-a115-c2c6ed495ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\신고">
+      <UniqueIdentifier>{619b5cb4-3ad8-464d-8e07-ff7e5ff7aecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\추방투표">
+      <UniqueIdentifier>{af5c61fe-ae99-40ed-8fba-e053c1df15bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\초대">
+      <UniqueIdentifier>{b91a2bcb-cf2f-4d50-8329-2a9b6ee12993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\관리자">
+      <UniqueIdentifier>{33ed69a5-dd86-4df2-9d40-2843a964ad3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\관전자">
+      <UniqueIdentifier>{fe87135b-e808-4c42-abb3-e0fb3d7cd11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\구매">
+      <UniqueIdentifier>{e3cf23c6-0a13-4322-894a-85d7ad144580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\VIP상담">
+      <UniqueIdentifier>{895e7f02-bd0a-4f73-b3fe-65bac8cf1464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\바로입장">
+      <UniqueIdentifier>{365848cf-9748-457d-9fc6-1d61aeaad5e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\Club">
+      <UniqueIdentifier>{b2f5f717-b0b2-438f-a908-d3483f93bc46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Community">
+      <UniqueIdentifier>{c33f9577-ea41-46c4-b2bf-df42a5b993c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup">
+      <UniqueIdentifier>{2f1c60bd-1c00-485e-bcf0-6827b5bb4606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldLuckyBag">
+      <UniqueIdentifier>{0255437b-b862-472f-8c14-c6f0814d547b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\NewYearAttendance">
+      <UniqueIdentifier>{c672a603-915a-4547-b2e8-7f36101c9c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldMileage">
+      <UniqueIdentifier>{49794a79-0235-48cb-b1c4-88747498a713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldSupportFund">
+      <UniqueIdentifier>{92496137-159c-4b7a-8bf2-341b2e13dc15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldAttendanceBook">
+      <UniqueIdentifier>{d90506f7-d485-4950-8c56-d774d15fe8f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub">
+      <UniqueIdentifier>{c133f56b-104d-42f4-9547-455c1dc1dcec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldBigWheel">
+      <UniqueIdentifier>{68b6cd37-4d14-4eb7-9fee-e9e808274f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\GoldWithdraw">
+      <UniqueIdentifier>{083024a7-fa24-436c-871d-ee84dcb1122b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\ChuSeok">
+      <UniqueIdentifier>{2d565ed6-ca44-4699-a989-059d98ac1ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\LobbyNotify">
+      <UniqueIdentifier>{07767f77-9dea-4ebe-8507-6f767a2b749a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\ChipAttend">
+      <UniqueIdentifier>{53098bd1-3348-4cf0-867f-eef3cbf077ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub">
+      <UniqueIdentifier>{913c8961-ed74-4826-9ba9-4aa259500850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Dialogs\옵션">
+      <UniqueIdentifier>{fa0a8e87-8cfb-4385-8696-3ee27a41e964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub">
+      <UniqueIdentifier>{70dcd7ba-0a5d-4140-b680-1a3db3bef633}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClientStats.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CWebCallThread.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRes.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameURL.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="HideChatList.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageDef.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Md5.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadLock.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGCommon.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGDlgBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\externals\CommonFile\CommMsg.cpp">
+      <Filter>CommonFile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\externals\CommonFile\CommMsgString.cpp">
+      <Filter>CommonFile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\externals\CommonFile\CommUtil.cpp">
+      <Filter>CommonFile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\externals\CommonFile\UserStruct.cpp">
+      <Filter>CommonFile</Filter>
+    </ClCompile>
+    <ClCompile Include="DataList.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="DataUserList.cpp">
+      <Filter>Data\UserList</Filter>
+    </ClCompile>
+    <ClCompile Include="DataRoomList.cpp">
+      <Filter>Data\RoomList</Filter>
+    </ClCompile>
+    <ClCompile Include="DataRoomOptionList.cpp">
+      <Filter>Data\MoneyRange</Filter>
+    </ClCompile>
+    <ClCompile Include="PrevRoomInfo.cpp">
+      <Filter>Data\PrevRoomInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDataManager.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcess.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameViewBase.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayTimeWarning.cpp">
+      <Filter>GameBase\GameCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="RewardItemMan.cpp">
+      <Filter>GameBase\GameCommon\Managers\찬스아이템 구매</Filter>
+    </ClCompile>
+    <ClCompile Include="VipService.cpp">
+      <Filter>GameBase\GameCommon\Managers\VIP서비스</Filter>
+    </ClCompile>
+    <ClCompile Include="Delegate.cpp">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="Functor.cpp">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageManager.cpp">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>GameBase\GameCommon\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectList.cpp">
+      <Filter>GameBase\GameCommon\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="CharView.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ComboBoxImageDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\CongMessageDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DailyPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EndEventPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EndPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EventInfopopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GameGradeDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManualDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldChangeDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="JackpotRankPopupDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="JackpotTimepopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="KisaDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyEventDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginInfoPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgBoxDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgBoxModelessDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgImgBox.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFamilyDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="NewAskChargeDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="PostBoxDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetQuickStarterDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RestrictionInfoPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RestrictionOverPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RestrictionPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectQuickstarterDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerNotifierDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UniversalItemDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UPPDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UPPInfoPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="UPPPopup.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="WhisperDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="BadUserComplete.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClCompile>
+    <ClCompile Include="BadUserDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameBadUserComplainMsgBox.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClCompile>
+    <ClCompile Include="BanishmentDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClCompile>
+    <ClCompile Include="BanishVoteDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfirmVote.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClCompile>
+    <ClCompile Include="MyVoteDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClCompile>
+    <ClCompile Include="AskMoveGameDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClCompile>
+    <ClCompile Include="InviteDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClCompile>
+    <ClCompile Include="InviteUserListView.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClCompile>
+    <ClCompile Include="InviteWidget.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClCompile>
+    <ClCompile Include="RecvInviteDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminMessageDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminRemoveRoomDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminTitleDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClCompile>
+    <ClCompile Include="AskContinueGameDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverListView.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClCompile>
+    <ClCompile Include="BuyLuckAvataDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClCompile>
+    <ClCompile Include="BuyTimeLimitAvataDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameItemDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClCompile>
+    <ClCompile Include="VIPChanceAlert.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClCompile>
+    <ClCompile Include="VipCloseDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClCompile>
+    <ClCompile Include="VipServiceDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClCompile>
+    <ClCompile Include="VipServiceSockCmnd.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClCompile>
+    <ClCompile Include="RefuseQJDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\바로입장</Filter>
+    </ClCompile>
+    <ClCompile Include="ClubDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\Club</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\AddUserSelectDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\AddUserSelectDlgBuddyList.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\AddUserSelectDlgConnectUserList.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BlackBuddyAddDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BlackBuddyRemoveDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\Buddy.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyAddDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyAddResultDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyGroupAddDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyGroupRemoveDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyListItem.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyMoveGroupDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\BuddyRemoveDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ChattingPopupMemu.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ChattingRoomAddUserDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ChattingRoomDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ChattingRoomInviteDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\CommunityManager.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ConnectUserListItem.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\MemoNotifyDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\MessageBox.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\MessageBoxImgFull.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\MessageBoxListITem.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\MessageNotificationPopup.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ReceiveAdminMessageDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\ReceiveMessageDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\SendMessageDlg.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="Community\SendMessageItem.cpp">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldLuckyBag\GoldLuckyBagPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldLuckyBag</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\NewYearAttendance\NewYearAttendancePopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\NewYearAttendance</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldMileage\GoldMileagePopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldMileage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldSupportFund\GoldSupportFundPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldSupportFund</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\GoldAttendanceBookSubPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldBigWheel\GoldBigWheelDlg.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldBigWheel</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\GoldWithdraw\GoldWithdrawPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\GoldWithdraw</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokAttendanceDlg.cpp">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgBoxChkDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\LobbyNotify\LobbyNotifyDlg.cpp">
+      <Filter>GameBase\GameCommon\Popup\LobbyNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\ChipAttendSubPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionDlg.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionFrameBase.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionFrameHoola.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionFrameSutda.cpp">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\ChuSeokSubPopup.cpp">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClientStats.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CWebCallThread.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRes.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameURL.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalBase.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HideChatList.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDef.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Md5.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadLock.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UPGDlgBase.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GameDef.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGCommon.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsg.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsgDef_Tournament.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsgIDHeader.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommMsgString.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommonmsgDef_TMS.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\CommUtil.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\GameCommon.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\PromotionDefine.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\UserStruct.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\CommonFile\UserStructDefine.h">
+      <Filter>CommonFile</Filter>
+    </ClInclude>
+    <ClInclude Include="DataList.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="DataUserList.h">
+      <Filter>Data\UserList</Filter>
+    </ClInclude>
+    <ClInclude Include="DataRoomList.h">
+      <Filter>Data\RoomList</Filter>
+    </ClInclude>
+    <ClInclude Include="DataRoomOptionList.h">
+      <Filter>Data\MoneyRange</Filter>
+    </ClInclude>
+    <ClInclude Include="PrevRoomInfo.h">
+      <Filter>Data\PrevRoomInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDataManager.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameViewBase.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayTimeWarning.h">
+      <Filter>GameBase\GameCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="RewardItemMan.h">
+      <Filter>GameBase\GameCommon\Managers\찬스아이템 구매</Filter>
+    </ClInclude>
+    <ClInclude Include="VipService.h">
+      <Filter>GameBase\GameCommon\Managers\VIP서비스</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegate.h">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor.h">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageManager.h">
+      <Filter>GameBase\GameCommon\Managers\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>GameBase\GameCommon\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectList.h">
+      <Filter>GameBase\GameCommon\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="CharView.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboBoxImageDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\CongMessageDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\congmessagedlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="daiilypopupid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DailyPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EndEventPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="endeventpopup2id.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="endeventpopupid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EndPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EventInfopopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GameGradeDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManualDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldChangeDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="goldchangedlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="JackpotRankPopupDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="JackpotTimepopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="KisaDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyEventDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginInfoPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="logininfopopupid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgBoxDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="msgboxdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgBoxModelessDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgImgBox.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="MyFamilyDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="NewAskChargeDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="PostBoxDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfileDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="profiledlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetQuickStarterDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="resetquickstarterdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RestrictionInfoPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RestrictionOverPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="restrictionoverpopupid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RestrictionPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="restrictionpopupid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectQuickstarterDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="selectquickstarterdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerNotifierDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UniversalItemDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UPPDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UPPInfoPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="UPPPopup.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WhisperDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="whisperdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="BadUserComplete.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="badusercompleteid.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="BadUserDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="baduserdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="baduserscamid.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameBadUserComplainMsgBox.h">
+      <Filter>GameBase\GameCommon\Dialogs\신고</Filter>
+    </ClInclude>
+    <ClInclude Include="BanishmentDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClInclude>
+    <ClInclude Include="BanishVoteDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfirmVote.h">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVoteDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\추방투표</Filter>
+    </ClInclude>
+    <ClInclude Include="AskMoveGameDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClInclude>
+    <ClInclude Include="InviteDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClInclude>
+    <ClInclude Include="InviteUserListView.h">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClInclude>
+    <ClInclude Include="InviteWidget.h">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClInclude>
+    <ClInclude Include="RecvInviteDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\초대</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminMessageDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminRemoveRoomDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminTitleDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\관리자</Filter>
+    </ClInclude>
+    <ClInclude Include="AskContinueGameDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverListView.h">
+      <Filter>GameBase\GameCommon\Dialogs\관전자</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyLuckAvataDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyTimeLimitAvataDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGameItemDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClInclude>
+    <ClInclude Include="VIPChanceAlert.h">
+      <Filter>GameBase\GameCommon\Dialogs\구매</Filter>
+    </ClInclude>
+    <ClInclude Include="VipCloseDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClInclude>
+    <ClInclude Include="VipCommMsg.h">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClInclude>
+    <ClInclude Include="VipServiceDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClInclude>
+    <ClInclude Include="VipServiceSockCmnd.h">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClInclude>
+    <ClInclude Include="VipStruct.h">
+      <Filter>GameBase\GameCommon\Dialogs\VIP상담</Filter>
+    </ClInclude>
+    <ClInclude Include="RefuseQJDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\바로입장</Filter>
+    </ClInclude>
+    <ClInclude Include="ClubDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\Club</Filter>
+    </ClInclude>
+    <ClInclude Include="clubdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs\Club</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\AddUserSelectDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\AddUserSelectDlgBuddyList.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\AddUserSelectDlgConnectUserList.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\adduserselectdlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BlackBuddyAddDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\blackbuddyadddlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BlackBuddyRemoveDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\blackbuddyremovedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\Buddy.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyAddDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddyadddlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyAddResultDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddyaddresultdlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyGroupAddDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddygroupadddlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyGroupRemoveDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddygroupremovedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyListItem.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyMoveGroupDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddymovegroupdlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\BuddyRemoveDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\buddyremovedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ChattingPopupMemu.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\chattingpopupmemuid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ChattingRoomAddUserDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\chattingroomadduserdlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ChattingRoomDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\chattingroomdlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ChattingRoomInviteDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\chattingroominvitedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\CommunityManager.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ConnectUserListItem.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\gameinfo.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\MemoNotifyDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\memonotifydlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\MessageBox.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\messageboxid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\MessageBoxImgFull.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\MessageBoxListITem.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\MessageNotificationPopup.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\messagenotificationpopupid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ReceiveAdminMessageDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\receiveadminmessagedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\ReceiveMessageDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\receivemessagedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\SendMessageDlg.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\sendmessagedlgid.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="Community\SendMessageItem.h">
+      <Filter>GameBase\GameCommon\Community</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldLuckyBag\GoldLuckyBagPopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldLuckyBag</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldLuckyBag\goldluckybagpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldLuckyBag</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\NewYearAttendance\NewYearAttendancePopup.h">
+      <Filter>GameBase\GameCommon\Popup\NewYearAttendance</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\NewYearAttendance\newyearattendancepopupid.h">
+      <Filter>GameBase\GameCommon\Popup\NewYearAttendance</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldMileage\GoldMileagePopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldMileage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldMileage\goldmileagepopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldMileage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldSupportFund\GoldSupportFundPopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldSupportFund</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldSupportFund\goldsupportfundpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldSupportFund</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookPopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\goldattendancebookpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\GoldAttendanceBookSubPopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub\goldattendancebooksubpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldAttendanceBook\GoldAttendanceBookSub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldBigWheel\GoldBigWheelDlg.h">
+      <Filter>GameBase\GameCommon\Popup\GoldBigWheel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldBigWheel\goldbigwheelid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldBigWheel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldWithdraw\GoldWithdrawPopup.h">
+      <Filter>GameBase\GameCommon\Popup\GoldWithdraw</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\GoldWithdraw\goldwithdrawpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\GoldWithdraw</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokAttendanceDlg.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\chuseokattendancedlgid.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgBoxChkDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="msgboxchkdlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\LobbyNotify\LobbyNotifyDlg.h">
+      <Filter>GameBase\GameCommon\Popup\LobbyNotify</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\LobbyNotify\lobbynotifydlgid.h">
+      <Filter>GameBase\GameCommon\Popup\LobbyNotify</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendPopup.h">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\ChipAttendSubPopup.h">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub\chipattendsubpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend\ChipAttendSub</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionDlg.h">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClInclude>
+    <ClInclude Include="optiondlgid.h">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionFrameBase.h">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionFrameHoola.h">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionFrameSutda.h">
+      <Filter>GameBase\GameCommon\Dialogs\옵션</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokPopup.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\chuseokpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChipAttend\chipattendpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\ChipAttend</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\ChuSeokSubPopup.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub\chuseoksubpopupid.h">
+      <Filter>GameBase\GameCommon\Popup\ChuSeok\ChuSeokSub</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGCommon.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\cur00001.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\cur00002.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\cursor_i.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\cursor_m.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\cursor_s.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\UMCommon.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGCommon.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

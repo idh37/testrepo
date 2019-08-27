@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="CommonFiles">
+      <UniqueIdentifier>{4d1760bd-9016-4329-a2d3-df1c17329f93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{ee021cb8-1175-4e65-af2e-a57658c9a471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Chatting Area">
+      <UniqueIdentifier>{052d9173-d3d9-4ba2-b59c-c6bd2e14808c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Manager">
+      <UniqueIdentifier>{0d68caf8-2b44-4565-9abc-22a51f298c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module">
+      <UniqueIdentifier>{9c644e90-2ee7-4f64-8bf0-c29f16534525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\게임도우미">
+      <UniqueIdentifier>{a2619415-c234-4c43-b944-51c71bd42dd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\자리지킴이">
+      <UniqueIdentifier>{1e316df7-32ff-4e69-9831-4ff99f72999f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\재기충전">
+      <UniqueIdentifier>{0fda6a70-70a3-47c4-917e-22235c6118d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\하프잭팟">
+      <UniqueIdentifier>{2183600b-e15f-4cd8-9433-880c04778ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\Draw">
+      <UniqueIdentifier>{3057b366-016a-4f03-9482-9d9fbadbd56c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View">
+      <UniqueIdentifier>{b2201fbc-0f01-4137-8f8b-2d6205bc4f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Animation">
+      <UniqueIdentifier>{38b9e066-843d-42c7-9a55-e99f1f64b3d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Chip">
+      <UniqueIdentifier>{8c6d8d3b-6ad2-449f-913f-4d0032338813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\NCard">
+      <UniqueIdentifier>{c6288385-7f70-43b7-8407-5d132630e054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Item">
+      <UniqueIdentifier>{00fa7e33-b7a8-460f-a2de-2c02f8dd0a5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Button">
+      <UniqueIdentifier>{241d3de8-4bb5-4238-9f40-145cca803589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\sound">
+      <UniqueIdentifier>{090205fb-be83-497d-ab2d-fe706f26865f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BackGround">
+      <UniqueIdentifier>{aadc8c18-c477-4a17-ae82-283bb56eab18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Effect">
+      <UniqueIdentifier>{a15da8bc-542c-459d-b290-0bff486a3320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{c6002cad-0239-4393-939e-56a7e802535f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIInfoData">
+      <UniqueIdentifier>{2ba305f8-f6c9-4664-8d67-548e4efdba5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGLowBD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\BadugiRule.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\BadugiRuleMan.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_LowBD.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcess_BD.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameView.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_BD.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideText.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ChattingArea\ChatWnd_PlayResultInfo.cpp">
+      <Filter>Game\Chatting Area</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBetSetUpWnd.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerImageListMan.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteList.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\GameHelper\JokboProbabilityLB.cpp">
+      <Filter>Game\Module\게임도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\GameHelper\OtherUserJokboCheckManLB.cpp">
+      <Filter>Game\Module\게임도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\Draw\PlayerDraw_BD.cpp">
+      <Filter>Game\Module\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\Draw\PlayerDrawManager_BD.cpp">
+      <Filter>Game\Module\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprListMan.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="NMovement.cpp">
+      <Filter>Game\View\NCard</Filter>
+    </ClCompile>
+    <ClCompile Include="NMovingCard.cpp">
+      <Filter>Game\View\NCard</Filter>
+    </ClCompile>
+    <ClCompile Include="NMovingCardMan.cpp">
+      <Filter>Game\View\NCard</Filter>
+    </ClCompile>
+    <ClCompile Include="NMyCard.cpp">
+      <Filter>Game\View\NCard</Filter>
+    </ClCompile>
+    <ClCompile Include="button\GameButtonBD.cpp">
+      <Filter>Game\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\SoundRes.cpp">
+      <Filter>Game\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround\BackGround_BD.cpp">
+      <Filter>Game\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\BetCmdEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\CuttingStageIndicateEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\CuttingStageMsgEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\GradeEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\HighValueEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\MadeEffect.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="UIInfoData\UIInfoData_BD.cpp">
+      <Filter>UIInfoData</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGLowBD.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\UPGLowbd.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\BadugiRule.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\BadugiRuleMan.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_LowBD.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess_BD.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameView.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_BD.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideText.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ChattingArea\ChatWnd_PlayResultInfo.h">
+      <Filter>Game\Chatting Area</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBetSetUpWnd.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerImageListMan.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteList.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\GameHelper\JokboProbabilityLB.h">
+      <Filter>Game\Module\게임도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\GameHelper\OtherUserJokboCheckManLB.h">
+      <Filter>Game\Module\게임도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\Draw\PlayerDraw_BD.h">
+      <Filter>Game\Module\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\Draw\PlayerDrawManager_BD.h">
+      <Filter>Game\Module\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationDefine.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprListMan.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="NMovement.h">
+      <Filter>Game\View\NCard</Filter>
+    </ClInclude>
+    <ClInclude Include="NMovingCard.h">
+      <Filter>Game\View\NCard</Filter>
+    </ClInclude>
+    <ClInclude Include="NMovingCardMan.h">
+      <Filter>Game\View\NCard</Filter>
+    </ClInclude>
+    <ClInclude Include="NMyCard.h">
+      <Filter>Game\View\NCard</Filter>
+    </ClInclude>
+    <ClInclude Include="button\GameButtonBD.h">
+      <Filter>Game\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="sound\SoundRes.h">
+      <Filter>Game\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround\BackGround_BD.h">
+      <Filter>Game\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\BetCmdEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\CuttingStageIndicateEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\CuttingStageMsgEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\GradeEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\HighValueEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\MadeEffect.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGLowBD.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInfoData\UIInfoData_BD.h">
+      <Filter>UIInfoData</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\BD.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\BD_Chat.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGLowbd.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

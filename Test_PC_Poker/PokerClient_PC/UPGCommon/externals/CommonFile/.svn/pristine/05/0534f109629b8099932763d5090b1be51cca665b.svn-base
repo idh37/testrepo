@@ -1,0 +1,1376 @@
+#pragma once
+
+#include "UserStruct.h"
+#include "CommMsgDef.h"
+#include "CommMsgDef_Game.h"
+
+enum
+{
+	OPCODE_MASTER_SERVER = 20000,		// 마스터서버 연동 이벤트
+
+	// BEGIN 잭팟
+	OPCODE_G_TO_M_JP_GAMEFEE,			// 게임서버   -> 마스터서버 게임비 적립
+	OPCODE_M_TO_G_JP_ALLMONEY,			// 마스터서버 -> 게임서버   누적금액및 정보
+	OPCODE_M_TO_G_JP_OFFER_MONEY,		// 마스터서버 -> 게임서버   당첨금액
+	OPCODE_M_TO_G_JP_EVENT_ALRAM,		// 마스터서버 -> 게임서버   이벤트잭팟 알림
+
+
+	//< 클라이언트 패킷 >
+	OPCODE_SV_REGISTER_ALL = 25000,     //< CYS 100901 >
+
+	OPCODE_SV_JP_INFO,					// 잭팟 정보
+	OPCODE_SV_JP_WINNER_ALRAM,			// 당첨자 알림
+	OPCODE_SV_JP_EVENTTIME_ROOM,		// 이벤트 잭팟타임 특정 룸 알림
+	OPCODE_SV_JP_EVENTTIME_ALLUSER,		// 이벤트 잭팟타임 모든 유저 알림
+	OPCODE_SV_JP_EVENT_GIFTTIME,		// 이벤트 3판 이상 낮은 족보에서도 지급 가능
+	// END 잭팟
+
+	OPCODE_SV_GTIME_START,          // 포커타임
+	OPCODE_SV_GTIME_ALRAM,
+	OPCODE_SV_GTIME_END,
+
+
+	OPCODE_SV_CHAMP_ALRAM,          // 바둑이 경기대회
+
+	OPCODE_SV_PCROOMACT_START,		// PC방 활성화 시작
+	OPCODE_SV_PCROOMACT_INITIALIZE, // PC방 활성화 초기화
+	OPCODE_SV_PCROOMACT_ALRAM,		// PC방 활성화 정보
+	OPCODE_SV_PCROOMACT_END,		// PC방 활성화 끝
+
+	OPCODE_SV_PCPZONE_START,		// PC방 포커존
+	OPCODE_SV_PCPZONE_INITIALIZE,	// PC방 포커존 초기화
+	OPCODE_SV_PCPZONE_ALRAM,		// PC방 포커존 정보
+	OPCODE_SV_PCPZONE_END,			// PC방 포커존 끝
+	OPCODE_SV_PCPZONE_TIMEOUT,		// PC방 10분가 대기시
+
+
+	OPCODE_SV_BETTING_START,		// 포커머니 배팅 시작
+	OPCODE_SV_BETTING_INITIALIZE,	// 포커머니 배팅 초기화
+	OPCODE_SV_BETTING_ALRAM,		// 포커머니 배팅 정보
+	OPCODE_SV_BETTING_END,			// 포커머니 배팅 끝
+
+	OPCODE_SV_RETENTION_START,		// 리텐션 프로모션 시작
+	OPCODE_SV_RETENTION_INITIALIZE,	// 리텐선 프로모션 초기화
+	OPCODE_SV_RETENTION_ALRAM,		// 리텐선 프로모션 정보
+	OPCODE_SV_RETENTION_END,		// 리텐션 프로모션 끝
+
+	OPCODE_SV_NEWYEARRETENTION_START,		// 포커 신년 리텐션 프로모션 시작
+	OPCODE_SV_NEWYEARRETENTION_INITIALIZE,	// 포커 신년 리텐션 프로모션 초기화
+	OPCODE_SV_NEWYEARRETENTION_ALRAM,		// 포커 신년 리텐션 프로모션 정보
+	OPCODE_SV_NEWYEARRETENTION_END,			// 포커 신년 리텐션 프로모션 끝
+
+	OPCODE_SV_USERCARE_START,
+	OPCODE_SV_USERCARE_INITIALIZE,
+	OPCODE_SV_USERCARE_ALRAM,
+	OPCODE_SV_USERCARE_END,
+
+	OPCODE_SV_GOLDCARD_START,
+	OPCODE_SV_GOLDCARD_INITIALIZE,
+	OPCODE_SV_GOLDCARD_ALARM,			// 프로모션 정보
+	OPCODE_SV_GOLDCARD_APPEAR,			// 하위방에서 골드카드 출현
+	OPCODE_SV_GOLDCARD_REWARD,			// 미션 달성으로 인한 머니 획득
+	OPCODE_SV_GOLDCARD_END,
+
+	OPCODE_SV_ADULTCARD_START,
+	OPCODE_SV_ADULTCARD_INITIALIZE,
+	OPCODE_SV_ADULTCARD_ALARM,			// 프로모션 정보
+	OPCODE_SV_ADULTCARD_REWARD,			// 미션 달성으로 인한 머니 획득
+	OPCODE_SV_ADULTCARD_END,
+
+	OPCODE_SV_MISSION003_START,
+	OPCODE_SV_MISSION003_INITIALIZE,
+	OPCODE_SV_MISSION003_ALARM,			// 프로모션 정보
+	OPCODE_SV_MISSION003_ALLIN,			// 미션 달성으로 인한 머니 획득
+	OPCODE_SV_MISSION003_END,
+
+	OPCODE_SV_POKERADVENTURE_START,
+	OPCODE_SV_POKERADVENTURE_INITIALIZE,
+	OPCODE_SV_POKERADVENTURE_ALARM,
+	OPCODE_SV_POKERADVENTURE_REWARD,
+	OPCODE_SV_POKERADVENTURE_ALLIN,	
+	OPCODE_SV_POKERADVENTURE_END,
+
+	OPCODE_SV_HALFJACKPOT_START,
+	OPCODE_SV_HALFJACKPOT_INITIALIZE,
+	OPCODE_SV_HALFJACKPOT_TIME_BEFORE_START,	// 잭팟 타임 시작전
+	OPCODE_SV_HALFJACKPOT_TIME_START,			// 잭팟 타임 시작
+	OPCODE_SV_HALFJACKPOT_TIME_BEFORE_END,		// 잭팟 타임 종료전
+	OPCODE_SV_HALFJACKPOT_TIME_END,				// 잭팟 타임 종료
+	OPCODE_SV_HALFJACKPOT_MONEY,				// 누적 잭팟 머니 알림
+	OPCODE_SV_HALFJACKPOT_ALARM,				// 잭팟 타임 동안 방 입장 유저에게 알림
+	OPCODE_SV_HALFJACKPOT_ROOM,					// 잭팟방 선정
+	OPCODE_SV_HALFJACKPOT_ENTER_JACKPOT_ROOM,	// 잭팟방 선정
+	OPCODE_SV_HALFJACKPOT_PRIZE,				// 잭팟판 종료&당첨자 정보
+	OPCODE_SV_HALFJACKPOT_TOP_HALF_COUNT_MS,	// 서버별 후보방 정보 MS로 전달
+	OPCODE_SV_HALFJACKPOT_DELETE_ROOM_MS,		// 후보 방이 삭제됨
+	OPCODE_SV_HALFJACKPOT_END_HALF_MS,			// 해당 채널 하프 카운팅 종료
+	OPCODE_SV_HALFJACKPOT_JACKPOT_ROUND_START,	// 잭팟방 시작
+	OPCODE_SV_HALFJACKPOT_END,
+
+	OPCODE_SV_MISSION201304_START,
+	OPCODE_SV_MISSION201304_INITIALIZE,
+	OPCODE_SV_MISSION201304_ALARM,			// 프로모션 정보
+	OPCODE_SV_MISSION201304_REWARD,			// 미션 달성으로 인한 머니 획득
+	OPCODE_SV_MISSION201304_END,
+
+	OPCODE_SV_BORNIN1996_START,
+	OPCODE_SV_BORNIN1996_INITIALIZE,
+	OPCODE_SV_BORNIN1996_ALARM,
+	OPCODE_SV_BORNIN1996_REWARD,
+	OPCODE_SV_BORNIN1996_END,
+
+	OPCODE_SV_LOTTERY201406_START,
+	OPCODE_SV_LOTTERY201406_INITIALIZE,
+	OPCODE_SV_LOTTERY201406_ALARM,			// 프로모션 정보
+	OPCODE_SV_LOTTERY201406_REWARD,			// 판수 달성으로 인한 응모권 획득
+	OPCODE_SV_LOTTERY201406_END,
+
+
+// #if defined(__PROMOTION_CHANCEAVATA__) (2011.07.28 찬스아바타프로모션)
+	OPCODE_SV_CHANCE_START,
+	OPCODE_SV_CHANCE_INITIALIZE,
+	OPCODE_SV_CHANCE_END,
+
+	//--하프프로모션
+	OPCODE_SV_HALF_START,
+	OPCODE_SV_HALF_ALARM,			// 프로모션 정보
+	OPCODE_SV_HALF_REWARD,			// 판수 달성으로 인한 응모권 획득
+	OPCODE_SV_HALF_END,
+
+	//--출석체크이벤트
+	OPCODE_SV_VISITE_START,
+	OPCODE_SV_VISITE_ALARM,			// 프로모션 정보
+	OPCODE_SV_VISITE_END,
+// #endif // (__PROMOTION_CHANCEAVATA__)
+
+	OPCODE_SV_PLAYCOUNT_START,	//플레이 판수에 따른 프로모션
+	OPCODE_SV_PLAYCOUNT_ALARM,
+	OPCODE_SV_PLAYCOUNT_REWARD,
+	OPCODE_SV_PLAYCOUNT_END,
+	// 복귀유저 이벤트
+	OPCODE_SV_RETENTION_REWARD,		// 복귀유저 이벤트 당첨 ( 판수 미달시 당첨 실패 )
+
+	//OPCODE_SV_PLAYCOUPON_START,		// 프로모션 정보
+	OPCODE_SV_PLAYCOUPON_ALRAM,	
+
+	OPCODE_SV_VIPJACKPOT_START,				// 로그인 후 유저에게 프로모션 정보 전달
+	OPCODE_SV_VIPJACKPOT_INITIALIZE,		// 로그인 후 유저에게 프로모션 정보 전달
+	OPCODE_SV_VIPJACKPOT_TIME_BEFORE_START,	// 잭팟 타임 시작전
+	OPCODE_SV_VIPJACKPOT_TIME_START,			// 잭팟 타임 시작
+	OPCODE_SV_VIPJACKPOT_TIME_BEFORE_END,		// 잭팟 타임 종료전
+	OPCODE_SV_VIPJACKPOT_TIME_END,				// 잭팟 타임 종료
+	OPCODE_SV_VIPJACKPOT_WAIT_PULL_JACKPOT,	// 대기 3분
+	//OPCODE_SV_VIPJACKPOT_MONEY,				// 누적 잭팟 머니 알림
+	OPCODE_SV_VIPJACKPOT_ALARM,				// 잭팟 타임 동안 방 입장 유저에게 알림
+	//OPCODE_SV_VIPJACKPOT_WIAT_JACKPOT_ROOM,	// 잭팟방 선정대기시간
+	OPCODE_SV_VIPJACKPOT_TOTAL_EVENT_SUCESS_ROOM_INFO,	// 잭팟 선정된 방의 정보 // OPCODE_SV_VIPJACKPOT_ROOM 이거에서 변경됨	
+	//OPCODE_SV_VIPJACKPOT_ENTER_JACKPOT_ROOM,	// 잭팟방 선정 	
+	OPCODE_SV_VIPJACKPOT_TOP_HALF_COUNT_MS,	// 서버별 후보방 정보 MS로 전달
+	OPCODE_SV_VIPJACKPOT_DELETE_ROOM_MS,		// 후보 방이 삭제됨
+	OPCODE_SV_VIPJACKPOT_END_HALF_MS,			// 해당 채널 하프,풀 카운팅 종료
+	OPCODE_SV_VIPJACKPOT_JACKPOT_ROUND_START,	// 잭팟방 시작
+	OPCODE_SV_VIPJACKPOT_END,
+	OPCODE_SV_VIPJACKPOT_TOTAL_JACKPOT_EVENT_INFO,	// 전체 게임의 잭팟 당첨 정보 OPCODE_SV_VIPJACKPOT_PRIZE 이거에서 변경됨
+	OPCODE_SV_VIPJACKPOT_BET_POINT,			// 베팅 때 마다 보내준다.	
+	OPCODE_SV_VIPJACKPOT_PRIZE, // 해당 방의 잭팟 정보 전송
+	OPCODE_SV_VIPJACKPOT_MONEY_INFO,//  MS-> GS 로 전송됨 (클라사용 안함)
+	OPCODE_SV_VIPJACKPOT_TOTAL_WAIT_ROOM_INFO,	// 해당 게임의 전체 대기방 정보 전송
+	OPCODE_SV_VIPJACKPOT_MS_BETPOINT_INFO,			// 게임서버 통합으로 타입별 관리한다. (A ~ D)
+	OPCODE_SV_VIPJACKPOT_BETPOINT_ALARM,		// 최소 방에 들기 위한 베팅 포인트( GS->CL )
+	OPCODE_SV_VISITE_SUB_MISSION_ALARM,			// 실물경품 프로모션 당첨 알람
+	OPCODE_SV_VISITE_SUB_MISSION_REWARD_GEG_INFO_ALARM,			// 실물경품 프로모션 당첨 주소 입력 알림
+	OPCODE_SV_LEAGUE_REWARD_MONEY,		//리그전 보상
+};
+
+enum
+{
+	REAL_REWARD_ITEM_NOTE_BOOK = 1,		//노트북
+	REAL_REWARD_ITEM_SHAVER,			//면도기
+	REAL_REWARD_ITEM_VACCUM,			//청소기
+	REAL_REWARD_ITEM_GIFT_CARD_10,		//상품권 10만
+	REAL_REWARD_ITEM_GIFT_CARD_100,		//상품권 100만
+	REAL_REWARD_ITEM_50TV,				// 50인치 TV
+	REAL_REWARD_ITEM_WINE_REFRIGERATOR,	// 와인 냉장고
+	REAL_REWARD_ITEM_MOBILE,			// 갤S7엣
+	REAL_REWARD_ITEM_GODL_BAR,			//골드바 10돈
+};
+
+
+//< CYS 100604
+namespace packet
+{
+
+typedef WORD OPCODE_ID;
+
+template
+	< 
+		class OPERAND_TYPE 
+	>
+class TSendPacket : public CCommMsg
+{
+public:
+	TSendPacket()
+	{
+	}
+	TSendPacket( OPCODE_ID idOpcode )
+	{
+		SetHeader( idOpcode );
+	}
+
+	void operator<<( const OPERAND_TYPE& rOperand )
+	{
+		PushData( _PVAR(  TypeVarious ), ( void *)&rOperand, sizeof( OPERAND_TYPE ) );
+	}
+
+	void operator>>( OPERAND_TYPE*& rpOperand )
+	{
+		size_t size = sizeof( OPERAND_TYPE );
+
+		TotalSize += size;
+
+		// 가용 공간 확보(리턴 되는 버퍼 포인터는 매번 달라질 수 있음)
+		pData = pBufUnit->Prepare(TotalSize);
+
+		PACKETHEADER* pHead = (PACKETHEADER*)pData;
+
+		void* ptr = pData + NowOffset;
+		//memcpy(ptr, src, size);
+
+		rpOperand = reinterpret_cast< OPERAND_TYPE* >( ptr );
+
+		NowOffset += size;
+		pHead->MsgLen += size;
+
+	}
+
+	bool GetOperand( char* lpdata, int size, OPERAND_TYPE*& rpOperand ) 
+	{
+		if ( !GetHeader( lpdata, size )) 
+		{
+			return false;
+		}
+
+		TakeData( _PVAR( rpOperand ), sizeof( OPERAND_TYPE ));		
+		return true;
+	}
+
+public:
+	void Set( OPERAND_TYPE& rOperand )
+	{
+		PushData( _PVAR( TypeVarious ), &rOperand, sizeof( OPERAND_TYPE ) );
+	}
+
+	void SetArgument( std::vector< OPERAND_TYPE >& rpArgument )
+	{
+		size_t size = rpArgument.size();
+		PushData( _PVAR(nTotalArgu), &size, sizeof(*nTotalArgu));
+
+		for ( size_t i = 0; i < size; ++i )
+		{
+			OPERAND_TYPE argument = rpArgument[ i ];
+			PushData( _PVAR( TypeVarious ), &argument, sizeof( OPERAND_TYPE ) );
+		}
+	}
+
+	void  GetArgument( char* lpdata, int size  )
+	{
+		if ( !GetHeader(lpdata, size)) return;
+		TakeData( _PVAR( nTotalArgu ), sizeof( *nTotalArgu ));	
+		TakeData( _PVAR( TypeVarious ), sizeof( OPERAND_TYPE ) * ( *nTotalArgu ) );				
+	}
+
+	void Get( char* lpdata, int size ) 
+	{
+		if ( !GetHeader(lpdata, size)) return;
+		TakeData( _PVAR( TypeVarious ), sizeof( OPERAND_TYPE ));				
+	}
+
+	OPERAND_TYPE* Various()
+	{
+		return TypeVarious;
+	}
+
+	int* TotalArg()
+	{
+		return nTotalArgu;
+	}
+
+protected:
+	OPERAND_TYPE* TypeVarious;
+	int*          nTotalArgu;
+};
+
+}
+//> CYS 100604
+
+
+
+namespace jackpot
+{
+	
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN
+///////////////////////////////////////////////////////////////////////////////////
+
+enum eGameType
+{
+	GAME_UNKNOWN = -1,
+	GAME_7POKER,
+	GAME_LOWBD,
+	GAME_NEWPOKER,
+	GAME_HIGHLOW,
+//#ifdef _NEXTUP_HOOLA_20110812 // 매직훌라
+	GAME_HOOLA,
+//#endi
+
+	GAME_ALL	
+};
+
+enum EJACTPOT_TYPE
+{
+	EJACKPOT_UNKNOWN = 0,
+	EJACKPOT_RT_S	 = 101,
+	EJACKPOT_RT_D	 = 102,
+	EJACKPOT_RT_H	 = 103,
+	EJACKPOT_RT_C	 = 104,
+
+	EJACKPOT_BSFLUSH = 105, // 백스트레이트 플러시.
+	EJACKPOT_SFULSH  = 106, // 스트레이트 플러쉬.
+	EJACKPOT_QUADS	 = 107, // 포카드
+
+	EJACKPOT_BPG	 = 108,	// 패턴 골프
+	EJACKPOT_BG		 = 109, // 바둑이 골프
+	EJACKPOT_BS		 = 110,	// 바둑이 세컨드
+
+	EJACKPOT_HOOLA   = 111,
+};
+
+enum
+{
+//#ifdef _NEXTUP_HOOLA_20110812 // 매직훌라
+	DEF_POKERGAME_NUM  = 5,   // 뉴포커 세븐포커 로우바둑이 하이로우 훌라 
+//#else
+//		DEF_POKERGAME_NUM  = 4,   // 뉴포커 세븐포커 로우바둑이 하이로우
+//#endif
+	DEF_MONEYRANGE_NUM = 13,
+
+	OFFER_JACKPOTMONEY = 1000,
+	NOTICE_JACKPOTMONEY
+};
+
+/*
+게임서버 -> 마스터서버
+OPCODE_G_TO_M_JP_GAMEFEE
+게임비 적립
+*/
+typedef struct
+{
+	INT64   llMoney;
+	short   sGameCode;
+	INT64	arllGamefee[ DEF_MONEYRANGE_NUM ]; // 입장제한머니별 게임비
+
+} JP_GAMEFEE_ALRAM;
+
+
+/*
+마스터서버 -> 게임서버
+OPCODE_M_TO_G_JP_ALLMONEY,  
+OPCODE_SV_JP_INFO
+잭팟 정보
+*/
+
+#define  LIMITMONEY_INT64_INT( x )	( ( int )  ( x / 1000000 ) )
+#define  LIMITMONEY_INT_INT64( x )	( ( INT64 )x * 1000000 ) 
+
+typedef struct
+{
+	short   sMoneyRangeCount;									// 현재 잭팟 카운트
+	bool	bQuadrillionTime[ DEF_MONEYRANGE_NUM ];				// 1000조 && 22:00 ~ 02:00 이벤트 잭팟타임
+	int		nLimitMoney[ DEF_MONEYRANGE_NUM ];					// 입장 제한머니 * 1,000,000
+	INT64	llJackPotMoney[ DEF_MONEYRANGE_NUM ];				// 잭팟 누적금액
+} JP_BASE;
+
+typedef struct  
+{
+	JP_BASE stJPBase[ DEF_POKERGAME_NUM ];
+
+} JP_MONEYINFO;
+
+/*
+마스터서버 -> 게임서버
+OPCODE_M_TO_G_JP_OFFER_MONEY   
+당첨금액
+*/
+typedef struct 
+{
+	char	szID[ ID_LEN ];
+	char	szNickName[ NICK_LEN ];	// 2011.01.27 Nickname 추가
+	short   sGameCode;
+	short   sServerCode;
+	INT64	llLimitMoney;
+	INT64	llBeforePMoney;
+	INT64	llBonusPMoney;
+	INT64	llAfterPMoney;
+	short	sRoomNum;
+	short	sJokbo;				   // 101:로티플(스페이드) 102:로티플(다이아) 103:로티플(하트) 104:로티플(클로버) 105:패턴골프
+	char	szJokbo[ 24 ];
+	short	sUseType;
+
+} JP_DATA;
+
+/*
+마스터서버 -> 게임서버
+OPCODE_M_TO_G_EVENT_ALRAM  
+찬스 타임 알림
+*/
+typedef struct
+{
+	bool	bJackPotEventTime;           // true : 찬스잭팟 가능 , false : 적용 않함
+	bool	bBroadcast;					 // ture : 모두 끝
+	short	sGameCode;		  	
+	INT64	llLimitMoney;	
+
+} JP_EVENT_ALRAM;
+
+/*
+게임서버 -> 클라이언트
+OPCODE_SV_JP_WINNER_ALRAM
+당첨 정보
+*/
+typedef struct
+{
+	short		  sToRoom;
+	JP_DATA  JData;
+
+} JP_WIN;
+
+/*
+OPCODE_SV_JP_EVENTTIME_ALLUSER		
+이벤트 잭팟타임 룸
+*/
+typedef struct
+{
+	bool	bJackPotEventTime;           // true : 찬스잭팟 가능 , false : 적용 않함
+	bool	bBroadcast;					 // ture : 모두 끝
+	short	sGameCode;		 
+	INT64	llLimitMoney;	   
+
+} JP_EVENTTIME_ALLUSER;
+
+/*
+OPCODE_SV_JP_EVENTTIME_ROOM
+이벤트 잭팟타임 룸
+*/
+typedef struct
+{
+	bool bJackPotEventTime; // 현재 방
+
+} JP_EVENTTIME_ROOM;
+
+/*
+OPCODE_SV_JP_EVENT_GIFTTIME		
+이벤트 3판 이상 낮은 족보에서도 지급 가능
+*/
+typedef struct
+{
+	bool bJackPotEventGiftTime;  // true : 다음판 가능, false : 취소
+	bool bCurrentRound;			 // 지급타임 바로 끝알림
+	int  nRoundCount;            // 현재 라운드수
+
+} JP_EVENT_GIFTTIME;
+
+///////////////////////////////////////////////////////////////////////////////////
+// END
+///////////////////////////////////////////////////////////////////////////////////
+
+}
+
+namespace promotion
+{
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_GTIME_START
+OPCODE_SV_GTIME_ALRAM
+OPCODE_SV_GTIME_END
+*/
+typedef struct _GTIME_ALRAM
+{
+	int   nTimeType;    // 0 : 기간, 1: 진행중
+	int   nGrade;       // 족보
+	int   nValue;      
+	char  szNickName[ NICK_LEN ];   // 유저 ID 
+	INT64 llGiftMoney;  
+
+} GTIME_ALRAM;
+///////////////////////////////////////////////////////////////////////////////////
+// END
+///////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN  경기장
+///////////////////////////////////////////////////////////////////////////////////
+typedef struct _CHAMP_ALRAM
+{
+	bool bComplete; // 완료
+
+	bool bExistID;  // 대상자
+} CHAMP_ALRAM;
+///////////////////////////////////////////////////////////////////////////////////
+// END
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN  PC방 활성화
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_PCROOMACT_START  PC방 활성화 시작
+OPCODE_SV_PCROOMACT_ALRAM  PC방 활성화 정보
+*/
+typedef struct _PCROOMACT_ALRAM
+{
+	bool bComplete;			// 응모권 획득 true : false
+
+	bool  bDormantUser;		// 휴면유저             처음 한번 30개 지급
+	int	  nPlayRoundCnt;	// 플레이카운트
+	int	  nCurApplyCnt;		// 이번에 획득한 응모권	일반 1, VIP룸 2
+	int	  nTodayApplyCnt;	// 오늘 총 응모권
+	int	  nTotalApplyCnt;	// 총 응모권
+	bool  bApplyLimit;		// 획득제한
+	
+} PCROOMACT_ALRAM;
+
+/* 
+OPCODE_SV_PCROOMACT_INITIALIZE  PC방 활성화 초기화
+*/
+typedef struct _PCROOMACT_INITIALIZE
+{
+	int	  nTodayApplyCnt;	// 오늘 총 응모권
+
+} PCROOMACT_INITIALIZE;
+
+/* 
+OPCODE_SV_PCROOMACT_END  PC방 활성화 끝
+*/
+typedef struct _PCROOMACT_END
+{
+	bool bEndPromotion;	
+
+} PCROOMACT_END;
+
+///////////////////////////////////////////////////////////////////////////////////
+// END  PC방 활성화
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN  PC방 포커 존
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_PCPZONE_START
+OPCODE_SV_PCPZONE_ALRAM
+*/
+typedef struct _PCPZONE_ALRAM
+{
+	bool   bComplete;			// 응모권 획득 true : false
+
+	int    nlimitTodaySS;       // 남은 시간 총 3시간중
+	bool   bLogOutProcess;		// 로그아웃 처리
+
+} PCPZONE_ALRAM;
+
+
+/* 
+OPCODE_SV_PCROOMZONE_INITIALIZE  PC방 포커존 초기화
+*/
+typedef struct _PCPZONE_INITIALIZE
+{
+	int		nlimitTodaySS;	// 남은 시간( 로그아웃 예약되도 초기화 메시지 오면 해제 )
+
+} PCPZONE_INITIALIZE;
+
+/* 
+OPCODE_SV_PCROOMZONE_END  PC방 활성화 끝
+*/
+typedef struct _PCPZONE_END
+{
+	bool bEndPromotion;	
+
+} PCPZONE_END;
+
+///////////////////////////////////////////////////////////////////////////////////
+// END   PC방 포커 존
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN  포커머니 배팅
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_BETTING_START  PC방 활성화 시작
+OPCODE_SV_BETTING_ALRAM  PC방 활성화 정보
+*/
+typedef struct _BETTING_ALRAM
+{
+	bool bComplete;			// 응모권 획득 true : false
+
+	bool  bDormantUser;		// 휴면유저             처음 한번 10개 지급
+	int	  nPlayRoundCnt;	// 플레이카운트
+	int	  nCurApplyCnt;		// 이번에 획득한 응모권	일반 1
+	int	  nTodayApplyCnt;	// 오늘 총 응모권
+	int	  nTotalApplyCnt;	// 총 응모권
+	bool  bApplyLimit;		// 획득제한
+	int   nTodayLoseCnt;	// 오늘 소멸예정 응모권 매수
+	// 하루 최대 5개
+	// 해당일 신규/휴면 유저의 경우 최대 15개
+	bool  bDormantLimit;
+
+} BETTING_ALRAM;
+
+/* 
+OPCODE_SV_BETTING_INITIALIZE  PC방 활성화 초기화
+*/
+typedef struct _BETTING_INITIALIZE
+{
+	int	  nTodayApplyCnt;	// 오늘 총 응모권
+	int	  nTotalApplyCnt;   // 총 응모권
+	int   nTodayLoseCnt;	// 오늘 소멸예정 응모권 매수
+	// 하루 최대 5개
+	// 해당일 신규/휴면 유저의 경우 최대 15개
+	bool  bDormantLimit;
+
+} BETTING_INITIALIZE;
+
+/* 
+OPCODE_SV_BETTING_END  PC방 활성화 끝
+*/
+typedef struct _BETTING_END
+{
+	bool bEndPromotion;	
+
+} BETTING_END;
+
+///////////////////////////////////////////////////////////////////////////////////
+// END  포커머니 배팅
+///////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// BEGIN 찬스아바타 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+
+typedef struct _CHANCEAVATA_ALRAM
+{
+	int nChanceAvataCount;
+} CHANCEAVATA_ALRAM;
+///////////////////////////////////////////////////////////////////////////////////
+// END 찬스아바타 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 리텐션 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_RETENTION_INITIALIZE
+OPCODE_SV_RETENTION_ALRAM
+OPCODE_SV_RETENTION_END
+*/
+
+typedef struct _RETENTION_ALRAM
+{
+	int nUserState;					// 0:신규, 1:휴면, -1:대상자 아님
+	bool bTrial;					// 미션 달성 ( 오늘 미션 달성 으로 사용)
+	bool bToday;					// 매일 10승 미션 10회 달성
+	bool bTotal;					// 누적 100승 미션 달성
+	int nTodayWinCnt;				// 매일 10승 승수
+	int nTotalWinCnt;				// 누적 100승 승수
+	int nTrialDayCnt;				// 매일 10승, 누적 100승 미션 진행 날짜
+	int nTrialPrizeState;			// 1승 미션 달성 (1:100억, 2:200억, 3:500억, 4:1000억, 5:10000억)
+	int nTodayPrizeState;			// 매일 10승 미션 달성 (1:100억, 2:200억, 3:500억, 4:700억, 5:1000억)
+	int nTotalPrizeState;			// 누적 100승 미션 달성 (1:도전99, 2:주사위1000, 3:주사위3000, 4:캐러비안10000)
+	////////////////////////////////////////////////////////////////////////////////
+	BYTE nMissionComplet[MAX_RETENTION_MISSION_DAY];	// 미션 달성  0:없음 , 1:미션 진행중 , 2: 미션 완료.
+
+} RETENTION_ALRAM;
+
+///////////////////////////////////////////////////////////////////////////////////
+// 리텐션 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 포커 신년 리텐션 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_NEWYEARRETENTION_INITIALIZE
+OPCODE_SV_NEWYEARRETENTION_ALRAM
+OPCODE_SV_NEWYEARRETENTION_END
+*/
+typedef struct _NEWYEARRETENTION_ALRAM
+{
+	bool bComplete;						// 응모권 획득 유무
+	int nTodayCnt;						// 일일 획득 응모권
+	int nMaxTodayCnt;					// 일일 획득 가능 응모권
+	int nTotalCnt;						// 누적 획득 응모권
+	int nTodayWinCntLowRoom;			// 1억~1000억방 판수
+	int nTodayWinCntHiRoom;				// 1조이상방 판수
+	int nMaxTodayWinCntLowRoom;			// 1억~1000억방 응모권 획득을 위한 판수(20)	// 금일 출첵
+	int nMaxTodayWinCntHiRoom;			// 1조이상방 응모권 획득을 위한 판수(10)		// 총 출첵일수
+} NEWYEARRETENTION_ALRAM;
+///////////////////////////////////////////////////////////////////////////////////
+// 포커 신년 리텐션 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+// 9월 유저케어 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_USERCARE_INITIALIZE
+OPCODE_SV_USERCARE_ALRAM
+OPCODE_SV_USERCARE_END
+*/
+typedef struct _USERCARE_ALRAM
+{
+	bool bComplete;						// 응모권 획득 유무
+
+	int nSilverPlayCnt;		// 실버 플래이 판수
+	int nSilverTodayPoint;	// 실버 금일 획득 코인
+	int nSilverTotalPoint;	// 실버 누적 획득 코인
+
+	int nGoldPlayCnt;			// 골드 플래이 판수
+	int nGoldTodayPoint;		// 골드 금일 획득 코인
+	int nGoldTotalPoint;		// 골드 누적 획득 코인
+
+	int nFirstPlayCnt;		// 첫번째 코인 획득에 필요한 판수
+	int nSecondPlayCnt;		// 두번째부터 코인 획득에 필요한 판수
+
+	//int nNormalPlayCnt;		// 
+	//int nNormalTodayPoint;	// 
+	//int nNormalTotalPoint;	//
+
+	int nPlayCnt;			// 이걸 기본으로 사용한다.
+} USERCARE_ALRAM;
+
+///////////////////////////////////////////////////////////////////////////////////
+// 10월 잃어버린 황금을 찾아서 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_GOLDCARD_INITIALIZE
+OPCODE_SV_GOLDCARD_ALRAM
+OPCODE_SV_GOLDCARD_APPEAR
+OPCODE_SV_GOLDCARD_END
+*/
+typedef struct _GOLDCARD_ALARM
+{
+	int nLowPlayCount;		// 하위 채널 완료 판수
+	int nGoldWinCount;		// 골드카드 획득판에서 승리한 횟수
+	int nMaxGoldWinCount;	// 최대 골드 카드 보상 횟수
+
+	int nHighPlayCount;		// 상위 채널 완료 판수
+	int nHighWinCount;		// 상위 채널 승리 판수
+} GOLDCARD_ALARM;
+
+// OPCODE_SV_GOLDCARD_REWARD
+typedef struct _GOLDCARD_REWARD
+{
+	bool	bLow;				// 하위방 미션 여부
+	INT64	nRewardMoney;		// 보상 금액
+} GOLDCARD_REWARD;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 성인화보 카드 프로모션 (only 7포커)
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_ADULTCARD_START
+OPCODE_SV_ADULTCARD_INITIALIZE
+OPCODE_SV_ADULTCARD_ALRAM
+OPCODE_SV_ADULTCARD_REWARD
+OPCODE_SV_ADULTCARD_END
+*/
+typedef struct _ADULTCARD_ALARM
+{
+	int iStep;				// 미션 단계 (1 ~ 4)
+	int iCard;				// 현재 단계에서 획득(예정) 카드
+
+	int nPlayCount;			// 완료 판수
+	int nWinCount;			// 승수
+	int nContWinCount;		// 연승
+
+	int nPlayCountMission;		// 2단계 진행 판수
+	int nWinCountMission;		// 3단계 승리 판수
+	int nJokboMission;			// 4단계 족보 (판도라 상자 프로모션에서 쓸모 없어짐)
+	int nContWinCountMission;	// 5단계 연승 횟수
+} ADULTCARD_ALARM;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 12월 003미션을 수행하라 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_MISSION003_START
+OPCODE_SV_MISSION003_INITIALIZE
+OPCODE_SV_MISSION003_ALRAM
+OPCODE_SV_MISSION003_END
+*/
+typedef struct _MISSION003_ALARM
+{
+	int nTotalPlayTimeSec;		// 총 게임 플레이 타임(초)
+	int nRoundPlayTImeSec;		// 이번판 플레이 타임(초)
+} MISSION003_ALARM;
+
+// OPCODE_SV_MISSION003_ALLIN
+typedef struct _MISSION003_ALLIN
+{
+	INT64 nMoney;			// 올인 지원금
+} MISSION003_ALLIN;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 2013.02월 포커탐험 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_POKERADVENTURE_START
+OPCODE_SV_POKERADVENTURE_INITIALIZE
+OPCODE_SV_POKERADVENTURE_ALRAM
+OPCODE_SV_POKERADVENTURE_END
+*/
+typedef struct _POKERADVENTURE_ALARM
+{
+	int nWinCount;		// 이번판 플레이 타임(초)
+} POKERADVENTURE_ALARM;
+
+// OPCODE_SV_POKERADVENTURE_REWARD
+typedef struct _POKERADVENTURE_REWARD
+{
+	INT64	nRewardMoney;		// 보상 금액
+} POKERADVENTURE_REWARD;
+
+// OPCODE_SV_POKERADVENTURE_ALLIN
+typedef struct _POKERADVENTURE_ALLIN
+{
+	INT64 nMoney;			// 올인 지원금
+} POKERADVENTURE_ALLIN;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 2013.04월 하프잭팟 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * OPCODE_SV_HALFJACKPOT_TIME_BEFORE_START,
+ * OPCODE_SV_HALFJACKPOT_TIME_START,
+ * OPCODE_SV_HALFJACKPOT_TIME_BEFORE_END,
+ * OPCODE_SV_HALFJACKPOT_TIME_END
+ * MS->GS->CL
+ */
+typedef struct _HALFJACKPOT_TIME
+{
+	UINT32	nRemainTimeSec;	// 시작/종료 까지 남은 시간(초)
+} HALFJACKPOT_TIME;
+
+enum
+{
+	CHANNEL_100000000 = 0,		// 1억방
+	CHANNEL_1000000000,
+	CHANNEL_10000000000,
+	CHANNEL_100000000000,
+	CHANNEL_1000000000000,
+	CHANNEL_3000000000000,		// 3조 방
+	CHANNEL_10000000000000,		// 10조 ~ 100조 방
+	HALFJACKPOT_CHANNEL_MAX,
+};
+
+/**
+ * OPCODE_SV_HALFJACKPOT_MONEY
+ * MS->GS->CL
+ */
+typedef struct _HALFJACKPOT_MONEY
+{
+	INT64	llJackpotMoney[ HALFJACKPOT_CHANNEL_MAX ];	// 채널별 누적 잭팟 머니(가라)
+} HALFJACKPOT_MONEY;
+
+/**
+ * OPCODE_SV_HALFJACKPOT_ALARM
+ * MS->GS->CL
+ */
+typedef struct _HALFJACKPOT_ALARM
+{
+	int iChannel;					// 채널 번호
+	UINT32	nTopHalfCount;			// 채널별 후보방에 들기 위한 하프 카운트
+	UINT32	nRemainTimeSec;			// 잭팟타임 종료까지 남은 시간(초)
+	UINT32  nHalfCount;				// 해당 방의 하프 카운트
+} HALFJACKPOT_ALARM;
+
+
+#define MAX_TOP_HALF_ROOM	(16)
+
+/**
+ * OPCODE_SV_HALFJACKPOT_ROOM
+ * MS->GS->CL
+ */
+typedef struct _HALFJACKPOT_ROOM
+{
+	int		iChannel;								// 채널
+	int		nCount;									// 방 갯수
+	INT64	llEnterLimitMoney[MAX_TOP_HALF_ROOM];	// 해당 채널의 잭팟방 번호
+	int		iRoomNum[MAX_TOP_HALF_ROOM];			// 해당 채널의 잭팟방 번호
+	int		iTenProRoomNum;							// 0이면 모든 잭팟방이 당첨금 획득, 아니면 이 방번호를 제외한 나머지 잭팟방은 당첨금의 10%만 지급
+	INT64	llJackpotMoney;							// 누적 금액(당첨시 실제로 지급될)
+} HALFJACKPOT_ROOM;
+
+/**
+ * OPCODE_SV_HALFJACKPOT_ENTER_JACKPOT_ROOM
+ * OPCODE_SV_HALFJACKPOT_JACKPOT_ROUND_START
+ * GS->CL
+ */
+typedef struct _HALFJACKPOT_ENTER_JACKPOT_ROOM
+{
+	INT64	llPrizeMoney;							// 당첨시 지급될 금액
+} HALFJACKPOT_ENTER_JACKPOT_ROOM;
+
+/**
+ * OPCODE_SV_HALFJACKPOT_PRIZE
+ * GS->MS->GS->CL
+ */
+typedef struct _HALFJACKPOT_PRIZE
+{
+	int		iChannel;				// 채널
+	int		iRoomNum;				// 당첨방
+	INT64	llEnterLimitMoney;		// 당첨방의 채널 금액
+	char	szID[ID_LEN];			// ID
+	char	szNick[NICK_LEN];		// 닉네임
+	INT64	llPrizeMoney;			// 보상 금액
+} HALFJACKPOT_PRIZE;
+
+
+/**
+ * OPCODE_SV_HALFJACKPOT_TOP_HALF_COUNT_MS
+ * GS->MS
+ */
+typedef struct _HALFJACKPOT_TOP_HALF_MS
+{
+	int iChannel;
+	int iRoomNum[MAX_TOP_HALF_ROOM];
+	int nHalfCount[MAX_TOP_HALF_ROOM];
+	INT64 llSeedMoney[MAX_TOP_HALF_ROOM];
+	INT64 llEnterLimitMoney[MAX_TOP_HALF_ROOM];
+} HALFJACKPOT_TOP_HALF_MS;
+
+/**
+ * OPCODE_SV_HALFJACKPOT_DELETE_ROOM_MS
+ * GS->MS
+ */
+typedef struct _HALFJACKPOT_DELETE_ROOM_MS
+{
+	int iChannel;
+	int iRoomNum;
+
+} HALFJACKPOT_DELETE_ROOM_MS;
+
+/**
+ * OPCODE_SV_HALFJACKPOT_END_HALF_MS
+ * GS->MS
+ */
+typedef struct _HALFJACKPOT_END_HALF_MS
+{
+	int iChannel;
+} HALFJACKPOT_END_HALF_MS;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 2013년 상시? 프로모션
+///////////////////////////////////////////////////////////////////////////////////
+
+/*
+OPCODE_SV_MISSION201304_START
+OPCODE_SV_MISSION201304_INITIALIZE
+OPCODE_SV_MISSION201304_ALRAM
+OPCODE_SV_MISSION201304_REWARD
+OPCODE_SV_MISSION201304_END
+*/
+typedef struct _MISSION201304_ALARM
+{
+	int iStep;				// 미션 단계 (1 ~ 4)
+	int iCard;				// 현재 단계에서 획득(예정) 카드
+
+	// 미션 진행 정보
+	int nPlayCount;			// 진행한 판수
+	int nWinCount;			// 달성한 승수
+	int nJokbo;				// 달성 족보 (고정 족보 미션일 경우 사용하지 않음)
+	int nAllinCount;		// 상대를 올인시킨 횟수
+	int nContWinCount;		// 연승 횟수 (not used yet)
+	int nPlayTimeSec;		// 플레이 시간  (not used yet)
+
+	// 당일 미션 조건
+	int nPlayCountMission;		// 진행 판수 조건
+	int nWinCountMission;		// 승리 판수 조건
+	int nJokboMission;			// 족보 미션 (고정 족보 미션일 경우 사용하지 않음)
+	int nAllinCountMission;		// 상대 올인 횟수 조건
+	int nContWinCountMission;	// 연승 횟수 조건
+	int nPlayTimeSecMission;	// 플레이 시간 조건
+
+	int nAttandanceCount;		// 출석 일수
+
+} MISSION201304_ALARM;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 응답하라 1996
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_BORNIN1996_START
+OPCODE_SV_BORNIN1996_INITIALIZE
+OPCODE_SV_BORNIN1996_ALRAM
+OPCODE_SV_BORNIN1996_END
+*/
+typedef struct _BORNIN1996_ALARM
+{
+	bool bIsEventTarget;			// 이벤트 대상 여부 (1996년생인지)
+	bool bTodayComplete;		// 오늘 달성 여부
+	int nAttandanceCount;		// 출석 일수
+
+} BORNIN1996_ALARM;
+
+
+///////////////////////////////////////////////////////////////////////////////////
+// 응답하라 1996
+///////////////////////////////////////////////////////////////////////////////////
+/*
+OPCODE_SV_LOTTERY201406_ALARM_START
+OPCODE_SV_LOTTERY201406_ALARM_INITIALIZE
+OPCODE_SV_LOTTERY201406_ALARM_ALRAM
+OPCODE_SV_LOTTERY201406_ALARM_END
+*/
+typedef struct _LOTTERY201406_ALARM
+{
+	int iStep;
+	int nGoal[LOTTERY201406_MISSION_STEP_MAX];
+	int nTicket[LOTTERY201406_MISSION_STEP_MAX];
+	int nPlayCount;
+	bool bDoubleReward;
+
+} LOTTERY201406_ALARM;
+
+//Harf프로모션
+typedef struct _HARF_PROMOTION_ALARM
+{
+	int nType;
+
+	int nGoldCount;
+	int nSilverCount;
+} HALF_PROMOTION_ALARM;
+
+
+//출석체크프로모션
+typedef struct _VISITE_PROMOTION_ALARM
+{
+	int nVisiteCount;			// 방문 수
+	int nWinCount;				// 현재 승수
+	int nTodayRewardCount;		// 오늘 획득 수
+	int nTotalRewardCount;		// 전체 획득 수
+	INT64 nRewardMoney;			// 당첨 금
+	int nRewardIndex;	//이미지처리용 당첨금 인덱스 번호이다.///////////////////////////2017.04.27 럭키휠 프로모션 작업///////////////////////////////
+} VISITE_PROMOTION_ALARM;
+
+
+typedef struct _VISITE_SUB_PROMOTION_ALARM
+{
+	bool bReward;
+	USHORT nRewardType;	// 상품번호 1 ~ 	
+} VISITE_SUB_PROMOTION_ALARM;
+
+typedef struct _VISITE_SUB_PROMOTION_REWARD_REG_INFO_ALARM
+{
+	bool bReward;	
+} VISITE_SUB_PROMOTION_REWARD_REG_INFO_ALARM;
+
+
+/*
+OPCODE_SV_PLAYCOUNT_START,	//플레이 판수에 따른 프로모션
+OPCODE_SV_PLAYCOUNT_ALARM,
+OPCODE_SV_PLAYCOUNT_REWARD,
+OPCODE_SV_PLAYCOUNT_END,
+*/
+typedef struct _MISSION201502_ALARM
+{
+	int iStep;				// 미션 단계 (1 ~ 6)	
+	int nPlayCount;			// 진행한 판수
+	bool bIsComplete;		// 오늘 미션을 모두 완료했는지 ? true(더이상 진행안함)/false(진행중..)
+} MISSION201502_ALARM;
+
+typedef struct _MISSION201502_REWARD
+{
+	int iStep;				// 미션 단계 (1 ~ 6)	
+	INT64 nReWardMoney;		// 당첨 금액
+	bool bIsComplete;		// 진행중인 프로모션인가? true/false
+} MISSION201502_REWARD;
+
+
+
+
+typedef struct _RETENTION_PROMOTION_REWARD
+{
+	BYTE	nPlayCount;			// 남은 횟수
+	BYTE	nDay;				// 오늘 날짜의 배열값
+	bool	bIsComplete;		// 미션 성공여부
+	INT64	nReWardMoney;		// 당첨 금액
+} RETENTION_PROMOTION_REWARD;
+
+
+typedef struct _PLAY_COUPON_ALRAM
+{
+	bool bPromotion;					// 프로모션 시작여부
+	int  nPlayCount;					// 오늘 판수
+	int  nCoupon;						// 응모권 수
+	
+} PLAY_COUPON_ALRAM;
+
+
+
+
+typedef struct _LEAGUE_REWARD_MONEY
+{	
+	INT64 nRewardMoney;		// 지난 리그 보상금
+} LEAGUE_REWARD_MONEY;
+
+///////////////////////////////////////////////////////////////////////////////////
+// 2016.01 VIP Jackpot 이벤트
+///////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * OPCODE_SV_HALFJACKPOT_TIME_BEFORE_START,
+ * OPCODE_SV_HALFJACKPOT_TIME_START,
+ * OPCODE_SV_HALFJACKPOT_TIME_BEFORE_END,
+ * OPCODE_SV_HALFJACKPOT_TIME_END
+ * MS->GS->CL
+ */
+
+
+enum VIPJACKPOT_STATE
+{
+	VIPJACKPOT_BEFORE_START,
+	VIPJACKPOT_PARTY,
+	VIPJACKPOT_BEFORE_END,
+	VIPJACKPOT_END,
+	VIPJACKPOT_WAIT_PULL_JACKPOT_ROOM,
+	VIPJACKPOT_JACKPOT_GAME_PLAYING,	// 잭팟 진행중
+	VIPJACKPOT_NONE,
+};
+
+enum
+{	
+	VIP_CHANNEL_500000000000,		// 5천억 방  VIP 이상부터 시작됨
+	VIP_CHANNEL_1000000000000,
+	VIP_CHANNEL_3000000000000,		// 3조 방
+	VIP_CHANNEL_10000000000000,		// 10조 ~ 100조 방
+	VIP_CHANNEL_30000000000000,		// 30조 ~ 50조 방
+	VIP_CHANNEL_50000000000000,		// 50조 ~ 
+	VIPJACKPOT_CHANNEL_MAX,
+};
+
+
+
+/**
+ * OPCODE_SV_HALFJACKPOT_MONEY
+ * MS->GS->CL
+ */
+
+typedef struct _VIPJACKPOT_TIME
+{
+	UINT32	nRemainTimeSec;			// 시작/종료 까지 남은 시간(초)
+	int		nTodayEventCount;		// 이벤트 횟수
+	int		nEventState;			// 이벤트 상태값
+} VIPJACKPOT_TIME;
+
+
+typedef struct _VIPJACKPOT_MONEY
+{
+	INT64	llJackpotMoney[ VIPJACKPOT_CHANNEL_MAX ];	// 채널별 누적 잭팟 머니(가라)
+} VIPJACKPOT_MONEY;
+
+/**
+ * OPCODE_SV_VIPJACKPOT_ALARM
+ * MS->GS->CL
+ */
+typedef struct _VIPJACKPOT_ALARM
+{
+	int iChannel;					// 채널 번호
+	UINT32	nTopHalfCount;			// 채널별 후보방에 들기 위한 하프 카운트
+	UINT32	nRemainTimeSec;			// 잭팟타임 종료까지 남은 시간(초)
+	UINT32  nHalfCount;				// 해당 방의 하프 카운트
+	int		nTodayEventCount;		// 이벤트 횟수
+	int		nEventState;			// 이벤트 상태값
+	bool	bJackpotRoom;			// 현재 잭팟룸 인지 	
+} VIPJACKPOT_ALARM;
+
+typedef struct _VIPJACKPOT_BET_POINT_ALARM
+{
+	int iChannel;					// 채널 번호
+	UINT32	nTopHalfCount;			// 채널별 후보방에 들기 위한 하프 카운트
+	int		nTodayEventCount;		// 이벤트 횟수		
+} VIPJACKPOT_BET_POINT_ALARM;
+
+
+
+#define MAX_TOP_VIP_JACKPOT_ROOM	(11)
+#define MAX_GAME_SU		(jackpot::eGameType::GAME_ALL)
+
+/**
+ * VIPJACKPOT_TOTAL_EVENT_SUCESS_ROOM_INFO
+ * MS->GS->CL
+ */
+typedef struct _VIPJACKPOT_ROOM
+{
+	int		iChannel;								// 채널
+	int		nCount;									// 방 갯수
+	INT64	llEnterLimitMoney[MAX_TOP_VIP_JACKPOT_ROOM];	// 해당 채널의 잭팟방 번호
+	int		iRoomNum[MAX_TOP_VIP_JACKPOT_ROOM];			// 해당 채널의 잭팟방 번호
+	//int		iSucessRoomNum[MAX_TOP_VIP_JACKPOT_ROOM];	// 이 방번호를 
+	int		iTenProRoomNum;							// 0이면 모든 잭팟방이 당첨금 획득, 아니면 이 방번호를 제외한 나머지 잭팟방은 당첨금의 10%만 지급
+	INT64	llJackpotMoney;							// 누적 금액(당첨시 실제로 지급될)
+	int		nGameCode;								// 게임 번호	
+} VIPJACKPOT_ROOM;
+
+typedef struct _VIPJACKPOT_EVENT_SUCESS_ROOM_INFO
+{   
+	int      nGameCode[MAX_TOP_VIP_JACKPOT_ROOM];        // 게임 번호
+	INT64    llEnterLimitMoney;
+	int      iRoomNum[MAX_TOP_VIP_JACKPOT_ROOM];         // 해당 채널의 잭팟방 번호   
+} VIPJACKPOT_EVENT_SUCESS_ROOM_INFO;
+
+typedef struct _VIPJACKPOT_TOTAL_EVENT_SUCESS_ROOM_INFO
+{   
+	VIPJACKPOT_EVENT_SUCESS_ROOM_INFO stEventSucessRoomInfo[MAX_GAME_SU][VIPJACKPOT_CHANNEL_MAX];
+} VIPJACKPOT_TOTAL_EVENT_SUCESS_ROOM_INFO;   // 전체 잭팟방 선정 정보
+
+/**
+ * OPCODE_SV_VIPJACKPOT_ENTER_JACKPOT_ROOM
+ * OPCODE_SV_VIPJACKPOT_JACKPOT_ROUND_START
+ * GS->CL
+ */
+typedef struct _VIPJACKPOT_ENTER_JACKPOT_ROOM
+{
+	INT64	llPrizeMoney;							// 당첨시 지급될 금액	
+} VIPJACKPOT_ENTER_JACKPOT_ROOM;
+
+/**
+ * OPCODE_SV_VIPJACKPOT_PRIZE
+ * GS->MS->GS->CL
+ */
+typedef struct _VIPJACKPOT_PRIZE
+{
+	int		iChannel;				// 채널
+	int		iRoomNum;				// 당첨방
+	INT64	llEnterLimitMoney;		// 당첨방의 채널 금액
+	char	szID[MAX_PLAYER][ID_LEN];			// ID
+	char	szNick[MAX_PLAYER][NICK_LEN];		// 닉네임
+	INT64	llPrizeMoney[MAX_PLAYER];			// 보상 금액
+	int		nGameCode;				// 게임별 코드번호
+} VIPJACKPOT_PRIZE;		// 사용 안할 예정
+
+
+typedef struct _VIPJACKPOT_PRIZE_LOG_INFO
+{	
+	int		iRoomNum;				// 당첨방
+	INT64	llEnterLimitMoney;		// 당첨방의 채널 금액
+	char	szID[ID_LEN];			// 닉네임
+	INT64	llPrizeMoney;			// 보상 금액
+	int		nGameCode;				// 게임별 코드번호
+} VIPJACKPOT_PRIZE_LOG_INFO;	// 잭팟 당첨자 정보
+
+typedef struct _VIPJACKPOT_TOTAL_JACKPOT_EVENT_INFO
+{
+	VIPJACKPOT_PRIZE_LOG_INFO stPrizeInfo[MAX_GAME_SU][VIPJACKPOT_CHANNEL_MAX][MAX_TOP_VIP_JACKPOT_ROOM];
+} VIPJACKPOT_TOTAL_JACKPOT_EVENT_INFO;		// 전체 당첨자 정보 전송
+
+typedef struct _VIPJACKPOT_TOTAL_WAIT_ROOM_INFO
+{
+	int stWaitRoomInfo[VIPJACKPOT_CHANNEL_MAX][MAX_TOP_VIP_JACKPOT_ROOM];
+	UINT32	nRemainTimeSec;			// 잭팟타임 종료까지 남은 시간(초)
+} VIPJACKPOT_TOTAL_WAIT_ROOM_INFO;		// 전체 당첨자 정보 전송
+
+
+/**
+ * OPCODE_SV_VIPJACKPOT_TOP_HALF_COUNT_MS
+ * GS->MS
+ */
+typedef struct _VIPJACKPOT_TOP_HALF_MS
+{
+	int nGameCode;
+	int iChannel;
+	int iRoomNum[MAX_TOP_VIP_JACKPOT_ROOM];
+	int nHalfCount[MAX_TOP_VIP_JACKPOT_ROOM];
+	INT64 llSeedMoney[MAX_TOP_VIP_JACKPOT_ROOM];
+	INT64 llEnterLimitMoney[MAX_TOP_VIP_JACKPOT_ROOM];
+} VIPJACKPOT_TOP_HALF_MS;
+
+/**
+ * OPCODE_SV_VIPJACKPOT_DELETE_ROOM_MS
+ * GS->MS
+ */
+typedef struct _VIPJACKPOT_DELETE_ROOM_MS
+{
+	int iChannel;
+	int iRoomNum;
+
+} VIPJACKPOT_DELETE_ROOM_MS;
+
+/**
+ * OPCODE_SV_VIPJACKPOT_END_HALF_MS
+ * GS->MS
+ */
+typedef struct _VIPJACKPOT_END_HALF_MS
+{
+	int iChannel;
+} VIPJACKPOT_END_HALF_MS;
+
+typedef struct _VIPJACKPOT_BET_POINT
+{
+	int nRoomJackpotPoint;	// 방의 총 베팅 포인트
+	int nNowBetPoint;		// 현재 베팅에서 획득한 점수
+	int nMinRoomListBetPoint;	// 대기방에 들어갈수 있는 베팅 포인트
+}VIPJACKPOT_BET_POINT;
+
+typedef struct _VIPJACKPOT_MONEY_INFO
+{	
+	INT64 nJackpotMoney[MAX_GAME_SU][VIPJACKPOT_CHANNEL_MAX];
+	INT64 nMaxJackpotMoney[MAX_GAME_SU][VIPJACKPOT_CHANNEL_MAX];
+}VIPJACKPOT_MONEY_INFO;
+
+
+
+/**
+ * OPCODE_SV_VIPJACKPOT_MS_BETPOINT_INFO
+ * GS->MS
+ */
+typedef struct _VIPJACKPOT_MS_BETPOINT_INFO
+{
+	int iChannelType;			// 채널 Type A ~ D (1-4)
+	int iRoomNum;				// 방번호
+	int nHalfCount;				// 베팅 포인트	
+	INT64 llEnterLimitMoney;
+	INT64 llSeedMoney;
+	int nGameCode;
+} VIPJACKPOT_MS_BETPOINT_INFO;
+
+
+
+}/* namespace promotion */
+
+
+
+

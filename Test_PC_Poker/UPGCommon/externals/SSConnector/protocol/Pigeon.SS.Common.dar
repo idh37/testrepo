@@ -1,0 +1,42 @@
+
+namespace SS
+{
+	namespace Common
+	{
+		class _SSHeader
+		{
+			uint32 seqKey;
+		};	
+		
+		class AliveCheck_Req
+		{		
+		};
+		
+		class AliveCheck_Res
+		{
+			string reqID;
+		};
+		
+		class ServiceCodeInfo_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+		};
+		
+		class ServiceCodeInfo_Res : SS::Common::_SSHeader
+		{
+			int32  errorCode;
+			ServiceCodeInfoList serviceCodeInfoList;			
+		};
+		
+		class CategoryInfoList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+		};
+		
+		class CategoryInfoList_Res : SS::Common::_SSHeader
+		{
+			int32  errorCode;
+			CategoryMasterInfoList categoryInfoList;			
+		};
+	};	
+};

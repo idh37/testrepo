@@ -1,0 +1,105 @@
+
+namespace SS
+{
+	namespace OfflineMessage
+	{
+		class Info_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			BoxPosition boxType;
+		};
+
+		class Info_Res : SS::Common::_SSHeader, MemoInfo
+		{
+			int32 errorCode;
+		};
+
+		class Send_Req : SS::Common::_SSHeader
+		{
+			string senderID;
+			vector<string> recverID;
+			string content;
+			bool saveToSendBox;
+		};		
+		
+		class Send_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			bool saveToSendBox;
+			list<SendMemoResult> results;
+		};
+		
+		class Recv : SS::Common::_SSHeader
+		{
+			Memo memo;
+		};	
+		
+		class List_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			BoxPosition boxType;
+		};
+		
+		class List_Res : SS::Common::_SSHeader
+		{
+			string reqId;
+			MemoList memoList;
+			int32  errorCode;
+		};
+
+		class Remove_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			list<string> nodeList;
+		};
+
+		class Remove_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			list<string> nodeList;
+			int32  errorCode;
+		};
+
+		class Move_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			list<string> nodeList;
+		};
+
+		class Move_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			list<string> nodeList;
+			int32  errorCode;
+		};
+		
+		class Read_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string node;
+		};
+		
+		class Read_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			Memo memo;
+			int32 errorCode;
+		};
+		
+		class Search_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			BoxPosition box;
+			SearchCategory category;
+			string keyword;			
+		};
+		
+		class Search_Res : SS::Common::_SSHeader
+		{
+			SearchCategory category;
+			string keyword;			
+			int32 errorCode;
+			MemoNodeList nodeList;
+		};
+	};
+};

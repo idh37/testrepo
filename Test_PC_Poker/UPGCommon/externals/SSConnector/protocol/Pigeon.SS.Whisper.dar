@@ -1,0 +1,20 @@
+
+
+namespace SS
+{
+	namespace Whisper
+	{
+		class Send : SS::Common::_SSHeader
+		{
+			string senderID;
+			string recverID;
+			string content;
+		};
+
+		class Recv : SS::Common::_SSHeader
+		{
+			string senderID;
+			string content;
+		};
+	};
+};

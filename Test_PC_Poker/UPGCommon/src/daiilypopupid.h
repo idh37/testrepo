@@ -1,0 +1,8 @@
+#pragma once
+
+//Scene ID
+#define ID_DAILYPOPUP					0x0000002A
+
+//Scene Object ID
+#define ID_DAILYPOPUP_CLOSEBTN			0x00000000
+#define ID_DAILYPOPUP_CHECK_SHOWDAILY	0x00000001

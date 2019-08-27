@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UPG7Poker", "src\UPG7Poker.vcproj", "{CBA5F43C-469B-4297-81CF-3E1184E668AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC51AE0E-6D15-4174-A589-CEB82EB54A25} = {EC51AE0E-6D15-4174-A589-CEB82EB54A25}
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E} = {5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UPGPlatform", "..\UPGPlatform\src\UPGPlatform.vcproj", "{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UPGCommon", "..\UPGCommon\src\UPGCommon.vcproj", "{EC51AE0E-6D15-4174-A589-CEB82EB54A25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E} = {5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA5F43C-469B-4297-81CF-3E1184E668AD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CBA5F43C-469B-4297-81CF-3E1184E668AD}.Debug|Win32.Build.0 = Debug|Win32
+		{CBA5F43C-469B-4297-81CF-3E1184E668AD}.Release|Win32.ActiveCfg = Release|Win32
+		{CBA5F43C-469B-4297-81CF-3E1184E668AD}.Release|Win32.Build.0 = Release|Win32
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}.Debug|Win32.Build.0 = Debug|Win32
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}.Release|Win32.ActiveCfg = Release|Win32
+		{5D0F7ED0-B110-431D-AB74-CC5F16E0CB5E}.Release|Win32.Build.0 = Release|Win32
+		{EC51AE0E-6D15-4174-A589-CEB82EB54A25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC51AE0E-6D15-4174-A589-CEB82EB54A25}.Debug|Win32.Build.0 = Debug|Win32
+		{EC51AE0E-6D15-4174-A589-CEB82EB54A25}.Release|Win32.ActiveCfg = Release|Win32
+		{EC51AE0E-6D15-4174-A589-CEB82EB54A25}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,43 @@
+
+
+namespace SS
+{
+	namespace Presence
+	{
+		class Update_Dlv : SS::Common::_SSHeader
+		{
+			PresenceInfo info;
+		};
+
+		class Recv_Noti : SS::Common::_SSHeader
+		{
+			PresenceInfo info;
+		};
+		
+		class UserProfile_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			UserIDList idList;
+		};
+		
+		class UserProfile_Res : SS::Common::_SSHeader
+		{
+			UserProfileList profileList;
+			int32 errorCode;
+		};
+		
+		class UserPresence_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string serviceCode;
+			UserIDList idList;
+		};
+		
+		class UserPresence_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string serviceCode;
+			PresenceInfoResultList resultList;			
+		};
+	};
+};

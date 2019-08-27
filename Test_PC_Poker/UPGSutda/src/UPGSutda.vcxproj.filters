@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{89141851-3d81-4734-a8d8-cffff1825d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{8a643dae-d564-4987-b8df-c4d7f2e8c825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View">
+      <UniqueIdentifier>{7899cdbf-d910-4114-a833-cfe6efb77609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Animation">
+      <UniqueIdentifier>{b620221e-2241-46fb-913c-5a9e99564e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Card">
+      <UniqueIdentifier>{79d92dec-cd65-4c03-a90c-17d56a5a105d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\BackGround">
+      <UniqueIdentifier>{a2681c5c-4c0a-47d2-9982-81344785582c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Draw">
+      <UniqueIdentifier>{0060b638-a65f-475c-9852-dbacf65ba827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\AskRematch">
+      <UniqueIdentifier>{d0f5c5b2-ed83-426a-913f-ff699a89e80e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Chip">
+      <UniqueIdentifier>{c44c1fa4-3b6a-4612-aaed-afd2f9b8eead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Manager">
+      <UniqueIdentifier>{1f697253-8fba-46b8-a6f2-65c348c20e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module">
+      <UniqueIdentifier>{751bf38f-56b8-43d4-a218-4183491e0929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\SutdaGameSound">
+      <UniqueIdentifier>{f51dd9cc-7fdb-4b72-bbb3-28f25ad95bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{e9c3c3b8-c549-4a67-85c6-1bc7bb1ddad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="오리지널 섯다">
+      <UniqueIdentifier>{8b3075d2-3289-4b37-af6d-5aa586a3307a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGSutda.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcessSutda.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSutda.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameViewSutda.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSutda.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Radiophonograph.cpp">
+      <Filter>Game\View</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprClassList.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprListMan.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementEx.cpp">
+      <Filter>Game\View\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="MyCard.cpp">
+      <Filter>Game\View\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGroundSutda.cpp">
+      <Filter>Game\View\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="JokboTable.cpp">
+      <Filter>Game\View\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDraw_SD.cpp">
+      <Filter>Game\View\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDrawManager_SD.cpp">
+      <Filter>Game\View\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="AskRematch.cpp">
+      <Filter>Game\View\AskRematch</Filter>
+    </ClCompile>
+    <ClCompile Include="Chip.cpp">
+      <Filter>Game\View\Chip</Filter>
+    </ClCompile>
+    <ClCompile Include="ChipBoard.cpp">
+      <Filter>Game\View\Chip</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBetSetUpWnd.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectCardSutda.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundRes.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteList.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIInfoDataSutda.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SutdaGameSound.cpp">
+      <Filter>Game\Module\SutdaGameSound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SutdaRule.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SutdaRuleMan.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationQue.cpp">
+      <Filter>오리지널 섯다</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGSutda.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="UPGSutda_D.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGSutda.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalGame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGSutda.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcessSutda.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSutda.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameViewSutda.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSutda.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Radiophonograph.h">
+      <Filter>Game\View</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationDefine.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprClassList.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprListMan.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementEx.h">
+      <Filter>Game\View\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="MyCard.h">
+      <Filter>Game\View\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGroundSutda.h">
+      <Filter>Game\View\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="JokboTable.h">
+      <Filter>Game\View\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDraw_SD.h">
+      <Filter>Game\View\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDrawManager_SD.h">
+      <Filter>Game\View\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="AskRematch.h">
+      <Filter>Game\View\AskRematch</Filter>
+    </ClInclude>
+    <ClInclude Include="Chip.h">
+      <Filter>Game\View\Chip</Filter>
+    </ClInclude>
+    <ClInclude Include="ChipBoard.h">
+      <Filter>Game\View\Chip</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBetSetUpWnd.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCardSutda.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundRes.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteList.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInfoDataSutda.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SutdaGameSound.h">
+      <Filter>Game\Module\SutdaGameSound</Filter>
+    </ClInclude>
+    <ClInclude Include="SutdaGameSoundDefine.h">
+      <Filter>Game\Module\SutdaGameSound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\Define_Sutda.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SutdaRule.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SutdaRuleMan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationQue.h">
+      <Filter>오리지널 섯다</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\SD.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\SD_Chat.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\SP.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\SP_Chat.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGSutda.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

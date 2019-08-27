@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Player">
+      <UniqueIdentifier>{9d257466-8f6f-4c52-8116-f33aafb4a3d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\SevenPoker">
+      <UniqueIdentifier>{6605edd1-c014-468e-99d2-83947298f6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Dialog">
+      <UniqueIdentifier>{8484f9fe-f101-45b9-9cfa-3926ec9004a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Dialog\Admin">
+      <UniqueIdentifier>{9841f73f-4cb9-4e10-b99e-4581f8230f03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\SprDlg">
+      <UniqueIdentifier>{2390bbba-f3ba-435b-b017-baf711b118b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\AniListMan">
+      <UniqueIdentifier>{a2b32623-34c4-4bb9-a4da-aee9a110876b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameProcess">
+      <UniqueIdentifier>{8104655c-7f3c-418a-adb5-cf0883ac8424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\AutoBet">
+      <UniqueIdentifier>{d565f10b-c021-4827-a9fa-ae8dbec019f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Module">
+      <UniqueIdentifier>{75d5dfbf-b849-482a-9482-9d47f4dc2590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Module\게임 도우미">
+      <UniqueIdentifier>{016bc943-546b-4c5a-97d4-084108bba5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Etc">
+      <UniqueIdentifier>{d5d5a486-8c28-4c2d-a006-a6de2aba2129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonFiles">
+      <UniqueIdentifier>{f8c74335-caf8-4629-8c7f-92712a2f656b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6cc5e85e-c75d-4164-aeb1-ada8a04558d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameNewPoker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverResult.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRes.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageDef.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultFocus.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectCardNewPoker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGNewPoker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\MyCard.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Player_NP.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SevenPoker\BombCard.cpp">
+      <Filter>소스 파일\SevenPoker</Filter>
+    </ClCompile>
+    <ClCompile Include="SevenPoker\MovementEx.cpp">
+      <Filter>소스 파일\SevenPoker</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog\Admin\AdminControlMan.cpp">
+      <Filter>소스 파일\Dialog\Admin</Filter>
+    </ClCompile>
+    <ClCompile Include="SprDlg\SprDlgBase.cpp">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="SprDlg\SprDlgList.cpp">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="SprDlg\SprDlgObjectMan.cpp">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="AniListMan\AniFileListMan.cpp">
+      <Filter>소스 파일\AniListMan</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcess\GameProcess_NewPoker.cpp">
+      <Filter>소스 파일\GameProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBet\AutoBetSettingDlg.cpp">
+      <Filter>소스 파일\AutoBet</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBet\AutoBetSetUpWnd.cpp">
+      <Filter>소스 파일\AutoBet</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\GameHelper\JokboProbabilityNewPoker.cpp">
+      <Filter>소스 파일\Module\게임 도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="Module\GameHelper\OtherUserJokboCheckManNewPoker.cpp">
+      <Filter>소스 파일\Module\게임 도우미</Filter>
+    </ClCompile>
+    <ClCompile Include="Etc\CurveControl.cpp">
+      <Filter>소스 파일\Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>CommonFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameNewPoker.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverResult.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRes.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameView.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalGame.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageDef.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultFocus.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCardNewPoker.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\MyCard.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player_NP.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SevenPoker\BombCard.h">
+      <Filter>소스 파일\SevenPoker</Filter>
+    </ClInclude>
+    <ClInclude Include="SevenPoker\MovementEx.h">
+      <Filter>소스 파일\SevenPoker</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog\Admin\AdminControlMan.h">
+      <Filter>소스 파일\Dialog\Admin</Filter>
+    </ClInclude>
+    <ClInclude Include="SprDlg\SprDlgBase.h">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="SprDlg\SprDlgList.h">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="SprDlg\SprDlgObjectMan.h">
+      <Filter>소스 파일\SprDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="AniListMan\AniFileListMan.h">
+      <Filter>소스 파일\AniListMan</Filter>
+    </ClInclude>
+    <ClInclude Include="AniListMan\ObjectDef.h">
+      <Filter>소스 파일\AniListMan</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess\GameProcess_NewPoker.h">
+      <Filter>소스 파일\GameProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBet\AutoBetSettingDlg.h">
+      <Filter>소스 파일\AutoBet</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBet\AutoBetSetUpWnd.h">
+      <Filter>소스 파일\AutoBet</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\GameHelper\JokboProbabilityNewPoker.h">
+      <Filter>소스 파일\Module\게임 도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\GameHelper\OtherUserJokboCheckManNewPoker.h">
+      <Filter>소스 파일\Module\게임 도우미</Filter>
+    </ClInclude>
+    <ClInclude Include="Etc\CurveControl.h">
+      <Filter>소스 파일\Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Etc\spline.h">
+      <Filter>소스 파일\Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStructDefine.h">
+      <Filter>CommonFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGNewPoker.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGNewPoker.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGNewPoker.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ImageLevel_New.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\NP.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\NP_Chat.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGNewPoker.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

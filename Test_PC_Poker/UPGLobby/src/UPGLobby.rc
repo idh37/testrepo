@@ -1,0 +1,268 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\UPGLobby.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""l.KOR\\afxres.rc""      // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "UPGLobby.dll"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "UPGLobby.dll"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_GAMEMODE_TOOLTIP DIALOG  0, 0, 187, 94
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE
+FONT 10, "System"
+BEGIN
+END
+
+IDD_DIALOG_ROOMINFO DIALOGEX 0, 0, 193, 211
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "취소",IDCANCEL,71,167,50,14
+    PUSHBUTTON      "참여하기",IDC_JOINROOM,27,138,50,14
+    PUSHBUTTON      "관전하기",IDC_OBSERVEROOM,107,138,50,14
+END
+
+IDD_DIALOG_TOURNAMENTINFO DIALOGEX 0, 0, 199, 284
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE
+FONT 8, "돋움", 400, 0, 0x81
+BEGIN
+    PUSHBUTTON      "취소",IDCANCEL,106,263,50,14
+    PUSHBUTTON      "Tab1",IDC_BUTTON_TAB1,12,59,42,14
+    PUSHBUTTON      "Tab2",IDC_BUTTON_TAB2,56,59,42,14
+    PUSHBUTTON      "Tab3",IDC_BUTTON_TAB3,101,59,42,14
+    PUSHBUTTON      "Tab4",IDC_BUTTON_TAB4,146,59,42,14
+    DEFPUSHBUTTON   "확인",ID_TOURNAMENTOK,49,263,50,14
+    PUSHBUTTON      "<",IDC_BUTTON_LEFTALL,11,131,35,13
+    PUSHBUTTON      "<<",IDC_BUTTON_LEFT,46,131,35,13
+    PUSHBUTTON      "내 순위",IDC_BUTTON_MYRANK,82,131,35,13
+    PUSHBUTTON      ">>",IDC_BUTTON_RIGHT,118,131,35,13
+    PUSHBUTTON      ">",IDC_BUTTON_RIGHTALL,154,131,35,13
+    PUSHBUTTON      "X",IDC_BUTTON_TINFO_X,177,12,10,13
+    PUSHBUTTON      "관전1",IDC_BUTTON_WATCH1,15,184,21,13
+    PUSHBUTTON      "관전2",IDC_BUTTON_WATCH2,39,184,21,13
+    PUSHBUTTON      "관전3",IDC_BUTTON_WATCH3,62,184,21,13
+    PUSHBUTTON      "관전4",IDC_BUTTON_WATCH4,86,184,21,13
+    PUSHBUTTON      "관전5",IDC_BUTTON_WATCH5,110,184,21,13
+    PUSHBUTTON      "관전6",IDC_BUTTON_WATCH6,15,202,21,13
+    PUSHBUTTON      "관전7",IDC_BUTTON_WATCH7,39,202,21,13
+    PUSHBUTTON      "관전8",IDC_BUTTON_WATCH8,62,202,21,13
+    PUSHBUTTON      "관전9",IDC_BUTTON_WATCH9,86,202,21,13
+    PUSHBUTTON      "관전10",IDC_BUTTON_WATCH10,110,202,21,13
+    PUSHBUTTON      "1",IDC_BUTTON_MULTI1,162,180,13,17
+    PUSHBUTTON      "2",IDC_BUTTON_MULTI2,162,198,13,17
+    PUSHBUTTON      "3",IDC_BUTTON_MULTI3,162,215,13,17
+END
+
+IDD_DIALOG_CAPTCHA DIALOGEX 0, 0, 154, 172
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE
+FONT 10, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "",IDCANCEL,97,151,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_GAMEMODE_TOOLTIP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_DIALOG_ROOMINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 204
+    END
+
+    IDD_DIALOG_TOURNAMENTINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 277
+    END
+
+    IDD_DIALOG_CAPTCHA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 147
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_ROOMMENU MENU 
+BEGIN
+    POPUP "방리스트 메뉴", MENUBARBREAK
+    BEGIN
+        MENUITEM "참여하기",                        IDC_BUTTON_ENTERGAME
+        MENUITEM "방 만들기",                       IDC_BUTTON_CREATEROOM
+    END
+    POPUP "관리자_게임방정보"
+    BEGIN
+        MENUITEM "참여자 정보",                      IDC_MENU_ADM_ROOMINFO
+        MENUITEM "방이름 변경하기",                    IDC_MENU_ADM_RENAMEROOM
+        MENUITEM "방삭제하기",                       IDC_MENU_ADM_ROOMDEL
+    END
+END
+
+IDR_USERMENU MENU 
+BEGIN
+    POPUP "유저리스트메뉴"
+    BEGIN
+        MENUITEM "프로필 보기",                      IDC_BUTTON_VIEWPROFILE
+    END
+    POPUP "유저리스트메뉴(관리자)"
+    BEGIN
+        MENUITEM "프로필 보기",                      IDC_BUTTON_VIEWPROFILE
+        MENUITEM "아이디 복사하기",                    IDC_BUTTON_COPY_ID
+    END
+    POPUP "유저리스트메뉴(네이트)"
+    BEGIN
+        MENUITEM "프로필 보기",                      IDC_BUTTON_VIEWPROFILE
+    END
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\UPGLobby.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "l.KOR\afxres.rc"      // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

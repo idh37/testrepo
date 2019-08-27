@@ -1,0 +1,29 @@
+
+
+namespace SS
+{
+	namespace Option
+	{
+		class SetOption_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			ReceiveOptionList optionList;
+		};
+		
+		class SetOption_Res  : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+		};
+		
+		class GetOption_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+		};
+		
+		class GetOption_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			ReceiveOptionList optionList;
+		};
+	};
+};

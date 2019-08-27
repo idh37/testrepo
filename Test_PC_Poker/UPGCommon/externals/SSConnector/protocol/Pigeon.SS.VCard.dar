@@ -1,0 +1,94 @@
+
+namespace SS
+{
+	namespace VCARD
+	{
+		class GetVCard_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string key;
+			string vcardName;
+		};
+		
+		class GetVCard_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string key;
+			string vcardName;			
+			VCard vcard;
+		};
+		
+		class SetVCard_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string key;
+			string vcardName;
+			VCard vcard;
+		};		
+		
+		class SetVCard_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;			
+			string key;
+			string vcardName;
+			VCard vcard;
+		};
+		
+		class GetVCardList_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string key;		
+		};
+		
+		class GetVCardList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;	
+			string key;		
+			VCardList vcardList;
+		};
+		
+		class GetVCard2_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string key;
+			string targetJID;
+		};
+		
+		class GetVCard2_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string key;
+			string targetJID;			
+			VCard2List vcardList;
+		};
+		
+		class SetVCard2_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			VCard2 vcard;
+		};		
+		
+		class SetVCard2_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;			
+			VCard2 vcard;
+		};
+		
+		class GetVCard2ServiceCode_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string key;
+			string targetJID;
+			string serviceCode;
+		};
+		
+		class GetVCard2ServiceCode_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string key;
+			string targetJID;	
+			string serviceCode;		
+			VCard2List vcardList;			
+		};	
+	};
+};

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>nmutil</ProjectName>
+    <ProjectGuid>{7A5AF20B-6DC2-49D2-910C-BECCC8FA1318}</ProjectGuid>
+    <RootNamespace>NMUtil</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)../library\</OutDir>
+    <IntDir>../BuildOuput/$(ProjectName)/$(Configuration)/\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)../library\</OutDir>
+    <IntDir>../BuildOuput/$(ProjectName)/$(Configuration)/\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);../ExternalLib/include/BadFilter;../ExternalLib/include/RunParam;../ExternalLib/include/SSOWeb;../include/nmutil;../ExternalLib/include;../ExternalLib/BugSplat/inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;NMUTIL_EXPORTS;BADFILTER_IMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;ipHlpapi.lib;bugsplat.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_d.dll</OutputFile>
+      <AdditionalLibraryDirectories>../ExternalLib/library/BadFilter;../ExternalLib/library/RunParam;../ExternalLib/library/SSOWeb;../ExternalLib/BugSplat/lib;../library;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile />
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../ExternalLib/include/BadFilter;../ExternalLib/include/RunParam;../ExternalLib/include/SSOWeb;../include/nmutil;../ExternalLib/include;../ExternalLib/BugSplat/inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;NMUTIL_EXPORTS;BADFILTER_IMPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;ipHlpapi.lib;bugsplat.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../ExternalLib/library/BadFilter;../ExternalLib/library/RunParam;../ExternalLib/library/SSOWeb;../ExternalLib/BugSplat/lib;../library;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile />
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="NMUtil.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UtilLib\BadFilter.cpp" />
+    <ClCompile Include="UtilLib\BugSplatWrapper.cpp" />
+    <ClCompile Include="UtilLib\DataManager.cpp" />
+    <ClCompile Include="UtilLib\Delegate\Delegate.cpp" />
+    <ClCompile Include="UtilLib\Delegate\Functor.cpp" />
+    <ClCompile Include="UtilLib\Delegate\MessageManager.cpp" />
+    <ClCompile Include="UtilLib\DesktopIconMan.cpp" />
+    <ClCompile Include="UtilLib\DesktopIconManEx.cpp" />
+    <ClCompile Include="UtilLib\DialogCtrlReposition.cpp" />
+    <ClCompile Include="UtilLib\FontBag.cpp" />
+    <ClCompile Include="UtilLib\GameDirectGo.cpp" />
+    <ClCompile Include="UtilLib\GFUtil.cpp" />
+    <ClCompile Include="UtilLib\IPAdapterInfo.cpp" />
+    <ClCompile Include="UtilLib\MacRetriever.cpp" />
+    <ClCompile Include="UtilLib\NMContego\ContegoThread.cpp" />
+    <ClCompile Include="UtilLib\NMContego\NMContegoManager.cpp" />
+    <ClCompile Include="UtilLib\NMRunParam.cpp" />
+    <ClCompile Include="UtilLib\NoChat.cpp" />
+    <ClCompile Include="UtilLib\PlayTimeWarning.cpp" />
+    <ClCompile Include="UtilLib\ShellMan.cpp" />
+    <ClCompile Include="UtilLib\ShortCut.cpp" />
+    <ClCompile Include="UtilLib\SSOWeb.cpp" />
+    <ClCompile Include="UtilLib\StatisticsManager.cpp" />
+    <ClCompile Include="UtilLib\StringBase.cpp" />
+    <ClCompile Include="UtilLib\StringManager.cpp" />
+    <ClCompile Include="UtilLib\StringUtil.cpp" />
+    <ClCompile Include="UtilLib\SyncFPS.cpp" />
+    <ClCompile Include="UtilLib\SysUtil.cpp" />
+    <ClCompile Include="UtilLib\ThreadLock.cpp" />
+    <ClCompile Include="UtilLib\WebControl\GameTest.cpp" />
+    <ClCompile Include="UtilLib\WebControl\webbro.cpp" />
+    <ClCompile Include="UtilLib\WebControl\WebCtrl.cpp" />
+    <ClCompile Include="UtilLib\WebControl\WebCtrl4New.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\UPGCommon\UPGCommon.sln" />
+    <None Include="NMUtil.def" />
+    <None Include="res\NMUtil.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\nmutil\BadFilter.h" />
+    <ClInclude Include="..\Include\nmutil\BugSplat\BugSplatWrapper.h" />
+    <ClInclude Include="..\Include\nmutil\DataManager.h" />
+    <ClInclude Include="..\Include\nmutil\Delegate\Delegate.h" />
+    <ClInclude Include="..\Include\nmutil\Delegate\Functor.h" />
+    <ClInclude Include="..\Include\nmutil\Delegate\MessageManager.h" />
+    <ClInclude Include="..\Include\nmutil\DesktopIconMan.h" />
+    <ClInclude Include="..\Include\nmutil\DesktopIconManEx.h" />
+    <ClInclude Include="..\Include\nmutil\DialogCtrlReposition.h" />
+    <ClInclude Include="..\Include\nmutil\FontBag.h" />
+    <ClInclude Include="..\Include\nmutil\GameDirectGo.h" />
+    <ClInclude Include="..\Include\nmutil\GFUtil.h" />
+    <ClInclude Include="..\Include\nmutil\IPAdapterInfo.h" />
+    <ClInclude Include="..\Include\nmutil\MacRetriever.h" />
+    <ClInclude Include="..\Include\nmutil\NMContego\NMContegoCtrl.h" />
+    <ClInclude Include="..\Include\nmutil\NMContego\NMContegoManager.h" />
+    <ClInclude Include="..\Include\nmutil\NMContego\VirtualizerSDK.h" />
+    <ClInclude Include="..\Include\nmutil\NMRunParam.h" />
+    <ClInclude Include="..\Include\nmutil\NoChat.h" />
+    <ClInclude Include="..\Include\nmutil\PlayTimeWarning.h" />
+    <ClInclude Include="..\Include\nmutil\ShellMan.h" />
+    <ClInclude Include="..\Include\nmutil\ShortCut.h" />
+    <ClInclude Include="..\Include\nmutil\SSOWeb.h" />
+    <ClInclude Include="..\Include\nmutil\StatisticsManager.h" />
+    <ClInclude Include="..\Include\nmutil\StringBase.h" />
+    <ClInclude Include="..\Include\nmutil\StringManager.h" />
+    <ClInclude Include="..\Include\nmutil\StringUtil.h" />
+    <ClInclude Include="..\Include\nmutil\SyncFPS.h" />
+    <ClInclude Include="..\Include\nmutil\SysUtil.h" />
+    <ClInclude Include="..\Include\nmutil\ThreadLock.h" />
+    <ClInclude Include="..\Include\nmutil\ThreadQueue.h" />
+    <ClInclude Include="..\Include\nmutil\UtilDefine.h" />
+    <ClInclude Include="..\Include\nmutil\UtilInclude.h" />
+    <ClInclude Include="..\Include\nmutil\WebControl\GameTest.h" />
+    <ClInclude Include="..\Include\nmutil\WebControl\webbro.h" />
+    <ClInclude Include="..\Include\nmutil\WebControl\WebCtrl.h" />
+    <ClInclude Include="..\Include\nmutil\WebControl\WebCtrl4New.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="UtilLib\NMContego\ContegoThread.h" />
+    <ClInclude Include="UtilLib\NMContego\NMContegoErrorCodes.h" />
+    <ClInclude Include="UtilLib\NMContego\NMContegoExtErrorCodes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMUtil.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

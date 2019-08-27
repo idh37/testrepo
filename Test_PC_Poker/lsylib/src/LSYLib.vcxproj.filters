@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Functor">
+      <UniqueIdentifier>{4b6455f7-9dbb-4dd5-bab1-a0de58f82755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ThreadLock">
+      <UniqueIdentifier>{36f2fbbf-6009-48bb-8272-475ddad7ed4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ResourceMan">
+      <UniqueIdentifier>{c5c1d8d8-087b-4ad8-9ffd-8136e5f29ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object">
+      <UniqueIdentifier>{92516d17-3bc4-4d34-a4da-e0435ceb7c5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Button">
+      <UniqueIdentifier>{dde11fb0-d08b-4b6e-ba96-cd92cd6f8672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Base">
+      <UniqueIdentifier>{e0bdf1dd-9a81-4d48-ae19-522f645444eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Control">
+      <UniqueIdentifier>{f4d3148b-5d6b-439b-a33e-e4c34892784f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\List">
+      <UniqueIdentifier>{bef611c6-a014-44fc-af8b-89ea5b8d2094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Combo">
+      <UniqueIdentifier>{c7cb6b9d-934f-4342-a86e-10ed2edb6c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Sprite">
+      <UniqueIdentifier>{f9199ead-eb55-4093-9a00-79616ad37f99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Mover">
+      <UniqueIdentifier>{6d7aea90-d59e-44c5-9223-583d704a9529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Tool">
+      <UniqueIdentifier>{9f103c4d-dc1b-450b-b0b4-547177a08690}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Text">
+      <UniqueIdentifier>{936cc59b-5d4c-4ee7-a97e-0259701ddb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Utility">
+      <UniqueIdentifier>{63e5b1f9-ea36-4f65-a01e-9a860b33199e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\tinyxml">
+      <UniqueIdentifier>{04b130e3-9d16-430b-8601-7b899e24fcec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{4061df3a-da01-482b-b86a-9931c792cebc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Define.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LSYLib.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LSYLibDialogBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LSYLibWindowBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Functor\Delegate.cpp">
+      <Filter>소스 파일\Functor</Filter>
+    </ClCompile>
+    <ClCompile Include="Functor\Functor.cpp">
+      <Filter>소스 파일\Functor</Filter>
+    </ClCompile>
+    <ClCompile Include="Functor\Message.cpp">
+      <Filter>소스 파일\Functor</Filter>
+    </ClCompile>
+    <ClCompile Include="Functor\MessageManager.cpp">
+      <Filter>소스 파일\Functor</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadLock\ThreadLock.cpp">
+      <Filter>소스 파일\ThreadLock</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceMan\ResourceMan.cpp">
+      <Filter>소스 파일\ResourceMan</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\ObjectMan.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Button\Button.cpp">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Button\CheckBox.cpp">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Button\CheckButton.cpp">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Button\Radio.cpp">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\Avatar.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\DumyImage.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\Group.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\Image.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\ImageNumber.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\IObject.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\ObjectBase.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\Web.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Base\Window.cpp">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\Edit.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\EditCursor.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\ProgressiveBar.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\RichText.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\ScrollBar.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\SlideBar.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Control\TabControl.cpp">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\List\List.cpp">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\List\ListItem.cpp">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\List\TextList.cpp">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Combo\Combo.cpp">
+      <Filter>소스 파일\Object\Combo</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Sprite\Sprite.cpp">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Sprite\SpriteButton.cpp">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Sprite\SpriteCheckButton.cpp">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Sprite\SpriteScene.cpp">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Sprite\SpriteWindow.cpp">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Mover\Mover.cpp">
+      <Filter>소스 파일\Object\Mover</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Tool\CreateRect.cpp">
+      <Filter>소스 파일\Object\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Tool\ObjectRect.cpp">
+      <Filter>소스 파일\Object\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Text\Text.cpp">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Text\TextButton.cpp">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Text\TextNumber.cpp">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\FrameSkip.cpp">
+      <Filter>소스 파일\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\MyMime64.cpp">
+      <Filter>소스 파일\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\Point.cpp">
+      <Filter>소스 파일\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\Rect.cpp">
+      <Filter>소스 파일\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinystr.cpp">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxml.cpp">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LSYLibDialogBase.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LSYLibWindowBase.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\Delegate.h">
+      <Filter>소스 파일\Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\Functor.h">
+      <Filter>소스 파일\Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\Message.h">
+      <Filter>소스 파일\Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="Functor\MessageManager.h">
+      <Filter>소스 파일\Functor</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadLock\ThreadLock.h">
+      <Filter>소스 파일\ThreadLock</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceMan\ResourceMan.h">
+      <Filter>소스 파일\ResourceMan</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\ObjectMan.h">
+      <Filter>소스 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Button\Button.h">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Button\CheckBox.h">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Button\CheckButton.h">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Button\Radio.h">
+      <Filter>소스 파일\Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\Avatar.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\DumyImage.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\Group.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\Image.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\ImageNumber.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\IObject.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\ObjectBase.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\Web.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Base\Window.h">
+      <Filter>소스 파일\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\Edit.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\EditCursor.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\ProgressiveBar.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\RichText.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\ScrollBar.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\SlideBar.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Control\TabControl.h">
+      <Filter>소스 파일\Object\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\List\List.h">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\List\ListItem.h">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\List\TextList.h">
+      <Filter>소스 파일\Object\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Combo\Combo.h">
+      <Filter>소스 파일\Object\Combo</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Sprite\Sprite.h">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Sprite\SpriteButton.h">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Sprite\SpriteCheckButton.h">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Sprite\SpriteScene.h">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Sprite\SpriteWindow.h">
+      <Filter>소스 파일\Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Mover\Mover.h">
+      <Filter>소스 파일\Object\Mover</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Tool\CreateRect.h">
+      <Filter>소스 파일\Object\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Tool\ObjectRect.h">
+      <Filter>소스 파일\Object\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Text\Text.h">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Text\TextButton.h">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Text\TextNumber.h">
+      <Filter>소스 파일\Object\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\FrameSkip.h">
+      <Filter>소스 파일\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\MyMime64.h">
+      <Filter>소스 파일\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Point.h">
+      <Filter>소스 파일\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Rect.h">
+      <Filter>소스 파일\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\ScanCode.h">
+      <Filter>소스 파일\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinystr.h">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinyxml.h">
+      <Filter>소스 파일\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\LSYLib.h">
+      <Filter>리소스 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LSYLib.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\LSYLib.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LSYLib.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

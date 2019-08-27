@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{47f8898b-8b34-4242-a17a-220fb88cf609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{07ab21f7-ddaf-4947-a5fc-0d4fb399c93e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View">
+      <UniqueIdentifier>{cc6aa0ed-1244-48f2-ae24-86d5c7a09775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Animation">
+      <UniqueIdentifier>{0317c617-857c-4096-9851-179e629c516b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Manager">
+      <UniqueIdentifier>{683442a1-b86f-4d90-b643-2412cd12090d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module">
+      <UniqueIdentifier>{ac0845df-6ed5-4dd5-99d2-18e5d6b2b655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{b413d06f-6535-45ad-adf8-3571f983278d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGHoola.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHoola.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcessHoola.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameViewHoola.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHoola.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScr.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprClassList.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprListMan.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameButtonHA.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MyGraphButton.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDraw_HA.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundRes.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteList.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIInfoDataHoola.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Cards.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectDraw.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectDrawMan.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="GameResultViewMan.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="HoolaHand.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="SunPickUp.cpp">
+      <Filter>Game\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGHoola.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="UPGHoola_D.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGHoola.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalGame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGHoola.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHoola.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcessHoola.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameViewHoola.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHoola.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScr.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationDefine.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprClassList.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprListMan.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameButtonHA.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MyGraphButton.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDraw_HA.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundRes.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteList.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInfoDataHoola.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Cards.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectDraw.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectDrawMan.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="GameResultViewMan.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="HoolaHand.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="SunPickUp.h">
+      <Filter>Game\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\HA.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\HA_Chat.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGHoola.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

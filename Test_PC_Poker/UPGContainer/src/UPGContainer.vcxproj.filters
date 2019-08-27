@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Basic">
+      <UniqueIdentifier>{81cdac2a-ccd0-4a28-99bb-a0586d3d49bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\Source Files_1">
+      <UniqueIdentifier>{78374e15-b07b-4dfe-bc28-cfa75c9145ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\Header Files_1">
+      <UniqueIdentifier>{812721e3-3c02-4e6f-838d-2efeee212957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\Resource Files">
+      <UniqueIdentifier>{70517ac5-0e58-48cf-8bff-aad5456b0b55}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Basic\BugSplat">
+      <UniqueIdentifier>{d2209076-4a36-4bd5-8d3c-c6bd88b138c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\BugSplat\inc">
+      <UniqueIdentifier>{8467feb5-f548-42f2-bd28-c270e77188f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\BugSplat\lib">
+      <UniqueIdentifier>{70713dc1-74ff-4ce0-b564-e7e0e3a1e12a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\BugSplat\bin">
+      <UniqueIdentifier>{553bee3a-855c-4c02-9bc1-c53d550b7499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\BugSplat\util">
+      <UniqueIdentifier>{e3cce66b-0480-4a0c-8bff-9fcd6bdd7ad7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>Basic</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client.cpp">
+      <Filter>Basic\Source Files_1</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Basic\Source Files_1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>Basic\Source Files_1</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client.h">
+      <Filter>Basic\Header Files_1</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Basic\Header Files_1</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Basic\Header Files_1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\externals\BugSplat\inc\BugSplat.h">
+      <Filter>Basic\BugSplat\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Client.ico">
+      <Filter>Basic\Resource Files</Filter>
+    </Image>
+    <Image Include="res\Container.ico">
+      <Filter>Basic\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Client.rc2">
+      <Filter>Basic\Resource Files</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\BsSndRpt.exe">
+      <Filter>Basic\BugSplat\bin</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\BugSplat.dll">
+      <Filter>Basic\BugSplat\bin</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\BugSplatRc.dll">
+      <Filter>Basic\BugSplat\bin</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\PdbLibrary.dll">
+      <Filter>Basic\BugSplat\util</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\SendPdbs.exe">
+      <Filter>Basic\BugSplat\util</Filter>
+    </None>
+    <None Include="..\externals\BugSplat\bin\SendPdbs.exe.config">
+      <Filter>Basic\BugSplat\util</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\externals\BugSplat\lib\BugSplat.lib">
+      <Filter>Basic\BugSplat\lib</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

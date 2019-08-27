@@ -1,0 +1,821 @@
+#include "StdAfx.h"
+#include "UserStruct.h"
+
+
+// 통합포커 레벨 수정
+INT64 MoneyGrade[GRADE_MAX] = {
+	0,
+	1000000000,
+	10000000000,
+	100000000000,
+	1000000000000,
+};
+ 
+
+
+int GetMoneyGrade(INT64 Money )
+{	
+	for( int i = 1; i < GRADE_MAX; i ++ )
+	{
+		if( Money < MoneyGrade[i] ) 
+			return i-1;
+	}
+	
+	return GRADE_MAX-1;
+}
+
+INT64 GetGradeToUserMoney(int grade)
+{
+	if(grade<0 || grade > GRADE_MAX ) return 0;
+	if(grade == GRADE_MAX) return 100000000000000000;
+	return MoneyGrade[grade];
+}
+int GetWinPro(int winnum, int loosenum, int drawnum)
+{
+	// 승률 계산
+	int totnum = winnum + loosenum + drawnum;
+	int winpro;
+	if(totnum == 0) winpro = 0;
+	else winpro = (int)(((double)winnum / totnum)*100);
+
+	return winpro;
+}
+
+
+int GetWinPro(int winnum, int loosenum)
+{
+	// 승률 계산
+	int totnum = winnum + loosenum;
+	int winpro;
+	if(totnum == 0) winpro = 0;
+	else winpro = (int)(((double)winnum / totnum)*100);
+	
+	return winpro;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////                               [게임 아이템 작업]                               //////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+state.iState =  1;	// 사용 가능한 아이템
+				2;	// 사용중인 아이템
+				3;	// 사용 불가능한 아이템
+				4:  // 2가지 복합아이템
+*/
+ItemState GameItem_GetItemState(GAMEITEM &item, SYSTEMTIME* pCurTime) 
+{
+	ItemState state;
+	memset(&state, 0, sizeof(ItemState));
+
+	// 올바른 데이타가 아니다
+	if(item.UseDay < 0 || item.UseNum < 0) {
+		state.iState = 0;	// 잘못된 아이템
+		return state;
+	}
+
+	// 사용 회수로 아이템 사용 가능 여부를 판단
+	if(item.UseNum > 0) {
+		// 사용한 회수가 사용 가능한 회수를 초과했다면 다 쓴 아이템이다
+		if(item.Use >= item.UseNum) {
+			state.iState = 3;	// 사용 불가능한 아이템
+		}
+	}
+
+	// 사용 기간으로 아이템 사용 가능 여부를 판단
+	if(item.UseDay > 0) { 
+		if(item.Use > 0) { // 사용되어진 아이템이라면 시작한 날짜가 있다
+			// 아이템의 유효 기간을 분단위로 얻기
+			int period = item.UseDay * 24 * 60;
+			// 현재 시간 얻기
+			COleDateTime nt;
+			if(pCurTime) nt = *pCurTime;					// 임의로 지정한 현재시간(클라이언트용)
+			else nt = COleDateTime::GetCurrentTime();	// 현재의 실제 시간
+			COleDateTime st(item.StartDate);				// 스타트시간
+			COleDateTimeSpan TimeSpan = nt - st;		// 현재시간과의 차이를 구한다
+			int passed = (int)TimeSpan.GetTotalMinutes();
+
+			if(period > passed) {
+				// 남은 시간 계산
+				int leftmin = (int)(period - passed);
+				COleDateTimeSpan sp(0, 0, leftmin, 0);
+
+				state.LeftTime = sp;
+				state.EndDate = nt + sp;
+
+				// 사용중인 아이템이다
+				state.bNowUsing = TRUE;
+				state.iState = 2;	// 사용중인 아이템
+			}
+			else {
+				// 다쓴 아이템이다
+				state.bNowUsing = FALSE;
+
+				state.iState = 3;	// 사용 불가능한 아이템
+			}
+		}
+		else {
+			state.iState = 1;	// 사용 가능한 아이템
+		}
+	}
+
+	return state;
+}
+
+// 아이템의 종류를 알아내는 편의 함수(아이템의 시작코드를 종류 코드로 사용)
+int GameItem_GetItemKind(int itemcode)
+{
+	int kind = 0;
+
+	if(itemcode >= ITEM_SCODE_SECRET && itemcode <= ITEM_ECODE_SECRET)  // TODO : elseif(...??
+		kind = ITEM_SCODE_SECRET;
+	else if(itemcode >= ITEM_SCODE_SUPERMASTER && itemcode <= ITEM_ECODE_SUPERMASTER) 
+		kind = ITEM_SCODE_SUPERMASTER;
+	else if(itemcode >= ITEM_SCODE_PLUSPOINT && itemcode <= ITEM_ECODE_PLUSPOINT) 
+		kind = ITEM_SCODE_PLUSPOINT;
+	else if(itemcode == ITEM_SCODE_INVINCIBLE) // 천하무적 아이템 
+		kind = ITEM_SCODE_INVINCIBLE;
+	else if(itemcode >= ITEM_SCODE_QUICKJOINER && itemcode <= ITEM_ECODE_QUICKJOINER)//내맘대로 바로입장
+		kind = ITEM_SCODE_QUICKJOINER;
+	else if( itemcode >= ITEM_SCODE_POKER_HELP && itemcode <= ITEM_ECODE_POKER_HELP )//게임 도우미
+		kind = ITEM_SCODE_POKER_HELP;
+
+	return kind;
+}
+
+// 특정 종류의 아이템이 사용중인지 알아냄(서버/클라이언트 공용)
+BOOL GameItem_IsUsingItem(GAMEITEM_LIST &itemlist, int itemcode, BOOL *pExist, SYSTEMTIME* pCurTime)
+{
+	int kind = GameItem_GetItemKind(itemcode);
+	if(kind == 0)
+		return FALSE;
+
+	BOOL bRtn = FALSE;
+	for(int i=0; i<itemlist.nNum; i++) {
+		// 요청한 아이템과 같은 종류의 아이템인지 검사
+		if( kind == GameItem_GetItemKind(itemlist.Item[i].Code) ) {		
+			// 아이템의 상태를 얻어옴(pCurTime이 NULL이라면 시스템의 현재 시간을 기준으로 판단)
+			ItemState state = GameItem_GetItemState(itemlist.Item[i], pCurTime);
+
+			// 사용 가능한 아이템이면 존재함을 표시
+			if(state.iState == 1) 
+				*pExist = TRUE;
+
+			// 현재 사용중인가?
+			if(state.bNowUsing) 
+				bRtn = TRUE;
+		}
+	}
+	return bRtn;
+}
+
+CString GameItem_GetItemName(GAMEITEM& item)
+{
+	CString str;
+	str = GameItem_GetItemName(item.Code);
+	if(item.UseDay > 0) {
+		CString strday;
+		strday.Format(" (%d일)", item.UseDay);
+		str += strday;
+	}
+	return str;
+}
+
+CString GameItem_GetItemName(int code)
+{
+	CString str;
+
+	if(code >= ITEM_SCODE_SECRET && code <= ITEM_ECODE_SECRET) {
+		str.Format("비공개방 아이템");
+	}
+	else if(code >= ITEM_SCODE_SUPERMASTER && code <= ITEM_ECODE_SUPERMASTER) {
+		str.Format("슈퍼 방장 아이템");
+	}
+	else if(code >= ITEM_SCODE_PLUSPOINT && code <= ITEM_ECODE_PLUSPOINT) {
+		str.Format("플러스 포인트 아이템");
+	}
+	else if(code == ITEM_SCODE_INVINCIBLE)  {// [천하무적 아이템]
+		str.Format("천하무적 아이템");
+	}
+	else if(code >= ITEM_SCODE_QUICKJOINER && code <= ITEM_ECODE_QUICKJOINER) {//내맘대로 바로입장
+		str.Format("내맘대로 바로입장 아이템");
+	}
+	else if( code >= ITEM_SCODE_POKER_HELP && code <= ITEM_ECODE_POKER_HELP )
+	{
+		str.Format("게임 도우미 아이템");
+	}
+	else {
+		str = "알 수 없는 아이템";
+	}
+
+	return str;
+}
+
+CString GameItem_GetItemHelp(int code)
+{
+	CString str;
+
+	if(code >= ITEM_SCODE_SECRET && code <= ITEM_ECODE_SECRET) {
+		str.Format("세븐포커2 일반 채널에서 비공개방을 만들 때 사용되는 아이템입니다.");
+	}
+	else if(code >= ITEM_SCODE_SUPERMASTER && code <= ITEM_ECODE_SUPERMASTER) {
+		str.Format("막강한 방장 권한을 부여하여 유저를 강제추방 시킬 수 있도록 해주고 방 리스트를 제일 위로 올려주는 아이템입니다.");
+	}
+	else if(code >= ITEM_SCODE_PLUSPOINT && code <= ITEM_ECODE_PLUSPOINT) {
+		str.Format("게임에서 승리하였을 경우 보통때 보다 더 많은 점수를 얻을 수 있도록 해주는 아이템입니다.");
+	}
+	else if(code == ITEM_SCODE_INVINCIBLE) { // [천하무적 아이템]
+		str.Format("슈퍼방+찬스아이템+비공개방아이템을 사용할 수 있도록 해주는 아이템입니다.");
+	}
+	else {
+		str = "";
+	}
+	return str;
+}
+
+int GameItem_GetItemImageIndex(int code) 
+{
+	int image = 0;
+	if(code >= ITEM_SCODE_SUPERMASTER && code <= ITEM_ECODE_SUPERMASTER) image = 2;
+	if(code >= ITEM_SCODE_PLUSPOINT   && code <= ITEM_ECODE_PLUSPOINT  ) image = 3;
+	if(code >= ITEM_SCODE_SECRET      && code <= ITEM_ECODE_SECRET     ) image = 5; //비공개
+	if(code == ITEM_SCODE_INVINCIBLE ) image = 6; // [천하무적 아이템]
+	return image;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////                               [프리미엄 작업]	                                //////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//함수 교체
+int CheckPremiumState(USERINFO* pUI, SYSTEMTIME* pCurTime)
+{
+	if(!pUI) return 0;
+
+	if(pUI->PremMenuNo > 0) {
+		// 현재 시간 얻기
+		COleDateTime nt;
+		if(pCurTime) nt = *pCurTime;		// 임의로 지정한 현재시간(클라이언트용)
+		else nt = COleDateTime::GetCurrentTime();	// 현재의 실제 시간
+
+		// 프리미엄 만료 일시
+		COleDateTime et(pUI->PremDate); // 스타트시간
+
+		// 남은 프리미엄 기간을 구한다
+		COleDateTimeSpan TimeSpan = et - nt;
+		double period = TimeSpan.GetTotalMinutes();
+		
+		if(period >= 0) {
+			return pUI->PremMenuNo;
+		}
+	}
+
+	return 0;
+}
+
+
+//패밀리 개편 (함수교체)
+int IsPremiumMoreMini(USERINFO* pUI, SYSTEMTIME* pCurTime)
+{
+	if( pUI == NULL ) return 0;
+
+	if( CheckPremiumState( pUI, pCurTime) == 0 ) return 0;
+	
+	return  (pUI->PremMenuNo >= CODE_NEW_FAMILY_SILVER);	
+}
+
+//패밀리 개편
+char *g_GetPremName(int PremMenuNo, BOOL bEnglish)
+{
+	static char* PremSvrName[]={"일반", "미니","실버", "골드", "다이아몬드", "?"};			// 2011.01.27. 패밀리 개편
+	static char* PremSvrNameEng[]={ "NORMAL", "MINI","SILVER", "GOLD", "DIAMOND", "?"};		
+
+	static char pUnknown[]="?";
+
+	if (PremMenuNo<0 || PremMenuNo>=MAX_CODE_NEW_FAMILY)
+		return pUnknown;
+
+	if (bEnglish)
+	{
+		return PremSvrNameEng[PremMenuNo];
+	}
+	
+	return PremSvrName[PremMenuNo];
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+CString Log_USERINFO(USERINFO *pUI)
+{	
+	CString strLog;
+	if (pUI==NULL) return strLog;
+
+	strLog.Format("ID=%s, NN=%s", pUI->ID, pUI->NickName);
+
+	size_t nRecordCount = _countof(pUI->AllGameRecord);
+	for (size_t i = 0; i < nRecordCount; ++i)
+	{
+		strLog.AppendFormat(", ChipKind[%d] %s", i, (LPCTSTR)pUI->AllGameRecord[i].Log()); 
+	}
+
+	return strLog;
+}
+
+//레이스 베팅 금액 구하기 
+#include <math.h>
+
+//< CYS 110512 > 리미트 베팅 로그 추가
+CString GetAutoBettingRuleName(IDX_GAME idxGame,  int nAutoBet, BETRULE_KIND eBetRuleKind/* 리얼, 리미,트 */, RULETYPE ruleType )
+{
+	//< CYS 110512
+	if ( eBetRuleKind == BETRULE_KIND_LIMIT )
+	{
+		std::string strRuleName = "리미트";
+		
+		return strRuleName.c_str();
+	}
+	//> CYS 110512
+
+	if (idxGame==IDX_GAME_NP || idxGame==IDX_GAME_NPT)
+	{
+		CString rstr,temp_str;
+
+		if( nAutoBet <= 0 )
+		{
+			rstr.Format("수동");
+		}
+		else if ( nAutoBet == 400 )
+		{
+			rstr.Format("4구수동");
+		}
+		else{
+			temp_str.Format("%d",nAutoBet);
+
+			char num[4] = {0,};		
+			num[0] = temp_str.GetAt(2);
+			int number_1 = atoi(num);
+			if( number_1 == 0 )
+			{			
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr+="F";			
+			}
+			else{
+
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr +=temp_str.GetAt(2);
+			}
+		}
+
+
+		if (rstr.IsEmpty()) rstr="???";
+
+		return rstr;
+
+	}
+	else if (idxGame ==IDX_GAME_DP)
+	{
+		CString rstr,temp_str;
+
+		if( nAutoBet <= 0 )
+		{
+			rstr.Format("수동");
+		}
+		else{
+			if ( ruleType == RULETYPE_5POKER )
+			{
+				if ( nAutoBet > 500 )
+					nAutoBet -= 200;
+			}
+			temp_str.Format("%d",nAutoBet);
+
+			char num[4] = {0,};		
+			num[0] = temp_str.GetAt(2);
+			int number_1 = atoi(num);
+			if( number_1 == 0 )
+			{			
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr+="F";			
+			}
+			else{
+
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr +=temp_str.GetAt(2);
+			}
+		}
+
+		if (rstr.IsEmpty()) rstr="???";
+		return rstr;
+	}
+	else if (idxGame ==IDX_GAME_BD || idxGame == IDX_GAME_BDT)
+	{
+		CString rstr;
+
+		switch(nAutoBet) 
+		{
+		case 0://수동
+			rstr.Format("수동");
+			break;	
+		case 401: //< CYS 111010 >
+			rstr.Format("1H");
+			break;
+		case 490:
+			rstr.Format("아침전F");
+			break;
+		case 501://111
+			rstr.Format("아침1");
+			break;
+		case 502://222
+			rstr.Format("아침2");
+			break;
+		case 503://333
+			rstr.Format("아침3");
+			break;	
+		case 504://444
+			rstr.Format("아침4");
+			break;	
+		case 505://555
+			rstr.Format("아침5");
+			break;			
+		case 601:
+			rstr.Format("점심1");
+			break;
+		case 602:
+			rstr.Format("점심2");
+			break;
+		case 603:
+			rstr.Format("점심3");
+			break;
+		case 604:
+			rstr.Format("점심4");
+			break;
+		case 605:
+			rstr.Format("점심5");
+			break;
+			//< CYS 100802
+		case 590:
+			{
+				rstr.Format("아침F");
+				break;
+			}
+			//> CYS 100802
+		}
+		
+		if (rstr.IsEmpty()) rstr="???";
+		return rstr;
+	}
+	else if (idxGame == IDX_GAME_SD || idxGame == IDX_GAME_SDT)
+	{
+		std::string strRule;
+
+		switch( nAutoBet ) 
+		{
+		case 0:
+			{
+				strRule = "수동";
+				break;	
+			}
+		case 491:
+			{
+				strRule = "111";
+				break;
+			}
+		default:
+			{
+				strRule = "?";
+				break;
+			}
+		}
+		
+		if ( strRule.empty() ) strRule="???";
+		CString str;
+		str.Format("%s", strRule.c_str() );
+		return str;
+	}
+	else 
+	{
+
+		CString rstr,temp_str;
+
+		if( nAutoBet <= 400 )
+		{
+			rstr.Format("수동");
+		}
+		else if( nAutoBet == 401 ) //< CYS 111010 >
+		{
+			rstr.Format("1H");
+		}
+		else{
+			temp_str.Format("%d",nAutoBet);
+
+			char num[4] = {0,};		
+			num[0] = temp_str.GetAt(2);
+			int number_1 = atoi(num);
+			if( number_1 == 0 )
+			{			
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr+="F";			
+			}
+			else{
+
+				rstr = temp_str.GetAt(0);
+				rstr +="9";
+				rstr +=temp_str.GetAt(2);
+			}
+		}
+
+		if (rstr.IsEmpty()) rstr="???";
+		return rstr;
+
+	}
+}
+
+
+CString GetCardSettingName(IDX_GAME idxGame, char card_setting )
+{
+	if (IDX_GAME_BD == idxGame || IDX_GAME_BDT == idxGame)
+	{
+		switch (card_setting)
+		{
+		case 0:
+			return CString("수동");
+		case 1:
+			return CString("아침");
+		case 2:
+			return CString("점심");
+		}
+	}
+	else if (IDX_GAME_NP == idxGame || IDX_GAME_NPT == idxGame)
+	{
+		switch (card_setting)
+		{
+		case 6:
+			return CString("6구");
+		case 5:
+			return CString("수동");
+		}
+	}
+	else
+	{
+		switch (card_setting)
+		{
+		case 6:
+			return CString("6구");
+		case 5:
+			return CString("5구");
+		case 4:
+			return CString("수동");
+		}
+	}
+	return CString("?");
+}
+
+CString GetBetMoneyMultiName(IDX_GAME idxGame, float fBetMoneyMulti )
+{
+	if ( 1.0 == fBetMoneyMulti )
+		return CString("없음");
+	else if ( 3.5 == fBetMoneyMulti )
+		return CString("미니");
+	else if ( 8.5 == fBetMoneyMulti )
+		return CString("평균");
+	else if ( 20.0 == fBetMoneyMulti )
+		return CString("맥스");
+
+	CString str;
+	str.Format("%f배", fBetMoneyMulti);
+	return str;
+}
+
+//찬스아이템 구매횟수 카운트가 월별이냐 일별이냐.. 기준을 정함 
+COUNT_BASE g_GetChanceItemCountBase(int ChaneItemCode)
+{
+	//switch((ITEM_SCODE_REWARD)ChaneItemCode)
+	//{
+	////case ITEM_SCODE_REWARD_LOWGRADE: 
+	////	return DAILY_COUNT;
+	////case ITEM_SCODE_REWARD_HIGHGRADE: 
+	////	return DAILY_COUNT;	
+	////case ITEM_SCODE_REWARD_ALLINKING: 
+	////	return DAILY_COUNT;	
+	////case ITEM_SCODE_REWARD_LUCKAVATA:
+	////	return MONTHLY_COUNT;
+	////case ITEM_SCODE_REWARD_SPECIALLUCKITEM:
+	////	return MONTHLY_COUNT;
+	////case ITEM_SCODE_REWARD_ALLINCHANCE:
+	////	return DAILY_COUNT;	
+	//}
+
+	return UNCOUNTABLE;  //UNCOUNTABLE 일 경우에는 DB에 기록하지 않는다. 
+}
+
+
+CString NumberToOrientalString( INT64 number )
+{
+	CString strrtn; // 한글표시
+	CString strtemp;
+	INT64 t = number; 
+
+	BOOL bMinus = FALSE;
+	if( t < 0 ) {
+		bMinus = TRUE;
+		t *= -1;
+	}
+
+	INT64 v = t / (INT64)10000000000000000;	// 경 단위
+	if(v > 0) {
+		t = t - v*(INT64)10000000000000000;
+		strtemp.Format("%I64d경", v);
+		strrtn += strtemp;
+	}
+
+	v = t / (INT64)1000000000000;	// 조 단위
+	if(v > 0) {
+		t = t - v*(INT64)1000000000000;
+		strtemp.Format("%I64d조", v);
+		strrtn += strtemp;
+	}
+
+	v = t / (INT64)100000000;	// 억 단위
+	if(v > 0) {
+		t = t - v*(INT64)100000000;
+		strtemp.Format("%I64d억", v);
+		strrtn += strtemp;
+	}
+
+	v = t / (INT64)10000;	// 만 단위
+	if(v > 0) {
+		t = t - v*(INT64)10000;
+		strtemp.Format("%I64d만", v);
+		strrtn += strtemp;
+	}
+
+	if( t > 0 ) {
+		strtemp.Format("%I64d", t);
+		strrtn += strtemp;
+	}
+
+	if( number == 0 )
+	{
+		strrtn = "0";
+	}
+
+	if( bMinus )
+	{
+		strrtn.Insert(0,"-");
+		//CString temp;
+		//temp.Format( "-%s", strrtn );
+		//strrtn = temp;
+	}
+
+
+	//NUMBERFMT nFmt = { 0, 0, 4, ".", ",", 0 };
+	//TCHAR    szVal[32];
+	//TCHAR     szOut[32];
+	//sprintf ( szVal,"%I64d", number );
+	//GetNumberFormat ( NULL, NULL, szVal, &nFmt, szOut, 32 );
+
+	return strrtn;
+
+}
+// 통합포커 레벨 수정
+
+CString GetGradeName(int lv)
+{
+	switch (lv)
+	{
+	case GRADE_PYOUNGMIN:
+		{
+			return "평민";
+		}break;
+	case GRADE_GOSU:
+		{
+			return "고수";
+		}break;
+	case GRADE_YOUNGWOONG:
+		{
+			return "영웅";
+		}break;
+	case GRADE_JIZON:
+		{
+			return "지존";
+		}break;
+	case GRADE_DOSIN:
+		{
+			return "도신";
+		}break;
+	default:
+		{
+			return "고구마";
+		}break;
+	}
+	return "고구마";
+}
+
+
+
+#if defined(__NEWPOKER__)
+INT64	g_DS_Level[50] = {
+	0,							// 1		
+	1000000,					// 2
+	6000000,					// 3
+	18000000,					// 4
+	40000000,					// 5
+	75000000,					// 6
+	126000000,					// 7
+	196000000,					// 8
+	288000000,					// 9
+	405000000,					// 10 백억 지급
+	550000000,					// 11
+	1275000000,					// 12
+	2900000000,					// 13
+	5875000000,					// 14
+	10650000000,				// 15
+	17675000000,				// 16
+	27400000000,				// 17
+	40275000000,				// 18
+	56750000000,				// 19
+	77275000000,				// 20 카드덱 1개 지급
+	108300000000,				// 21
+	163450000000,				// 22
+	239600000000,				// 23
+	340650000000,				// 24
+	470500000000,				// 25
+	575500000000,				// 26
+	693500000000,				// 27
+	824500000000,				// 28
+	968500000000,				// 29
+	1162500000000,				// 30 카드덱 1개 지급 total = 2
+	1456500000000,				// 31
+	1950500000000,				// 32
+	2844500000000,				// 33
+	4438500000000,				// 34
+	7132500000000,				// 35
+	11426500000000,				// 36
+	17920500000000,				// 37
+	27314500000000,				// 38
+	40408500000000,				// 39
+	58102500000000,				// 40 아이디 색
+	85796500000000,				// 41
+	133490500000000,			// 42
+	221184500000000,			// 43
+	378878500000000,			// 44
+	646572500000000,			// 45
+	1074266500000000,			// 46
+	1721960500000000,			// 47
+	2659654500000000,			// 48
+	3967348500000000,			// 49
+	5735042500000000,			// 50 카드덱 1 지급 total = 3
+};
+
+
+int DS_GetLevel(INT64 Money,int winnum)
+{
+	if(Money < 0 || winnum < 0)return 0;
+
+	if(winnum > 1000)
+	{
+		winnum = 1000;
+	}
+	Money = (Money * winnum) / 1000;
+
+	int i = 0;
+	for( ; i < 50; i ++ )
+	{
+		if( Money < g_DS_Level[i] ) break;
+	}
+	if(i >= 50)return 50;
+	return i;
+}
+
+INT64 DS_GetLevel(int lv)
+{
+	for( int i = 0; i < 50; i ++ )
+	{
+		if(i == lv)return g_DS_Level[i];
+	}
+
+	return 0;
+}
+
+int GetLevelPoint(int point, int winnum, int loosenum)
+{
+	// 승률 계산
+	int totnum = winnum + loosenum;
+	float winpro;
+	if(totnum == 0) winpro = 0;
+	else winpro = ((float)winnum / totnum)*100;
+
+	int levelpoint = (int)(point * winpro/100);
+	if(levelpoint < 0) levelpoint = 0;
+
+	return levelpoint;
+}
+
+
+
+
+#endif	//defined(__NEWPOKER__)

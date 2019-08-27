@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ACC1EE72-8A9F-4FEF-AC4D-8CFA87C80DF2}</ProjectGuid>
+    <RootNamespace>UPG7Poker</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../lib/Debug\</OutDir>
+    <IntDir>../lib/Intermediate Files/Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../lib/Release\</OutDir>
+    <IntDir>../lib/Intermediate Files/Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Debug\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../UPGCommon/include;../../UPGCommon/externals/CommonFile;../../UPGPokerBase/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;__HOOLA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPG7Poker_D.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4018;4806;4258;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>UPGCommon_D.lib;UPGPokerBase_D.lib;Pigeon.SS.ConnectorD.lib;Camel.Base.SystemD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Debug/UPGHoola_D.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../UPGCommon/lib/Debug;../../UPGPokerBase/lib/Debug;../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>nafxcwd.lib;LIBCMT.lib;libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGHoola_D.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Debug/UPGHoola_D.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Debug/UPGHoola_D.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Release\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../UPGCommon/include;../../UPGCommon/externals/CommonFile;../../UPGPokerBase/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;_NEXTUP_LIMITMONEY_20100824;__HOOLA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPG7Pokder.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>../lib/Release/UPG7Poker.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>UPGCommon.lib;UPGPokerBase.lib;Pigeon.SS.Connector.lib;Camel.Base.System.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Release/UPGHoola.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../UPGCommon/lib/Release;../../UPGPokerBase/lib/Release;../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>nafxcw.lib;LIBCMT.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGHoola.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Release/UPGHoola.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Release/UPGHoola.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp" />
+    <ClCompile Include="AniSprClassList.cpp" />
+    <ClCompile Include="AniSprListMan.cpp" />
+    <ClCompile Include="Cards.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="EffectDraw.cpp" />
+    <ClCompile Include="EffectDrawMan.cpp" />
+    <ClCompile Include="GameButtonHA.cpp" />
+    <ClCompile Include="GameHoola.cpp" />
+    <ClCompile Include="GameProcessHoola.cpp" />
+    <ClCompile Include="GameResultViewMan.cpp" />
+    <ClCompile Include="GameViewHoola.cpp" />
+    <ClCompile Include="GlobalGame.cpp" />
+    <ClCompile Include="HoolaHand.cpp" />
+    <ClCompile Include="MyGraphButton.cpp" />
+    <ClCompile Include="PlayerDraw_HA.cpp" />
+    <ClCompile Include="PlayerHoola.cpp" />
+    <ClCompile Include="PlayScr.cpp" />
+    <ClCompile Include="SoundRes.cpp" />
+    <ClCompile Include="SpriteList.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SunPickUp.cpp" />
+    <ClCompile Include="UIInfoDataHoola.cpp" />
+    <ClCompile Include="UPGHoola.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\UPGHoola.rc2" />
+    <None Include="UPGHoola.def" />
+    <None Include="UPGHoola_D.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h" />
+    <ClInclude Include="..\include\UPGHoola.h" />
+    <ClInclude Include="AnimationDefine.h" />
+    <ClInclude Include="AniSprClassList.h" />
+    <ClInclude Include="AniSprListMan.h" />
+    <ClInclude Include="Cards.h" />
+    <ClInclude Include="EffectDraw.h" />
+    <ClInclude Include="EffectDrawMan.h" />
+    <ClInclude Include="GameButtonHA.h" />
+    <ClInclude Include="GameHoola.h" />
+    <ClInclude Include="GameProcessHoola.h" />
+    <ClInclude Include="GameResultViewMan.h" />
+    <ClInclude Include="GameViewHoola.h" />
+    <ClInclude Include="GlobalGame.h" />
+    <ClInclude Include="HoolaHand.h" />
+    <ClInclude Include="MyGraphButton.h" />
+    <ClInclude Include="PlayerDraw_HA.h" />
+    <ClInclude Include="PlayerHoola.h" />
+    <ClInclude Include="PlayScr.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SoundRes.h" />
+    <ClInclude Include="SpriteList.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SunPickUp.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="UIInfoDataHoola.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\HA.ico" />
+    <Image Include="res\HA_Chat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGHoola.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework_externals\NMAvatar\NMAvatar.vcxproj">
+      <Project>{711417ec-299a-45a0-9328-073172d73f2e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMGraphicGDI\NMGraphicGDI.vcxproj">
+      <Project>{7db017df-2635-457c-8b4d-bc451879ad15}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSkinGDI\NMSkinGDI.vcxproj">
+      <Project>{4f0488c1-7536-4578-8e3c-900c0e8d038d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSock\NMSock.vcxproj">
+      <Project>{27d620a4-28e1-4f41-8690-34781e38e602}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSound\NMSound.vcxproj">
+      <Project>{50690e68-1a94-4ca4-bce4-c6280a0f47e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMUtil\NMUtil.vcxproj">
+      <Project>{7a5af20b-6dc2-49d2-910c-beccc8fa1318}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lsylib\src\LSYLib.vcxproj">
+      <Project>{b1ba6ed8-a218-4299-9a49-8b9629983259}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGCommon\src\UPGCommon.vcxproj">
+      <Project>{ec51ae0e-6d15-4174-a589-ceb82eb54a25}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGPokerBase\src\UPGPokerBase.vcxproj">
+      <Project>{4b4eb56b-a280-4df4-993c-fc19a9a78a74}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPGHoola.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,97 @@
+
+namespace SS
+{
+	namespace MOBILE
+	{
+		class CheckMobileUser
+		{
+			string userJID;
+			bool   isMobileUser;
+			int32  errorCode;
+		};
+		
+		namespace Registration
+		{
+			class RegistNewDevice_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				string udid;
+				MobileDeviceInfo deviceInfo;
+				string pushRegistrationID;
+				int32  pushAllowFlag;
+				int32  pushServiceType;				
+			};
+			
+			class RegistNewDevice_Res : SS::Common::_SSHeader
+			{
+				int32  errorCode;
+				string udid;
+				MobileDeviceInfo deviceInfo;
+				string pushRegistrationID;
+				int32  pushAllowFlag;
+				int32  pushServiceType;				
+				int64  uuid;
+			};
+			
+			class UpdateDeviceInfo_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				int64  uuid;
+				MobileDeviceInfo deviceInfo;									
+			};
+			
+			class UpdateDeviceInfo_Res : SS::Common::_SSHeader
+			{
+				int32 errorCode;				
+				int64  uuid;
+				MobileDeviceInfo deviceInfo;									
+			};
+			
+			class UpdatePushRegistrationID_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				int64  uuid;
+				string pushRegistrationID;
+				int32  pushAllowFlag;
+				int32  pushServiceType;					
+			};
+			
+			class UpdatePushRegistrationID_Res : SS::Common::_SSHeader
+			{
+				int32 errorCode;
+				int64  uuid;
+				string pushRegistrationID;
+				int32  pushAllowFlag;
+				int32  pushServiceType;					
+			};			
+			
+			class UnRegistDevice_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				int64  uuid;
+			};
+			
+			class UnRegistDevice_Res : SS::Common::_SSHeader
+			{
+				int32 errorCode;
+				int64  uuid;
+			};	
+		};
+		
+		namespace Common
+		{
+			class CheckMobileUser_Req : SS::Common::_SSHeader
+			{
+				string reqJID;
+				UserIDList idList;								
+			};						
+			
+			class CheckMobileUser_Res : SS::Common::_SSHeader
+			{
+				int32 errorCode;
+				UserIDList idList;
+				list<CheckMobileUser> checkMobileUserList;				
+			};						
+		};		
+	};
+};

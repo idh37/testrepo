@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="UtilLib">
+      <UniqueIdentifier>{8401c4f7-7578-47fe-aace-62560e99df7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilLib\WebControl">
+      <UniqueIdentifier>{6cf0b228-e59a-45aa-96f0-5bed93f8a5b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilLib\Delegate">
+      <UniqueIdentifier>{53bdb203-b6be-4d8e-9fd2-84985e21cad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilLib\Statistics">
+      <UniqueIdentifier>{80b32287-b782-495c-8128-21b9b13dad8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilLib\NMContego">
+      <UniqueIdentifier>{d116fd43-0aab-4ab7-8a9f-55cac2cd76de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilLib\BugSplat">
+      <UniqueIdentifier>{15103460-2d15-4269-b53c-f12385e5901f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="NMUtil.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\BadFilter.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\DataManager.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\DesktopIconMan.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\DesktopIconManEx.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\DialogCtrlReposition.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\FontBag.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\GameDirectGo.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\GFUtil.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\IPAdapterInfo.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\MacRetriever.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\NMRunParam.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\NoChat.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\PlayTimeWarning.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\ShellMan.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\ShortCut.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\SSOWeb.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\StringBase.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\StringManager.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\StringUtil.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\SyncFPS.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\SysUtil.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\ThreadLock.cpp">
+      <Filter>UtilLib</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\WebControl\GameTest.cpp">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\WebControl\webbro.cpp">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\WebControl\WebCtrl.cpp">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\WebControl\WebCtrl4New.cpp">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\Delegate\Delegate.cpp">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\Delegate\Functor.cpp">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\Delegate\MessageManager.cpp">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\StatisticsManager.cpp">
+      <Filter>UtilLib\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\NMContego\ContegoThread.cpp">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\NMContego\NMContegoManager.cpp">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilLib\BugSplatWrapper.cpp">
+      <Filter>UtilLib\BugSplat</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NMUtil.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\NMUtil.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\UPGCommon\UPGCommon.sln" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\BadFilter.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\DataManager.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\DesktopIconMan.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\DesktopIconManEx.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\DialogCtrlReposition.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\FontBag.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\GameDirectGo.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\GFUtil.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\IPAdapterInfo.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\MacRetriever.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\NMRunParam.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\NoChat.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\PlayTimeWarning.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\ShellMan.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\ShortCut.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\SSOWeb.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\StringBase.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\StringManager.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\StringUtil.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\SyncFPS.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\SysUtil.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\ThreadLock.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\UtilDefine.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\UtilInclude.h">
+      <Filter>UtilLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\WebControl\GameTest.h">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\WebControl\webbro.h">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\WebControl\WebCtrl.h">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\WebControl\WebCtrl4New.h">
+      <Filter>UtilLib\WebControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\Delegate\Delegate.h">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\Delegate\Functor.h">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\Delegate\MessageManager.h">
+      <Filter>UtilLib\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\StatisticsManager.h">
+      <Filter>UtilLib\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\ThreadQueue.h">
+      <Filter>UtilLib\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilLib\NMContego\ContegoThread.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\NMContego\NMContegoCtrl.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilLib\NMContego\NMContegoErrorCodes.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilLib\NMContego\NMContegoExtErrorCodes.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\NMContego\NMContegoManager.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\NMContego\VirtualizerSDK.h">
+      <Filter>UtilLib\NMContego</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmutil\BugSplat\BugSplatWrapper.h">
+      <Filter>UtilLib\BugSplat</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMUtil.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

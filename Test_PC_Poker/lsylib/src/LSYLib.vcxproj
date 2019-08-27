@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B1BA6ED8-A218-4299-9A49-8B9629983259}</ProjectGuid>
+    <RootNamespace>LSYLib</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../Lib/Debug\</OutDir>
+    <IntDir>../lib/Intermediate Files/Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../Lib/Release\</OutDir>
+    <IntDir>../Lib/Intermediate Files/Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmgraphicgdi;../../../Framework_externals/ExternalLib/include/SSOWeb;../../Framework/Include/nmavatar;../../Framework/Include/nmutil;../../Framework/Include/nmgraphicgdi;../../Framework/ExternalLib/include/SSOWeb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)LSYLib_D.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)LSYLib_D.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../Framework_externals/library;../../Framework_externals/ExternalLib/library/SSOWeb;../../Framework/library;../../Framework/ExternalLib/library/SSOWeb;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\LSYLib_D.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../Lib/Debug/LSYLib_D.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../Lib/Debug/LSYLib_D.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmgraphicgdi;../../../Framework_externals/ExternalLib/include/SSOWeb;../../Framework/Include/nmavatar;../../Framework/Include/nmutil;../../Framework/Include/nmgraphicgdi;../../Framework/ExternalLib/include/SSOWeb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)LSYLib.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)LSYLib.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)LSYLib.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../Framework_externals/library;../../Framework_externals/ExternalLib/library/SSOWeb;../../Framework/library;../../Framework/ExternalLib/library/SSOWeb;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\LSYLib.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../Lib/Release/LSYLib.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../Lib/Release/LSYLib.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Define.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="Functor\Delegate.cpp" />
+    <ClCompile Include="Functor\Functor.cpp" />
+    <ClCompile Include="Functor\Message.cpp" />
+    <ClCompile Include="Functor\MessageManager.cpp" />
+    <ClCompile Include="LSYLib.cpp" />
+    <ClCompile Include="LSYLibDialogBase.cpp" />
+    <ClCompile Include="LSYLibWindowBase.cpp" />
+    <ClCompile Include="Object\Base\Avatar.cpp" />
+    <ClCompile Include="Object\Base\DumyImage.cpp" />
+    <ClCompile Include="Object\Base\Group.cpp" />
+    <ClCompile Include="Object\Base\Image.cpp" />
+    <ClCompile Include="Object\Base\ImageNumber.cpp" />
+    <ClCompile Include="Object\Base\IObject.cpp" />
+    <ClCompile Include="Object\Base\ObjectBase.cpp" />
+    <ClCompile Include="Object\Base\Web.cpp" />
+    <ClCompile Include="Object\Base\Window.cpp" />
+    <ClCompile Include="Object\Button\Button.cpp" />
+    <ClCompile Include="Object\Button\CheckBox.cpp" />
+    <ClCompile Include="Object\Button\CheckButton.cpp" />
+    <ClCompile Include="Object\Button\Radio.cpp" />
+    <ClCompile Include="Object\Combo\Combo.cpp" />
+    <ClCompile Include="Object\Control\Edit.cpp" />
+    <ClCompile Include="Object\Control\EditCursor.cpp" />
+    <ClCompile Include="Object\Control\ProgressiveBar.cpp" />
+    <ClCompile Include="Object\Control\RichText.cpp" />
+    <ClCompile Include="Object\Control\ScrollBar.cpp" />
+    <ClCompile Include="Object\Control\SlideBar.cpp" />
+    <ClCompile Include="Object\Control\TabControl.cpp" />
+    <ClCompile Include="Object\List\List.cpp" />
+    <ClCompile Include="Object\List\ListItem.cpp" />
+    <ClCompile Include="Object\List\TextList.cpp" />
+    <ClCompile Include="Object\Mover\Mover.cpp" />
+    <ClCompile Include="Object\ObjectMan.cpp" />
+    <ClCompile Include="Object\Sprite\Sprite.cpp" />
+    <ClCompile Include="Object\Sprite\SpriteButton.cpp" />
+    <ClCompile Include="Object\Sprite\SpriteCheckButton.cpp" />
+    <ClCompile Include="Object\Sprite\SpriteScene.cpp" />
+    <ClCompile Include="Object\Sprite\SpriteWindow.cpp" />
+    <ClCompile Include="Object\Text\Text.cpp" />
+    <ClCompile Include="Object\Text\TextButton.cpp" />
+    <ClCompile Include="Object\Text\TextNumber.cpp" />
+    <ClCompile Include="Object\Tool\CreateRect.cpp" />
+    <ClCompile Include="Object\Tool\ObjectRect.cpp" />
+    <ClCompile Include="ResourceMan\ResourceMan.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ThreadLock\ThreadLock.cpp" />
+    <ClCompile Include="tinyxml\tinystr.cpp" />
+    <ClCompile Include="tinyxml\tinyxml.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="Utility\FrameSkip.cpp" />
+    <ClCompile Include="Utility\MyMime64.cpp" />
+    <ClCompile Include="Utility\Point.cpp" />
+    <ClCompile Include="Utility\Rect.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\LSYLib.h" />
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="Functor\Delegate.h" />
+    <ClInclude Include="Functor\Functor.h" />
+    <ClInclude Include="Functor\Message.h" />
+    <ClInclude Include="Functor\MessageManager.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="LSYLibDialogBase.h" />
+    <ClInclude Include="LSYLibWindowBase.h" />
+    <ClInclude Include="Object\Base\Avatar.h" />
+    <ClInclude Include="Object\Base\DumyImage.h" />
+    <ClInclude Include="Object\Base\Group.h" />
+    <ClInclude Include="Object\Base\Image.h" />
+    <ClInclude Include="Object\Base\ImageNumber.h" />
+    <ClInclude Include="Object\Base\IObject.h" />
+    <ClInclude Include="Object\Base\ObjectBase.h" />
+    <ClInclude Include="Object\Base\Web.h" />
+    <ClInclude Include="Object\Base\Window.h" />
+    <ClInclude Include="Object\Button\Button.h" />
+    <ClInclude Include="Object\Button\CheckBox.h" />
+    <ClInclude Include="Object\Button\CheckButton.h" />
+    <ClInclude Include="Object\Button\Radio.h" />
+    <ClInclude Include="Object\Combo\Combo.h" />
+    <ClInclude Include="Object\Control\Edit.h" />
+    <ClInclude Include="Object\Control\EditCursor.h" />
+    <ClInclude Include="Object\Control\ProgressiveBar.h" />
+    <ClInclude Include="Object\Control\RichText.h" />
+    <ClInclude Include="Object\Control\ScrollBar.h" />
+    <ClInclude Include="Object\Control\SlideBar.h" />
+    <ClInclude Include="Object\Control\TabControl.h" />
+    <ClInclude Include="Object\List\List.h" />
+    <ClInclude Include="Object\List\ListItem.h" />
+    <ClInclude Include="Object\List\TextList.h" />
+    <ClInclude Include="Object\Mover\Mover.h" />
+    <ClInclude Include="Object\ObjectMan.h" />
+    <ClInclude Include="Object\Sprite\Sprite.h" />
+    <ClInclude Include="Object\Sprite\SpriteButton.h" />
+    <ClInclude Include="Object\Sprite\SpriteCheckButton.h" />
+    <ClInclude Include="Object\Sprite\SpriteScene.h" />
+    <ClInclude Include="Object\Sprite\SpriteWindow.h" />
+    <ClInclude Include="Object\Text\Text.h" />
+    <ClInclude Include="Object\Text\TextButton.h" />
+    <ClInclude Include="Object\Text\TextNumber.h" />
+    <ClInclude Include="Object\Tool\CreateRect.h" />
+    <ClInclude Include="Object\Tool\ObjectRect.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ResourceMan\ResourceMan.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ThreadLock\ThreadLock.h" />
+    <ClInclude Include="tinyxml\tinystr.h" />
+    <ClInclude Include="tinyxml\tinyxml.h" />
+    <ClInclude Include="Utility\FrameSkip.h" />
+    <ClInclude Include="Utility\MyMime64.h" />
+    <ClInclude Include="Utility\Point.h" />
+    <ClInclude Include="Utility\Rect.h" />
+    <ClInclude Include="Utility\ScanCode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LSYLib.def" />
+    <None Include="res\LSYLib.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LSYLib.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework_externals\NMUtil\NMUtil.vcxproj">
+      <Project>{7a5af20b-6dc2-49d2-910c-beccc8fa1318}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="LSYLib.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

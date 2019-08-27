@@ -1,0 +1,39 @@
+
+namespace SS
+{
+	namespace Login
+	{
+		class Login_Req : SS::Common::_SSHeader
+		{
+			char authData[2048];
+			int32 siteNo;
+			string userID;
+			string mainDomain;
+			string subDomain;
+			string serviceCode;
+			bool   forceDisconnect;
+			string disconnectReason;
+			bool   mobileUser;
+		};
+
+		class Login_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+		};
+		
+		class Logout_Req : SS::Common::_SSHeader
+		{
+			string userID;
+		};
+
+		class Logout_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+		};
+		
+		class Disconnect_Noti 
+		{
+			string disconnectReason;
+		};
+	};
+};

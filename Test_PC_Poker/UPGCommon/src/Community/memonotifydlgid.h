@@ -1,0 +1,9 @@
+#pragma once
+
+//Scene ID
+#define ID_MEMONOTIFY					0x0000000D
+
+//Scene Object ID
+#define ID_MEMONOTIFY_BTN_DELETE		0x00000000
+#define ID_MEMONOTIFY_BTN_CANCEL		0x00000001
+#define ID_MEMONOTIFY_BTN_OK			0x00000002

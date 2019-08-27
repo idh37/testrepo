@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="GraphLib">
+      <UniqueIdentifier>{1235c8ef-a65a-4a1c-b3f5-be6ec6f53ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GIF">
+      <UniqueIdentifier>{66117867-db0b-47c9-936e-03ede9f697cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ZipFuction">
+      <UniqueIdentifier>{a542015e-5965-4973-968d-884f02b685ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Avatar">
+      <UniqueIdentifier>{dc76b1a4-27ee-4ca0-b36d-6aeaf2ab5ea6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{13c682a7-1013-465b-b928-e68b30f4954a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Display">
+      <UniqueIdentifier>{2648fc0d-7db1-448c-b7d0-016a973ff543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zlib">
+      <UniqueIdentifier>{f194c494-06f6-4e62-bc17-b58314b8e844}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="NMAvatar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\Graphic.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\GraphMod.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\xAniFile.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\xAniMan.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\xLayer.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphLib\xSprite.cpp">
+      <Filter>GraphLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\Gif2Spr.cpp">
+      <Filter>GIF</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\PictureEx.cpp">
+      <Filter>GIF</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFunction\UnzipFile.cpp">
+      <Filter>ZipFuction</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFunction\ZipException.cpp">
+      <Filter>ZipFuction</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFunction\ZipFile.cpp">
+      <Filter>ZipFuction</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFunction\ZUBaseFile.cpp">
+      <Filter>ZipFuction</Filter>
+    </ClCompile>
+    <ClCompile Include="Avatar\Avatar.cpp">
+      <Filter>Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\ExtractFile.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\GetHttp.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\MyMisc.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\DownThread.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\FileList.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\FileTag.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="Display\ResMan.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\adler32.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\compress.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\crc32.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\deflate.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\example.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzio.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\infback.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inffast.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inflate.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inftrees.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\trees.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\uncompr.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zutil.c">
+      <Filter>Zlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NMAvatar.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\NMAvatar.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\Graphic.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\GraphMod.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\xAniFile.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\xAniMan.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\xLayer.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLib\xSprite.h">
+      <Filter>GraphLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\Gif2Spr.h">
+      <Filter>GIF</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\PictureEx.h">
+      <Filter>GIF</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFunction\UnzipFile.h">
+      <Filter>ZipFuction</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFunction\ZipException.h">
+      <Filter>ZipFuction</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFunction\ZipFile.h">
+      <Filter>ZipFuction</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFunction\ZUBaseFile.h">
+      <Filter>ZipFuction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmavatar\Avatar.h">
+      <Filter>Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmavatar\AvatarDefine.h">
+      <Filter>Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\nmavatar\AvatarInclude.h">
+      <Filter>Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\ExtractFile.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\GetHttp.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\MyMisc.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\DownThread.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\FileList.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\FileTag.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Display\ResMan.h">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\crc32.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\deflate.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffast.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffixed.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inflate.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inftrees.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\trees.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.in.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zutil.h">
+      <Filter>Zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\loading.gif">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NMAvatar.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

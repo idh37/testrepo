@@ -1,0 +1,47 @@
+
+
+namespace SS
+{
+	namespace Clan
+	{
+		class ClanInfo_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string targetJID;
+			string serviceCode;
+		};	
+		
+		class ClanInfo_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string targetJID;
+			ClanInfo clanInfo;
+		};
+		
+		class ClanInfoList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+		};
+		
+		class ClanInfoList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			ClanInfoList clanInfoList;
+		};
+		
+		class ClanMemberInfoList_Req : SS::Common::_SSHeader
+		{
+			string reqJID;
+			string serviceCode;
+			string clanCode;			
+		};
+		
+		class ClanMemberInfoList_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string serviceCode;
+			string clanCode;
+			ClanMemberInfoList clanMemberInfoList;
+		};
+	};
+};

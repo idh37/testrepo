@@ -1,0 +1,3890 @@
+#ifndef __USERSTRUCT_H__
+#define __USERSTRUCT_H__
+
+//#include "PluginCommon.h"
+#include "GameCommon.h"
+#include "BetStruct.h"//짜고치기
+#include <math.h>	//골든칩퀘스트
+#include "UserStructDefine.h"
+
+#if defined(_ONLY_SERVER)
+#include "LogFile.h"
+#endif // defined(_ONLY_SERVER)
+
+#pragma warning (disable:4996)
+
+//버젼
+#define VERSION 406		//	2011.01.27	// TODO 게임별로
+
+#define SIZE_DAT_KEY (33)
+
+//G_TFT
+
+
+const short SAME_MONEY_GAME_TYPE = 42; //머니 게임코드   <----포커머니 코드
+
+#define STRING_GAME_INITIAL ("pokerlobby")
+
+#define MAX_CHANNEL_SETTING_COUNT 50
+
+typedef struct 
+{
+	BOOL bRead[MAX_CHANNEL_SETTING_COUNT];	
+	INT64 nLimitMoney[MAX_CHANNEL_SETTING_COUNT];	
+	INT64 nSeedMoney[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nMinMoney[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nMaxMoney[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nCreateLimitM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nQuckStartM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nCreRoomSeedM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nQuickSatrtSeedM[MAX_CHANNEL_SETTING_COUNT];
+	int nBetRule[MAX_CHANNEL_SETTING_COUNT];
+	int nFormKind[MAX_CHANNEL_SETTING_COUNT];
+	int nBetCount[MAX_CHANNEL_SETTING_COUNT];
+	int nDefaultCh[MAX_CHANNEL_SETTING_COUNT];
+	int nDefaultCh_QS[MAX_CHANNEL_SETTING_COUNT];
+} CHANNEL_SET_INFO;
+
+typedef struct 
+{
+	BOOL bRead[MAX_CHANNEL_SETTING_COUNT];	
+	int GroupType[MAX_CHANNEL_SETTING_COUNT];	
+	INT64 nMinMoney[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nMaxMoney[MAX_CHANNEL_SETTING_COUNT];	
+	INT64 nLimitMoney[MAX_CHANNEL_SETTING_COUNT];	
+	INT nRoomMIdx[MAX_CHANNEL_SETTING_COUNT];
+	INT nRoomLimitMIdx[MAX_CHANNEL_SETTING_COUNT];	
+	INT64 nCreateLimitM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nQuckStartM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nCreRoomSeedM[MAX_CHANNEL_SETTING_COUNT];
+	INT64 nQuickSatrtSeedM[MAX_CHANNEL_SETTING_COUNT];	
+} ROOM_SET_INFO;
+
+typedef struct 
+{
+	BOOL bRead;
+	int GroupType;	
+	INT64 nMaxBetPerRound;
+	INT64 nWarningDailyLoss;
+	INT64 nWarningDailyLossInRoom;
+	INT64 nMaxDailyLossMoney;
+	INT64 nBasicMaxDailyLossMoney;
+	INT64 nNormalBetLimitMoney;
+	INT64 nDiamondBetLimitMoney;
+
+} LIMIT_LAW;
+
+
+enum FORMKIND
+{
+	FORMKIND_NORMAL=0,
+	FORMKIND_CHOICE=1,
+	FORMKIND_BOMB=2,
+	FORMKIND_JOKER=3,
+	FORMKIND_DEFAULT=4,
+};
+//블랙유저 관리 2006.2.3
+enum BENEFIT
+{
+
+	BENEFIT_SUPPLY_ALL = 0,	//전체 혜택 지급
+	BENEFIT_UNSUPPLY_CHANCE,	//찬스아이템 미 지급여부
+	BENEFIT_UNSUPPLY_JACKPOT,	//잭팟 미 지급여부,
+	BENEFIT_UNSUPPLY_EVENT,		//이벤트 미 지급여부
+	BENEFIT_UNSUPPLY_FREECHARGE,    // 무료 충전 미 지급여부,
+
+	BENEFIT_UNSUPPLY_ALL=10,		//전체 미 지급
+
+	BENEFIT_MAXCOUNT			// 총 지급 종류 갯수
+};
+
+enum RULETYPE
+{
+	RULETYPE_7POKER=1,
+	RULETYPE_5POKER
+};
+
+enum BET_CMD{
+	BET_CMD_PING=0,			// 삥	
+	BET_CMD_DADANG,			// 따당
+	BET_CMD_ALLIN,			// 올인
+	BET_CMD_QUARTER,		// 쿼터 
+	BET_CMD_HALF,			// 하프 
+	BET_CMD_FULL,			// 풀
+	BET_CMD_RACE,			// Race베팅 	
+	BET_CMD_SMALL_BLIND,	//스몰 블라인드 [4구실전]
+	BET_CMD_BIG_BLIND,		//빅 블라인드 [4구실전]
+	// LIMIT베팅
+	BET_CMD_LIMIT_1X,  // 1배
+	BET_CMD_LIMIT_2X,  // 2배
+	BET_CMD_LIMIT_3X,  // 3배
+	BET_CMD_LIMIT_5X,  // 5배
+	BET_CMD_LIMIT_10X,  // 10배
+	BET_CMD_LIMIT_20X,  // 20배
+	BET_CMD_LIMIT_30X,  // 30배
+	BET_CMD_LIMIT_40X,  // 40배
+	BET_CMD_LIMIT_60X,  // 60배
+	BET_CMD_LIMIT_80X,  // 80배
+	BET_CMD_LIMIT_100X,  // 100배
+	BET_CMD_LIMIT_120X,  // 120배
+
+	MAX_BET_CMD,
+};
+
+enum eLIMIT_X
+{
+	LIMIT_X_UNKNOWN = 0,
+	LIMIT_1X=  1,
+	LIMIT_2X=  2,
+	LIMIT_3X=  3,
+	LIMIT_5X=  5,
+	LIMIT_10X=  10,
+	LIMIT_20X=  20,
+	LIMIT_30X=  30,
+	LIMIT_40X=  40,
+	LIMIT_60X=  60,
+	LIMIT_80X=  80,
+	LIMIT_100X=  100,
+	LIMIT_120X=  120,
+};
+
+enum  RAISE_LAST_CMD		// nLastCmd 정의 
+{
+	RAISE_LAST_CMD_NULL=0,
+	RAISE_LAST_CMD_FOLD,
+	RAISE_LAST_CMD_CHECK,
+	RAISE_LAST_CMD_CALL,
+	RAISE_LAST_CMD_PING,
+	RAISE_LAST_CMD_DADANG,
+	RAISE_LAST_CMD_QUARTER,
+	RAISE_LAST_CMD_HALF,
+	RAISE_LAST_CMD_FULL,
+	RAISE_LAST_CMD_RACE,	
+	RAISE_LAST_CMD_ALLIN,
+	RAISE_LAST_CMD_SMALL_BLIND,  //스몰 블라인드 [4구실전]
+	RAISE_LAST_CMD_BIG_BLIND,	//빅 블라인드 [4구실전]
+	// LIMIT베팅
+	RAISE_LAST_CMD_LIMIT_1X,  // 1배
+	RAISE_LAST_CMD_LIMIT_2X,  // 2배
+	RAISE_LAST_CMD_LIMIT_3X,  // 3배
+	RAISE_LAST_CMD_LIMIT_5X,  // 5배
+	RAISE_LAST_CMD_LIMIT_10X,  // 10배
+	RAISE_LAST_CMD_LIMIT_20X,  // 20배
+	RAISE_LAST_CMD_LIMIT_30X,  // 30배
+	RAISE_LAST_CMD_LIMIT_40X,  // 40배
+	RAISE_LAST_CMD_LIMIT_60X,  // 60배
+	RAISE_LAST_CMD_LIMIT_80X,  // 80배
+	RAISE_LAST_CMD_LIMIT_100X,  // 100배
+	RAISE_LAST_CMD_LIMIT_120X,  // 120배
+
+	RAISE_LAST_CMD_MAX
+};
+
+
+enum REASON_OUTROOM			// OnUserOutRoom 호출시 방 퇴장 이유 
+{
+	REASON_OUTROOM_NULL=0,
+	REASON_OUTROOM_DISCONNECT,				// 접속이 끊김 
+	REASON_OUTROOM_OUTOFMONEY,				// 머니 부족으로 퇴장
+	REASON_OUTROOM_USER_REQUEST,			// 유저의 요청에 의한 퇴장
+	REASON_OUTROOM_USER_AFK,				// 응답없음, 자리비움으로 인한 퇴장
+	REASON_OUTROOM_OUTOFPLAYTIME,			// 플레이타임 제한시간을 넘음 
+	REASON_OUTROOM_DAILYLOSS_LIMIT,			// 플레이타임 제한시간을 넘음 
+	REASON_OUTROOM_BANNED,					// 강제추방, 추방투표 퇴장 
+	REASON_OUTROOM_BANNED_BY_ADMIN,			// 관리자에 의한 퇴장	
+	REASON_OUTROOM_HACKER,					// 스피드핵 어뷰저 퇴장
+	REASON_OUTROOM_ABNORMAL,				// 비정상 상태 (서버오류)
+	REASON_OUTROOM_FLOODING,				// 도배성 행위 퇴장	
+	REASON_OUTROOM_NOPLAYER,				// 슈퍼방장 퇴장으로 자동퇴장 or 관전하다가 사람다 빠지면 자동퇴장.
+	REASON_OUTROOM_GRADUATION,				// 리미트 베팅 졸업 
+	REASON_OUTROOM_CANT_OBSERVE,			// 관전이동 필요 유저가 관전 불가로 인한 퇴장
+	REASON_OUTROOM_QUICKSTART_IN_ROOM,		// 다른 방 바로가기로 퇴장
+	REASON_OUTROOM_TOURNAMENT,
+	REASON_OUTROOM_TOURNAMENT_EXCEPTION,	// 토너먼트 예외 상황에 대한 방 퇴장
+	REASON_OUTROOM_TOURNAMENT_ALLIN,		// LEAVEROOMSTATE_ALLIN
+	REASON_OUTROOM_TOURNAMENT_MERGE,		// LEAVEROOMSTATE_MERGE
+	REASON_OUTROOM_TOURNAMENT_BREAK,		// LEAVEROOMSTATE_BREAK
+	REASON_OUTROOM_TOURNAMENT_TIMEOVER,		// LEAVEROOMSTATE_TIMEOVER
+	REASON_OUTROOM_TOURNAMENT_CANCEL,		// LEAVEROOMSTATE_CANCELGAME
+	REASON_OUTROOM_TOURNAMENT_WINNER,		// LEAVEROOMSTATE_MERGE
+	REASON_OUTROOM_ROUNDMODE_GAMEOVER,		// 라운드 모드 게임종료로 퇴장	
+};
+enum GAMESTATE
+{
+	GAMESTATE_NONE=0,			//
+	GAMESTATE_CARD_3,						// 카드 3장
+	GAMESTATE_CARD_SELECT,					// 카드 선텍
+	GAMESTATE_CARD_4,						// 카드 4장
+	GAMESTATE_CARD_5,						// 카드 5장
+	GAMESTATE_CARD_6,						// 카드 6장
+	GAMESTATE_CARD_HIDDEN,					// 히든 
+	GAMESTATE_CARD_WINCASE,					// 승 결정 (하이로우)
+	GAMESTATE_CARD_GAMEOVER,				// 게임오버 
+};
+
+enum DAILYLOSS_STATE
+{
+	DAILYLOSS_STATE_NORMAL = 0,
+	DAILYLOSS_STATE_WARNING,		// 70%
+	DAILYLOSS_STATE_WARNING_IN_ROOM,// 90%
+	DAILYLOSS_STATE_BLOCKED,		// 10마넌 도달 (게임별 차단)
+	DAILYLOSS_STATE_BLOCKED_24H,	// 10마넌 초과 (모든 게임 차단)
+	DAILYLOSS_STATE_LOGIN,
+	DAILYLOSS_STATE_END
+};
+
+namespace auth
+{
+
+// 2차 비밀번호
+enum AUTH_RESPONSE_TYPE
+{
+	eAUTH_UNKNOWN = 0,		// 사용않함
+	eAUTH_SUCCESS,			// 성공
+	eAUTH_CONNETION_FAIL,	// 연결실패( 게임 실행 가능 )
+	eAUTH_REENTRANT,		// 중복실행( 게임 실행 불가 )
+	eAUTH_IP_MISMATCH,		// IP불일치( 게임 실행 불가 )
+	eAUTH_TIMEOUT,			// 사용자 확인이 이뤄진 시간이 오래되었음( 게임 실행 불가 )
+	eAUTH_FAIL,				// 실패( 게임 실행 불가 )
+};
+
+}
+
+#if defined(_GAMETEST)
+#define MAX_ROUNDMODE_PLAYER_SU 20		// 라운드 모드 예약자 최대 수
+#else
+#define MAX_ROUNDMODE_PLAYER_SU 300		// 라운드 모드 예약자 최대 수
+#endif
+
+//#define MAX_ROUNDMODE_WAIT_ROOM 100		// 라운드 모드 대기 방 수
+#define MAX_ROUNDMODE_WAIT_USER_TIME 20000	// 방입장 대기시간.
+#define MAX_ROUNDMODE_WAIT_GAMEROOM_PLAY_USER_TIME 120000	// 다른 일반 게임방에서 플레이중인 유저는 2분을 더 준다.
+
+
+enum ROUND_MODE_MONEY_TYPE
+{
+	ROUNDMODE_MONEY_20B = 0,			// 200억
+	ROUNDMODE_MONEY_3HB,			// 3000억
+	ROUNDMODE_MONEY_4T,				// 4조
+	ROUNDMODE_MONEY_10T,				// 10조
+	ROUNDMODE_MONEY_END = ROUNDMODE_MONEY_10T
+};
+
+// 옵션 테스트로 임시 변경함 2015-06-19
+//enum ROUND_MODE_MONEY_TYPE
+//{
+//	ROUNDMODE_MONEY_20B = 0,			// 200억
+//	ROUNDMODE_MONEY_3HB,			// 3000억
+//	ROUNDMODE_MONEY_4T,				// 4조
+//	ROUNDMODE_MONEY_10T,				// 10조
+//	ROUNDMODE_OPTION_1,				// 
+//	ROUNDMODE_OPTION_2,				// 
+//	ROUNDMODE_OPTION_3,				// 
+//	ROUNDMODE_OPTION_4,				// 
+//	ROUNDMODE_OPTION_5,				// 
+//	ROUNDMODE_OPTION_6,				// 
+//	ROUNDMODE_OPTION_7,				// 
+//	ROUNDMODE_MONEY_END = ROUNDMODE_OPTION_7
+//};
+#define MAX_ROUNDMODE_TYPE		4		// TYPE별 최대 수 enum ROUND_MODE_MONEY_TYPE 수 보다 켜야된다.
+//#define MAX_ROUNDMODE_TYPE		10		// TYPE별 최대 수 enum ROUND_MODE_MONEY_TYPE 수 보다 켜야된다.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////                               [게임 아이템 작업]                               //////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#define MAX_ITEM_NUM           (30) // 최대아이템 갯수
+
+#define GAMEITEM_MES_ERROR     (-1) // 에러
+#define GAMEITEM_MES_SUCCESS   ( 0) // 성공
+#define GAMEITEM_MES_DBERROR   ( 1) // DB에러
+#define GAMEITEM_MES_NOITEM    ( 2) // 아이템이 없거나 사용가능한 아이템 없다
+#define GAMEITEM_MES_USEABLE   ( 3) // 아이템이 있고 사용하지 않았다
+#define GAMEITEM_MES_EXPIRED   ( 4) // 이미 사용중인 아이템이고, 기간이 만료되었다
+#define GAMEITEM_MES_USEFAIL   ( 5) // 아이템사용에 실패했으며, 다시 시도 요청
+
+/*
+   [ 게임 아이템 코드표 ]
+
+	  1 : 블루마나
+	  2 : 레드마나
+	  3 : 골드마나
+	 21 : 천하무적 아이템
+	 31 : 전적 초기화 아이템
+	 41 : 육성치 재분배 아이템
+	 61 : 수호천사 아이템
+	
+	130 : 강진축구 체력아이템(30일권)
+	210 : 강진축구 근력아이템(10일권)
+	230 : 강진축구 근력아이템(30일권)
+	310 : 강진축구 순발력아이템(10일권)
+	330 : 강진축구 순발력아이템(30일권)
+	410 : 강진축구 소화력아이템(10일권)
+	430 : 강진축구 소화력아이템(30일권)
+
+	201 : 점프 입장권 아이템
+	301 : 고정판수 아이템
+	401 : 슈퍼방장 아이템
+	501 : 플러스 포인트 아이템
+	601 : 찬스 아이템
+*/
+
+#define ITEM_SCODE_INVINCIBLE		21		// 천하무적 아이템 시작 코드 (슈퍼방, 찬스, 비공개) 
+
+#define ITEM_SCODE_SECRET			100		// [비공개방] 아이템 시작 코드
+#define ITEM_ECODE_SECRET			199		// [비공개방] 아이템 끝 코드
+
+#define ITEM_SCODE_SUPERMASTER		401		// 슈퍼 방장 아이템 시작 코드
+#define ITEM_ECODE_SUPERMASTER		401		// 슈퍼 방장 아이템 끝 코드
+
+#define ITEM_SCODE_PLUSPOINT		501		// 플러스 포인트 아이템 시작 코드
+#define ITEM_ECODE_PLUSPOINT		501		// 플러스 포인트 아이템 끝 코드
+
+#define ITEM_SCODE_POKER_HELP		1455		// 족보 도우미
+#define ITEM_ECODE_POKER_HELP		1455		// 족보 도우미
+
+#define ITEM_SCODE_QUICKJOINER	(1457)		// 내맘대로 바로입장 아이템 시작 코드
+#define ITEM_ECODE_QUICKJOINER	(1457)		// 내맘대로 바로입장 아이템 끝 코드
+
+enum ITEM_SCODE_REWARD 
+{
+	ITEM_SCODE_REWARD_FH=51,				//풀하우스
+	ITEM_SCODE_REWARD_FCARD=52,				//포카드
+	ITEM_SCODE_REWARD_SF=53,				//스티플
+	ITEM_SCODE_REWARD_RSF=54,				//로티플	//찬스 아이템
+	ITEM_SCODE_REWARD_GOLF=58,				//골프
+	ITEM_SCODE_REWARD_SECOND=62,			//세컨드
+	ITEM_SCODE_REWARD_THIRD=63,				//서드
+	ITEM_SCODE_REWARD_LUCKAVATA=109,		//[행운아바타] 2006.07.24
+
+// #if defined(__PROMOTION_CHANCEAVATA__) (2011.07.28 찬스아바타프로모션)
+	ITEM_SCODE_REWARD_CHANCEAVATA = 509,	// 찬스아바나 2011.07.27
+// #endif // (__PROMOTION_CHANCEAVATA__)
+//#if defined(__SUTDA__)
+	ITEM_SCODE_REWARD_38=59,				// 38광땡 아이템
+	ITEM_SCODE_REWARD_PARKMUNSU=60,			// 암행어사 아이템
+	ITEM_SCODE_REWARD_TANGKILLER=61,		// 땡잡이
+//#endif // (__SUTDA__)
+
+//#if defined(__MODIFY_CHANCEITEM__)
+	ITEM_SCODE_REWARD_VIP = 2231,			// VIP 찬스 아이템
+	ITEM_SCODE_REWARD_VVIP = 2232,			// VVIP 찬스 아이템
+
+//#endif // (__MODIFY_CHANCEITEM__)
+
+	// CRPARk 20120305 3월 정기점검시 훌라 찬스아바타 개편
+	ITEM_SCODE_REWARDALLINCLINIC = 101,	   // 훌라 올인클리닉 (2012년3월 점검 이후 더이상 지급 안함)
+	ITEM_SCODE_REWARDJACKPOT     = 127,    // 훌라 잭팟
+    ITEM_SCODE_REWARD2MISSION    = 130,	   // 훌라 더블 미션 (2012년03월 점검 이후 더이상 지급 안함)
+	ITEM_SCODE_REWARDTHANKHOOLA  = 131,    // 훌라 땡큐 훌라
+	ITEM_SCORE_REWARDQUADRUPLE	 = 2233,    // 4배골드찬스 (2012년03월 점검 이후 신규 추가)
+
+// 기사 회생 (Bad-Beat) 찬스
+	ITEM_SCODE_REWARD_BADBEAT_FH     = 3000,			//풀하우스
+	ITEM_SCODE_REWARD_BADBEAT_FCARD  = 3001,			//포카드
+	ITEM_SCODE_REWARD_BADBEAT_SF     = 3002,			//스티플
+	ITEM_SCODE_REWARD_BADBEAT_RSF    = 3003,			//로티플
+	ITEM_SCODE_REWARD_BADBEAT_GOLF   = 3004,			//골프
+	ITEM_SCODE_REWARD_BADBEAT_SECOND = 3005,			//세컨드
+	ITEM_SCODE_REWARD_BADBEAT_THIRD  = 3006,			//서드
+	ITEM_SCODE_REWARD_BADBEAT_5MADE  = 3007,			//메이드
+	ITEM_SCODE_REWARD_BADBEAT_6MADE  = 3008,			//6 메이드까지만
+
+// VIP 기사회생 찬스
+	ITEM_SCODE_REWARD_BADBEAT_FLUSH_VIP  = 3099,			//플러쉬
+	ITEM_SCODE_REWARD_BADBEAT_FH_VIP     = 3100,			//풀하우스
+	ITEM_SCODE_REWARD_BADBEAT_FCARD_VIP  = 3101,			//포카드
+	ITEM_SCODE_REWARD_BADBEAT_SF_VIP     = 3102,			//스티플
+	ITEM_SCODE_REWARD_BADBEAT_RSF_VIP    = 3103,			//로티플
+	ITEM_SCODE_REWARD_BADBEAT_GOLF_VIP   = 3104,			//골프
+	ITEM_SCODE_REWARD_BADBEAT_SECOND_VIP = 3105,			//세컨드
+	ITEM_SCODE_REWARD_BADBEAT_THIRD_VIP  = 3106,			//서드
+	ITEM_SCODE_REWARD_BADBEAT_5MADE_VIP  = 3107,			//메이드
+	ITEM_SCODE_REWARD_BADBEAT_6MADE_VIP  = 3108,			//6 메이드까지만
+
+};
+
+//찬스아이템 코드
+namespace REWARDITEM_RESULT
+{
+	enum
+	{
+		ITEM_PURCHASED = 1,			// 구매 했다.
+		ITEM_NOT_PURCHASED = 2,		// 구매하지 않았다.
+	};
+}
+
+#define DEFAULT_GAMEFEE (0.05)  //기본 게임비  (이 게임비보다 낮게 세팅되면 할인혜택임)
+
+//패밀리 개편
+enum CODE_NEW_FAMILY
+{
+	CODE_NEW_FAMILY_NONE=0,
+	CODE_NEW_FAMILY_MINI,
+	CODE_NEW_FAMILY_SILVER,
+	CODE_NEW_FAMILY_GOLD,
+	CODE_NEW_FAMILY_DIAMOND,
+
+	MAX_CODE_NEW_FAMILY
+};
+
+//PC방 상품 코드 
+const int CODE_PCROOM_NOT			= 0;	//	프리미엄 PC방이 아님
+const int CODE_PCROOM_BASIC			= 19;	//	프리미엄 PC방
+const int CODE_PCROOM_PLUS			= 20;	//	프리미엄 PC방 플러스
+
+//패밀리 개편
+struct PREMOPTION //옵션 상품 관리 변수
+{	
+	enum CODE_OPTION
+	{
+		CODE_OPTION_KISA=0, //기사 회생 // 사용않함
+		CODE_OPTION_JEKI, //재기 충전
+		CODE_OPTION_LIMITUP, //한도 업
+		CODE_OPTION_GOLD_EGG, // 황금알
+		//----------------------------
+		MAX_PREMOPTION,
+	};
+
+
+	struct OPTIONUNIT
+	{
+		char bValid;
+		char PremCode[6];
+		char PremGoodsCode[4];
+		DATE EndDateTime;	//옵션 만료 시간
+		
+		BYTE Count;
+		INT64 Money;
+		
+	};
+
+private:
+	OPTIONUNIT Option[MAX_PREMOPTION];
+public:
+
+	PREMOPTION()
+	{
+		memset( Option, 0, sizeof(Option) );
+	}
+
+		//해당 옵션 상품을 가지고 있는지 검사한다.
+		BOOL HaveOption(CODE_OPTION TypeOption)
+		{
+			if( TypeOption < 0 || TypeOption >= MAX_PREMOPTION ) return FALSE;
+
+			COleDateTime curtime = COleDateTime::GetCurrentTime();
+			if( curtime.m_dt > Option[TypeOption].EndDateTime ) return FALSE;
+
+			return (Option[TypeOption].bValid);
+		}
+		//남은 횟수를 가져온다. 
+		int GetRemainCount( CODE_OPTION TypeOption )
+		{
+			if( TypeOption < 0 || TypeOption >= MAX_PREMOPTION ) return 0;
+			if (HaveOption(TypeOption)==FALSE) return 0;
+
+			return Option[TypeOption].Count;
+		}
+
+		INT64 GetMoney( CODE_OPTION TypeOption )
+		{
+			if( TypeOption < 0 || TypeOption >= MAX_PREMOPTION ) return 0;
+			if (HaveOption(TypeOption)==FALSE) return 0;
+
+			return Option[TypeOption].Money;
+		}
+
+		const char* GetOptionCode( CODE_OPTION TypeOption )
+		{
+			if (TypeOption<0 || TypeOption>=MAX_PREMOPTION) return NULL;
+			return Option[TypeOption].PremCode;
+		}
+
+		const char* GetOptionGoodsCode( CODE_OPTION TypeOption )
+		{
+			if (TypeOption<0 || TypeOption>=MAX_PREMOPTION) return NULL;
+			return Option[TypeOption].PremGoodsCode;
+		}
+
+		void SetCount( CODE_OPTION TypeOption, int Count )
+		{
+			if (TypeOption<0 || TypeOption>=MAX_PREMOPTION) return;
+			Option[TypeOption].Count = Count;
+		}
+
+		void SetMoney( CODE_OPTION TypeOption, INT64 Money )
+		{
+			if (TypeOption<0 || TypeOption>=MAX_PREMOPTION) return;
+			Option[TypeOption].Money = Money;
+		}		
+
+		// DB에서 읽어온 옵션 상품을 세팅한다. 
+		void SetOption(CODE_OPTION TypeOption, const char *pPremCode, const char *pPremGoodsCode, DATE EndDate)
+		{
+			if (TypeOption<0 || TypeOption>=MAX_PREMOPTION) return;
+			
+			ZeroMemory(&Option[TypeOption], sizeof(OPTIONUNIT));
+			strncpy(Option[TypeOption].PremCode, pPremCode , sizeof(Option[TypeOption].PremCode)-1);
+			strncpy(Option[TypeOption].PremGoodsCode, pPremGoodsCode , sizeof(Option[TypeOption].PremGoodsCode)-1);
+			Option[TypeOption].bValid = (char) TRUE;
+			Option[TypeOption].EndDateTime = EndDate;
+		}
+};
+
+
+//패밀리 개편
+char *g_GetPremName(int PremMenuNo, BOOL bEnglish=TRUE);
+
+
+
+//스페셜 족보 코드
+enum CODE_SPECIAL
+{
+	CODE_SPECIAL_NONE = -1,
+	CODE_SPECIAL_RSF=3,
+	CODE_SPECIAL_SF=2,
+	CODE_SPECIAL_FCARD=1,
+	CODE_SPECIAL_GOLF=CODE_SPECIAL_RSF,
+	CODE_SPECIAL_SECOND=CODE_SPECIAL_SF,
+	CODE_SPECIAL_THIRD=CODE_SPECIAL_FCARD,
+	CODE_SPECIAL_FULLHOUSE = 4,
+//#if defined(__SUTDA__)
+	CODE_SPECIAL_38GWANG=CODE_SPECIAL_RSF,
+	CODE_SPECIAL_GWANG=CODE_SPECIAL_SF,
+	CODE_SPECIAL_DDANG=CODE_SPECIAL_FCARD,
+//#endif // (__SUTDA__)
+};
+
+//[프리미엄 개편 무료충전 추가2] [2007-05]
+typedef struct
+{
+// 	STATUS_PREM	PremStatus;			// 리더스 회원 결제상태구분
+// 	int			ContentsNo;			// Contents_no
+// 	int			RealMenuNo;				// Menu_no
+
+	//프리미엄 슈퍼충전 수정 2008.10
+	BOOL		bPremChargeAvailable;		//충전 받을 자격이 있는가?
+	BOOL		bPremChargeSuccess;		//슈퍼충전 횟수 기록 성공 여부
+	int		MChargeCnt;				//슈퍼충전 월 충전횟수
+	int		DChargeCnt;				//슈퍼충전 일 충전횟수
+
+
+}PREMINFO;
+
+//강퇴횟수 설정
+#define MAX_KICKOUT_COUNT_PREM_DIAMOND	(8)		//다이아몬드 회원의 강퇴횟수 
+#define MAX_KICKOUT_COUNT_SUPER			(4)		//슈퍼권한 유저의 강퇴횟수 
+#define MAX_KICKOUT_COUNT_NORMAL		(2)		//일반권한 유저의 강퇴횟수 
+
+//관전시간제한 설정(초)
+#ifdef _DEBUG
+#define MAX_OBSERVE_TIME (60*3)	//3분 (디버그)
+#else
+#define MAX_OBSERVE_TIME (60*15)	//15분 
+#endif // _DEBUG
+
+/////////////////////////////////////////////////////////////////////////
+enum STATE_JACKPOT		//뉴잭팟시스템
+{
+		STATE_JACKPOT_NULL,				
+		STATE_JACKPOT_IDLE,				//잭팟  진행중이지 않음, 잭팟 시간이 아님
+		STATE_JACKPOT_START,			//잭팟 하프 집계 시작		
+		STATE_JACKPOT_END,				//잭팟 하프 집계 종료
+		STATE_JACKPOT_ANNOUNCE,			//잭팟룸 발표
+};
+
+enum STATE_JACKPOTROOM		//뉴잭팟시스템
+{
+	STATE_JACKPOTROOM_NULL=0,			//잭팟 방아님 
+	STATE_JACKPOTROOM_HALFCOUNTACTIVE,	//현재 하프 카운트 중이다. 
+	STATE_JACKPOTROOM_NOMINATED,	//잭팟 후보방
+	STATE_JACKPOTROOM_WIN,			//잭팟 당첨방		
+};
+
+//내맘대로 바로입장
+enum ERR_ENTERROOM
+{
+	ERR_ENTERROOM_OK,		 		//방 입장가능
+	ERR_ENTERROOM_INVALID, 				// 방 정보가 잘못
+	ERR_ENTERROOM_ALREADY_EXIST, 			//이미 방안에 있다. 
+	ERR_ENTERROOM_WRONG_PASSWORD, 		// 비번 틀림
+	ERR_ENTERROOM_WRONG_USERID,			// 요청인 아이디가 잘못됨
+	ERR_ENTERROOM_MONEYLIMIT,  			//머니 제한 
+	ERR_ENTERROOM_INVALID_LOCATION, 		//대기실이 아님 
+	ERR_ENTERROOM_LACK_OF_MONEY,		 	//돈이 모자라다. (시드머니 보다 작음)		
+	ERR_ENTERROOM_ROOM_DESTROY_RESERVATION, 		//방 파괴 예약 
+	ERR_ENTERROOM_BANNED,				// 일반방 추방투표 강퇴자 
+	ERR_ENTERROOM_SAME_IP,				//동일 IP
+	ERR_ENTERROOM_FULL,				// 풀방
+	ERR_ENTERROOM_PLAYMONEYLIMIT, // 등급보험[올인보험개편]
+	ERR_ENTERROOM_FULL_OBSERVERLIMIT,	// 관전인원이 가득찬경우
+	ERR_ENTERROOM_INVALID_MAXROOM_CONDITION,
+	ERR_ENTERROOM_PLAYTIMEOVER,			// 일 플래이 제한에 걸림
+	ERR_ENTERROOM_DAILYLOSS_LIMIT,
+	ERR_ENTERROOM_TOURNAMENT_NOT_REGISTED,
+};
+
+
+////////////////////////////////////////////////////////////////////////
+//내맘대로 바로입장
+// 내맘대로 바로입장 설정 항목
+
+enum ID_QUICKJOIN_ITEM
+{
+	//-----------------------
+	ID_QUICKJOIN_ITEM_MONEY,			// 보유머니	
+	ID_QUICKJOIN_ITEM_GAMEMODE,			// 게임모드
+	ID_QUICKJOIN_ITEM_GAMERULE,
+	ID_QUICKJOIN_ITEM_BETRULE,			// 베팅룰
+	ID_QUICKJOIN_ITEM_SEEDMONEY,		// 시드머니	
+	//-----------------------
+	MAX_QUICKJOIN_ITEM,
+};
+
+//각 조건항목에 필요한 변수 설정 
+struct QJData_Money
+{
+	INT64 MoneyMin, MoneyMax;
+};
+struct QJData_Game
+{
+	char idxGame;
+};
+struct QJData_GameMode
+{
+	char FormKind;
+};
+struct QJData_BetRule
+{
+	int nAutoBetKind;
+};
+struct QJData_SeedMoney
+{
+	int idxSeedMoney;
+};
+struct QJData_Sex
+{
+	char bMale;
+};
+struct QJData_Age
+{
+	int AgeMin, AgeMax;
+};
+
+struct QJData_GameRule
+{
+	int nGameRule;
+};
+
+//각 조건항목 공용체
+typedef union{
+	QJData_Money		data_money;
+	QJData_Game			data_game;
+	QJData_GameMode		data_mode;
+	QJData_BetRule		data_betrule;
+	QJData_SeedMoney	data_seedmoney;
+	QJData_Sex			data_sex;
+	QJData_Age			data_age;
+	QJData_GameRule     data_gamerule;
+}UNION_QJDATA;
+
+//data
+struct QJData
+{
+	QJData() 
+	{
+		m_nPriority=0;
+		m_IDQJ=-1;
+		ZeroMemory(&union_data, sizeof(UNION_QJDATA));
+	}
+	char m_IDQJ;	//검색조건 항목의 종류(ID_QUICKJOIN_ITEM)
+	char m_nPriority; //현재 우선순위 , 0일 경우 OFF
+	UNION_QJDATA union_data;
+
+	BOOL IsValidData()	//서버 데이터 무결성 검사 .
+	{
+		if (m_IDQJ<0 || m_IDQJ>=MAX_QUICKJOIN_ITEM) return FALSE;
+		if (m_nPriority<=0 || m_nPriority>MAX_QUICKJOIN_ITEM) return FALSE;
+		return TRUE;
+	}
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////                     마스터 서버용 구조체
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임서버 상태 정보
+typedef struct
+{
+	char	WorkState;			// 서버 가동 상태(0:정상 1:점검중 2:종료중)
+	char	Reserved[3];
+} Ms_ServerStatus;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임서버 정보
+typedef struct
+{
+	int		SNum;				// 서버 인식 번호(로그인 서버 번호)
+
+	short	GameCode;			// 게임 코드
+	short	ServerCode;			// 서버 코드
+	char	ServerName[20];		// 서버 이름
+	char	IP[20];				// 서버 IP
+	int		Port;				// 서버 포트 번호
+	int		TotChan;			// 서버에 속한 총 채널 개수
+	int		TotUser;			// 서버에 접속한 유저 수
+	Ms_ServerStatus	Status;		// 게임서버 상태 정보
+} Ms_ServerInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임 서버의 유저 정보
+typedef struct
+{
+	char	ID[20];				// 사용자 ID
+	char    NickName[NICK_LEN];		// 닉네임수정 
+	short	UNum;				// 유저 번호
+	short	GroupNo;			// 접속한 그룹 번호
+	short	ChanNo;				// 접속한 통합 채널 번호
+	short	SNum;				// 접속한 서버 번호
+	short	LocChanNo;			// 로컬 채널 번호
+	char	Reserved[2];
+} Ms_UserInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임채널 정보
+typedef struct
+{
+	short	GameCode;			// 게임 코드 
+	short	GroupNo;			// 그룹 번호
+	short	ChanNo;				// 채널 번호(통합된 채널 번호)
+	short	LocChanNo;			// 로컬 서버 채널 번호(게임 서버 자체의 채널 번호)
+	short	MaxUser;			// 최대 수용 인원
+	short	NowUser;			// 현재 인원
+	short	ResUser;			// 입장 예약중인 인원(마스터 서버에서 판단)
+	char	WorkState;			// 채널 상태(0:정상 1:점검중 2:종료중)
+	char	BanPrivate;			// 채널 비방생성금지상태 (0:비방생성가능, 1:비방생성 불가)   //[포커류 비공개방 전용채널작업] 2007.02.13
+	char    bBanUseChan;		//[2009.07.31] 채널 사용 여부
+	char	bVSMode;			// VSMode (0:일반 1:VSMode)
+	char	JackpotType;		// 잭팟 타입  (0:없음 1:Half잭팟 2: Royal Half잭팟)
+	char	Reserved[3];
+} Ms_ChannelInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 업데이트용 게임채널 정보
+typedef struct
+{
+	short	GameCode;			// 게임 코드
+	short	GroupNo;			// 그룹 번호
+	short	ChanNo;				// 채널 번호(통합된 채널 번호)
+	short	NowUser;			// 현재 인원
+	short	ResUser;			// 입장 예약중인 인원(마스터 서버에서 판단)
+	char	WorkState;			// 채널 상태(0:정상 1:점검중 2:종료중)
+	char	BanPrivate;			// 채널 비방생성금지상태 (0:비방생성가능, 1:비방생성 불가)   //[포커류 비공개방 전용채널작업] 2007.02.13
+	char    bBanUseChan;		//[2009.07.31] 채널 사용 여부
+	char	bVSMode;			// VSMode (0:일반 1:VSMode)
+	char	JackpotType;		// 잭팟 타입  (0:없음 1:Half잭팟 2: Royal Half잭팟)
+	char	Reserved[3];
+} Ms_SmallChanInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 채널 업데이트 정보
+typedef struct
+{
+	int		TotNewChan;			// 새로운 채널 정보 개수
+	int		TotModChan;			// 수정될 채널 정보 개수
+	int		TotDelChan;			// 삭제될 채널 정보 개수
+} Ms_ChanUpdateInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임서버 로그인 정보
+typedef struct
+{
+	char	Account[20];
+	char	Password[20];
+	Ms_ServerInfo  SvInfo;
+} Ms_ServerLoginInfo;
+
+// 게임서버 로그인 정보
+typedef struct
+{
+	char szAdminIP[24];			// 관리자의 접속 IP정보
+	DWORD	dwIPMask;		// IP Mask정보
+} Ms_GroupInspectionAdminIPInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 마스터 서버 상태 정보
+typedef struct
+{
+	BOOL	bAllGroupShow;			// 클라이언트에게 모든 그룹의 채널을 보여줄 것인가?
+	BOOL	bAccessDeny;			// 접속 거부중인가?
+	BOOL	bUseSessionManagement;	// 세션 관리 기능을 사용하고 있는 상태인가?
+	int		TotGroup;				// 유효한 그룹 개수
+} Ms_MasterStatus;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 그룹 정보
+typedef struct
+{
+	short	GroupNo;				// 그룹 번호
+	short	TotLinkGroup;			// 링크 그룹 개수
+	BYTE	LinkGroup[20];			// 링크 그룹 배열
+	char	GroupName[24];			// 그룹 이름
+	char	cGroupState;				// 그룹 상태(0: 정상, 1: 점검중)
+} Ms_GroupInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 채널 변경 정보
+typedef struct
+{
+	char		Kind;			// 정보의 종류(1:채널 입장 유저, 2:채널 변경 유저, 3:채널 퇴장 유저)
+	char		Reserved[3];
+	UINT		SeqNo;			// 인식용 시퀀스 번호
+	short		ServerTotUser;	// 게임서버 전체의 유저수
+	short		ChanTotUser;	// 입장한 채널의 유저수
+	Ms_UserInfo Ui;				// 유저 정보
+} Ms_UserChangeInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 강제 종료 명령 정보
+typedef struct
+{
+	short	Code;			// 코드
+	short	UNum;			// 유저 번호
+	char	ID[20];			// 유저 ID 
+	BOOL	bDontSaveDB;	// 강제 종료시 DB기록을 취소시킬 것인가?
+} Ms_DisconnectUserInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 접속 체크 명령 정보
+typedef struct
+{
+	short	Code;			// 코드
+	short	UNum;			// 유저 번호
+	char	ID[20];			// 유저 ID 
+} Ms_CheckUserInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 다른 서버로 채널 변경 요청 정보
+typedef struct
+{
+	short	FromSNum;		// 이동을 요청한 서버 번호
+	short	TarGroupNo;		// 이동하고자하는 그룹 번호
+	short	TarChanNo;		// 이동하고자하는 채널 번호
+	short	TotGameItem;	// 사용자가 소유하고 있는 아이템 개수
+} Ms_AskMoveChan;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 다른 서버로 채널 변경 요청 결과 정보
+typedef struct
+{
+	short				Code;			// 결과 코드(0보다 작으면 입장 불가)
+	char				Reserved[2];
+	short				ToSNum;			// 이동 요청을 했던 서버 번호
+	short				ToUNum;			// 이동 요청을 했던 유저 번호
+	char				WaitIP[20];		// 이동할 서버의 IP
+	int					WaitPort;		// 이동할 서버의 포트 번호
+	DWORD				WaitPass;		// 접속 대기 패스 번호
+	Ms_UserChangeInfo	UCInfo;			// 유저의 채널 변경 정보 
+} Ms_ResultMoveChan;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 접속할 게임 서버 정보
+typedef struct
+{
+	char	IP[20];				// 서버 IP
+	int		Port;				// 서버 포트 번호
+	UINT	SeqNo;				// 접속 시퀀스 번호
+	short	GroupNo;			// 그룹 번호
+	short	ChanNo;				// 통합 채널 번호
+	short	SNum;				// 서버 번호
+	short	LocChanNo;			// 로컬 채널 번호
+} Ms_DestServerInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 다른 서버로 게임 변경 요청 정보
+typedef struct
+{
+	short	FromSNum;		// 이동을 요청한 서버 번호
+	short	TarGameCode;		// 이동하고자하는 그룹 번호
+	short	TarGroupNo;		// 이동하고자하는 그룹 번호
+	short	TarChanNo;		// 이동하고자하는 채널 번호
+	short	TotGameItem;	// 사용자가 소유하고 있는 아이템 개수
+} Ms_AskMoveGame;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 다른 서버로 게임 변경 요청 결과 정보
+typedef struct
+{
+	short				Code;			// 결과 코드(0보다 작으면 입장 불가)
+	char				Reserved[2];
+	int					nGameCode;		// 이동 요청을 했던 게임코드
+	short				ToSNum;			// 이동 요청을 했던 서버 번호
+	short				ToUNum;			// 이동 요청을 했던 유저 번호
+	char				WaitIP[20];		// 이동할 서버의 IP
+	int					WaitPort;		// 이동할 서버의 포트 번호
+	DWORD				WaitPass;		// 접속 대기 패스 번호
+	Ms_UserChangeInfo	UCInfo;			// 유저의 채널 변경 정보 
+} Ms_ResultMoveGame;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+typedef struct
+{
+	int        Index;		// 서버에서확인하는 인덱스
+	int        NO;			// 유니크 넘버
+	int        Code;		// 아이템 코드
+	char       PresID[ID_LEN];	// 선물준 사람
+	short      UseDay;		// 사용 가능한 기간(일)
+	short      UseNum;		// 사용 가능한 회수
+	short	   FillNum;		// 특별 충전 사용 횟수 (천하무적 아이템)
+	SYSTEMTIME StartDate;	// 사용 시작 시간
+	short      Use;			// 사용 유무(또는 사용한 회수)
+	char       Reserved[2];
+} GAMEITEM;
+
+typedef struct
+{
+	BOOL	  bLogable;  // 로그인 가능여부
+	int       nResult;   // -1:에러, 0:성공, 1:DB오픈에러, 2:아이템없거나 사용가능한 아이템없다, 3:아이템이 있고 사용하지 않았다
+	int       nNum;      // 추출한 아이템 갯수
+	GAMEITEM  Item[MAX_ITEM_NUM];
+
+} GAMEITEM_LIST;
+
+
+// 특수 게임 아이템용 정보
+struct REWARD_GAMEITEM_INFO
+{
+	// reward item db 08.02.27
+	UINT		dbno;			// reward item db 
+	char		bNeedUpdating;	// 종료시 DB 업데이트 여부
+
+	short		ItemCode;		// 아이템 코드
+	short		GameCode;		// 게임 코드
+	SYSTEMTIME	ItemTime;		// 아이템 부여받은 시각
+	SYSTEMTIME	TimeStamp;		// 아이템 한계 시각	( Invalid 하다면 ( 모두 0값 ) 아직 요청하지 않았음. )
+	SYSTEMTIME	TimeExpire;		// 아이템 만료시간(클라이언트 종료여부와 관계없이 세팅맨에 설정된 시간이내에 구매할수 있도록)
+};
+#define MAX_REWARD_ITEM		30	// 사이즈가 좀더 필요하다면 다음 숫자를 늘려서 사용하길...
+typedef struct 
+{
+	int						nResult;
+	int						nNum;
+	REWARD_GAMEITEM_INFO	Item[MAX_REWARD_ITEM];
+
+	// reward item db 08.02.27
+	REWARD_GAMEITEM_INFO *GetRewardItem(int itemcode, SYSTEMTIME time)
+	{
+		for(int i=0;i < nNum; i++)
+		{
+			if (Item[i].ItemCode == itemcode &&	memcmp(&Item[i].ItemTime, &time, sizeof(SYSTEMTIME) ) == 0 )
+				return &Item[i];
+		}
+		return NULL;
+	}
+}REWARDITEM_LIST;
+
+
+// 게임 아이템 리스트 정보(클라이언트 송신용)
+typedef struct
+{
+	int			Kind;		// 종류(0:아이템 리스트 정보 1:점프 아이템 사용시 리스트 정보 100:아이템 리스트 갱신 정보)
+	int			ErrorCode;	// 에러 코드
+	int			TotNum;		// 아이템의 개수
+	SYSTEMTIME	ServerTime;	// 서버의 현재 시간
+	int			StrMsgLen1;	// 문자열 길이 1 (아이템 사용 유무를 물어보는 문자열)
+	int			StrMsgLen2;	// 문자열 길이 2 (아이템 설명 문자열)
+} GAMEITEM_INFO;
+
+// 게임 아이템 구입 정보
+typedef struct
+{
+	int  Kind;			// 종류
+	char ItemName[256];	// 아이템 이름
+	int  ItemCode;		// 아이템 코드
+	int  StrMsgLen;		// 설명 문자열 길이
+} BUYGAMEITEMINFO;
+
+// 게임아이템 사용 정보(보내고 받기 모두 사용)
+typedef struct
+{
+	char		ID[ID_LEN];			// 아이템 사용자 아이디
+	GAMEITEM	Item;			// 사용할(혹은 사용한) 아이템의 정보
+	BOOL		bUseError;		// 아이템 사용중 에러가 발생하였는가?
+	BOOL		bMessage;		// 메시지를 포함하는가?
+	char		StrMsg[256];	// 메시지 스트링
+} USEGAMEITEMINFO;
+
+// 아이템 상태 반환 구조체
+struct ItemState
+{
+	int		  iState;		// 0: 잘못된 아이템 1:사용가능한 아이템 2:사용중인 아이템 3:사용할 수 없는 아이템(다쓴 아이템)
+	BOOL	  bNowUsing;	// 현재 사용중인가?
+	COleDateTimeSpan LeftTime;		// 남은 시간
+	COleDateTime	  EndDate;		// 만료일시
+};
+
+
+// 아이템의 상태를 얻어오는 편의 함수
+ItemState GameItem_GetItemState(GAMEITEM &item, SYSTEMTIME* pCurTime=NULL);
+
+// 아이템의 종류를 알아내는 편의 함수(아이템의 시작코드를 종류 코드로 사용)
+int GameItem_GetItemKind(int itemcode);
+
+// 특정 종류의 아이템이 사용중인지 알아냄(아이템이 존재하는 경우 pExist에 넘어옴, 서버/클라이언트 공용)
+BOOL GameItem_IsUsingItem(GAMEITEM_LIST &itemlist, int itemcode, BOOL *pExist, SYSTEMTIME* pCurTime=NULL);
+
+// 아이템의 이름을 얻어오는 편의 함수
+CString GameItem_GetItemName(GAMEITEM& item);
+CString GameItem_GetItemName(int code);
+
+// 아이템의 기능 도움말을 얻어오는 편의 함수
+CString GameItem_GetItemHelp(int code);
+
+// 아이템 이미지의 인덱스를 얻어오는 편의 함수(클라이언트의 이미지 리스트에서 사용)
+int GameItem_GetItemImageIndex(int code);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+int GetMoneyGrade(INT64 Money );
+CString GetGradeName(int lv);
+INT64 GetGradeToUserMoney(int grade);
+int GetWinPro(int winnum, int loosenum , int drawnum);
+int GetWinPro(int winnum, int loosenum);
+
+//숫자->한글 변환 
+CString NumberToOrientalString( INT64 number );
+
+//2008.12 포커류 통합
+/////////////////////////////////////////////////////////////////////
+//기존 포커머니 사용게임 전적 
+struct RECORD
+{	
+	UINT WinNum, LoseNum, FoldNum, RSNum, SFNum, FCNum, AllinCnt, uHoola, uDaebbang, uSobbang; // 훌라, 대빵, 소빵 추가
+	int TournamentRankedCount, TournamentTicketCount;
+	
+	RECORD operator -(const RECORD &gr)
+	{
+		RECORD ret;
+		ret.WinNum = WinNum - gr.WinNum;
+		ret.LoseNum = LoseNum - gr.LoseNum;
+		ret.FoldNum = FoldNum - gr.FoldNum;
+		ret.RSNum = RSNum - gr.RSNum;
+		ret.SFNum = SFNum - gr.SFNum;
+		ret.FCNum = FCNum - gr.FCNum;
+		ret.AllinCnt = AllinCnt - gr.AllinCnt;
+		// 훌라전용
+		ret.uHoola    = uHoola - gr.uHoola;
+		ret.uDaebbang = uDaebbang - gr.uDaebbang;
+		ret.uSobbang  = uSobbang  - gr.uSobbang;
+
+		ret.TournamentRankedCount = TournamentRankedCount;
+		ret.TournamentTicketCount = TournamentTicketCount;
+
+		return ret;
+	}
+
+	bool operator !=(const RECORD &gr)
+	{
+		return ( (WinNum != gr.WinNum)	 || 
+				(LoseNum != gr.LoseNum) || 
+				(FoldNum != gr.FoldNum) /*||
+				(RSNum != gr.RSNum) ||
+				(SFNum != gr.SFNum) ||
+				(FCNum != gr.FCNum) ||
+				(AllinCnt != gr.AllinCnt) */
+				);		
+	}
+
+	BOOL IsZero()
+	{
+		return ( WinNum==0 && LoseNum==0 && FoldNum==0 && RSNum==0 && SFNum==0 && FCNum==0 && AllinCnt==0 
+				&& 0 == uHoola
+				&& 0 == uDaebbang
+				&& 0 == uSobbang );
+	}
+	
+};
+
+
+
+// 2008.12 포커류 통합 
+struct ALLGAMERECORD
+{	
+
+	// 전적 기록을 위한 변수 
+
+	//최대 보유머니
+	INT64 PMoneyRecord;	
+	//최대 획득머니
+	INT64 WinPotRecord[MAX_GAMERECORD][MAX_GAME];
+
+	//각종 카운트 기록 변수 
+	RECORD Rec[MAX_GAMERECORD][MAX_GAME];
+	
+
+	// ------------------------함수	----------------------------
+	void ResetForGameDB()
+	{
+		//게임DB에 있는 변수들만 리셋한다. (PMoneyRecord를 제외한 변수 리셋)
+		ZeroMemory(WinPotRecord, sizeof(WinPotRecord));
+		ZeroMemory(Rec, sizeof(Rec));
+	}
+	void Reset()
+	{
+		PMoneyRecord=0;
+		ZeroMemory(WinPotRecord, sizeof(WinPotRecord));
+		ZeroMemory(Rec, sizeof(Rec));
+
+	}
+	ALLGAMERECORD operator -(const ALLGAMERECORD &gr)
+	{
+		//이 함수는  DB에 쓰기위해 로그아웃 전적에서 로그인 전적을 빼서 그 차이만큼 쓰기 위해 사용한다.
+		//(주의) 최대획득머니는 뺄셈 하지  않고 기록을 깼을 때만 0이아닌 기록값을 반환한다.
+		ALLGAMERECORD ret = *this;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{		
+				ret.Rec[r][g] = Rec[r][g] - gr.Rec[r][g];
+
+				//최대획득머니는 record를  break 했을 때 만 기록한다. 아닐때는 0으로 반환
+				if (WinPotRecord[r][g] > gr.WinPotRecord[r][g] )
+				{
+					ret.WinPotRecord[r][g] = WinPotRecord[r][g];
+				}
+				else
+				{
+					ret.WinPotRecord[r][g] =0;
+				}
+			}
+		}		
+
+		return ret;
+	}
+
+	bool operator !=(const ALLGAMERECORD &gr)
+	{		
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{				
+				if (Rec[r][g] != gr.Rec[r][g]) return true;
+				//if (WinPotRecord[r][g] != gr.WinPotRecord[r][g]) return true;    ->(전적변화없이 최대획득머니가 변화될리없다.삭제)
+			}
+		}
+		
+		return false;
+	}
+	//최대 보유머니 기록
+	INT64 GetPMoneyRecord() { return PMoneyRecord; }
+
+
+	//최대 획득 머니 기록 
+	INT64 RecordWinPot(IDX_GAMERECORD idxGR, IDX_GAME idxGame, INT64 WinPot) 
+	{
+		if (WinPotRecord[idxGR][idxGame] < WinPot)  
+			WinPotRecord[idxGR][idxGame] = WinPot;
+		return WinPotRecord[idxGR][idxGame];
+	}
+	void SetWinPotRecord(IDX_GAMERECORD idxGR, IDX_GAME idxGame, INT64 WinPot)	{		WinPotRecord[idxGR][idxGame] = WinPot;	}
+	INT64 GetWinPotRecord(IDX_GAMERECORD idxGR, IDX_GAME idxGame)				{		return WinPotRecord[idxGR][idxGame];		}
+	INT64 GetWinPotRecord(IDX_GAME idxGame)	///게임별 최고기록  합
+	{		
+		INT64 MaxWinPot =0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{
+			if (MaxWinPot < WinPotRecord[r][idxGame])
+			{
+				MaxWinPot = WinPotRecord[r][idxGame];
+			}			
+		}
+
+		return MaxWinPot;
+	}
+
+
+	//올인카운트 
+	void SetAllinCnt(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num) { Rec[idxGR][idxGame].AllinCnt = num; }
+	void IncAllinCnt(IDX_GAMERECORD idxGR, IDX_GAME idxGame) { Rec[idxGR][idxGame].AllinCnt++; }
+	UINT GetAllinCnt(IDX_GAMERECORD idxGR, IDX_GAME idxGame) { return Rec[idxGR][idxGame].AllinCnt; }
+	UINT GetAllinCnt(IDX_GAME idxGame)	///게임별 올인카운트 합
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].AllinCnt;
+		}	
+		return ret;
+	}
+
+	UINT GetAllinCnt()
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].AllinCnt;
+			}
+		}
+		return ret;
+	}
+
+
+
+	//로티플/스티플/포카드
+	void SetRSNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)	{	Rec[idxGR][idxGame].RSNum = num;	}	
+	void SetSFNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)	{	Rec[idxGR][idxGame].SFNum = num;	}
+	void SetFCNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)	{	Rec[idxGR][idxGame].FCNum = num;	}
+	
+	void IncRS(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		Rec[idxGR][idxGame].RSNum++;		}
+	void IncSF(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		Rec[idxGR][idxGame].SFNum++;		}
+	void IncFC(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		Rec[idxGR][idxGame].FCNum++;		}
+
+	UINT GetRSNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		return Rec[idxGR][idxGame].RSNum;		}
+	UINT GetSFNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		return Rec[idxGR][idxGame].SFNum;		}
+	UINT GetFCNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)	{		return Rec[idxGR][idxGame].FCNum;		}
+
+	// 훌라전용
+	void SetHoolaNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT uCnt )    { Rec[ idxGR ][ idxGame ].uHoola = uCnt; }	
+	UINT GetHoolaNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )			     { return Rec[ idxGR ][ idxGame ].uHoola; }	
+	void IncHoolaNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )				 { Rec[ idxGR ][ idxGame ].uHoola++;	  }
+
+	void SetDaebbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT uCnt ) { Rec[ idxGR ][ idxGame ].uDaebbang = uCnt; }	
+	UINT GetDaebbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )			 { return Rec[ idxGR ][ idxGame ].uDaebbang; }	
+	void IncDaebbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )				 { Rec[ idxGR ][ idxGame ].uDaebbang++;	 }
+
+	void SetSobbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT uCnt )  { Rec[ idxGR ][ idxGame ].uSobbang = uCnt;	}	
+	UINT GetSobbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )			 { return Rec[ idxGR ][ idxGame ].uSobbang;	}
+	void IncSobbangNum( IDX_GAMERECORD idxGR, IDX_GAME idxGame )			 { Rec[ idxGR ][ idxGame ].uSobbang++;	 }
+
+	
+	// 게임별 총 족보 기록수 
+	UINT GetRSNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].RSNum;
+		}	
+		return ret;
+	}	
+	UINT GetSFNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].SFNum;
+		}	
+		return ret;
+	}
+	UINT GetFCNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].FCNum;
+		}	
+		return ret;
+	}
+
+	UINT GetRSNum() // 총 rsf 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{				
+				ret+=Rec[r][g].RSNum;
+			}
+		}
+		return ret;
+	}	
+	UINT GetSFNum()	// 총 sf 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].SFNum;
+			}
+		}
+		return ret;
+	}
+	UINT GetFCNum()// 총 fc 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].FCNum;
+			}
+		}
+		return ret;
+	}
+
+	//승, 패, 포기
+	UINT GetWinNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)				{	return Rec[idxGR][idxGame].WinNum;		}
+	UINT GetLoseNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)				{	return Rec[idxGR][idxGame].LoseNum;	}
+	UINT GetFoldNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame)				{	return Rec[idxGR][idxGame].FoldNum;	}
+	
+	void SetWinNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)		{	Rec[idxGR][idxGame].WinNum = num;		}
+	void SetLoseNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)	{	Rec[idxGR][idxGame].LoseNum = num;	}
+	void SetFoldNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame, UINT num)	{	Rec[idxGR][idxGame].FoldNum = num;	}	
+	
+	void IncWin(IDX_GAMERECORD idxGR, IDX_GAME idxGame)					{	Rec[idxGR][idxGame].WinNum++;			}
+	void IncLose(IDX_GAMERECORD idxGR, IDX_GAME idxGame)					{	Rec[idxGR][idxGame].LoseNum++;		}
+	void IncFold(IDX_GAMERECORD idxGR, IDX_GAME idxGame)					{	Rec[idxGR][idxGame].FoldNum++;		}	
+	
+	// 게임별 총 족보 기록수 
+	UINT GetWinNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].WinNum;
+		}	
+		return ret;
+	}	
+	UINT GetLoseNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].LoseNum;
+		}	
+		return ret;
+	}
+	UINT GetFoldNum(IDX_GAME idxGame)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{				
+			ret+=Rec[r][idxGame].FoldNum;
+		}	
+		return ret;
+	}
+
+	UINT GetWinNum() // 총 윈 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].WinNum;
+			}
+		}
+		return ret;
+	}	
+	UINT GetLoseNum()	// 총 진 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].LoseNum;
+			}
+		}
+		return ret;
+	}
+	UINT GetFoldNum()// 총 폴드 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=Rec[r][g].FoldNum;
+			}
+		}
+		return ret;
+	}
+
+	UINT GetTotalNum() /// 전체 토탈 횟수 
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{			
+			for(int g=0; g<MAX_GAME; g++) 
+			{
+				ret+=GetTotalNum((IDX_GAMERECORD)r,(IDX_GAME)g);
+			}
+		}
+		return ret;
+	}
+
+	UINT GetTotalNum(IDX_GAME idxGame) // 승+패+폴드횟수(게임별)
+	{
+		UINT ret=0;
+		for(int r=0; r<MAX_GAMERECORD; r++) 
+		{	
+			ret+=GetTotalNum((IDX_GAMERECORD)r,idxGame);			
+		}
+		return ret;
+	}
+
+	UINT GetTotalNum(IDX_GAMERECORD idxGR, IDX_GAME idxGame) // 승+패+폴드 횟수 (게임별)
+	{
+		return (Rec[idxGR][idxGame].WinNum + Rec[idxGR][idxGame].LoseNum + Rec[idxGR][idxGame].FoldNum);
+	}
+
+	//승률 
+	int GetWinPro(IDX_GAMERECORD idxGR, IDX_GAME idxGame)
+	{
+		
+		UINT winnum = GetWinNum(idxGR, idxGame);
+		UINT totnum = winnum + GetLoseNum(idxGR, idxGame) + GetFoldNum(idxGR, idxGame);
+		int winpro;
+		if(totnum == 0) winpro = 0;
+		else winpro = (int)(((double) winnum/ (double)totnum)*100);
+		return winpro;
+	}
+
+	// 게임별 승률 
+	int GetWinPro(IDX_GAME idxGame)
+	{
+		UINT winnum = GetWinNum(idxGame);
+		UINT totnum = winnum + GetLoseNum(idxGame) + GetFoldNum( idxGame);
+		int winpro;
+		if(totnum == 0) winpro = 0;
+		else winpro = (int)(((double) winnum/ (double)totnum)*100);
+		return winpro;
+	}
+
+	int GetWinPro()
+	{
+		UINT winnum = GetWinNum();
+		UINT totnum = winnum + GetLoseNum() + GetFoldNum();
+		int winpro;
+		if(totnum == 0) winpro = 0;
+		else winpro = (int)(((double) winnum/ (double)totnum)*100);
+		return winpro;		 
+	}
+
+
+	//SMALLUSERINFO에 들어갈 승률 계산 
+	ARRAY_VALUE<float> GetSmallUIWinPer(GROUP_NO nGroupNum)
+	{
+		IDX_GAMERECORD idxGameRecord = g_GetGameRecordIndex(nGroupNum);
+		ARRAY_VALUE<float> wp;
+
+		for (int g = 0 ; g < MAX_GAME ; g++)
+		{
+			IDX_GAME idxGame = (IDX_GAME)g;
+			wp.data[g] = (float)GetWinPro(idxGameRecord, idxGame);
+		}
+		return wp;
+	}
+
+
+	void SetTournametRankedCount(IDX_GAME idxGame, int ranked_count) { Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentRankedCount = ranked_count; }
+	int GetTournametRankedCount(IDX_GAME idxGame) const { return Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentRankedCount; }
+	int	IncTournamentRankedCount(IDX_GAME idxGame) { return ++Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentRankedCount; }
+
+	void SetTournametTicketCount(IDX_GAME idxGame, int Ticket_count) { Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount = Ticket_count; }
+	int GetTournametTicketCount(IDX_GAME idxGame) const { return Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount; }
+	int	IncTournamentTicketCount(IDX_GAME idxGame) { return ++Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount; }
+	int	DecTournamentTicketCount(IDX_GAME idxGame) { return --Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount; }
+
+	double GetTournamentRankedRatio(IDX_GAME idxGame) const
+	{
+		if ( 0 == Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount ) return 0;
+		return 100 * ((double)Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentRankedCount / (double)Rec[IDX_GAMERECORD_BASIC][idxGame].TournamentTicketCount);
+	}
+
+
+	BOOL IsAllZero(IDX_GAMERECORD idxGR, IDX_GAME idxGame)
+	{
+		return (Rec[idxGR][idxGame].IsZero() && GetWinPotRecord(idxGR, idxGame)==0);
+	}
+	BOOL IsAllZero(IDX_GAME idxGame)
+	{
+		for(int r=0; r<MAX_GAMERECORD; r++)
+		{
+			if (!IsAllZero((IDX_GAMERECORD)r,idxGame)) 
+				return FALSE;		
+		}
+		return TRUE;
+	}
+
+
+	IDX_GAME GetMostPlayed_GameIndex(IDX_GAMERECORD idxGR)
+	{
+		//제일 전적이 많은 게임 리턴
+		IDX_GAME MostPlayedGame=(IDX_GAME)0;
+		for(int i=1; i<MAX_GAME;i++)
+		{
+			if (GetTotalNum(idxGR, MostPlayedGame) < GetTotalNum(idxGR, (IDX_GAME)i))
+				MostPlayedGame = (IDX_GAME)i;			
+		}
+		
+		return MostPlayedGame;		
+	}
+
+	CString Log()
+	{
+		CString strLog;
+		for(int r=0; r<MAX_GAMERECORD; r++)
+		{
+			for(int g=0; g<MAX_GAME; g++)
+			{
+				IDX_GAMERECORD ir=(IDX_GAMERECORD)r;
+				IDX_GAME ig=(IDX_GAME)g;
+				CString strTemp;
+				strTemp.Format("%d_%s (w=%d, l=%d, f=%d, rs=%d, sf=%d, fc=%d, ac=%d, wp=%I64d)\n", 
+					r,GetGameABB(g),
+					GetWinNum(ir,ig),
+					GetLoseNum(ir,ig),
+					GetFoldNum(ir,ig),
+					GetRSNum(ir,ig),
+					GetSFNum(ir,ig),
+					GetFCNum(ir,ig),
+					GetAllinCnt(ir,ig),
+					GetWinPotRecord(ir,ig));
+
+				strLog+=strTemp;
+			}
+			
+		}		
+		return strLog;
+	}
+
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 로그인 요청 정보	[SSO 작업] - 추가
+typedef struct
+{
+	char ID[ID_LEN];			// ID
+	char Pass[16];			// 암호화된 패스워드는 4배로 커짐
+	char SockNameIP[20];
+	char HostNameIP[20];
+	int	 Port;
+	int  AuthCookieLen;		// 인증 쿠키 길이
+	int  DataCookieLen;		// 데이터 쿠키 길이
+	int  CPCookieLen;		// 데이터 쿠키 길이
+	int  bForceLogin;		//2004.05.07 리더스총액 제한
+	//gmarket작업
+	int  SiteCode;			// 싸이트 번호
+	// 접속할 서버 정보
+	UINT  SeqNo;			// 접속자 인식용 시퀀스 번호
+	short GroupNo;			// 접속할 그룹 번호
+	short ChanNo;			// 접속할 통합 채널 번호
+	short SNum;				// 접속할 서버 번호
+	short LocChanNo;		// 접속할 로컬 채널 번호
+	
+	int	  FamilyCompensation;	//보유한도 보상
+	int GameCode;			// 접속한 게임의 코드 // 2008.12 포커류 통합
+	int  nEtcParam;			//< CYS 100525 > 추후 bit 연산
+} ASK_LOGININFO;
+
+
+/////////////////////////////////////////////////////
+////////////////    사용자 정보    //////////////////
+/////////////////////////////////////////////////////
+
+// 로그인시 유저 정보
+typedef struct
+{
+	ALLGAMERECORD AllGameRecord;
+	INT64 pBackup;
+
+} ORGINFO;
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 정보
+typedef struct
+{
+	int		nGameIndex;		//접속게임인덱스( 7포커:0, 로우바둑이: 1, 뉴포커: 2, 맞포커: 3
+	int		SiteCode;			//사이트 코드 (넷마블(nmb):0 지마켓(gmt):10 옥션(auc):20 )
+	UINT64	llUserKey;			// IPS에 등록된 UserKey;
+	short	UNum;			// 유저 번호 - DB에 저장되는 정보가 아님	
+	char	ID[ ID_LEN ];		 // 사용자 아이디
+	char	UniqNo[ CN_LEN ];	 // 사용자 유니크 아이디 
+	char	NickName[ NICK_LEN ];// 닉네임수정 
+	char	Sex;				// 성별(0:여자, 1:남자)
+	int		nAge;				// 나이(-1: 비공개, 0이상: 공개한 나이)
+	char	cPosition;			// 현재 위치(WH_CHAN:채널선택 WH_LOBY: 대기실 WH_SHOP:상점 WH_GAME:게임방)
+	int		nRoomNum;		// 방번호(현재 위치가 게임방일때만 유효)
+	int		nLocalRoomNum;	// 로컬서버 방번호
+
+	SYSTEMTIME	PremDate;			// 프리미엄 서비스 기간(만료일) [프리미엄 작업]
+	char			nPCRoomIPType;	// 프리미엄 PC방 IP 종류 (베이직:1 플러스:2)[신규 PC방 작업]
+	char			PremMenuNo;		//2004.05.07 리더스총액 제한
+
+	char cPrevPremMenuNo;		// 이전 프리미엄(31일 내에 변경된 사항이 있다면 PremMenuNo와 상이함.
+	SYSTEMTIME	stPrevPremDate;		// 이전 프리미엄 서비스 기간(만료일)					[프리미엄 작업]
+	
+	enum PREMIUM_CANCEL_CAUSE	
+	{
+		// 회원제 해지 사유
+		PREMIUM_CANCEL_CAUSE_MODIFY = 1,			// 변경/해지
+		PREMIUM_CANCEL_CAUSE_NOTRECOGNITION = 2,	// 결제 미반영 
+	};
+	PREMIUM_CANCEL_CAUSE ePremCancelCause;
+
+	INT64 llOverMoney;	// 초과금 2010.08.24
+	SYSTEMTIME tmOverMoneyUpdate;	// 초과금 갱신일 2010.08.24
+	INT64 llRevisionMoneyNotRecognition;	// 보정머니 - 결제 미반영 2010.08.24
+	SYSTEMTIME tmRevisionMoneyUpdateNotRecognition;	// 보정머니 - 결제 미반영 갱신일 2010.08.24
+	INT64 llRevisionMoneyModify;	// 보정머니 - 변경/해지 2010.08.24
+	SYSTEMTIME tmRevisionMoneyUpdateModify;	// 보정머니 - 변경/해지 갱신일 2010.08.24
+
+	INT64 llEarnedMoney;	// EMoney
+
+	char		Reserved;					//바이트 정렬 
+	char nIcon;             // 레벨아이콘
+	char cObserver;			// ### [ 관전기능 ] ### 
+	char AdminGrade;		//### [관리자 모드 작업] ###
+
+	//게임기록 
+	ALLGAMERECORD AllGameRecord;
+
+	short AvatarInfo[MAX_AVATARLAYER];	// 아바타 정보
+	char Desc[62];								// 하고싶은 말	
+
+	//올인보험
+	int			nAIN_InsuranceKind;			// 올인 보험 종류
+	INT64     nAIN_Insurance_Money;		// 올인 보험금
+
+	char	nBadUser;	//블랙유저 관리 2006.2.3
+	char	nBadIPUser;	//불량 아이피 유저인지0 ~ 4 0은 정상 블랙유저 관리 2006.2.3
+
+	char		DS_IDColor;					// 도신 아디 칼라
+	char		DS_Level;					// 도신 레벨 
+	// 뉴도신지수 2006.3.2
+	short		DS_SupplyBenefit;			// 지급 받은 뉴도신지수 혜택 종류
+	INT64		DS_GetMaxMoney;				// 최고 보유 머니
+	INT64		DS_GetBetMaxMoney;			// 최고 획득 머니	
+
+
+	// 등급보험[올인보험개편]
+	POKERINFO	PI;							// 포커 정보
+	UINT		AllinCnt;					// 올인카운트 2006.1.9
+
+
+	//뉴도신지수 2006.3.2
+	int			nAllinChargeCnt;			// 올인충전 받은 횟수
+	SYSTEMTIME	AllinChargeDate;			// 올인충전 지급한 마지막 시간
+
+	double		DS_Exp;						//뉴도신지수 경험치	
+
+	bool		bTournament;	
+	bool		bIsLeagueIcon;	// 리그전 Group 아이콘 활성화 여부
+	USHORT		nLeagueLevel;	// 리그 등급
+
+	/////////////////////////////////////////////////////////////////////////////
+	//G_TFT
+	INT64 ChangeMoney(INT64 ChangeMoney)
+	{
+		//ChnageMoney만큼 변화 시키고 실제로 증가된 값을 반환한다.
+		const INT64 MAX_POKER_MONEY=10000000000000000; ///1경을 넘지 못한다.
+	
+		if( MAX_POKER_MONEY-PMoney < ChangeMoney )				
+		{
+			PMoney = MAX_POKER_MONEY;
+			nIcon = GetMoneyGrade(PMoney);
+			return (MAX_POKER_MONEY-PMoney);	//실제 증가 머니
+		}
+		else if (PMoney+ChangeMoney <0)		//변화 머니를 더했을때 음수가되는 경우
+		{
+#if defined(_ONLY_SERVER)
+			GLOBALLOG_ERROR("UserInfo::ChangeMoney invalid ChangeMoney: PMoney(%I64d) + ChangeMoney(%I64d) < 0 (ID=%s, CN=%s)", 
+				PMoney, ChangeMoney, ID, UniqNo);
+#endif
+
+			INT64 llActualChange = -PMoney;
+			PMoney = 0;
+			nIcon = GetMoneyGrade(PMoney);
+			return llActualChange;
+		}	
+		
+		PMoney += ChangeMoney;			
+
+		nIcon = GetMoneyGrade(PMoney);
+
+		if ( false == g_IsTournamentGameIndex((IDX_GAME)nGameIndex) )
+			llRealPMoney = PMoney;
+
+		ASSERT(PMoney>=0);
+		return ChangeMoney;
+	}
+	INT64 SetMoney(INT64 Money)
+	{
+		if ( false == g_IsTournamentGameIndex((IDX_GAME)nGameIndex) )
+		{
+			llRealPMoney = 0;
+			return ChangeRealPMoney(Money);
+		}
+
+		PMoney=0;
+		return ChangeMoney(Money);
+	}
+
+	INT64  GetMoney() const	//(현재머니)
+	{
+		return PMoney;
+	}
+
+	INT64  GetTotalMoney() const	//내가 가진 총 보유머니
+	{ 
+		return PMoney;
+	}
+
+	INT64 GetInMoney() const 
+	{
+		return llInMoney;
+	}
+
+	INT64 SetInMoney(INT64 llMoney) 
+	{
+		llInMoney = 0;
+		return AddInMoney(llMoney);
+	}
+
+	INT64 AddInMoney(INT64 llMoney) 
+	{
+		static const INT64 MAX_POKER_MONEY = 10000000000000000; ///1경을 넘지 못한다.
+		if (llInMoney + llMoney > MAX_POKER_MONEY)
+		{
+			llInMoney = MAX_POKER_MONEY;
+			return (MAX_POKER_MONEY - llInMoney);	//실제 증가 머니
+		}
+		else if (llInMoney + llMoney < 0)		//변화 머니를 더했을때 음수가되는 경우
+		{
+#if defined(_ONLY_SERVER)
+			GLOBALLOG_ERROR("UserInfo::AddInMoney invalid AddInMoney: llInMoney(%I64d) + llMoney(%I64d) < 0 (ID=%s, CN=%s)", 
+				llInMoney, llMoney, ID, UniqNo);
+#endif
+
+			INT64 llActualChange = -llInMoney;
+			llInMoney = 0;
+			return llActualChange;
+		}
+
+		llInMoney += llMoney;
+		ASSERT(llInMoney >= 0);
+		return llMoney;
+	}
+
+	INT64 GetSafeMoney() const 
+	{
+		return llSafeMoney;
+	}
+
+	INT64 SetSafeMoney(INT64 llMoney) 
+	{
+		llSafeMoney = 0;
+		return AddSafeMoney(llMoney);
+	}
+
+	INT64 AddSafeMoney(INT64 llMoney) 
+	{
+		static const INT64 MAX_POKER_MONEY = 10000000000000000; ///1경을 넘지 못한다.
+		if (llSafeMoney + llMoney > MAX_POKER_MONEY)
+		{
+			llSafeMoney = MAX_POKER_MONEY;
+			return (MAX_POKER_MONEY - llSafeMoney);	//실제 증가 머니
+		}
+		else if (llSafeMoney + llMoney < 0)		//변화 머니를 더했을때 음수가되는 경우
+		{
+#if defined(_ONLY_SERVER)
+			GLOBALLOG_ERROR("UserInfo::AddSafeMoney invalid AddInMoney: llSafeMoney(%I64d) + llMoney(%I64d) < 0 (ID=%s, CN=%s)", 
+				llSafeMoney, llMoney, ID, UniqNo);
+#endif
+
+			INT64 llActualChange = -llSafeMoney;
+			llSafeMoney = 0;
+			return llActualChange;
+		}	
+
+		llSafeMoney += llMoney;
+		ASSERT(llSafeMoney >= 0);
+		return llMoney;
+	}
+
+
+	////////////////////////////////////////////////////
+	// 토너먼트용 칩 사용
+	////////////////////////////////////////////////////
+	INT64 ChangeRealPMoney(INT64 change_money)
+	{
+		//change_money만큼 변화 시키고 실제로 증가된 값을 반환한다.
+		const INT64 MAX_POKER_MONEY=10000000000000000; ///1경을 넘지 못한다.
+
+		if( MAX_POKER_MONEY-llRealPMoney < change_money )				
+		{
+			llRealPMoney = MAX_POKER_MONEY;
+			nIcon = GetMoneyGrade(llRealPMoney);
+			return (MAX_POKER_MONEY - llRealPMoney);	//실제 증가 머니
+		}
+		else if (llRealPMoney + change_money <0)		//변화 머니를 더했을때 음수가되는 경우
+		{
+#if defined(_ONLY_SERVER)
+			GLOBALLOG_ERROR("UserInfo::ChangeMoney invalid ChangeMoney: llRealPMoney(%I64d) + change_money(%I64d) < 0 (ID=%s, CN=%s)", 
+				llRealPMoney, change_money, ID, UniqNo);
+#endif
+
+			INT64 llActualChange = -llRealPMoney;
+			llRealPMoney = 0;
+			nIcon = GetMoneyGrade(llRealPMoney);
+			return llActualChange;
+		}	
+
+		llRealPMoney += change_money;			
+
+		nIcon = GetMoneyGrade(llRealPMoney);
+
+		if ( false == g_IsTournamentGameIndex((IDX_GAME)nGameIndex) )
+			PMoney = llRealPMoney;
+
+		ASSERT(llRealPMoney>=0);
+		return change_money;
+	}
+	INT64 SetRealPMoney(INT64 Money)
+	{
+		if ( true == g_IsTournamentGameIndex((IDX_GAME)nGameIndex) )
+		{
+			llRealPMoney = 0;
+			return ChangeRealPMoney(Money);
+		}
+
+		// 토너먼트가 아니면 llRealPMoney & PMoney 둘다 변경함
+		INT64 ret = SetMoney(Money);
+		llRealPMoney = PMoney;
+		return ret;
+	}
+
+	INT64  GetRealPMoney() const	//(현재머니)
+	{
+		return llRealPMoney;
+	}
+
+	INT64  GetTotalRealPMoney() const	//내가 가진 총 보유머니
+	{ 
+		return llRealPMoney;
+	}
+
+
+	bool BTournamentGame() const { return bTournamentGame; }
+	void BTournamentGame(bool val) { bTournamentGame = val; }
+	////////////////////////////////////////////////////
+	// 토너먼트용 칩 사용
+	////////////////////////////////////////////////////
+
+//#if defined (__ROUND_MODE__)
+	INT64 GetRoundModeGameChip() const { return llRoundModeChip;}
+	void  SetRoundModeGameChip(INT64 nChip)  { llRoundModeChip = nChip; SetInMoney(nChip);}
+	void  AddRoundModeGameChip(INT64 nChip)  { llRoundModeChip =+ nChip;}
+//#endif
+
+private:
+	// MaxRoom. 2011.01.27
+	INT64 PMoney;		// 포커 머니 (토너먼트에서는 토너먼트 머니)
+	INT64 llInMoney;	// In-Money
+	INT64 llSafeMoney;	// Safe-Money (PMoney - InMoney)
+
+	INT64 llRealPMoney;	// 포커 머니 (토너먼트에서 실제 포커 머니 참조시 사용)
+
+	INT64 llTournamentChip;	// 토너먼트 전용 머니, 토너먼트서버에서는 PMoney 를 사용하지 않고 llTournamentMoney 를 사용
+	bool bTournamentGame;	// 토너먼트 게임인지 아닌지 체크하는 플래그, true 면 토너먼트, false 면 토너먼트 아님
+//#if defined (__ROUND_MODE__)
+	INT64 llRoundModeChip;	// 라운드 모드용 칩
+	bool  bRoundMode;		//  라운드 모드 체크용 방에 입장하면 true 됨.
+//#endif
+	
+} USERINFO;
+
+
+//자리 지킴이
+#define MAX_SEATKEEPER_TURN (5) //1회 사용시 최대 몇 턴 쉬는가?
+
+#ifdef __TOURNAMENT__
+  #define	IsAbleToUseSeatKeeper(UI) (false)
+#else
+  #define	IsAbleToUseSeatKeeper(UI) (CheckPremiumState(&UI) >= CODE_NEW_FAMILY_GOLD || UI.nPCRoomIPType > 0) //패밀리 골드이상 혹은 피시방만 사용가능하다.
+#endif
+
+
+
+
+
+
+//찬스 아바타 구매횟수 기록 구조체 
+enum COUNT_BASE
+{ 
+	UNCOUNTABLE = 0, 
+	DAILY_COUNT, 
+	MONTHLY_COUNT, 
+	ANNUAL_COUNT, 
+	PERMANENT_COUNT 
+};
+
+COUNT_BASE g_GetChanceItemCountBase(int ChaneItemCode);
+typedef struct
+{	
+	int		ChanceItemCode;		//찬스 아이템 코드
+	int		BuyCnt;				//찬스 아이템 구매횟수
+	SYSTEMTIME  LastBuyDate;	//찬스 아이템 마지막 구매시간
+	
+	int	GetBuyCount(COUNT_BASE CountBase) //시간기준에 따른 갯수 반환 
+	{
+		if (UNCOUNTABLE == CountBase ) return 0;
+		if (PERMANENT_COUNT == CountBase) return BuyCnt;
+		COleDateTime now = COleDateTime::GetCurrentTime();
+				
+		if (now.GetYear() != LastBuyDate.wYear) 		return 0;
+		if (ANNUAL_COUNT == CountBase)	return  BuyCnt;				
+		if (now.GetMonth() != LastBuyDate.wMonth)		return 0;
+		if (MONTHLY_COUNT == CountBase)	return  BuyCnt;
+		if (now.GetDay() != LastBuyDate.wDay)		return 0;
+		
+		return  BuyCnt;			
+	}
+} CHANCECNT;
+
+// 행운찬스 아바타, 승부사 
+const int MAX_CHANCE_AVATAR_COUNT=15;//<== 찬스 아바타 아이템들 중 구매 횟수를 쓰는 아이템의 종류 갯수 보다 같거나 많아야 한다.
+
+typedef struct 
+{	
+	CHANCECNT chancecnt[MAX_CHANCE_AVATAR_COUNT];
+
+	void SetChanceCount(int ChanceItemCode, int BuyCount, COleDateTime *pLastBuyDate)
+	{		
+		if (g_GetChanceItemCountBase(ChanceItemCode)==UNCOUNTABLE) return;
+				
+		//없으면 추가
+		CHANCECNT *pChanceCnt = GetChanceCount(0);
+		if (pChanceCnt)
+		{
+			pChanceCnt->ChanceItemCode = ChanceItemCode;
+			pChanceCnt->BuyCnt = BuyCount;
+			pLastBuyDate->GetAsSystemTime(pChanceCnt->LastBuyDate);
+		}
+	}
+
+	//찬스아이템 구매횟수를 반환한다. 
+	int GetChanceBuyCount(int ChanceItemCode)
+	{			
+		CHANCECNT *pChanceCnt = GetChanceCount(ChanceItemCode);
+		if (pChanceCnt==NULL) return 0;
+		return pChanceCnt->GetBuyCount(g_GetChanceItemCountBase(ChanceItemCode));		
+	}
+
+	CHANCECNT *GetChanceCount(int ChanceItemCode)
+	{
+		//해당 찬스아이템코드에 대한 찬스카운트 구조체를 찾아 반환 
+		for(int i=0; i<MAX_CHANCE_AVATAR_COUNT; i++)
+		{
+			if (chancecnt[i].ChanceItemCode == ChanceItemCode)
+			{
+				return &chancecnt[i];
+			}
+		}
+		return NULL;
+	}
+	CHANCECNT *IncChanceCount(int ChanceItemCode)
+	{
+		COUNT_BASE countbase = g_GetChanceItemCountBase(ChanceItemCode);
+		if (UNCOUNTABLE == countbase) return NULL;	
+
+		CHANCECNT *pChanceCnt = GetChanceCount(ChanceItemCode);
+		
+		if (pChanceCnt==NULL)
+		{
+			//없으면 추가
+			CHANCECNT *pChanceCnt2 = GetChanceCount(0);
+			
+			ASSERT(pChanceCnt2);//> 여기 걸리면 MAX_CHANCE_AVATAR_COUNT 가 충분히 설정되지 않았다..
+
+			if (pChanceCnt2==NULL) return NULL;
+
+			pChanceCnt2->ChanceItemCode = ChanceItemCode;
+			pChanceCnt2->BuyCnt = 1;
+			GetLocalTime(&pChanceCnt2->LastBuyDate);
+
+			return pChanceCnt2;
+
+		}
+		else
+		{
+			pChanceCnt->BuyCnt = pChanceCnt->GetBuyCount(countbase)+1;
+			GetLocalTime(&pChanceCnt->LastBuyDate);	
+			return pChanceCnt;	
+		}	
+	}
+
+	//예외 
+	int nSCTodayBuyItemCnt; //스페셜찬스 아이템 오늘 구매 카운트 
+
+} CHANCEITEMCNT;
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//게임카운터
+//횟수 시간기준
+struct GAMECOUNTER
+{
+
+	////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+//	user definition - 카운터 추가시 수정 해야 할 영역 
+
+typedef unsigned char COUNTTYPE;			// 횟수 변수 형 설정 (여기서는 0~254까지만 셀수있다.)
+#define ERR_COUNT (COUNTTYPE)(-1)			// 에러시 반환 횟수 (아래 설정 오류시만 사용됨)
+
+	//DB에 기록되는 카운터 종류 KIND 값 (중복금지, 삭제금지, 한번 설정한 KIND 변경 금지, 추가만 할 것)
+	//(주의) KIND값은 TinyInt 이므로 255를 넘지 않도록 설정한다. 0은 사용하지 않는다. (1~254)
+	enum KIND_COUNTER
+	{
+		KIND_COUNTER_NULL = 0,
+
+		//-------DB KIND값 추가 영역-----------
+		KIND_COUNTER_SEATKEEPER=11,	// 자리지킴이 DB KIND 값
+		KIND_COUNTER_CHANCEITEM=12, // 찬스아이템 구매횟수
+#if defined(_BETAVER)
+		KIND_COUNTER_BETA_ALLINMONEY=13, // 베타올인 머니 지급횟수
+#endif // defined(_BETAVER)		
+		//-------------------------------------	
+
+#if defined(_BETAVER)
+		MAX_COUNTER = 3 ///위에 설정된 카운터 총 갯수를 설정 
+#else
+		MAX_COUNTER = 2 ///위에 설정된 카운터 총 갯수를 설정 
+#endif // defined(_BETAVER)		
+		//-------------------------------------	
+	};
+
+	//여기서 각 COUNTER_KIND에 대한 횟수 측정 시간 기준을 셋팅해준다.
+	static COUNT_BASE GetCountBase(KIND_COUNTER CounterKind)
+	{		
+		switch(CounterKind)
+		{
+			//-------횟수 측정 기준 설정영역-----------
+			case KIND_COUNTER_SEATKEEPER: return DAILY_COUNT;  //자리지킴이 일횟수
+			case KIND_COUNTER_CHANCEITEM: return DAILY_COUNT;  //찬스아이템 일횟수
+#if defined(_BETAVER)
+			case KIND_COUNTER_BETA_ALLINMONEY: return DAILY_COUNT;  //찬스아이템 일횟수
+#endif // defined(_BETAVER)
+			//-----------------------------------------
+		}		
+		return UNCOUNTABLE;
+	}
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+	struct COUNTERUNIT
+	{	
+		BYTE	kind;				// 종류
+		COUNTTYPE	count;			// 횟수
+		SYSTEMTIME    lasttime;			// 마지막 기록 시간 
+		char    bNeedDBUpdate;		// 로그 아웃 시 DB에 기록해야 할 필요가 있나?
+
+		COUNTERUNIT ()
+		{	
+			kind=0;
+			count=0;
+			ZeroMemory(&lasttime, sizeof(lasttime));
+			bNeedDBUpdate=0;
+		}
+		
+		private:
+		COUNTTYPE _GetCount(COUNT_BASE CountBase) //시간기준에 따른 갯수 반환 
+		{
+			if (UNCOUNTABLE == CountBase ) return ERR_COUNT;
+			if (PERMANENT_COUNT == CountBase) return count;
+			COleDateTime now = COleDateTime::GetCurrentTime();
+
+			COleDateTime LastDateTime(lasttime);
+			if (LastDateTime.GetStatus() == COleDateTime::invalid) 
+				return count;
+					
+			if (now.GetYear() != LastDateTime.GetYear()) 		return 0;
+			if (ANNUAL_COUNT == CountBase)	return  count;				
+			if (now.GetMonth() != LastDateTime.GetMonth())		return 0;
+			if (MONTHLY_COUNT == CountBase)	return  count;
+			if (now.GetDay() != LastDateTime.GetDay())		return 0;
+			
+			return count;			
+		}
+		public:
+		COUNTTYPE GetCount()
+		{			
+			return _GetCount(GetCountBase((KIND_COUNTER)kind));
+		}
+	};
+private:
+
+	COUNTERUNIT Counter[MAX_COUNTER];	
+	
+	// 비어있는 카운터에 새로운 카운터 세팅
+	COUNTTYPE NewCount(KIND_COUNTER CounterKind, int Count, COleDateTime &LastDate)
+	{		
+		COUNTERUNIT *pEmptyCounter = GetCounterPtr(KIND_COUNTER_NULL);
+		if (pEmptyCounter==NULL) return ERR_COUNT;
+
+		pEmptyCounter->kind = CounterKind;
+		pEmptyCounter->count = (COUNTTYPE)Count;
+		LastDate.GetAsSystemTime(pEmptyCounter->lasttime);
+		return pEmptyCounter->count = Count;
+	}
+
+public:
+	GAMECOUNTER () 
+	{
+		ZeroMemory(this, sizeof(GAMECOUNTER));
+	}
+
+	COUNTERUNIT *GetCounterIndexPtr(int i)
+	{
+		if (i<0 || i>=MAX_COUNTER) return NULL;
+		return &Counter[i];
+	}
+
+	// 카운터 포인터 가져오기
+	COUNTERUNIT *GetCounterPtr(KIND_COUNTER CounterKind)
+	{
+		if (CounterKind<KIND_COUNTER_NULL) return NULL;
+
+		for(int i=0; i<MAX_COUNTER; i++)
+		{
+			if (Counter[i].kind == CounterKind)
+			{
+				return &Counter[i];
+			}
+		}
+		return NULL;
+	}
+
+
+	///횟수를 가져온다.
+	COUNTTYPE GetCount(KIND_COUNTER CounterKind)
+	{
+		COUNTERUNIT *pCounter = GetCounterPtr(CounterKind);
+		if ( NULL == pCounter ) return 0;
+		return pCounter->GetCount();
+	}
+
+	/// 횟수를 nIncValue만큼 증가시킨다. (증가된 횟수 반환)
+	COUNTTYPE IncCount(KIND_COUNTER CounterKind, int nIncValue=1)
+	{
+		COUNTERUNIT *pCounter = GetCounterPtr(CounterKind);
+		if ( NULL == pCounter )
+		{
+			SetCount(CounterKind, nIncValue, COleDateTime::GetCurrentTime());
+
+			pCounter = GetCounterPtr(CounterKind);
+			ASSERT(pCounter);
+			if (pCounter==NULL)				
+				return 0; //횟수 증가 실패 			
+
+			pCounter->bNeedDBUpdate = TRUE; //로그아웃시 DB업데이트 한다.
+			return pCounter->count;
+		}
+		
+		pCounter->count = GetCount(CounterKind) + nIncValue;		
+		GetLocalTime(&pCounter->lasttime);
+		pCounter->bNeedDBUpdate = TRUE; //로그아웃시 DB업데이트 한다.
+
+		return pCounter->count;
+	}
+
+	// 카운터를 세팅한다. (DB에서 값을 세팅 할 때 )
+	COUNTTYPE SetCount(KIND_COUNTER CounterKind, int Count, COleDateTime &LastDate)
+	{
+		// UNCOUNTABLE은 세팅하지않는다.
+		if (GetCountBase(CounterKind)==UNCOUNTABLE) return ERR_COUNT; 
+
+		COUNTERUNIT *pCounter = GetCounterPtr(CounterKind);
+		if ( NULL == pCounter )
+		{
+			return NewCount(CounterKind, Count, LastDate);
+		}
+
+		pCounter->count = (COUNTTYPE) Count;		
+		LastDate.GetAsSystemTime(pCounter->lasttime);
+
+		return pCounter->count;
+	}
+
+	BOOL NeedDBUpdate()		//DB업뎃 해야하나?
+	{
+		for(int i=0; i<MAX_COUNTER; i++)
+		{
+			if (Counter[i].bNeedDBUpdate)
+				return TRUE;
+		}
+
+		return FALSE;
+	}
+};
+
+//10시간 제한
+// upp 추가 
+#define PLAYTIME_SECTION "PLAYTIMELIMIT"
+#define UPP_SECTION "UPPLIMIT"
+typedef struct
+{
+	// 프로모션에서 쓰이는 플레이 시간 개념과 UPP 에서 사용하는 플레이 시간
+	// 개념이 현재는 다르므로 따로 정의함 
+	DWORD dwLastPlayedTime;
+	DWORD dwCurrPlayTime;
+	BOOL  bSetZero;
+	
+	// UPP 에서 사용되는 플레이 시간 개념 
+	DWORD dwUPPLastPlayedTime ;
+	DWORD dwUPPCurrPlayTime ;
+	DWORD dwAdjustTime ; 
+	int   nLeftCount;
+	int	  nLeftCount2;
+	int   nUPPWarningPolicy; // 시간 알리미가 설정되었을때 정책 0: 사용안함, 1:한번,2:항상
+	int   nUPPWarningCounter; // 시간 알리미 워닝을 위한 카운터 
+	int   nUPPExitCounter   ; // 시간 알리미 예약종료를 위한 카운터 
+	int   nUPPCurRound;     // UPP 정책을 위한 세션동안의 게임라운드수 
+	int   nUPPCurPlayTime ; // UPP 정책을 위한 세션동안의 게임 플레이 시간 
+	int   nUPPAgree;		// UPP 정책에 동의했는지 여부 
+	int   nUPPWarningReserveTime ; // 3등급 UPP 유저의 경우 해당 시간이 지날때마다 warning
+	int   nUPPExitReserveTime ; // 3등급 UPP 유저의 경우 해당 시간이 되면 나가기 예약
+	int   nUPPElapsedTime ; // 로그 인 후부터 지나간 시간 OnTimer 에서 호출 
+	int   nUPPState ; // 최초 개발시에는 강제종료,종료,normal 구분용이었으나 강제종료위한 남은시간으로바꿈 
+	int   nUPPRound ; // 로그인 판수  
+	int   nUPPLevel ; // upp 에 의한 제한 등급을 표시
+	int   nUPPDay;    // 자정을 넘기면 시간 정보 초기화를 위해서 날짜 정보를 저장
+					  // 최초 Playtime 정보를 DB 에서 읽어올때 날짜를 기록해야 함 
+
+
+	DWORD GetCurrPlayTime()		{ return dwCurrPlayTime; };
+	DWORD GetTotalPlayTime()	{ return dwLastPlayedTime + dwCurrPlayTime; }
+
+	BOOL  IsValid();
+	BOOL  GetExpired();
+	DWORD CheckNotice();
+
+	BOOL  UPPExpired() ; 
+	
+	static int   GetLimitTime();
+
+}PLAYTIEMINFO;
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 정보2 (부가 정보들: 다른 서버로 채널 이동시 전송이 필요한 정보들)
+typedef struct
+{
+	BOOL			bNoWhisper;			// 귓말 거부중인가?
+	int				ConnectSec;			// 접속 시간(초)
+	char			RegID[ID_LEN];			// 주민등록 번호
+	char			UniqNo[ CN_LEN ];			// 유니크 넘버
+	in_addr			PeerIP;				// 유저의 IP주소 
+	DWORD			ServerTick;			// 서버랑 클라이언트간의 시간 값2006.1.9 스피드핵
+	BOOL			bAdminUser;        //### [관리자 모드 작업] ###
+	// [ 통계기록 ]
+	int				UserLevel;		// 로그인시 레벨
+	SYSTEMTIME	StartTime;		// 시작 시간
+	REWARDITEM_LIST	RewardGameItem;
+	//올인천사
+	int AllinAngelCnt;				//올인 천사 금일 지급 횟수
+	SYSTEMTIME	AllinAngelDate;		//올인 천사 마지막 충전 일시
+	///////////////////////////////////////////////////////////////////////////////////////////		
+	
+	///////////////////////////////////////////////////////////////////////////////////////////
+	PREMINFO		PremInfo;			//[프리미엄 개편 무료충전 추가2] [2007-05]
+	BOOL			bWriteUnionMoneyDB;
+	int				GamePlaySec;// 플레이시간
+	CHANCEITEMCNT	ChanceCount;
+
+	ALLGAMERECORD RecordOnLogin;  //로긴했을때 시점의 유저기록	//2008.03.04 행운찬스 어뷰져 강화 접속후 게임 판수
+
+	ST_CHEAT_INFO		CheatInfo;
+	int			nLobbySec;	//대기실 체류 시간 (대기실에서 일정시간 게임방에 입장하지 않으면 다른 채널로 이동) //게임방 입장시 0으로 로 리셋
+
+	IDX_GAME		MyGame;		// 현재 게임인덱스  (게임 방 입장시 그 게임의 게임 인덱스로 바뀐다)
+	//패밀리 개편
+	PREMOPTION PremOption;
+	PREMOPTION stPrevPremOption;		// 이전 옵션
+
+	// 한도 알림 여부 체크 변수
+	// [한도 차감 작업] [2009-02-19]
+	char			bCheckMaxMoney;
+
+	//게임카운터
+	GAMECOUNTER GameCounter[MAX_GAME];
+	//10시간 제한
+	char            DI[DI_LEN + 1];
+	PLAYTIEMINFO    PlayTimeInfo;
+
+	// 일 최대 손실 제한
+	INT64			llDailyLoss;	// 마이너스면 손실상태
+	time_t			DailyLossBlockTime;
+	DAILYLOSS_STATE eDailyLossState;
+
+	//맥어드레스
+	char			MAC[13];			//DAT로그
+
+	//PC방 번호
+	int PcRoomNumber;
+
+	ORGINFO	LoginRecord;		//로그인시 기록저장
+	DATE LastMoneyUpdateTime;	//마지막 머니 업뎃 시점
+
+	//G_TFT
+	int Last_RoomNo;		//마지막 참여했던 방번호
+	INT64 Last_RKey;		//마지막 참여했던 방 키 
+	INT64 Last_PKey;		//마지막 참여했던 판 키
+	INT64 llRoomKeyPrev;	//마지막 참여했던 IPS방 키 
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+	int nPlayCount;
+
+	SYSTEMTIME  	EventStartTime;
+	char			UDPIP[32];			// 유저의 UDP 리스닝 소켓의 IP주소(위의 IP주소와 동일)
+	int				UDPort;				// UDP 포트 번호
+	BOOL			IsNotReal;			// 리얼 IP가 아닌가?	
+
+	INT64			nStartPMoney;				// 게임 시작시 가지고 있는 금액
+
+
+	int				nLuckAvataCnt;		//[행운아바타] 2006.07.24 구매한 횟수 
+	BOOL			bWriteGameDB;
+
+	INT64			nAbusePoint[4];			// 0:동일IP대역시 아마포인트 , 1: 동일IP대역시 프로포인트 , 2:비방 아마포인트, 3:비방 프로포
+	char			bHaveNightEvent;		//골든타임 샌드 여부
+	char			bHaveGoldenChipEvent;	//골든칩 샌드 여부	
+	char			temp[2];				// 현재는 일손실 제한 규제안에 사용
+
+	//2008.03.04 행운찬스 어뷰져 강화
+	BLOCKDATA		BlockInfo;
+
+	//훌라
+	int				nMissionNum;
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+} USERINFO2;
+
+typedef struct  // 대기실 사용자 정보 갱신용
+{
+	int		nGameIndex;		// 접속게임인덱스
+	UINT64	llUserKey;		// IPS User Key
+	char	ID[ID_LEN];			// 사용자 아이디
+	char	NickName[NICK_LEN]; // 닉네임수정 	
+	char	Sex;				// 성별
+	
+	INT64  PMoney;		    // 포커 머니
+	char	Position;			// 현재 위치(WH_CHAN:채널선택 WH_LOBY: 대기실 WH_SHOP:상점 WH_GAME:게임방)
+	int		RoomNum;			// 방번호(현재 위치가 게임방일때만 유효)
+	char	AdminGrade;		//관리자등급을 나타낸다. 0일경우 관리자 아님  ### [관리자 모드 작업] ###
+} SMALLUSERINFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 서버 정보	[게임 아이템 작업]
+typedef struct
+{
+	int  GameCode;				// 게임 코드
+	char NoticeURL[128];			// 공지사항 URL
+	char BannerURL1[128];		// 로비 광고 URL
+	char BannerURL2[128];		// 게임 광고 URL
+	char LocationURL[128];		// 위치알림(친구찾기)용 URL	
+	char SrvInfoMsg[128];		// 채널로비 메세지	
+
+	// [게임아이템창 리뉴얼] 2006.04.20
+	char AvatarItemURL[128];	// 아바타 아이템 URL
+	char FuncItemURL[128];	  // 기능 아이템 URL
+	char MyItemURL[128];     // 내 아이템 URL  
+	char CashURL[128];		// 캐쉬충전 URL
+	char BDURL[128];		// 캐쉬충전 URL
+	
+	char LeadersJoinURL[128];	// [수호천사]
+	char LeadersJoinURL2[128];	//
+	INT64 JackPot;				// [ ###잭팟### ]로긴시 현재 서버 잭팟 머니
+	DATE ServerTime;		//서버 시간 (동기화)
+} SERVERINFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 규제안 관련 정보
+typedef struct
+{
+	INT64 BettingLimit;				// 배팅 한도(일반 회원 전용)
+	INT64 LossMoneyLimit;			// 손실머니 한도
+	INT64 WarningLossMoney;			// 손실머니 알림값
+	INT64 WarningLossMoney_Room;	// 손실머니 룸 알림값
+	INT64 BasicLossMoneyLimit;		// 등급에 따른 손실금액
+	INT64 nDiamondLimit;			// 다이아 회원 전용
+} RESTRAINTINFO;	
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 로그인 정보
+typedef struct
+{
+	USERINFO UI;			// 사용자 정보	
+	char UniqNo[16];		// 유니크 넘버
+	short GroupNo;			// 입장한 통합 채널 번호
+	short ChanNo;			// 입장한 통합 채널 번호
+	short LocChanNo;		// 입장한 로컬 채널 번호	
+	char  ChanName[32];		// 입장한 채널 이름	
+
+	char bVSMode;			//현재 채널이 VS 모드인가?
+	char bMovableToVS;		//현재 그룹에 VS채널이 있나?
+
+	char JackpotType;		// 잭팟 타입  (0:없음 1:Half잭팟 2: Royal Half잭팟)
+	///한도작업
+	INT64  MaxServerMoney;					//내가 가질수 있는 최대머니
+	INT64  DisplayMaxMoney[MAX_CODE_NEW_FAMILY];	// 디스플레이용 서비스별 보유 최대 한도
+
+	// 회원제 + 옵션 모두 했을때 가질수 있는 최대 머니		// // 2011.01.27. 패밀리 개편. 현재 1500조
+	INT64 llMaxPremiumMoneyWithOption;
+	char bNewlySignedup;	 //최초 머니 레코드 생성 유저이다..
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+	char RegID[ID_LEN];			// 주민등록 번호 [게임 아이템 작업]
+	char bNightEvent;			// 0 이면 이벤트 없다  1 이벤트 진행중 2 실행중	
+	char temp[3];
+	char  Reserved[2];
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+
+	RESTRAINTINFO RestraintInfo;
+} LOGININFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 채널 이동시 접속 정보(다른 서버에서 채널 이동)
+typedef struct
+{
+	char	ID[NICK_LEN];			// 접속자의 ID
+	short	UNum;			// 접속자의 유저번호
+	char	Reserved[2];
+	DWORD	WaitPass;		// 접속 대기 패스 번호
+} CONNECT_MOVECHANINFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 채널 입장 정보
+typedef struct
+{
+	int		Code;				// 처리 코드(0보다 작으면 입장 불가 코드)
+	short	GroupNo;			// 입장한 채널의 그룹 번호
+	short	ChanNo;				// 통합 채널 번호
+	short	LocChanNo;			// 로컬 채널 번호
+	char	ChanName[32];		// 채널 이름
+	INT64	nJackPotMoney;		//뉴 잭팟 머니를 줌//2005.12.29 -jackpot-
+	char JackpotType;		// 잭팟 타입  (0:없음 1:Half잭팟 2: Royal Half잭팟)
+	char bVSMode;			//현재 채널이 VS 모드인가?
+	char bMovableToVS;		//현재 그룹에 VS채널이 있나?
+} ENTERCHANINFO;
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 클라이언트용 그룹 정보
+typedef struct
+{
+	short	GroupNo;				// 그룹 번호
+	char	Reserved[2];
+	char	GroupName[24];			// 그룹 이름
+
+	INT64	GroupLimitMoney;		// 그룹 입장제한 머니
+} GROUPINFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 채널 정보
+typedef struct
+{
+	short GroupNo;			// 그룹 번호
+	short ChanNo;			// 통합 채널 번호
+	short NowUser;			// 현재 참여인원
+	short MaxUser;			// 최대 참여인원
+	char  WorkState;		// 채널 상태(0:정상 1:점검중 2:종료중)
+	char  bVSMode;			// VsMode
+	char  JackpotType;			// 잭팟시스템 
+	char  Reserved[3];
+} CHANNELINFO;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// 사용자 찾기 결과
+typedef struct
+{
+	char	ID[ID_LEN];			// 아이디
+	char	NickName[NICK_LEN];		// 닉네임수정 	
+	short	GroupNo;			// 그룹 번호
+	short	ChanNo;			// 통합 채널 번호
+	char	ChanName[32];		// 채널 이름
+	short	Position;			// 위치
+	short	RoomNum;			// 방번호
+} RESULTFINDID;
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//머니 제한 범위
+struct MONEYRANGE
+{
+	INT64 MinMoney; //(MinMoney % 10) ==> 1 이 나오면 "MinMoney-1 초과", ==> 0이 나오면 "MinMoney 이상"
+	INT64 MaxMoney; //(MaxMoney % 10) ==> 9 가 나오면 "MaxMoney+1 미만", ==> 0이 나오면 "MaxMoney 이하"
+
+	CString GetStrMoneyRange()  //머니 범위를 텍스트로 바꾼다. 
+	{
+		CString strMin, strMax;
+		if ( MinMoney > 0 )
+		{
+			if ( MinMoney%10 == 1 )
+			{
+				strMin.Format("%s 초과 ", NumberToOrientalString(MinMoney-1));
+			}
+			else
+			{
+				strMin.Format("%s 이상 ", NumberToOrientalString(MinMoney));
+			}
+		}
+
+		if ( MaxMoney > 0 )
+		{
+			if ( MaxMoney%10 == 9 )
+			{
+				strMax.Format("%s 미만", NumberToOrientalString(MaxMoney+1));
+			}
+			else
+			{
+				strMax.Format("%s 이하", NumberToOrientalString(MaxMoney));
+			}
+		}
+		CString strRet = strMin + strMax;
+		strRet.TrimRight();
+		return strRet;
+	}
+
+	CString GetStrMoneyRange_for_Combobox()  //머니 범위를 텍스트로 바꾼다. 
+	{
+		CString strMin, strMax;
+		strMin = strMax = "";
+		if ( MinMoney > 0 )
+		{
+			if ( MinMoney%10 == 1 )
+			{
+				strMin.Format("%s 초과 ", NumberToOrientalString(MinMoney-1));
+			}
+			else
+			{
+				strMin.Format("%s 이상 ", NumberToOrientalString(MinMoney));
+			}
+		}
+		
+		if ( MaxMoney > 0 )
+		{
+			if ( MaxMoney%10 == 9 )
+			{
+				strMax.Format("%s 미만", NumberToOrientalString(MaxMoney+1));
+			}
+			else
+			{
+				strMax.Format("%s 이하", NumberToOrientalString(MaxMoney));
+			}
+		}
+		if( MinMoney == 0 && MaxMoney == 0 )
+		{
+			strMax.Format("제한 없음");
+			return strMax;
+		}
+		if(strMin.GetLength() > 0 ){
+			return strMin;
+		}
+		return strMax;
+	}
+	
+	BOOL IsInRange(INT64 PMoney) const // PMoney가 머니 범위 (MinMoney~ MaxMoney) 사이의 값인가?
+	{		
+		//MinMoney =0 일경우 MaxMoney=0일경우 검사 안함 
+		if (MinMoney>0 && MinMoney > PMoney) return FALSE;
+		if (MaxMoney>0 && MaxMoney < PMoney) return FALSE;		
+		return TRUE;
+	}
+
+	INT64 GetDispMaxMoney()  //방내에 디스플레이 되는 Max 머니 
+	{
+		if ( MaxMoney%10 == 9 )
+		{
+			return (MaxMoney+1);
+		}
+		return MaxMoney;
+	}
+	INT64 GetDispMinMoney() //방내에 디스플레이 되는 Min 머니 
+	{
+		if ( MinMoney%10 == 1 )
+		{
+			return (MinMoney-1);
+		}
+		
+		return MinMoney;
+
+	}
+	CString GetStrMoneyRange_for_Combobox2(bool bNoSpace=false)  //머니범위를텍스트로바꾼다. 
+	{		
+		//ex) "OO조이상", "OO억~ OO조", "OO억미만"
+
+		CString strMoneyRange;
+		if (GetDispMinMoney()!=0 && GetDispMaxMoney()!=0)
+		{
+			strMoneyRange.Format("%s ~ %s", NumberToOrientalString(GetDispMinMoney()), NumberToOrientalString(GetDispMaxMoney()), strMoneyRange.GetBuffer());
+		}
+		else if (GetDispMaxMoney()==0)
+		{
+			if ( MinMoney%10 == 1 )
+			{
+				strMoneyRange.Format("%s 초과", NumberToOrientalString(GetDispMinMoney()), strMoneyRange.GetBuffer());
+			}
+			else
+			{
+				strMoneyRange.Format("%s 이상", NumberToOrientalString(MinMoney), strMoneyRange.GetBuffer());
+			}			
+		}
+		else if (GetDispMinMoney()==0)
+		{
+			if ( MaxMoney%10 == 9 )
+			{
+				strMoneyRange.Format("%s 미만", NumberToOrientalString(GetDispMaxMoney()), strMoneyRange.GetBuffer());
+			}
+			else
+			{
+				strMoneyRange.Format("%s 이하", NumberToOrientalString(MaxMoney), strMoneyRange.GetBuffer());
+			}		
+		}
+
+		if (bNoSpace)		
+			strMoneyRange.Replace(" ", "");
+
+		return strMoneyRange;
+	}
+
+	bool operator==(const MONEYRANGE &rhs) const
+	{
+		return (MinMoney == rhs.MinMoney && MaxMoney == rhs.MaxMoney);
+	}
+};
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 방 정보
+typedef struct
+{	
+	int		nGameCode;			// 게임코드 (42;세븐포커, 54:바둑이, 61: 뉴포커, 218: 맞포커)
+	int		nGameIndex;			// 게임인덱스
+	UINT64	llRoomKey;			// IPS Room Key
+	int		nLocalRoomNum;		// 로컬 방번호
+	short	RoomNum;			// 글로벌 방번호
+	short	UNum;				// 방장의 유저 번호
+	char	Title[32];			// 방제목
+	char	ID[ID_LEN];			// 방장 ID
+	char	NickName[NICK_LEN];		// 닉네임수정
+
+	char	NowUserNum;			// 현재 참여인원
+	char	MaxUserNum;			// 최대 참여인원
+	char	NowObserverNum;		// ### [ 관전기능 ] ### 관전자 인원
+
+	// 7포커:			0: 초이스,	 1: 일반
+	// 로우바둑이:		0: 없음
+	// 뉴포커:			0: 조커,	1: 폭탄
+	// 맞포커:			0: 7포커 초이스, 1: 7포커 일반	//-> RuleType , 1: 7Poker, 2: 5Poker
+	// 훌라				
+	char	FormKind;			// Normal, Choice 4장 , 62,bomb
+	char	Secret;				// 공개 여부(0=공개 1=비공개)
+	char	State;				// 상태(0:대기중 1:게임중)
+	char	nChangeType;		// 바둑이
+	char	cRuleType;			// 맞포커, 훌라
+	char	bSuperMaster;		// 슈퍼 방인가?	[게임 아이템 작업]
+	char	RoomMasterType;		// 0 : normal 1: SuperMaster
+	char	bWaitInRoom;		// 1 이면 다이아몬드 방장이 대기중
+	char	Pass[5];			// 패스워드(비공개방 일경우)
+
+	MONEYRANGE	MoneyRange;			// 머니 제한 범위 (참여가능 머니구간)
+	INT64		llEnterLimitMoney;	// 입장제한 머니
+
+	char	arrRaiseStyleDesc[ 10 ];// 베팅스타일 정보	1-2-2-3 인지, 1-1-2-2 인지 이 정보 들어간다. 배열인덱스 1 = 1라운드 베팅정보. 0번인덱스는 사용않함
+	INT64	BetMoney;				// 시드머니 (방생성시 SeedKind값에 따라서 서버가 값을 넣어준다.)
+	INT64	CurSeedMoney;			// 현재시드머니(게임시작인원기준)
+	int		nRaiseStyle;			// 베팅스타일 정보
+
+	float	fBetMoneyMulti;			// 참가비 배수 (섯다만 사용)
+	int		nAutoBetKind;			// 오토배팅 종료 0이면 오토배팅 사용하지 않는다	
+	short	sBetRuleKind;			// 베팅종류 (준리얼, 리얼, 리미트) //< CYS 110513 >
+	char	cCardSetting;			// 카드 셋팅 (장수)
+	char	bNodie;
+	bool	bEventJackpotTime;		// 1000조 && 22:00 ~ 02:00
+	bool	bEventJackpotGiftTime;	// 1000조 && 22:00 ~ 02:00 && 3판 이상 실제 지급가능방
+	
+	//관전자 옵션
+	enum OBSERVER_OPTION {OBSERVER_OPTION_OK=0, OBSERVER_OPTION_NOCHAT, OBSERVER_OPTION_UNALLOWABLE};
+	OBSERVER_OPTION ObserverOption;		// 관전 불가타입 =>  0 : 관전가능(Default) 1 : 관전 채팅 금지 2 : 관전 불가 
+
+	bool bIsMaxRoom;	// MaxRoom 인가?
+	INT64 llInMoney;	// MAXRoom 설정 금액
+
+	time_t tCreatedTime;
+
+	//상태값 1: 다이아멤버 2: 라운드모드
+	char	cMemberRoom;		// 다이아 회원을 위한 멤버스 방 2015-02-02 Add // 라운드 모드에도 사용 값 
+
+
+} ROOMINFO;
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어 상태 정보
+typedef struct
+{
+	char JoinState;		// 게임 참여 상태(0:불참, 1:참여)
+	char PlayState;		// 게임 상태(0:게임종료 1:게임중)
+	char nState;     // 0: 아무상태아님, 1: 카드3장, 2: 카드2장,오픈1, 3: 카드4~5장, 4: 히든, 5: 결과
+	char nCardTotal; // 총카드 수
+	char nOpenTotal; // 오픈된 카드수	
+	char nCard[4];   // 오픈 카드 별도관리 보유카드 ###[8포커]### 5	
+	char bCheck;
+
+	char bOnGame; // 게임 참여 여부
+	char bFold;   // 게임 포기 여부
+	char nCheckIp;	// ### [ 중복된 IP가 ] ###
+	char nSndFxKind; // ### [사운드 추가 작업] ###
+	char arrCuttingNum[3];	// 바둑이 커팅정보	index 0:아침, 1:점심, 2: 저녁
+
+//#if defined(__HOOLA__)
+	char cRanking;		// 게임 순위
+	char cCurCardCnt;  // [ 훌라 ] 카드 장수
+	bool bRegister;	   // 등록 유무(0:등록X 1: 등록)
+	char TurnCnt;      // 몇번째 턴인가 방장은 + 1
+	bool bAutoPlay;     // 자동 플레이 중
+	char JackpotCount; // 지선이 때문에 만든 턴카운트 변수(재수없다고 했음)
+//#endif
+
+} PLAYSTATE;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어 상태 정보 2
+typedef struct
+{
+	BOOL bJoinBanishVote;	// 추방 투표에 참여중인가?
+	BOOL bHaveBanishVote;	// 추방 투표를 마쳤는가?
+	// [ 세븐 포커 ]
+	BOOL bActive;			// 액티브 유저(현재 차례)
+	int  nActive;			// 제한 시간
+	BOOL bWindOn;			// 날리기 제한시간 플래그
+	int  nWindOn;			// 날리기 제한시간
+	int  nFoldNum;			// 자동포기횟수(3회이상이면 방퇴장) 레이즈 참여시 플래그 초기화
+	int  In_OutCount;		// ### [ 관전기능 ] ### 관전, 참여 반복제한
+	int  Totalmoneylimit;	//2004.05.07 리더스총액 제한	
+
+	char bWinner;			//게임에서 승자인가?
+	
+	// 족보저장 
+	int	 SevenValue;		// 하이족보 
+	int	 LowName;			//로우족보 저장
+	int  FullHouseNo;		// 풀하우스일때의 숫자 저장
+
+
+	//자동베팅 수정 2006.5.3//////////////////////////////////////////////////
+	BOOL bAutoRuleDisconnect; // 자동 베팅이 설정된 방, 자동배팅이 끝나지 않은 상태에서 끊기거나 팅겼을때 TRUE
+	//////////////////////////////////////////////////////////////////////////
+	
+	/////////////바둑이///////////////////
+	BOOL bChanged;			//TRUE 바꾸기요청할때 FALSE 바꾼 결과값 받을때.
+	int	 nChangedCnt;		// 바꾸기 제한 시간
+	BOOL bChangeCard;		//바꾸기 요청이 왔다.
+	BOOL bOrderChanged;		//TRUE 바꾸기요청할때 FALSE 바꾼 결과값 받을때.(순서 컷딩 일때 사용)
+
+	///////////////하이로우/////////////////
+	BOOL bWinCaseOn; // 승 결정시 제한시간 플래그
+	int  nWinCaseOn; // 제한 시간
+	int  WinnerCase; // 1 : High, 2 : Low , 3: Swing
+	char nTurn;			//턴 순서 (4구 실전용)
+
+	// 룸입장시점의 판수/머니
+	ALLGAMERECORD m_stInitialRecord;
+	INT64 m_llInitialMoney;
+
+	// 섯다
+#if defined(__SUTDA__)
+	bool bChoice;
+	int nChoice;
+	bool bRematch;
+	int nRematch;
+	bool bResultCard;
+	int nResultCard;
+#endif // (__SUTDA__)
+
+#if defined(__HOOLA__)
+	// [훌라]
+	char cCheckThank;		// 선택 했나 않했나 최종적으로 사용
+	bool bThank;			// 탱크 가능자	
+
+	char cThankYou;			//  1: 같은숫자, 2: 앞쪽, 3: 뒤쪽 ,4: 양사이드
+	char nThankYouCnt;	    // 장수
+
+	bool bAbleToHoola;		// 훌라 가능 ( 훌라 자기 턴에 모든 카드를 다 버림 )
+	bool bAbleToSeven4Card; // 7포카드 가능
+
+	int  nThankNum;		    // 땡큐숫자?( 미션에서 사용 )
+	short sSevenCardRegNum; // 7카드 등록숫자
+
+	bool bStop;				// 스톱 한 유저( 박 가능 )
+	bool bThankBak;			// 땡큐박
+#endif
+
+} PLAYSTATE2;
+
+
+typedef struct
+{
+	char nCard[4];   // 보유카드+히든카드+ 초이스카드
+} BACKCARD; // ############## 카드 날리기 엔딩플래그로도 사용한다
+
+/////////////////////////////////////////////////////
+///////////      게방용 레이즈 정보     /////////////
+/////////////////////////////////////////////////////
+typedef struct{
+	int      nUNum;  // 사용자 아이디
+	char    bInUse;  // 사용유무(게임참여플래그이며 끝까지 간다)
+	char       nUse; // 사용자의 레이즈횟수
+	char     nState; // 0: 아무상태아님, 1:카드3장, 2:카드2장오픈1, 3: 카드4장~6장, 4: 히든모드, 5: 오픈모드
+	char     nStyle; // 0: 체크, 1: 폴드, 2: 배트, 3: 다이
+	char       nBtn; // 0: 삥(최소), 1: 따당(적정), 2: 맥스(최대)
+	char     bFold;  // 포기 여부
+	char     bCall;  // 콜사인 여부
+	char   nLastCmd; // 마지막 명령
+	INT64  nNowBat;  // 레이즈진행중인 머니
+	INT64  nTotBat;  // 총배팅 머니
+	INT64 nRealBat;  // 실배팅 머니
+	INT64  nPMoney;  // 보유중인 포커머니
+	INT64 nReCall;   // 받고 
+	INT64 nCalcBat;  // 더
+	char	bMaxBet; // 최대 베팅 한도 도달 여부
+	char	nRemainRaiseCount; // 현재 베팅 라운드에서 남은 베팅 가능 횟수
+	INT64	nRoundChip;	// 라운드 모드에서 사용하는 칩
+
+	/////////////////////////////손실한도 초과 기능 추가 2017.05.15/////////////////////////////////////////////
+	char bRealOverBet; //본인의 선택에 의해 진짜로 하루 손실한도를 넘어가고 있는 상황이다..0이면 안넘아감, 1이면 넘어감
+	///////////////////////////////////////////////
+}RAISEUSER;
+
+/////////////////////////////////////////////////////
+///////////      게방용 플레이 정보     /////////////
+/////////////////////////////////////////////////////
+typedef struct{
+	char  bDistCard;	
+	char  nDistUser;
+	char  nRound;	 // 베팅 라운드
+	char  nState;
+
+	char bRaiseOn;  // 레이즈 지속여부
+	char bBtnBet;
+	char bBtnCheck;
+	char CurPlayer;
+	char LastPlayer;
+	char LastStyle;	
+	char nBossPNum;		//보스
+	char nImageBoss;	//무늬만 보스	
+
+	char nReMainTotalCardNum;	// 카드 남은 장수(나눠주고 남은 장수) 
+
+	//자동베팅 수정 2006.5.3//////////////////////////////////////////////////
+	char nAutoBetCmd;
+	char nAutoBetNodie;	
+	//////////////////////////////////////////////////////////////////////////
+
+	PLAYSTATE PS[MAX_PLAYER];
+	RAISEUSER RU[MAX_PLAYER]; 	
+	BACKCARD  BC[MAX_PLAYER]; // 히든 카드	
+
+	short JPHalfCount;			//잭팟시스템 (하프카운트)
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+	char  nPreCmd;
+	char nBombCard;		// 폭탄 카드 
+	char bDSEvent;		//도신지수 이벤트 플래그 //골든칩 이벤트 2006.2.28
+	char temp[3];
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+}POKERGAME;
+
+typedef struct{
+	int  nStyle;    // 0: 폴드, 1.체크 , 2: 콜, 3: 배트, 4: 다이
+	int  nBtn;      // 0: 삥(최소), 1: 따당(적정), 2: 하프, 3: 맥스(최대)
+	DWORD  PlayTick;			// 서버랑 클라이언트간의 시간 값
+}POKERCLNT; //  ##############3 카드날리기 엔딩으로도 사용한다
+
+typedef struct{
+	char ID[16];
+	char NickName[20];
+	char  nCard;             // 로티플, 스티플, 포카드
+	short  nRoom;
+	char ChanName[25];		// 채널 이름
+	INT64 JackPotPlus;	    // 잭팟 보너스 점수
+	INT64 NowJackPot;	    // 현재 잔액
+}SPECIALCARD;
+
+typedef struct{
+	char     ID[ID_LEN];
+	int      nUNum;
+	USERINFO UI;
+}USERRESULT;
+
+typedef struct{
+	char     ID[ID_LEN];
+	int      nUNum;
+	int      nCard;
+	INT64    nMoney;
+}BUYCARD;
+
+typedef struct{
+	char     ID[ID_LEN];
+	int      nUNum;
+	int      nCard;
+}CHANGECARD;
+
+typedef struct  
+{
+	ALLGAMERECORD m_stChangeRecord;	// 해당 방에서의 게임전적
+	INT64	m_llChangeMoney;					// 해당 방에서의 변경머니
+	INT64	llMaxLossMoney;						// 최대 손실 가능 머니
+}CHANGE_USERINFO_ROOM;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 방 입장 정보
+
+//#if defined(__HOOLA__)
+//	[ 훌라 ]
+typedef struct
+{
+	PLAYSTATE Ps[ MAX_PLAYER ]; // 각유저의 등록유무, 카드장수
+	bool  bGoldState;
+	int   nGoldStage;
+	bool  bPractics;
+	short sRoomState;              // 일반 : 0, 선고르기 : 1
+	
+	char	arrCenterCard[ 4 ][ 13 ];		   // 중앙에 등록 스트레이트 카드
+	char	arrSameNumCard[ 13 ][ 4 ];	       // 같은 숫자 카드
+	short	sBackCardCnt;				   // 쌓여 있는 카드수
+	short	sDisCardCnt;				   // 버린 카드 수
+	short	sDisCardNum;				   // 버린 카드중 맨 윗장 넘버, 없으면 -1
+	short	sCurMission;
+	char    arrMagicCard[ 8 ];			   // 매직카드
+} HOOLAGAME;
+//#endif
+
+typedef struct
+{
+	ROOMINFO Ri;
+	USERINFO Ui[MAX_NEWPLAYER];// ### [ 관전기능 ] ###
+	CHANGE_USERINFO_ROOM Cui[MAX_NEWPLAYER];	// 해당 방에서의 변동머니/변동판수에 대한 정보
+
+	union
+	{
+		POKERGAME Pg;
+		HOOLAGAME Hg;
+	};
+
+} ENTERROOMINFO;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 내 사용자 정보 변경 정보
+typedef struct
+{
+	ALLGAMERECORD AllGameRecord;
+//	ARRAY_VALUE<UINT> AllinCnt;  //올인카운트		//2008.11 포커류 도신 통합으로 삭제	
+	INT64 PMoney;
+	UINT  AllinCnt;			// 올인카운트 2006.1.9
+} CHANGEMYINFO;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 추방 투표 요청 정보
+typedef struct
+{
+	short RoomNum;		// 방 번호
+	short MyServPNum;	// 요청자 서버 플레이 번호
+	char MyID[ID_LEN];		// 요청자 아이디
+	short TarServPNum;	// 추방 대상 서버 플레이 번호
+	char TarID[ID_LEN];		// 추방 대상 아이디
+	char Reson[42];		// 추방 사유
+} BANISHVOTEINFO;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임 시작 정보
+
+typedef struct
+{
+	char JoinID[ MAX_PLAYER ][ ID_LEN ];		// 참여자 아이디
+	PLAYSTATE Ps[ MAX_PLAYER ];			// 플레이어 상태 구조체
+	char  nCard[ 4 ];
+	int   nDistUser;					// 카드 날리기
+	INT64   nSeedMoney;					// 시드머니 
+	float	fBetMoneyMulti;				// 적용된 참가비 배수
+	double	fRaceBetRatio;				// 레이스 베팅 비율 
+	char	nImageBoss;					// 무늬만 보스
+	char RoomMasterType;				// 방장 권한 체크 
+
+//#if defined(__HOOLA__)
+	char	PlayerCard[ 8 ];			// 각각 플레이어 카드정보
+	bool	bPracticsGame;
+//#endif
+	char	nRoundCount;
+
+} STARTINFO;
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임 종료 결과
+typedef struct 
+{
+	char  ID[ID_LEN];
+	char   NickName[NICK_LEN];
+
+	ALLGAMERECORD AllGameRecord;		//게임 각종 기록		// 2008.12 포커류 통합
+	INT64	PMoney;
+	int		nRank;			//등수(바둑이)
+	INT64   nResultMoney;	// 획득액 또는 읽은 머니 .
+	char	WinCase;		// 하이로우 1:하이 2:로우 3:스윙
+	char	CaseSel;		// 유저의 선택 1:하이 2:로우 3:스윙
+	float   fGoryRatio;		// 실제 게임비율
+	INT64	GameFeeDP;		// DP용 게임비 (2009.05.19)
+
+	INT64 llInMoney;
+	INT64 llSafeMoney;
+
+//#if defined(__SUTDA__)
+	INT64 nPenaltyMoney;	// 지불한 땡값
+	int nPenaltyState;		// 땡값 종류(0:없음, 1:땡값, 2:광땡값, 3:38광땡값, 4:49박, 5:승자)
+//#endif // (__SUTDA__)
+
+	//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+	POKERINFO PI;
+	//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+
+#if defined(__HOOLA__)
+	// [ 훌라 ] (1 훌라(첫턴), 2 훌라, 3 카드모두버림 , 4 대빵, 5 소빵, 6 stop , 7 엎어놓은 카드 없음)
+	char	cRanking;		// 등수
+	char	cJokerBak;			// 조커 카드 장수
+	char	cSevenBakCnt;		// 7 을 가지고 있다면 액수 (장수)^2
+	char	arrSevenCardCnt[ 4 ];	// 각 넘버
+	bool	bStopBak;		// 스톱승자에게 각각 줄돈, 박일경우 박액수
+	bool	bRegisterBak;	// 등록박 액수
+	bool	bThankYouBak;	// 탱크박	
+	int		CardSum;		// 각 유저 카드 합계
+	char	cGold;
+
+	bool	bHoola;
+	char	cRemainCardCnt;
+	bool	bRegister;
+	bool	bDaebbangWin;
+	bool	bSobbangWin;
+	bool	bSeven4Win;
+	int		nMission;
+
+// 	INT64	i64GetMaxMoney;
+// 	INT64	i64GetBetMaxMoney;
+	bool	bVIPUser;
+	char	cDosinLimit;
+#endif
+
+} GAMEOVERINFO;
+
+struct GAMEOVER_HOOLA
+{
+	short	  sWinnerCase; // 훌라(1 훌라(첫턴), 2 훌라, 3 카드모두버림 , 4 대빵, 5 소빵, 6 stop , 7 엎어놓은 카드 없음) 
+	short	  sGoldStage;
+	bool	  bGoldHoola;
+	bool      bClientDelayTime;
+	char	  arrPlayerCard[ MAX_PLAYER ][ 8 ]; // 각유저의 카드
+};
+
+struct GAMEOVERRESULT
+{
+	// 전체 정보 
+	char      cGame;        // 게임종류  (0:세븐, 1:바둑이, 2:뉴포커, 3:맞포커)
+	char      WinCase;		// (하이:1 로우:2 스윙:3  승자 1명 ) 승자가 2명: 4 (하이로  이겼는가 로우로 이겼는가 승자가 2명인가) 
+	char      bOpen;		// 어떻게 이겼는가?(모두 죽어서 홀로 이겼는가 FALSE, 끝까지 베팅했는가 TRUE)
+//	char      bJackPot;     // 잭팟이 있는가   		
+	GAMEOVERINFO  Ui[MAX_PLAYER];
+	CHANGE_USERINFO_ROOM Cui[MAX_PLAYER];		// 해당 방에서의 변동머니/변동판수에 대한 정보
+
+	union
+	{
+		POKERGAME Pg;
+		GAMEOVER_HOOLA Hg;
+	};
+	
+	//< CYS 111002 > 삭제
+	//INT64 JackPotMoney;
+	
+	// 승자 정보만  
+	char	  nWinnerNum;						//승자가 몇명인지  (아래 배열 몇개까지 쓰는지..)		
+	char      WinID[MAX_PLAYER][ ID_LEN ];			// 승자 아디		
+	char      nNowWinner[MAX_PLAYER];			// 승자 플레이어 넘버		
+	
+	#define EMPTY_CHAR ""	
+	#define IDX_SP_WINNER 0			//세븐포커 승자 배열 인덱스
+	#define IDX_HL_1ST_WINNER 0		//하이로우 첫번째 승자 배열 인덱스
+	#define IDX_HL_2ND_WINNER 1		//하이로우 두번째 승자 배열 인덱스
+
+	GAMEOVERRESULT(){}
+	void Init(int GameIdx) 
+	{
+		ZeroMemory(this, sizeof(GAMEOVERRESULT));
+		memset(nNowWinner,-1,sizeof(nNowWinner));
+		cGame=GameIdx; 
+	}
+//////////// NEWPOKER Add ToDo: 안쓰는 변수 제거하기
+ 	char      ID[ID_LEN];		// 승자 아디	
+ 	char	  NickName[NICK_LEN]; // 승자 닉네임
+	INT64     nWinMoney;	// 실제 증가분 하이(내 베팅액을 제외한 실제)
+	INT64	  nRealBat;  // 게임 오버시 실제배팅 머니 X
+	INT64     nGory;    // 고리금액
+	char      JokerCardDeck[5];
+
+
+	//< CYS 111002 > 삭제
+//	char	  temp1;	
+
+// 	float       nPercent; // 퍼센티지 : 단순히 보여주는 기능만 있다 1%,5%,10% 등등
+// 	INT64     AddEventMoney;	// 추가 이벤트 머니 지급 머니값이 있으면 추가 이벤트 당첨이다 승자한테만 준다
+// 	int		  AddEventPrizeCnt; // 이벤트 받은 횟수 일등만 알고 있으면된다. 메세지는 본인 한테만 보여준다. 	
+// 	//골든칩 이벤트 2006.2.28
+// 	int 	  nGoldSupplyCnt;	//도신지수 이벤트 메달 종류
+
+// 	char	  nCurRoomGoldenGaugeStep;//게이지 단계별 표현 값 0 ,1,2,3,4,5
+// 	char	  temp;
+	
+};
+
+/////////////////////////////////////////////////////
+////////////    [서버 에이전트 작업]   //////////////
+/////////////////////////////////////////////////////
+
+typedef struct
+{
+	short  nUNum;   // 사용자 번호
+	char ID[ID_LEN];  // 아이디
+	INT64 PMoney; // 포커머니 증감치
+} AGENT_USER;
+
+
+//### [관리자 모드 작업] ###
+typedef struct
+{
+	short  AdminUNum;
+	char AdminID[ID_LEN];
+	short  TarUNum;
+	char TarID[ID_LEN];
+} ADMINMESSAGE;
+
+//  방 옵션 변경 정보 
+typedef struct
+{
+	short   RoomNum;			// 방번호
+	short   UNum;				// 방장의 유저 번호
+	char  ID[ID_LEN];			// 방장 ID
+	char  Title[32];        // 방제목
+
+	//자동배팅룰 추가 [2005.05.24]
+	char  nBetKind;			// 0~8까지 591 592 59F......
+	char  bNoDie;			// 설정하면 다이버튼을 nBetKind 설정값까지 비활성화 시킨다			
+
+	char  Reserved[2];
+	char  nMaxUser;			// 유저 수 설정
+	char  nPass[4];			// 패스 워드 설정
+	int  bSecret;			// 비밀방 여부		
+} STYLEROOMINFO;
+
+//정보 변경 알림 메세지
+typedef struct //결과
+{
+	short   RoomNum;		// 방번호
+	short   UNum;			// 방장의 유저 번호
+	char  ID[ID_LEN];			// 방장 ID
+	char  Title[32];        // 방제목
+	char  bReseveApply;    // 정보변경바로실시인지 예정인지.. (0:실시 , 1:예정) 
+
+	//자동배팅룰 추가 [2005.05.24]
+	char  nBetKind;			// 0~8까지 591 592 59F......
+	char  bNoDie;			// 설정하면 다이버튼을 nBetKind 설정값까지 비활성화 시킨다		
+
+	char  bSecret;			// 비밀방 여부	
+	char  nMaxUserNum;
+} CHANGESTYLEROOMINFO;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////                               [프리미엄 작업]	                                //////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int CheckPremiumState(USERINFO* pUI, SYSTEMTIME* pCurTime=NULL);
+int IsPremiumMoreMini(USERINFO* pUI, SYSTEMTIME* pCurTime=NULL);
+
+//유저의 카드정보
+typedef struct {
+
+	BOOL bOpenCard;
+	char ID[MAX_PLAYER][16];
+	int SelCase[MAX_PLAYER];	//하이/로우/스윙선택		
+	BACKCARD  BC[MAX_PLAYER]; // 히든 카드
+} HL_CARDINFO;
+
+
+// ### [ 중복된 IP가 ] ###
+typedef struct 
+{
+	char IpIndex[MAX_PLAYER];
+} IPARRINDEX;
+////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////
+////////////    ### [ 관전기능 ] ###   //////////////
+/////////////////////////////////////////////////////
+//예약알림 메세지
+typedef struct
+{
+	short Seq; //예약순서
+	short UNum;
+	char ID[ID_LEN];
+	char NickName[NICK_LEN];
+	////
+} RESERVATIONINFO;
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//올인 보험 종류 
+enum CODE_INSURANCE
+{
+	CODE_INSURANCE_GOSU= 4,
+	CODE_INSURANCE_SUNSU,
+	CODE_INSURANCE_YOUNGWOONG,
+	CODE_INSURANCE_JIZON=6,
+	CODE_INSURANCE_DOSIN, // 통합포커 등급보험 수정
+};
+
+
+/////////////////////////////////////////////////////////////////////////////
+//  올인 보험 관련 
+#define TOP_INSURANCE		(CODE_INSURANCE_JIZON)	//지존보험 부터
+#define BOTTOM_INSURANCE	(CODE_INSURANCE_DOSIN)   //도신보험 까지
+
+//올인보험 가입 요청
+typedef struct  {
+	char		ID[20];
+
+	int			UNum;	
+	int			nAIN_InsuranceRequest;	//요청한 보험 종류
+}AIN_INSURANCE_JOIN_REQUEST;
+
+typedef struct  {
+	char		ID[20];
+
+	int			UNum;	
+	int			nAIN_Insurance_Result;	//요청한 결과값	0 : 실패 1 : 성공
+	int			nAIN_Insurance_Kind;	//변경된 보험 종류	
+
+	INT64		nAIN_Insurance_Money;		//변경후 보험금
+	INT64		nApplyCurPMoney;		//변경후 유저(PMoney)값
+	INT64		nAIN_Join_Total_Insu_Money;		//이번에 가입된 누적보험금
+}AIN_INSURANCE_JOIN_RESULT;
+
+//올인보험 지급 요청
+typedef struct  {
+	char		ID[20];
+
+	int		UNum;	
+	int		nAIN_InsuranceRequest;	//요청한 보험 종류
+}AIN_INSURANCE_SUPPLY_REQUEST;
+
+typedef struct {
+	char		ID[20];
+
+	short		UNum;
+	BOOL		nAIN_Insurance_Result;		// 결과 0 실패 1 성공
+	int			nCurAIN_InsuranceKind;		//요청후 지급된 보험가입 종류
+
+	INT64		nCurAIN_InsuranceMoney;		//지급 후 변경된 보험가입금액	
+	INT64		nSupply_InsuranceMoney;		//요청후 지급된 보험가입 금액
+	
+	INT64		nApplyCurPMoney;		//변경후 유저(PMoney)값	
+	
+}AIN_INSURANCE_SUPPLY_RESULT;
+
+
+
+
+typedef struct {	
+	char	TargetIP[24];		//대상자 아이피
+	char	AdminID[16];		//관리자 아이디
+	char	AdminIP[24];		//관리자 아이피
+	char	TargetID[16];		//대상자 아이디 
+
+	char	Memo[48];			//사유
+
+	int		Status;				//상태값type 1= BENEFIT_UNSUPPLY_CHANCE 2=BENEFIT_UNSUPPLY_JACKPOT 3=BENEFIT_UNSUPPLY_EVENT
+	int		nType;				//유형 1 아이디 2 아이피 로 저장
+	char	ItemCodeList[128];	//찬스 아이템 리스트
+
+}BLOCKIPLIST_DATA;//블랙유저 관리 2006.2.3
+
+
+
+typedef struct  {
+	char			AdminID[ID_LEN];	//등록한 관리자 아이디
+	char			AdminIP[24];	//등록한 관리자 아이디	
+	char			TargetID[ID_LEN];	//블랙유저 아이디
+	char			TargetIP[24];	//블랙유저 아이피
+	char			Memo[48];		// 사유 저장
+	char			nID_or_IPFlg;	//아이디 등록인지 아이피 등록인지
+	char			nBadUserKind;	//제약 조건 0~4
+	short			UNum;			// UNUm
+	char			StayServerIP[24];		//관리자 그룹 번호 결과 메세지때문
+	int				nStayPort;		//관리자 채널 번호 결과 메세지때문
+	int				nSaveType;		// 저장 유형 0: 신규 1: 수정  2 : 삭제
+	char			ItemCodeList[48];//찬스 아이템류 리스트
+}ADMIN_ADDBADUSER_DATA;
+
+
+
+
+
+//[행운아바타] 2006.07.24
+typedef struct  {
+//	char		nSameGroupCode;				//0 전체 채널 그룹코드
+//	short		nSameChannelSupplyUserCnt;	//0 전체 채널 해당 서버에서 지급 받는 행운아바타 개수
+	char		nSupplyKind;				//지급 종류 0 전체 채널 1 설정된 채널만
+	char		GroupCode[MAX_GROUP_GRADE_INDEX];				//그룹 번호	
+	short		nSupplyUserCnt[MAX_GROUP_GRADE_INDEX];			//해당 서버에서 지급 받는 행운아바타 개수
+	BYTE		nHaveMaxLuckAvataCnt;		//보유할수 있는 최대 값	
+	char		LevelLimit[GRADE_MAX+1];				//레벨제한
+	char		Membership[MAX_CODE_NEW_FAMILY+1];				//레벨제한//&&&&&&&
+	int	PlayCnt;	//2008.03.04 행운찬스 어뷰져 강화 접속후 게임 판수
+	
+}LUCKAVATA_DATA; 
+
+
+#define SEND_MAXCHANNEL 20
+typedef struct {
+	int			nUser[SEND_MAXCHANNEL];
+} CHANNEL_USERNUMBER;
+
+
+CString Log_USERINFO(USERINFO *pUI);
+CString GetAutoBettingRuleName(IDX_GAME idxGame,  int nAutoBet, BETRULE_KIND eBetRuleKind/* 리얼, 리미,트 */, RULETYPE ruleType=RULETYPE_7POKER );
+CString GetCardSettingName(IDX_GAME idxGame, char cCardSetting );
+CString GetBetMoneyMultiName(IDX_GAME idxGame, float fBetMoneyMulti );
+
+
+//////////////////////////////////////////////////////////////////
+//포커 공통 추가
+
+// 포커 방 상태 (공통사용)
+enum RSTATE
+{
+	RSTATE_NONE = 0,			// 아무상태도 아님(대기중)
+	RSTATE_DISTRIBUTECARD,		// 패를 돌리는 중
+	RSTATE_PREPARESTART,		// 게임 시작을 준비중
+	RSTATE_EXTRAFIRSTBET,		//4구 실전 
+	RSTATE_STARTGAME,			// 게임이 시작되었음
+	RSTATE_GAME_ROUND_CHANGECARD_M,	//아침 컷팅
+	RSTATE_GAME_ROUND_CHANGECARD_A,	//점심 컷팅	
+	RSTATE_GAME_ROUND_CHANGECARD_N,	//저녁 컷팅	
+	RSTATE_HIGHLOW_SELECT,			//하이, 로우, 스윙 선택 
+	RSTATE_BOMB,				// 폭탄카드		
+	RSTATE_RESULT,  // 게임 결과
+#if defined(__SUTDA__)
+	RSTATE_SD_RESULTCARD,			// 패 오픈 연출 요청, 섯다 전용
+#endif // (__SUTDA__)
+#if defined(__HOOLA__)
+	RSTATE_SUNSELECT,			// 선고르기
+#endif
+//#if defined( __ROUND_MODE__ )
+	RSTATE_ROUND_MODE_GAME_END,	// 10판이 진행되면 더 이상 게임 진행은 안된다.
+//#endif
+
+
+};
+
+
+//방옵션(시드머니)
+typedef struct 
+{
+	char idxGame;
+	char idxNo;
+	char bDefault;
+	char rule;
+	INT64 i64SeedMoney;
+	//INT64 i64DefaultSeedMoney;
+} ROOMOPTION_SEEDMONEY;
+
+//방옵션(자동베팅)
+typedef struct 
+{	
+	char idxGame;
+	char idxNo;
+	char rule;
+	char bDefault;
+	short nAutoBet;
+}ROOMOPTION_AUTOBET;
+
+//방옵션(머니제한)
+typedef struct 
+{	
+	char idxGame;
+	char idxNo;
+	char bDefault;	
+	
+	MONEYRANGE MoneyRange;
+} ROOMOPTION_MONEYLIMIT;
+
+/*
+//< CYS 110321 > 삭제
+enum TYPE_JACKPOT_SYSTEM
+{
+	TYPE_JACKPOT_SYSTEM_NULL=0,		
+	TYPE_JACKPOT_SYSTEM_NORMAL_1,		//잭팟1 (
+	TYPE_JACKPOT_SYSTEM_NORMAL_2,		//잭팟2
+		
+	//		TYPE_JACKPOT_SYSTEM_ROYAL,			//로얄잭팟	
+	TYPE_JACKPOT_SYSTEM_ROYAL_1,	//로얄잭팟1
+	TYPE_JACKPOT_SYSTEM_ROYAL_2,	//로얄잭팟2	
+		
+	MAX_TYPE_JACKPOT_SYSTEM,
+	MIN_TYPE_JACKPOT_SYSTEM = TYPE_JACKPOT_SYSTEM_NULL+1
+};
+
+static char *g_JackpotTypeName[]={"N/A", "Half I", "Half II","Royal Half","Reserve","Reserve"}; //잭팟 종류명
+#ifdef _GAMETEST
+#define JACKPOT_DURATION_ANNOUNCE (2) //잭팟 발표 시간 (분)
+#else
+#define JACKPOT_DURATION_ANNOUNCE (5) //잭팟 발표 시간 (분)
+#endif // _GAMETEST
+
+typedef struct  
+{	
+	char WinRoomName[60];
+	short RoomNo;
+} JACKPOT_WINROOM_FOR_LOSER;
+
+typedef struct  
+{
+	INT64 RoomKey;		//G_TFT 잭팟 수정
+	INT64 JackpotM;
+	JACKPOT_WINROOM_FOR_LOSER WinRoomInfo;	//잭팟 버그 수정
+
+} JACKPOTROOM;
+
+*/
+//베팅룰에 따른 올바른 시드인가 판단 ?
+inline BOOL g_IsCorrectSeed(GROUP_NO Group, USERINFO *pUI, int nAutoRule, int SeedKindIdx, INT64 BaseSeedMoney)
+{	
+	return TRUE;
+	/*
+	if (pUI==NULL) return FALSE;
+
+	static int m_SEPERATOR_IDX[MAX_GROUP_GRADE_INDEX]={0,};	
+	m_SEPERATOR_IDX[GROUP_GRADE_PLATINUM2] = 2;
+
+	GROUP_GRADE gg=g_GetGroupGrade(Group);		
+
+	if( gg == GROUP_GRADE_PLATINUM2)
+	{
+		if( nAutoRule == 0)
+		{
+			return (SeedKindIdx < m_SEPERATOR_IDX[gg]);
+		}
+		else if( nAutoRule == 501)
+		{
+			return (SeedKindIdx >= m_SEPERATOR_IDX[gg]);
+		}
+		return FALSE;
+	}
+	return TRUE;
+	*/
+}
+
+#define MAX_ROOMOPTION_CNT 100	// 추후 옵션 갯수 늘어나면 꼭 체크해야 함
+typedef struct  
+{
+	MONEYRANGE	stMoneyRange;	// 참여가능 머니구간
+	INT64	llEnterLimitMoney;	// 입장제한 머니
+	INT64	llSeedMoney;		// 시드 머니
+	short	sAutoBet;			// 베팅룰
+	char	cDefault;			// 디폴트 옵션 - 클라에서만 사용
+	char	cDefaultQS;			// QuickStart용 디폴트 옵션(자동베팅룰) - 클라에서만 사용
+	int		nRaiseStyle;		// 1-1-2-3 등의 베팅정보를 담고있음
+	short   sBetRuleKind;		// 베팅 방식( 준리얼 베팅, 리얼 베팅(기본), 리미트 베팅 ) //< CYS 110512 >
+	char	cRuleType;			// 게임종류 1: 7포커(RULETYPE_7POKER),  2: 5포커(RULETYPE_5POKER)
+	char	cFormKind;			// 게임모드: 0: 노멀(FORMKIND_NORMAL), 1: 초이스(FORMKIND_CHOICE), 2: 폭탄(FORMKIND_BOMB), 3: 조커(FORMKIND_JOKER) 
+	char    cMaxUserNum;		// 훌라 2인, 5인
+	char	cCardSetting;		// 카드셋팅 (시작시 카드 장 수)
+	float	fBetMoneyMulti;		// 참가비 배수 (섯다만 사용)
+	char	cMemberRoom;		// 다이아 회원을 위한 멤버스 방 2015-02-02 Add //상태값 1: 다이아멤버 2: 라운드모드
+	INT64	llDefaultQuickStartLimitMoney;		// 빠른 입장시 기본 값
+	INT64	llDefaultCreateRoomLimitMoney;		// 방 생성시 기본 값
+	INT64   llDefaultCreateRoom_SeedMoney;		// 방 생성시 기본 시드머니
+	INT64   llDefaultQuickStart_SeedMoney;		// 빠른 방 입장시 기본 시드머니
+} ROOMOPTION;
+
+typedef struct  
+{
+	MONEYRANGE stUserMoneyRange;		// 유저 보유머니 구간
+	int	nArrayCnt;
+	ROOMOPTION arrRoomOption[MAX_ROOMOPTION_CNT];
+	ROOMOPTION stDefaultCreateRoom;		// 바로시작용 디폴트 룸옵션
+} ROOM_CREATEOPTION;
+
+typedef struct
+{
+	PLAYSTATE Ps;			// 플레이어 상태 구조체
+	char  nCard[4];			// 내가 남은 카드와 상대방이 남은 카드가 같기 때문에 내가받을때 상대방도 받는 효과를 보여줌
+	//조커 폭탄만 변수 사용--------
+	// TRUE 조커 카드 지급, FALSE 무조건 폭탄 카드 
+	BOOL  bBonusCard;
+	// FALSE 일때 0번째가 폭탄 카드다, TRUE 일때 0번째가 첫번째 받은 조커 1번째 히든받고 조커
+	char  nBonusCard[4];
+	//------------------
+	int   nDistUser;					// 카드 날리기	
+} VS_REMAINCARDINFO;// VSMODE에서 올인한 사람이 있으면 남은 카드를 여기에 넣어서 한번에 보내준다
+
+enum EnumClientSideVar
+{
+	CS_JOINABLE = 0,
+	CS_PREV_ROOM,
+	CS_SELECTED_ROOM,
+	CS_MAX,
+};
+
+typedef struct	// 대기실 방 정보 갱신용
+{
+	int		nGameIndex;		// 접속게임인덱스
+	short	sGroupNo;		// 그룹번호
+	short	sChanNo;		// 채널번호
+	short	sRoomNum;			// 방번호
+	UINT64	llRoomKey;			// IPS 룸키
+	char	szTitle[32];			// 방제목
+	char	szMasterId[16];			// 방장아이디
+	
+	MONEYRANGE stMoneyRange;	// 참여가능 머니구간
+	INT64 llEnterLimitMoney;	// 입장제한 머니
+	INT64 llSeedMoney;			// 시드머니
+	INT64 llTotalPMoneySum;	// 보유머니 합
+	char	cRuleType;			// 게임종류 1: 7포커(RULETYPE_7POKER),  2: 5포커(RULETYPE_5POKER)
+	char	cFormKind;			// 게임모드: 0: 노멀(FORMKIND_NORMAL), 1: 초이스(FORMKIND_CHOICE), 2: 폭탄(FORMKIND_BOMB), 3: 조커(FORMKIND_JOKER) 
+	short	sAutoBetKind;		// 0: 수동베팅, ...
+	char	cCardSetting;		// 카드셋팅
+	float	fBetMoneyMulti;		// 참가비 배수 (only 섯다)
+	char   cNowUserNum;		// 현재 참여인원
+	char   cMaxUserNum;		// 최대 참여인원
+	char   cNowObserverNum;    // ### [ 관전기능 ] ###관전자 인원
+	char   cState;				// 상태(0:대기중 1:게임중)
+	char	arrUserInfo[MAX_NEWPLAYER];		// 참여유저정보, -1: 없음, 0: 여, 1: 남
+	bool	bSecretRoom;					// 맞포커 잠김방 여부  true: 잠김방, false: 일반방
+	
+	// MaxRoom. 2011.01.27
+	bool bIsMaxRoom;	// MaxRoom 인가?
+	INT64 llInMoney;	// MAXRoom 설정 금액
+
+	time_t tCreatedTime;			// 방생성 시간
+	char szClientSideVar[CS_MAX];	// 클라이언트에서 사용하는 변수. 0: 상태(0:대기중 1:게임중), 1: 직전방 표시
+	short	sBetRuleKind;			// 베팅종류 (준리얼, 리얼, 리미트) //< CYS 110513 >
+
+	char	cMemberRoom;		// 다이아 회원을 위한 멤버스 방 2015-02-02 Add //상태값 1: 다이아멤버 2: 라운드모드
+} SMALLROOMINFO;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임 정보
+typedef struct
+{
+	SMALLROOMINFO	stSmallRoomInfo;
+	SMALLUSERINFO	stSmallUserInfo[MAX_NEWPLAYER];
+} GAMEINFO;
+
+
+
+
+typedef struct 
+{
+	bool	m_bUseMoneySearch;		// 보유머니 검색 사용여부
+	int		m_nMoneyIndex;			// 0: 90% 미만, 1: 90 ~ 110%, 2: 110% 이상
+	int		m_nPriorityMoneySearch;	// 보유머니 검색 우선순위
+
+	bool	m_bUseRuleTypeSearch;	// 게임종류 검색 사용여부
+	int		m_nRuleTypeIndex;			// 0: 7포커, 1: 5포커
+	int		m_nPriorityRuleType;		// 게임종류 검색 우선순위
+
+	bool	m_bUseFormKindSearch;	// 게임모드 검색 사용여부
+	int		m_nFormKindIndex;			// 0:노멀, 1:초이스, 2:폭탄, 3: 조커
+	int		m_nPriorityFormKind;		// 게임모드 검색 우선순위
+
+	bool	m_bUseLimitSearch;			// 입장제한 검색 사용여부
+	INT64	m_llEnterLimitMoney;		// 입장제한 금액
+	int		m_nPriorityEnterLimit;		// 입장제한 검색 우선순위
+
+	bool	m_bUseSeedBetRuleSearch;	// 시드/베팅룰 검색 사용여부
+	INT64	m_llSeedMoney;					// 시드/베팅룰 사용 시드
+	int		m_nBetRule;						// 시드/베팅룰 사용 베팅룰 490, 591...
+	int		m_nPrioritySeedBetRule;		// 시드/베팅룰 사용 우선순위
+
+} SEARCHCONDITION;
+
+#if defined(__SUTDA__)
+
+enum SUTDA_GAMESTATE
+{
+	SD_GAMESTATE_NONE = 0,					// 게임 진행 안함
+	SD_GAMESTATE_CARD_FIRST,				// 첫번째 패 받음
+	SD_GAMESTATE_CARD_HIDDEN,				// 히든 카드 받음
+	SD_GAMESTAE_CARE_GAMEOVER,				// 게임 종료
+	SD_GAMESTATE_CHECK_REMATCH,				// 재경기 참가 확인중
+	SD_GAMESTATE_CARD_REMATCH,				// 재경기 패 전송
+};
+
+// 게임 시작 정보
+typedef struct  
+{
+	char JoinID[MAX_PLAYER][16];			// 참여자 아이디
+	PLAYSTATE Ps[MAX_PLAYER];				// 플레이어 상태 구조체
+	int   nDistUser;						// 카드 날리기
+	INT64   nSeedMoney;						// 시드머니 
+	float	fBetMoneyMulti;					// 참가비 배수
+	double	fRaceBetRatio;					// 레이스 베팅 비율 
+	char	nImageBoss;						// 무늬만 보스
+	char RoomMasterType;					// 방장 권한 체크 
+	int nCard[2];
+} SD_STARTINFO;
+
+// 3장 섯다에서 오픈 된 받은 패
+typedef struct 
+{
+	char szID[MAX_PLAYER][16];
+	char cCardIndex[MAX_PLAYER];
+} SD_OPENCARD;
+
+typedef struct 
+{
+	char szID[MAX_PLAYER][16];
+	BACKCARD Bc[MAX_PLAYER];
+} SD_RESULTCARD;
+#endif	// defined(__SUTDA__)
+
+
+#if defined(__HOOLA__)
+
+#define MAX_SUN_SELECT_PLAYER		5
+#define CARD_DECK_COLORS_CLUBS		0
+#define CARD_DECK_COLORS_HEARTS		1
+#define CARD_DECK_COLORS_DIAMONDS	2
+#define CARD_DECK_COLORS_SPADES		3
+
+#define SUN_CARD_COLORS							CARD_DECK_COLORS_SPADES
+#define SUN_CARD_START_INDEX					(2)
+#define MAX_SUN_CARD_INDEX						(10)
+#define MAX_SUN_CARD_NUM						(MAX_SUN_CARD_INDEX - SUN_CARD_START_INDEX + 1)
+#define MAX_SUN_SELECT_WAITTIME					(10)
+#define MAX_WAIT_GAME_START_BY_SUN_SELECT		(3)
+
+enum _eRoomState
+{
+	_eRoomState_Standby = 0,
+	_eRoomState_Playing = 1,
+};
+
+
+// 훌라 개선 작업
+typedef struct {
+	int  nSevenCount;			// 등록/붙이기 할 7카드 갯수
+	char arrSevenCardValue[ 4 ];// 7카드의 카드 인덱스
+	int  nStCount[ 2 ];			// 묶음조합 카드 갯수
+	BYTE StraightCard[ 2 ][ 8 ];// 묶음조합 카드 인덱스
+	int  nToCount[ 2 ];			// 낱장조합 카드 갯수
+	BYTE TogetherCard[ 2 ][ 8 ];// 낱장조합 카드 인덱스
+	int  nAtSCount;				// 묶음조합 영역에 붙이기 가능한 카드 갯수
+	BYTE AttachStCard[ 8 ];		// 묶음조합 영역에 붙이기 가능한 카드 인덱스
+	int  nAtTCount;				// 낱장조합 영역에 붙이기 가능한 카드 갯수
+	BYTE AttachToCard[ 8 ];		// 낱장조합 영역에 붙이기 가능한 카드 인덱스
+	BYTE flag;				    // 조커카드를 붙이기 할때 1 아닐때는 값을 대입하지 않음
+}REGISTERCARD;
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////
+// 게임 시작 정보
+typedef struct
+{
+	char JoinID[MAX_PLAYER][16];	// 참여자 아이디
+	PLAYSTATE Ps[MAX_PLAYER];		// 플레이어 상태 구조체
+	INT64 PlayerMarble[MAX_PLAYER];	// 플레이어의 현재 마블
+	char PlayerCard[8];				// 각각 플레이어 카드정보
+	int  SoundType[MAX_PLAYER];     // 사운드 설정
+	char PracticsGame;
+} STARTINFO;
+*/
+
+typedef struct 
+{
+	char PlayerCard[MAX_SUN_CARD_NUM];				// 선 선택에 사용할 카드 정보
+} SUNCARDINFO;
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어의 게임오버
+typedef struct
+{
+	char ID[16];		// 아이디
+	char Ranking;
+	char Reserved[3];
+} PLAYERGAMEOVERINFO;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어 thank you 가능 카드 서버에서 모두 보내준다
+typedef struct
+{
+	char CardNum;  // 버린 카드 인덱스
+	char ThankNum; // thank 있나 없나
+} THANKYOUCARD;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어 thank you 선택 = > 서버
+typedef struct
+{
+	char  ThankCase;    // 1: 같은숫자, 2: 스트레이트   
+	char  nThankYouCnt; // 장수
+	BYTE  ThankCard[8];
+} CLTHANKCARD;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 플레이어 thank you 선택 결과
+typedef struct
+{
+	char  BackCardNum;        // 앞서 버린카드 ( 없으면 -1 )
+	char  ThankCase;    // 1: 같은숫자, 2: 스트레이트   
+	char  nThankYouCnt;		  // 카드 수
+	BYTE  ThankCard[8];       // 카드 최대 8장
+//	char  CenterCard[4][13];  // 중앙에 위치한 같은 무늬 배열	
+//	char  SameNumCard[13][4]; // 같은 숫자 
+} THANKYOURESULT;
+ 
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 유저가 카드등록 요청
+typedef struct
+{
+	char  RegisterCase;		  // 1: 같은숫자, 2: 앞쪽, 3: 뒤쪽 ,4: 양사이드	
+	char RegCardCnt;		  // 등록할 카드 수
+	char  RegisterCard[8];    // 등록한 카드 최대 4장
+}  USERREGISTERCARD;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 카드 등록 결과
+typedef struct
+{
+	char  RegCardCnt;		  // 등록한 카드 수
+	char  RegisterCase;		  // 1: 같은숫자, 2: 앞쪽, 3: 뒤쪽 ,4: 양사이드	
+	char  RegisterCard[8];    // 등록한 카드 최대 3장
+//	char  CenterCard[4][13];  // 중앙에 위치한 같은 무늬 배열	
+//	char  SameNumCard[13][4]; // 같은 숫자 
+} REGISTERRESULT;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 카드 붙이기 요청
+typedef struct
+{
+	char  AttachCase;		  //  1 , 2
+	char AttachCardCnt;		  // 등록할 카드 수
+	char  AttachCard[8];    // 등록한 카드 최대 4장
+}  USERATTACHCARD;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 카드 붙이기 결과
+typedef struct
+{
+	char AttachCnt;			 // 넘버
+	char  AttachCase;		 //    1 , 2 
+	char  AttachCard[8];		 // 붙일 카드 넘버		
+//	char  CenterCard[4][13];  // 중앙에 위치한 같은 무늬 배열	
+//	char  SameNumCard[13][4]; // 같은 숫자 
+} ATTACHRESULT;
+
+////////////////////////////////////////////////////////////////////////////////////////
+// 훌라로 이겼을경우 서버유저에게 알림
+/*
+typedef struct{
+	char ID[20];
+	char  nCard;             // 로티플, 스티플, 포카드
+	char  nRoom;
+	char ChanName[25];		// 채널 이름
+	INT64 JackPotPlus;	    // 잭팟 보너스 점수
+	INT64 NowJackPot;	    // 현재 잔액
+	INT64 PMoney;
+}SPECIALCARD;
+*/
+#endif // (__HOOLA__)
+
+//#if defined (__ROUND_MODE__)
+
+struct ROUND_MODE_RESULT
+{
+	BYTE	  nRank;				// 순위
+	char	  NickName[NICK_LEN];   // 승자 닉네임
+	INT64     nWinMoney;			// 실제 증가분 하이(내 베팅액을 제외한 실제)
+};
+
+struct ROUND_MODE_GAMEOVERRESULT
+{// 라운드 모드 순위 및 획득 금액	
+	ROUND_MODE_RESULT RoundResult[MAX_PLAYER];
+};
+
+struct ROUND_MODE_WAIT_ROOM
+{// 라운드모드 대기 방
+	BOOL bUse;							// 대기방 활성화
+	int unum[MAX_PLAYER];				// 사용자 Unum
+	DWORD WaitCount[MAX_PLAYER];			// 2분 안에 안 들어오면 다른 유저를 들여보낸다.
+	BOOL bWaitUser[MAX_PLAYER];			// 입장해야 될 유저	
+	BOOL bNowCreateRoom;				// 방금 만들어 졌으면 방이 생성되었다고 unum 유저값으로 유저들에게 입장 메시지를 보낸다. TRUE 면 Send해야됨.
+	int nUserCount;						// 접속 유저 수
+	char cMemberRoom;					// 2 이상이 라운드 모드
+};
+
+struct ROUND_MODE_CHIPS
+{// 라운드모드에서 사용하는 칩 정보	
+	INT64	nChips[MAX_PLAYER];
+};
+
+struct ROUND_MODE_RESERVER_ENTER_ROOM
+{// 게임 중 라운드 모드에 입장해야 될때 사용 
+	BOOL bRoundModeReserver;		// 게임 중일 때에 라운드 모드에 입장 예약을 하면 게임 종료후에 체크하여 방에서 나간후 입장 예약한 방으로 간다.
+	int  nRoomNum;					// 입장 예약시에 입장해야 되는 방 번호
+	int  llRoomKey;				// 입장시 사용될 사운드
+};
+
+enum E_ROUND_MODE_MATCHING_LOG
+{
+	E_RESERVE = 1,
+	E_RESERVE_CANCEL,
+	E_MATCHING,
+	E_MATCHING_OK,
+	E_MATCHING_CANCEL,
+	E_MATCHING_AUTO_CANCEL,
+	E_GAME_START,
+	E_OUT_ROOM,
+};
+
+typedef struct
+{
+	BOOL bValid;			// 유효한 상태인가?
+	int WorkKind;			//  1:게임로그 2: 통계로그 3: 리더스 총액머니제한
+	UINT StartTick;			// DB 처리 시작 시간
+
+	int			GameCode;		//게임 코드
+	INT64		RoundModeMoney;	
+	SYSTEMTIME	stRoundModeReserveTime;		//라운드 참가 신청한 이용자
+	SYSTEMTIME	stRoundModeCancelTime;		//매칭 대기중 상태에서 매칭 취소한 이용자	(db저장 및 초기화)
+	SYSTEMTIME	stMatchingTime;				//라운드 매칭 알림을 받은 이용자
+	SYSTEMTIME	stMatchingOKTime;			//매칭 알림을 받고 수락한 이용자				
+	SYSTEMTIME	stMatchingCancelTime;		//매칭 알림을 받고 거절한 이용자				(db저장 및 초기화)
+	SYSTEMTIME	stMatchingAutoCancelTime;	//매칭 알림을 받고 10초간 반응이 없어서 자동 취소된 이용자	(db저장 및 초기화)
+	SYSTEMTIME	stRoomGameStartTime;		//라운드방에 입장 후 게임시작전에 방을 나간 이용자				(db저장 및 초기화)
+	SYSTEMTIME	stRoomOutTime;				//라운드방 입장부터 퇴장까지 방에서 대기한 평균 시간			(db저장 및 초기화)
+}ROUNDMODE_WAIT_TIME_LOG;
+
+
+//#endif //__ROUND_MODE__
+
+
+#endif // __USERSTRUCT_H__

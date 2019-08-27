@@ -1,0 +1,551 @@
+#pragma once
+
+#define SIZE_UMCODE (9)	//통합 머니 코드 버퍼 사이즈 
+#define CN_LEN (16)		//CN 버퍼사이즈
+#define ID_LEN (16)		//아이디 버퍼사이즈
+#define IP_LEN (24)		//IP 버퍼사이즈
+#define NICK_LEN (20)
+#define DI_LEN (64)
+
+
+#define ONE_HUNDRED_MILLION	((INT64)100000000)				// 1억
+#define ONE_BILLION					((INT64)1000000000)			// 10억
+#define TEN_BILLION					((INT64)10000000000)			// 100억
+#define ONE_HUNDRED_BILLION	((INT64)100000000000)			// 1000억
+#define ONE_TRILLION				((INT64)1000000000000)		// 1조
+//#define TEN_TRILLION_SUB_TENBILLION					((INT64)9900000000000)		// 9.9조
+#define TEN_TRILLION_SUB_TENBILLION					    ((INT64)16500000000000)		// 16.5조
+#define TEN_TRILLION					((INT64)10000000000000)		// 10조
+#define ONE_HUNDRED_TRILLION	((INT64)100000000000000)		// 100조
+
+
+
+
+
+enum IDX_GAME
+{
+	IDX_GAME_NULL=-1,
+	IDX_GAME_SP=0,
+	IDX_GAME_BD,
+	IDX_GAME_NP,
+	IDX_GAME_DP,
+	IDX_GAME_HL,
+	IDX_GAME_SD,
+	IDX_GAME_HA,
+
+// 토너먼트
+	IDX_GAME_NPT,
+	IDX_GAME_BDT,
+	IDX_GAME_SDT,
+
+// 클라에서도 제거 예정
+	IDX_GAME_BT,
+//#if defined (__ROUND_MODE__)
+	IDX_GAME_RMP,	// 라운드 모드용 포커
+//#endif
+
+	MAX_GAME,	
+};
+
+enum IDX_GAMEGROUP
+{
+	IDX_GAMEGROUP_NULL=-1,
+	IDX_GAMEGROUP_SP=110,
+	IDX_GAMEGROUP_BD=120,
+	IDX_GAMEGROUP_NP=130,
+	IDX_GAMEGROUP_DP=140,
+	IDX_GAMEGROUP_HL=150,
+	IDX_GAMEGROUP_SD = 160,
+	IDX_GAMEGROUP_HA = 170,
+
+	IDX_GAMEGROUP_NPT = 180,
+	IDX_GAMEGROUP_BDT = 190,
+	IDX_GAMEGROUP_SDT = 200,
+
+};
+
+// R_Key, P_Key 생성시 게임코드 -> 로그코드로 변경
+enum IDX_GAME_LOGCODE
+{
+	IDX_LOGCODE_SP = 1,
+	IDX_LOGCODE_BD = 2,
+	IDX_LOGCODE_NP = 3,
+	IDX_LOGCODE_DP = 4,
+	IDX_LOGCODE_HL = 5,
+	IDX_LOGCODE_SD = 6,
+	IDX_LOGCODE_HA = 7,
+	IDX_LOGCODE_NPT = 8,
+	IDX_LOGCODE_BDT = 9,
+	IDX_LOGCODE_SDT = 10,
+};
+
+
+static char *g_GameAbb[]={"SP","BD","NP", "DP", "HL", "SD", "HA", "NPT", "BDT", "SDT"};
+
+#define GetGameABB(x) g_GameAbb[x]
+
+inline IDX_GAME g_GetGameIdxByGameGroupCode(IDX_GAMEGROUP eGameGroupCode)
+{
+	switch (eGameGroupCode)
+	{
+	case IDX_GAMEGROUP_SP:
+		return IDX_GAME_SP;
+
+	case IDX_GAMEGROUP_BD:
+		return IDX_GAME_BD;
+
+	case IDX_GAMEGROUP_NP:
+		return IDX_GAME_NP;
+
+	case IDX_GAMEGROUP_DP:
+		return IDX_GAME_DP;
+
+	case IDX_GAMEGROUP_HL:
+		return IDX_GAME_HL;
+
+	case IDX_GAMEGROUP_SD:
+		return IDX_GAME_SD;
+
+		//#ifdef _NEXTUP_HOOLA_20110812
+	case IDX_GAMEGROUP_HA:
+		{
+			return IDX_GAME_HA;
+		}
+//#endif
+
+	case IDX_GAMEGROUP_NPT:
+		return IDX_GAME_NPT;
+
+	case IDX_GAMEGROUP_BDT:
+		return IDX_GAME_BDT;
+
+	case IDX_GAMEGROUP_SDT:
+		return IDX_GAME_SDT;
+
+	default:
+		return IDX_GAME_NULL;
+	}
+}
+
+inline IDX_GAMEGROUP g_GetGameGroupCodeByGameIdx(IDX_GAME eGameIdx)
+{
+	switch (eGameIdx)
+	{
+	case IDX_GAME_SP:
+		return IDX_GAMEGROUP_SP;
+
+	case IDX_GAME_BD:
+		return IDX_GAMEGROUP_BD;
+
+	case IDX_GAME_NP:
+		return IDX_GAMEGROUP_NP;
+
+	case IDX_GAME_DP:
+		return IDX_GAMEGROUP_DP;
+
+	case IDX_GAME_HL:
+		return IDX_GAMEGROUP_HL;
+
+	case IDX_GAME_SD:
+		return IDX_GAMEGROUP_SD;
+
+//#ifdef _NEXTUP_HOOLA_20110812
+	case IDX_GAME_HA:
+		{
+			return IDX_GAMEGROUP_HA;
+		}
+//#endif
+
+	case IDX_GAME_NPT:
+		return IDX_GAMEGROUP_NPT;
+
+	case IDX_GAME_BDT:
+		return IDX_GAMEGROUP_BDT;
+
+	case IDX_GAME_SDT:
+		return IDX_GAMEGROUP_SDT;
+
+	default:
+		return IDX_GAMEGROUP_NULL;
+	}
+}
+
+inline bool g_IsTournamentGameIndex(IDX_GAME eGameIdx)
+{
+	switch (eGameIdx)
+	{
+	case IDX_GAME_NPT:
+	case IDX_GAME_BDT:
+	case IDX_GAME_SDT:
+	case IDX_GAME_RMP:
+		return true;
+
+	default:
+		return false;
+	}
+}
+
+
+
+// ### [ 관전기능 ] ###
+const int  MAX_PLAYER	=   5;
+
+const int  MAX_OBSERVER =   11;//  - (1 ### [관리자 모드 작업] ###)  
+
+
+//const int MAX_OBSERVER = 100;			// 관전자 99명 + 관리자 1명
+const int  MAX_NEWPLAYER = (MAX_PLAYER+MAX_OBSERVER);
+
+// 관전자 입장 제한 체크용 상수
+// 토너먼트 서버에서는 MAX_OBSERVER_TMS 를 사용하고 다른 게임에서는 OTHER 를 사용한다.
+// const int MAX_OBSERVER_TMS = MAX_OBSERVER;
+// const int MAX_OBSERVER_OTHER = 11;	// 관전자 10명 + 관리자 1명
+
+const int  MAX_DP_PLAYER =  2;	//맞포커용
+//const int  MAX_DP_OBSERVER =  11; 
+const int  MAX_DP_NEWPLAYER = (MAX_DP_PLAYER+MAX_OBSERVER);
+
+const int MIN_PLAYERS_REQUIRED = 2;
+#define MAX_AVATARLAYER		  26
+
+
+#define UPDATE_GAMENUM        20  //    20회 ########### 중간값 기록시 기준이 될 게임횟수 ###########
+
+#define MAX_BET_TURN			10
+#define MAX_ROUND_LOG			10
+
+enum {
+	GRADE_PYOUNGMIN = 0,//평민
+	GRADE_GOSU,
+	GRADE_YOUNGWOONG,
+	GRADE_JIZON,
+	GRADE_DOSIN,
+	GRADE_MAX,
+};
+
+// 그룹번호
+// 앞2자리 : 등급 
+// 뒷2자리 : 게임종류 
+enum GROUP_GRADE			//그룹코드의 앞자리 
+{
+	GROUP_GRADE_NULL = 0,
+
+	GROUP_GRADE_START =1,
+	GROUP_GRADE_FRIENDS=GROUP_GRADE_START,	// 1 - 친구 그룹등급
+	GROUP_GRADE_ROOKEY,					// 2 - 아마추어 그룹등급
+	GROUP_GRADE_DUMMY_1,
+	GROUP_GRADE_AMATEUR,					// 4 - 세미프로 그룹등급 
+	GROUP_GRADE_PRO,						// 5 - 프로 그룹등급
+	GROUP_GRADE_PLATINUM_1,				// 6 - 위너스 그룹등급
+	GROUP_GRADE_PLATINUM_2,					// 7 - 마스터즈1 그룹등급	
+	GROUP_GRADE_DUMMY_2,
+	GROUP_GRADE_PLATINUM_3,					// 9 - 마스터즈2 그룹등급
+	MAX_GROUP_GRADE_INDEX,					//배열에서 인덱스  잡아쓸때 최대값
+};
+
+enum GROUP_NO
+{
+	GROUP_NULL=0,
+
+	GROUP_FREE_SP  = 101,	   // 친구 ( 자유 )
+	GROUP_FREE_BD  = 103,
+	GROUP_FRIENDS_DP   = 105,	//자유 추가 (2009.05.14)
+
+	GROUP_ROOKIE_SP  = 201,    // 루키 ( 루키 / 아마추어 )
+	GROUP_ROOKIE_BD  = 203,
+	GROUP_PRO_DP      = 205,
+
+	GROUP_PLATINUM_DP = 305,
+
+	GROUP_AMATEUR_SP = 401,    // 아마추어  ( 프로 )
+	GROUP_AMATEUR_BD = 403,
+
+	GROUP_PRO_SP	= 501,     // 프로 ( 에이스 )
+	GROUP_PRO_BD	= 503,
+
+	GROUP_PLATINUM1_SP	= 601, // 플레티넘1 ( 위너스, 마스터즈 )
+	GROUP_PLATINUM1_BD	= 603,
+
+	GROUP_PLATINUM2_SP	= 801, // 플레티넘2 ( 그랑프리 )
+	GROUP_PLATINUM2_BD	= 803,
+};
+
+
+
+
+//게임전적을 구분짓는 분류
+//(현재는 3가지로 나뉜다)
+enum IDX_GAMERECORD
+{
+	IDX_GAMERECORD_NULL=-1,	
+	IDX_GAMERECORD_BASIC=0,		//자유~위너스 채널 전적	
+	IDX_GAMERECORD_MASTER,		//마스터즈 채널 전적	
+	IDX_GAMERECORD_REAL,		//실전 채널 전적	(4구, 5구 실전)
+	//---------------
+	MAX_GAMERECORD,		
+};
+
+
+enum CHOICE_GAME_MODE{
+	CHOICE_GAME_MODE_NULL=-1,
+	CHOICE_GAME_MODE_SP = 0,	//세븐포커 웹에서 접속
+	CHOICE_GAME_MODE_BD,		//바둑이 웹에서 접속
+//	CHOICE_GAME_MODE_LIMIT,
+};
+
+
+
+// 그룹의 성격(CLASS)을 구분짓는 분류 
+enum IDX_GROUPCLASS
+{
+	IDX_GROUPCLASS_BASIC=0,		// 초,중,고, 자유 
+	IDX_GROUPCLASS_MASTER,		// 도신 S
+	IDX_GROUPCLASS_REAL,		// 
+	//IDX_GROUPCLASS_LIMIT,		// 도신 L
+};
+
+
+
+enum BETRULE_KIND
+{
+	BETRULE_KIND_SEMIREAL=0,	//준리얼 베팅
+	BETRULE_KIND_REAL,			//리얼 베팅 (파워 베팅) 기본
+	BETRULE_KIND_LIMIT,		    //리미트 베팅 //< CYS 110506 >
+};
+
+
+/////////////////////////////손실한도 초과 기능 추가 2017.05.15/////////////////////////////////////////////
+enum DAILYLOSS_USER_SETTING
+{
+	STOP_GAME = 0,
+	OVER_CHALLANGE,
+	COMEBACK,
+	NO_DATA_INDB,
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//그룹코드를 그룹등급으로 바꾼다
+inline GROUP_GRADE g_GetGroupGrade(GROUP_NO nGroup = GROUP_NULL)
+{
+	return GROUP_GRADE_NULL;
+}
+
+
+//그룹 번호로 GAMERECORD 인덱스 를 가져온다. 
+//(그룹에 따라 어디 전적으로 카운트 할 것 인지  정의)
+inline IDX_GAMERECORD g_GetGameRecordIndex(GROUP_NO nGroup)
+{
+	return IDX_GAMERECORD_BASIC;
+}
+
+// 그룹번호로 배팅규칙을 가져온다.
+inline BETRULE_KIND g_GetBetRuleKind(GROUP_NO nGroup)
+{
+	return BETRULE_KIND_REAL;
+}
+
+#if defined(_BETAVER)
+#define GAME_CODE_SP (10042)
+#define GAME_CODE_BD (10054)
+#define GAME_CODE_DP (10218)
+#define GAME_CODE_NP (10061)
+#define GAME_CODE_HL (10036)
+#define GAME_CODE_SD (10006)
+#define GAME_CODE_HA (10033)
+#define GAME_CODE_NPT (10074)
+#else // defined(_BETAVER)
+#define GAME_CODE_SP (42)
+#define GAME_CODE_BD (54)
+#define GAME_CODE_DP (218)
+#define GAME_CODE_NP (61)
+#define GAME_CODE_HL (36)
+#define GAME_CODE_SD (6)
+#define GAME_CODE_HA (33)
+#define GAME_CODE_NPT (74)
+#define GAME_CODE_BDT (75)
+#define GAME_CODE_SDT (76)
+#define GAME_CODE_BT (9999)
+#endif  // defined(_BETAVER)
+
+
+//게임인덱스로 게임코드를 가져온다. 
+inline int g_GetGameCode(IDX_GAME game)
+{
+	if (game==IDX_GAME_SP) return GAME_CODE_SP;
+	else if (game==IDX_GAME_BD) return GAME_CODE_BD;
+	else if (game==IDX_GAME_DP) return GAME_CODE_DP;
+	else if (game==IDX_GAME_NP) return GAME_CODE_NP;
+	else if (game==IDX_GAME_HL) return GAME_CODE_HL;
+	else if (game == IDX_GAME_SD) return GAME_CODE_SD;
+//#ifdef _NEXTUP_HOOLA_20110812
+	else if ( game == IDX_GAME_HA ) return GAME_CODE_HA;
+//#endif
+
+	else if (game == IDX_GAME_NPT) return GAME_CODE_NPT;
+	else if (game == IDX_GAME_BDT) return GAME_CODE_BDT;
+	else if (game == IDX_GAME_SDT) return GAME_CODE_SDT;
+	return 0;
+}
+
+//게임코드로 게임인덱스를 가져온다.
+inline IDX_GAME g_GetGameIndex(int nGameCode)
+{
+	if (nGameCode==GAME_CODE_SP) return IDX_GAME_SP;
+	else if (nGameCode==GAME_CODE_BD) return IDX_GAME_BD;
+	else if (nGameCode==GAME_CODE_DP) return IDX_GAME_DP;
+	else if (nGameCode==GAME_CODE_NP) return IDX_GAME_NP;
+	else if ( nGameCode == GAME_CODE_HL ) return IDX_GAME_HL;
+	else if ( nGameCode == GAME_CODE_SD ) return IDX_GAME_SD;
+	else if ( nGameCode == GAME_CODE_HA ) return IDX_GAME_HA;
+	else if ( nGameCode == GAME_CODE_NPT) return IDX_GAME_NPT;
+	else if ( nGameCode == GAME_CODE_BDT) return IDX_GAME_BDT;
+	else if ( nGameCode == GAME_CODE_SDT) return IDX_GAME_SDT;
+	return IDX_GAME_NULL;
+}
+
+inline IDX_GAME g_GetGameIndexDailyLoss(IDX_GAME idx_game)
+{
+	switch (idx_game)
+	{
+	case IDX_GAME_SP:
+	case IDX_GAME_BD:
+	case IDX_GAME_NP:
+	case IDX_GAME_DP:
+	case IDX_GAME_HL:
+	case IDX_GAME_SD:
+	case IDX_GAME_HA:
+		return idx_game;
+
+	case IDX_GAME_NPT:	return IDX_GAME_NP;
+	case IDX_GAME_BDT:	return IDX_GAME_BT;
+	case IDX_GAME_SDT:	return IDX_GAME_SD;
+	}
+
+	return IDX_GAME_NULL;
+}
+
+inline bool g_IsTournamentGameCode(int gameCode)
+{
+	switch (gameCode)
+	{
+	case GAME_CODE_BDT:
+	case GAME_CODE_SDT:
+	case GAME_CODE_NPT:
+		return true;
+
+	default:
+		return false;
+	}
+}
+
+
+//게임별 갯수 크기 배열 변수 
+template<typename T>
+struct ARRAY_VALUE
+{
+	T data[MAX_GAME];	
+
+	void operator +=(const ARRAY_VALUE &av)
+	{		
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			data[i] += av.data[i];
+		}		
+	}
+	void operator -=(const ARRAY_VALUE &av)
+	{		
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			data[i] -= av.data[i];
+		}		
+	}
+
+	ARRAY_VALUE operator +(const ARRAY_VALUE &av)
+	{
+		ARRAY_VALUE ret;
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			ret.data[i] = data[i] + av.data[i];
+		}
+		return ret;
+	}
+	ARRAY_VALUE operator -(const ARRAY_VALUE &av)
+	{
+		ARRAY_VALUE ret;
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			ret.data[i] = data[i] - av.data[i];
+		}
+		return ret;
+	}
+	bool operator ==(const ARRAY_VALUE &av)
+	{		
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			if (data[i] != av.data[i]) return false;
+		}
+		return true;
+	}
+	bool operator !=(const ARRAY_VALUE &av)
+	{		
+		for(int i=0; i<MAX_GAME; i++) 
+		{	
+			if (data[i] != av.data[i]) return true;
+		}
+		return false;
+	}
+	T& operator[] (int iGame)
+	{
+		return data[iGame];
+	}
+	ARRAY_VALUE()
+	{
+		for(int i=0; i<MAX_GAME; i++) 
+		{
+			data[i]=0;
+		}
+	}
+	
+};
+
+namespace hoola
+{
+
+enum EHOOLA_RESULTCASE
+{
+	eHOOLA_UNKNOWN    = 0,
+	eHOOLA_FIRSTHOOLA,
+	eHOOLA_HOOLA,
+	eHOOLA_ALLDISCARD,
+	eHOOLA_DABANG,
+	eHOOLA_SOBANG,
+	eHOOLA_STOP,
+	eHOOLA_EMPTYCARD,
+	eHOOLA_NAGARI,
+	eHOOLA_SEVEN4,
+	eHOOLA_DABANG_BAK,
+	eHOOLA_SOBANG_BAK,
+	eHOOLA_STOP_BAK,
+};
+
+enum EGAME_RULE_TYPE
+{
+	eRULE_TYPE_NORMAL = 0, // 일반 훌라
+	eRULE_TYPE_WAR,		   // 전투 훌라
+	eRULE_TYPE_STOP		   // 스톱 훌라
+};
+
+enum EFORM_KIND_TYPE
+{
+	eFORM_KIND_NORMAL = 1, // 일반
+	eFORM_KIND_JOKER,	   // 조커	
+	eFORM_KIND_MAGIC,	   // 매직
+};
+
+}
+
+#ifdef _GAMETEST
+#define ROUND_MODE_MAX_PLAY_COUNT 	500	// 최대 게임 플레이 판수
+#else
+#define ROUND_MODE_MAX_PLAY_COUNT   10		// 최대 게임 플레이 판수
+#endif

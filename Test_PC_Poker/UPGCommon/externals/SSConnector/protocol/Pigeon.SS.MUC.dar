@@ -1,0 +1,328 @@
+
+
+namespace SS
+{
+	namespace MUC
+	{
+		class ChatRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			MUCJoinRoomInfo joinRoomInfo;
+			bool   needConfig;
+		};
+
+		class ChatRoom_Res : SS::Common::_SSHeader
+		{
+			int32  errorCode;
+			string userID;
+			string roomID;
+			string nickName;
+			string password;
+		};
+		
+		class SetRoomConfig_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+			string nickName;
+			MucRoomConfig roomConfig;
+		};
+		
+		class SetRoomConfig_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+			MucRoomConfig roomConfig;
+		};
+		
+		class ChangeRoomConfig_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+			MucRoomConfig roomConfig;
+		};
+		
+		class ChangeRoomConfig_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+			MucRoomConfig roomConfig;
+		};	
+
+		class InviteToRoom_Req : SS::Common::_SSHeader
+		{
+			string senderID;
+			string recverID;
+			string roomID;			
+		};
+		
+		class InviteToRoom_Res : SS::Common::_SSHeader
+		{
+			string recverID;
+			string roomID;
+			int32  errorCode;
+		};
+
+		class SendInvite : SS::Common::_SSHeader
+		{
+			string senderID;
+			string recverID;
+			string roomID;			
+		};
+		
+		class RecvInvite : SS::Common::_SSHeader
+		{
+			string senderID;
+			string roomID;	
+			MUCRoomInfo roomInfo;					
+		};
+		
+		class JoinChatRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string reqNickName;
+			string roomID;
+			string password;
+		};
+		
+		class JoinChatRoom_Res : SS::Common::_SSHeader
+		{
+			string roomID;
+			string retNickName;
+			int32  errorCode;
+		};
+		
+		class LeaveChatRoom_Dlv : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;			
+		}; 
+	
+		// class LeaveChatRoom_Res : SS::Common::_SSHeader
+		// {
+		// 	string roomID;
+		// 	int32 result;
+		// };
+		
+		class UserJoinRoom 
+		{
+			string roomID;
+			MUCUserInfo	userInfo;
+		};
+	
+		
+		class UserLeaveRoom 
+		{
+			string roomID;
+			MUCUserInfo	userInfo;
+		};
+		
+		class EntryUserList
+		{
+			string roomID;
+			list<MUCUserInfo> userList;
+		};
+		
+		class Send : SS::Common::_SSHeader
+		{
+			string roomID;
+			string senderID;
+			string content;
+			MUCContentType contentType;
+		};
+		
+		class Recv  : SS::Common::_SSHeader
+		{
+			string roomID;
+			string senderID;
+			string content;
+			MUCContentType contentType;
+		};
+		
+		class RoomServiceList_Req : SS::Common::_SSHeader
+		{
+			string reqID;			
+		};
+		
+		class RoomServiceList_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			int32  errorCode;
+			MUCRoomServiceList serviceList;	
+		};
+		
+		class RoomInfo_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+		};
+		
+		class RoomInfo_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			int32 errorCode;
+			MUCRoomInfo roomInfo;
+		};	
+		
+		class RoomList_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			MucRoomFilter filter;
+			string roomID;					
+		};
+		
+		class RoomList_Res : SS::Common::_SSHeader
+		{
+			int32  errorCode;
+			string reqID;
+			MucRoomFilter filter;
+			MUCRoomList roomList;
+		};
+		
+		class SearchRoomList_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			MucRoomFilter filter;
+		};
+		
+		class SearchRoomList_Res : SS::Common::_SSHeader
+		{
+			string reqID;
+			int32  errorCode;	
+			MucRoomFilter filter;
+			MUCRoomList roomList;
+		};
+		
+		class ChangeChatRoomOwner_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string newOwner;
+			string roomID;
+		};
+		
+		class ChangeChatRoomOwner_Res : SS::Common::_SSHeader
+		{
+			int32  errorCode;
+			string newOwner;
+			string roomID;
+		};
+		
+		class ChangeAffiliation_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+			string targetID;
+			MUCRoomAffiliation affiliation;
+			MUCRoomRole role;
+		};
+		
+		class ChangeAffiliation_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+			string targetID;
+			MUCRoomAffiliation affiliation;
+			MUCRoomRole role;
+		};
+		
+		class Banish_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string banUser;
+			string roomID;						
+		};
+		
+		class Banish_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string banUser;
+			string roomID;						
+		};
+		
+		class UserBanned_Ntf
+		{
+			string roomID;
+			MUCUserInfo userInfo;
+		};
+		
+		class UserAffiliationChanged_Ntf
+		{
+			string roomID;
+			MUCUserInfo userInfo;
+		};
+		
+		class ChangeChatRoomConfig_Ntf
+		{
+			string roomID;
+			MucRoomConfig roomConfig;
+		};
+		
+		class RequestRoomConifg_Ntf
+		{		
+			string roomID;
+			string userID;
+			string nickName;
+			string password;					
+		};
+		
+		class SelfRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+		};
+		
+		class SelfRoom_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			MUCRoomList roomList;
+		};
+		
+		class FavoriteRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+		};
+		
+		class FavoriteRoom_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			MUCRoomList roomList;
+		};
+	
+		class AddFavoriteRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+			string roomOwnerID;
+		};
+		
+		class AddFavoriteRoom_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+		};
+		
+		class RemoveFavoriteRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+			string roomOwnerID;
+		};
+		
+		class RemoveFavoriteRoom_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+		};
+		
+		class RemovePersistentRoom_Req : SS::Common::_SSHeader
+		{
+			string reqID;
+			string roomID;
+		};
+	
+		class RemovePersistentRoom_Res : SS::Common::_SSHeader
+		{
+			int32 errorCode;
+			string roomID;
+		};
+	};
+};

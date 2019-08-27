@@ -1,0 +1,255 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Client.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.kor\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 167, 59
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Netmarble NPoker"
+FONT 9, "MS Sans Serif"
+BEGIN
+    ICON            20009,IDC_STATIC,11,17,20,20
+    LTEXT           "Netmarble NPoker",IDC_STATIC,39,11,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2000 Netmarble Inc.",IDC_STATIC,39,26,119,8
+    DEFPUSHBUTTON   "확인",IDOK,60,40,50,14,WS_GROUP
+END
+
+IDD_CLIENT_DIALOG DIALOGEX 0, 0, 459, 401
+STYLE DS_SETFONT | WS_POPUP
+EXSTYLE WS_EX_APPWINDOW
+FONT 9, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_MSG_DIALOG DIALOG  0, 0, 171, 65
+STYLE DS_SETFONT | DS_CENTER | WS_POPUP
+FONT 9, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "취  소",IDCANCEL,60,43,50,14,NOT WS_VISIBLE | WS_DISABLED
+    CTEXT           "게임 서버에 접속중입니다.",IDC_STATIC_MSG,16,18,144,14,SS_CENTERIMAGE | NOT WS_VISIBLE | WS_DISABLED
+END
+
+IDD_MAIN_FRAME DIALOG  0, 0, 316, 183
+STYLE DS_SETFONT | WS_POPUP
+FONT 10, "System"
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDD_MAIN_FRAME MENU 
+BEGIN
+    POPUP "파일(&F)"
+    BEGIN
+        MENUITEM SEPARATOR
+        MENUITEM "종료(&X)",                      ID_APP_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204b0"
+        BEGIN
+            VALUE "FileDescription", "UPGBase.dll"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Client"
+            VALUE "LegalCopyright", "Copyright (C) 2010"
+            VALUE "OriginalFilename", "UPGBase.dll"
+            VALUE "ProductName", "UPGBase.dll"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CLIENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 452
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 394
+    END
+
+    IDD_MSG_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 169
+    END
+
+    IDD_MAIN_FRAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_WAIT         CURSOR                  "res\\cur00001.cur"
+IDC_CURSOR_SELECT       CURSOR                  "res\\cursor_s.cur"
+IDC_CURSOR_MOVE         CURSOR                  "res\\cur00002.cur"
+IDC_CURSOR_HAND         CURSOR                  "res\\cursor_i.cur"
+IDC_CURSOR_ADJUSTSIZE   CURSOR                  "res\\cursor_m.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "res\\SP.ico"
+IDI_ICON2               ICON                    "res\\BD.ico"
+IDI_ICON3               ICON                    "res\\NP.ico"
+IDI_ICON4               ICON                    "res\\DP.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "NPoker 정보(&A)..."
+    IDS_URL_FAMILY_JOIN     "http://family.netmarble.net/"
+    IDS_URL_MYFAMLY         "http://game1.netmarble.net/family/client/myfamily/index.asp?gamecode=%d"
+    IDS_URL_FAMILY_ABOUT    "http://family.netmarble.net/GoodsChange/?ServiceCode=PK"
+    IDS_URL_FAMILY_ITEMSHOP "http://game1.netmarble.net/GameShop/Client/FamilyInfo.asp?gamecode=61"
+    IDS_DBG_URL_FAMILY_ITEMSHOP 
+                            "http://game1-dev.netmarble.net/GameShop/Client/FamilyInfo.asp?gamecode=61"
+END
+
+STRINGTABLE 
+BEGIN
+    IDD_MAIN_FRAME          "NPoker"
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE 18, 1
+#pragma code_page(949)
+#endif //_WIN32
+#include "res\Client.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.kor\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

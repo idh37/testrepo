@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{fab3f950-f0bf-4f6a-893c-a4f1e4b10d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{34ab3219-fa9a-48e1-b7cd-af4f7454d56f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Manager">
+      <UniqueIdentifier>{cd58864b-e5bb-4e70-8428-702b32ec3360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module">
+      <UniqueIdentifier>{6f6c9bcb-4d0d-4a81-8752-fafa27d1aab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\게임도우미%28족보확률%29">
+      <UniqueIdentifier>{fbc65c22-8ffb-409b-ae47-a032ce51f99a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Module\Draw">
+      <UniqueIdentifier>{7b262280-1d5e-4f8e-989b-024c7ed84a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View">
+      <UniqueIdentifier>{6f13d44c-a120-476a-9e86-7a0d9a481012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Card">
+      <UniqueIdentifier>{6fa443ca-990b-4813-bfc9-7577d681d28f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\View\Animation">
+      <UniqueIdentifier>{b12e944d-50e8-4e61-bff6-f2870f4a0bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{47c0ab12-f243-4f98-9514-b683c2b05cff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UPGHighLow.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CardRule.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHighLow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcessHighLow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameViewHighLow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalGame.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHighLow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBetSetUpWnd.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameButtonHL.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelperManHighLow.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectCardHighLow.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundRes.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteList.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIInfoDataHighLow.cpp">
+      <Filter>Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper\JokboProbabilityHighLow.cpp">
+      <Filter>Game\Module\게임도우미%28족보확률%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper\OtherUserJokboCheckManHighLow.cpp">
+      <Filter>Game\Module\게임도우미%28족보확률%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDraw_HL.cpp">
+      <Filter>Game\Module\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDrawManager_HL.cpp">
+      <Filter>Game\Module\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="SprPublicMomeyDraw.cpp">
+      <Filter>Game\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementEx.cpp">
+      <Filter>Game\View\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="MyCard.cpp">
+      <Filter>Game\View\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprClassList.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniSprListMan.cpp">
+      <Filter>Game\View\Animation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UPGHighLow.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="UPGHighLow_D.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\UPGHighLow.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CardRule.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\SevenRuleMan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHighLow.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcessHighLow.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameViewHighLow.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHighLow.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBetSetUpWnd.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameButtonHL.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelperManHighLow.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCardHighLow.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundRes.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteList.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInfoDataHighLow.h">
+      <Filter>Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper\JokboProbabilityHighLow.h">
+      <Filter>Game\Module\게임도우미%28족보확률%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper\OtherUserJokboCheckManHighLow.h">
+      <Filter>Game\Module\게임도우미%28족보확률%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDraw_HL.h">
+      <Filter>Game\Module\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDrawManager_HL.h">
+      <Filter>Game\Module\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="SprPublicMomeyDraw.h">
+      <Filter>Game\View</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementEx.h">
+      <Filter>Game\View\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="MyCard.h">
+      <Filter>Game\View\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationDefine.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprClassList.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniSprListMan.h">
+      <Filter>Game\View\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UPGHighlow.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\HL.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\HL_Chat.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGHighLow.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

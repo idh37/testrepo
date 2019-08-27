@@ -1,0 +1,697 @@
+
+namespace SS
+{
+	enum LoginResult
+	{
+		LOGIN_SUCCESS = 0,
+		LOGIN_FAILED = 1,
+		LOGIN_DUPLICATE = 2,
+		LOGIN_AUTU_FAILED = 3,		
+		LOGOUT_SUCCESS = 4,
+		LOGOUT_FAILED = 5
+	};
+
+	enum BoxPosition
+	{
+		ALL = 0, 
+		IN_BOX = 1,
+		IN_STORAGE = 2
+	};
+
+	enum SetOption
+	{
+		WHISPER = 1,
+		MEMO = 2,
+		CHAT = 3
+	};
+	
+	enum RecvState
+	{
+		RECV_STATE_ALL = 0,
+		RECV_STATE_NOT = 1,
+		RECV_STATE_ONLY_FRIEND = 2,
+		ERCV_STATE_MAX = 3
+	};	
+	
+	enum Show
+	{
+		SHOW_AVAILABLE = 0,
+		SHOW_AWAY = 1,
+		SHOW_CHAT = 2,
+		SHOW_DND = 3,
+		SHOW_XA = 4,
+		SHOW_MAX = 5
+	};	
+	
+	enum SearchCategory
+	{
+		SEARCH_CONTENT = 0,
+		SEARCH_ID = 1,
+		SEARCH_NICKNAME = 2,
+		SEARCH_ID_OR_NICKNAME = 3,
+		SEARCH_MAX = 4
+	};
+
+	class MemoInfo 
+	{
+		int16 unreadCount;
+		int16 totalCount;
+		BoxPosition boxType;
+	};
+
+	class Memo
+	{
+		string node;
+		string senderID;
+		string senderNickname;
+		string senderCN;
+		string content;
+		string recvTime;	
+		BoxPosition boxType;
+		bool   read;
+		int32 senderAvatarInfo[26];
+	};
+	
+	class PresenceInfo
+	{
+		Show show;
+		string status;
+		int32 priority;
+		string gameinfo;
+		string userID;
+	};
+	
+	class PresenceInfoResult
+	{
+		int32 result;
+		string targetID;
+		PresenceInfo presenceInfo;
+	};
+	
+	class PresenceInfoResultList
+	{
+		list<PresenceInfoResult> results;
+	};
+	
+	class MemoList
+	{
+		list<Memo> memoList;
+	};
+	
+	class RemoveMemoNodeList
+	{
+		list<string> nodeList;
+	};
+	
+	class StoredMemoNodeList : RemoveMemoNodeList
+	{
+	};
+	
+	class MemoNodeList : RemoveMemoNodeList
+	{
+	};
+	
+	class ReturnString
+	{
+		string str;
+	};
+	
+	class ReceiveOption 
+	{
+		string optionName;
+		RecvState state;
+	};
+	
+	class ReceiveOptionList
+	{
+		list<ReceiveOption> optionList; 
+	};
+	
+	class SendMemoResult
+	{
+		string receiverID;
+		int16 result;
+	};
+	
+	class SendMemoResultList
+	{
+		list<SendMemoResult> results;
+	};
+	
+	enum MUCContentType
+	{
+		MCT_TEXT = 1,
+		MCT_RTF = 2,
+		MCT_JSON = 3,
+		MCT_XML = 4,
+		MCT_CUSTOM = 5,
+		MCT_MAX = 6
+	};	
+	
+	enum ContentType
+	{
+		CT_TEXT = 1,
+		CT_RTF = 2,
+		CT_JSON = 3,
+		CT_XML = 4,
+		CT_CUSTOM = 5,
+		CT_MAX = 6
+	};	
+	
+	namespace Feature
+	{
+		enum AnonymousType
+		{
+			Non_AnonymousRoom = 1,
+			Semi_AnonymousRoom = 2,
+			Fully_AnnoymousRoom = 3
+		};
+		
+		enum PublicType
+		{
+			HiddenRoom = 1,
+			PublicRoom = 2
+		};
+		
+		enum OpenType
+		{
+			Members_onlyRoom = 1,
+			OpenRoom = 2
+		};
+		
+		enum ModerateType
+		{
+			ModeratedRoom = 1,
+			UnModeratedRoom = 2
+		};
+		
+		enum SecureType
+		{
+			Password_PretectedRoom = 1,
+			UnSecuredRoom = 2
+		};
+		
+		enum PersistentType
+		{
+			PersistentRoom = 1,
+			TempararyRoom = 2
+		};
+		
+		enum RoomVoiceOnOffType
+		{
+			VoiceOn = 1,
+			VoiceOff = 2
+		};	
+	};	
+	
+	enum MUCRoomAffiliation
+	{
+		AFF_NONE = 1,
+		AFF_OUTCAT = 2,
+		AFF_MEMBER = 4,
+		AFF_ADMIN = 8,
+		AFF_OWNER = 16,
+		AFF_MAX = 32
+	};	
+	
+	enum MUCRoomRole
+	{
+		ROLE_NONE = 1,
+		ROLE_VISITOR = 2,
+		ROLE_PARTICIPANT = 4,
+		ROLE_MODERATOR = 8,
+		ROLE_VOICEOFF = 16,
+		ROLE_MAX = 32
+	};
+	
+	class CategoryInfo
+	{
+		string code;
+		string desc;
+		string serviceurl;
+	};	
+	
+	class MucRoomType
+	{
+		Feature::PublicType publicType;	// or hiddenRoom(검색 불가, 전체 룸 목록에서 제외)
+		Feature::PersistentType persistentType;	// or temporary(마지막 참여자가 나가면 방 파괴)
+		Feature::SecureType secureType;	// or unsecured(비밀번호 없음)
+		Feature::ModerateType moderateType;		// or unmoderated. moderated room(명시적인 발언권가진 사람만 채팅 가능)
+
+		// 아래 type은 무시될 것이다. 기본옵션으로 실행된다(nonAnonymouse, open)
+		Feature::AnonymousType anonymousType;	// or semi-anonymous(room admin만 참가자들의 fullJID를 볼 수 있다)
+		Feature::OpenType openType;	// or open(멤버 목록에 없어도 누구나 입장 가능). 멤버 목록을 등록하고 관리하는 기능이 필요하다(참고 : 'jabber:iq:register')
+		Feature::RoomVoiceOnOffType voiceonoffType;
+	};
+	
+	class MucRoomExtInfo
+	{
+		string description;			// short description of room
+		string subject;				// current subject or discussion topic in room
+		bool canChangeSubject;		// the room subject can be modified by participants
+		int32 occupants;			// current number of occupants in room
+	};	
+	
+	class MUCUser
+	{
+		string roomID;
+		MUCRoomAffiliation affiliation;
+		MUCRoomRole role;
+	};
+	
+	class MUCUserInfo
+	{
+		string id;
+		string nickname;
+		int32  avatarInfo[26];
+		MUCUser mucUser;
+	};	
+		
+	class MUCRoomInfo
+	{
+		string roomID;
+		string roomname;
+		string creatorID;
+		string password;
+		MucRoomType info;
+		MucRoomExtInfo extInfo;
+		
+		int32 currentuser;
+		int32 maxuser;	
+	};
+	
+	class MUCJoinRoomInfo
+	{
+		string roomID;
+		string roomNickname;
+		string password;
+		string servicecode;
+	};
+	
+	namespace Filter
+	{
+		enum KeyType
+		{
+			ServiceCode = 1,
+			CategoryCode = 2,
+			RoomName = 3,
+			RoomID = 4,
+			ID = 5,
+			CreatorID = 6
+		};
+		
+		enum FilterType
+		{
+			Full_Matching = 0,
+			FrontSub_Matching = 1
+		};	
+		
+		class FilterInfo
+		{
+			KeyType key;
+			FilterType type;
+			string value;
+		};
+	};
+	
+	class MUCRoomServiceList
+	{
+		string service;
+		vector<CategoryInfo> categorylist;
+	};
+	
+	class MUCRoomList
+	{
+		list<MUCRoomInfo> roomList;
+	};
+	
+
+	class MucRoleCheck
+	{
+		bool moderator;
+		bool participant;
+		bool visitor;
+	};
+	
+	enum WHOIS
+	{
+		WHOIS_MODERATORS = 0,
+		WHOIS_ANYONE = 1
+	};	
+	
+	class MucRoomConfig	// http://xmpp.org/extensions/xep-0045.html#registrar-formtype-owner
+	{
+		string roomname;
+		string roomdesc;
+		bool enableLogging;
+		bool changeSubject;
+		bool allowInvites;
+		int32 maxUsers;
+		MucRoleCheck presenceBroadcast;		// Roles for which Presence is Broadcast
+		MucRoleCheck getMemberList;			// Roles and Affiliations that May Retrieve Member List
+		MucRoomType roomType;				// nonAnonymouse는 여기서 사용하지 않을 것 같은데..
+		string category;
+		string type;	
+		string password;					// roomSecret
+		WHOIS whois;						// Who May Discover Real JIDs? 이게 무슨 의미지?
+		list<string> roomAdmins;			// additional admins
+		list<string> roomOwners;			// additional owners	
+		string pubsub;						// XMPP URI of Associated Publish-Subcribe Node. ???
+	};	
+	
+	class MucRoomFilter
+	{
+		vector<Filter::FilterInfo> filterlist;
+	};
+	
+	class UserIDList
+	{
+		list<string> idList;
+	};
+	
+	class UserProfile
+	{
+		string id;
+		string nickname;
+		string cn;
+		int32  avatarInfo[26];
+		int32  result;
+	};
+	
+	class UserProfileList
+	{
+		list<UserProfile> profileList;
+	};	
+	
+	enum SubscriptionState
+	{
+		SBSC_NONE = 0,
+		SBSC_FROM = 10,
+		SBSC_TO = 20,
+		SBSC_BOTH = 30,
+		SBSC_MAX = 31
+	};
+
+	enum AskState
+	{
+		ASK_PENDING_NONE = 0,
+		ASK_PENDING_IN = 1,
+		ASK_PENDING_OUT = 2,
+		ASK_PENDING_INOUT = 3,
+		ASK_MAX = 4
+	};	
+		
+	class BuddyPresenceInfo
+	{
+		Show show;
+		string status;
+		int32 priority;
+		string gameinfo;		
+	};
+	
+	class BuddyProfileInfo
+	{
+		string nickname;
+		string userCN;
+		int32 avatarInfo[26];		
+	};
+
+	class BuddyInfo
+	{
+		string userID;
+		string memo;
+		SubscriptionState subscription;
+		AskState ask;
+		BuddyPresenceInfo presence;
+		BuddyProfileInfo profile;
+	};
+	
+	class BuddyInfoList
+	{
+		list<BuddyInfo> buddies;
+	};
+	
+	class BuddyGroupEntry
+	{
+		string groupName;
+		int32 rank;
+		list<BuddyInfo> buddies;
+	};
+	
+	class BuddyGroupEntryList
+	{
+		int32 revision;
+		list<BuddyGroupEntry> entrys;		
+	};
+	
+	class BlackBuddy
+	{
+		string buddyID;
+		string buddyNickname;
+	};
+	
+	class BlackList
+	{
+		list<BlackBuddy> blackBuddies;
+	};
+
+	class BuddyGroup
+	{	
+		string groupName;
+		int32 rank;
+	};
+	
+	class BuddyGroupList
+	{
+		list<BuddyGroup> groupList;
+	};
+	
+	class SelectedBuddyInfo
+	{
+		string buddyID;
+		string groupName;
+	};
+	
+	class SelectedBuddyList
+	{
+		list<SelectedBuddyInfo> selectedBuddyList;
+	};
+	
+	class BuddyResult
+	{
+		string buddyID;
+		string groupName;
+		int32 result;
+	};
+	
+	class BuddyResultList
+	{
+		list<BuddyResult> results;
+	};
+	
+	class VCard
+	{
+		string type;
+		string vCardSyntext;	
+	};
+	
+	class VCardList
+	{
+		list<VCard> vcardList;
+	};
+	
+	class VCard2
+	{
+		string key;
+		string description;
+		ContentType contentType;
+		string content;
+		string creationDate;
+		string modificationDate;
+	};
+	
+	class VCard2List
+	{
+		vector<VCard2> vCards;
+	};
+	
+	class LoginInfo
+	{
+		char authData[2048];
+		int32 siteNo;
+		string mainDomain;
+		string subDomain;
+		string serviceCode;
+		
+		bool   forceDisconnect;
+		string disconnectReason;
+	};
+	
+	class ClanInfo
+	{
+		string serviceCode;
+		string clanCode;
+		string clanName;
+		string generatorID;
+		int32  publicType;
+		string clanDescription;
+		int32  memberCount;
+		string clanInfo;
+		string clanRoomID;
+		string creationDate;
+		string masterRevision;		
+	};
+	
+	class ClanInfoList
+	{
+		list<ClanInfo> clanInfoList;
+	};
+	
+	class ClanMemberProfileInfo
+	{
+		string nickname;
+		string userCN;
+		int32  avatarInfo[26];
+	};
+	
+	class ClanMemberInfo
+	{
+		string userID;
+		PresenceInfo presence;
+		ClanMemberProfileInfo profile;						
+	};
+	
+	class ClanMemberInfoList
+	{
+		list<ClanMemberInfo> clanMemberInfoList;
+	};
+	
+	enum RevisionDataType
+	{
+		RDT_ACCOUNTMASTER = 0,
+		RDT_ROSTER = 1,
+		RDT_GROUP = 2,
+		RDT_GAME_INFO = 3,
+		RDT_MAX = 4
+	};
+	
+	class RevisionData
+	{
+		RevisionDataType type;
+		string masterRevision;
+		int32 pigeonRevision;
+	};
+	
+	class RevisionDataList
+	{
+		list<RevisionData> revisions;
+	};
+	
+
+	// MOBILE	
+	enum UUID_CODE
+	{
+		INVALID_UUID = 0   // 정상적이지 않은 UUID
+	};
+
+	// 모바일 디바이스 등록 에러코드
+	enum RegistNewDevice_ErrorCode
+	{
+		RND_SUCCESS = 0,   // 성공
+		RND_FAIL_ALREADY_EXIST = 100, // 이미 해당 JID로 등록되어 있는 Device임.
+		RND_FAIL_INVALID_JID = 101, // 전달받은 JID값이 이상함( length <= 0 )
+		RND_FAIL_INVALID_UDID = 102, // 전달받은 udid값이 이상함( length <= 0 )
+		RND_FAIL_INVALID_SERVICECODE = 103, // ServiceCode가 등록되어있지 않음.
+		RND_FAIL_UNKONW_REASON = 104 // 그 밖의 실패  
+	};
+
+	// 모바일 기기 타입 
+	enum MobileDeviceType
+	{
+		MDT_ANDROID = 0, // 안드로이드
+		MDT_IPHONE = 1,  // 아이폰
+		MDT_WINDOW = 2,  // 윈도우
+		MDT_SIMBIAN = 3, // 심비안
+		UNKNOWN_DEVICE_TYPE = 4
+	};
+
+
+	// 모바일 기기 정보.
+	class MobileDeviceInfo
+	{
+		MobileDeviceType deviceType;
+		string deviceModelName;
+		string deviceFirmwareVersion;
+		string deviceOSVersion;
+		string phoneNumber;
+		int32 phoneNumberAuthFlag;
+		string macAddress;
+		string simOperatorName;
+	};
+
+	enum UpdateMobileDeviceInfo_ErrorCode
+	{
+		UMD_SUCCESS = 0,
+		UMD_FAIL_NOT_FOUND_UUID = 100, // uuid를 찾을 수 없음.
+		UMD_FAIL_INVALID_JID = 101,   // JID값이 이상함
+		UMD_FAIL_INVALID_UUID = 102,  // 전달받은 UUID값이 이상함( length <= 0 )
+		UMD_FAIL_UNKNOWN_REASON = 103  // 그 밖의 실패.
+	};
+	
+	enum UpdatePushRegistrationID_ErrorCode
+	{
+		UPR_SUCCESS = 0,
+		UPR_FAIL_NOT_FOUND_UUID = 100, // uuid를 찾을 수 없음.
+		UPR_FAIL_INVALID_JID = 101,   // JID값이 이상함
+		UPR_FAIL_INVALID_UUID = 102,  // 전달받은 UUID값이 이상함( length <= 0 )
+		UPR_FAIL_UNKNOWN_REASON = 103  // 그 밖의 실패.
+	};	
+	
+	enum UnRegistDevice_ErrorCode
+	{
+		URD_SUCCESS = 0,
+		URD_FAIL_NOT_FOUND_UUID = 100,
+		URD_FAIL_INVALID_JID = 101,
+		URD_FAIL_INVALID_UUID = 102,
+		URD_FAIL_UNKNOWN_REASON = 200
+	};
+	
+	class AuthTokenInfo
+	{
+		string token;
+		string parentToken;
+		int64  expireReservedDate;
+		int64  expireDate;
+		int32  tokenState;
+	};
+	
+	class ServiceCodeInfo
+	{
+		string serviceCode;
+		string gameCode;
+		string description;
+		bool activeService;
+	};
+	
+	class ServiceCodeInfoList
+	{
+		list<ServiceCodeInfo> serviceCodeInfoList;	
+	};
+	
+	class CategoryMasterInfo
+	{
+		int32 categoryUid;
+		int32 sortOrder;
+		string serviceCode;
+		string description;
+		string serviceURL;
+		string groupTypeName;
+		bool useExternalSync;	
+	};
+	
+	class CategoryMasterInfoList
+	{
+		list<CategoryMasterInfo> categoryInfoList;
+	};
+};
+

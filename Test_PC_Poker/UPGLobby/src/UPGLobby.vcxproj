@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1FF7AAB2-B609-4EEB-B1B7-4EFA92071BBF}</ProjectGuid>
+    <RootNamespace>UPGLobby</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27924.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../lib/Debug\</OutDir>
+    <IntDir>../lib/Intermediate Files/Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../lib/Release\</OutDir>
+    <IntDir>../lib/Intermediate Files/Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Debug\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus </AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);Script;../../UPGContainer/externals/BugSplat/inc;../../UPGCommon/externals/CommonFile;../../UPGCommon/include;../../UPGPokerBase/include;../../LSYLib/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;TIXML_USE_STL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPGLobby_D.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName)C.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>UPGCommon_D.lib;UPGPokerBase_D.lib;Pigeon.SS.ConnectorD.lib;Camel.Base.SystemD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Debug/UPGLobby_D.dll</OutputFile>
+      <AdditionalLibraryDirectories>Script;../../UPGContainer/externals/BugSplat/lib;../../UPGCommon/lib/$(Configuration);../../LSYLib/lib/$(Configuration);../../UPGPokerBase/lib/$(Configuration);../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;libcmtd.lib;nafxcwd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGLobby_D.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Debug/UPGLobby_D.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Debug/UPGLobby_D.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Debug</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)bin\Release\$(TargetFileName)</Command>
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 /Zc:__cplusplus</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>Script;../../UPGContainer/externals/BugSplat/inc;../../UPGCommon/externals/CommonFile;../../UPGCommon/include;../../UPGPokerBase/include;../../LSYLib/include;../../Framework_externals/Include;../../Framework_externals/Include/nmutil;../../Framework_externals/Include/nmskingdi;../../Framework_externals/Include/nmgraphicgdi;../../Framework_externals/Include/nmavatar;../../Framework_externals/Include/nmsound;../../Framework_externals/Include/nmsock;../../Framework_externals/ExternalLib/include/lua;../../Framework_externals/Externallib/include/ogg;../../Framework_externals/Externallib/include/Compress;../../UPGCommon/externals/Camel.Base/include;../../UPGCommon/externals/Camel.Dar/include;../../UPGCommon/externals/SSConnector/include/;../../UPGCommon/externals/GSConnector/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)UPGLobby.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>../lib/Release/UPGLobby.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>BugSplat.lib;UPGCommon.lib;UPGPokerBase.lib;Pigeon.SS.Connector.lib;Camel.Base.System.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/Release/UPGLobby.dll</OutputFile>
+      <AdditionalLibraryDirectories>Script;../../UPGContainer/externals/BugSplat/lib;../../UPGCommon\lib\$(Configuration);../../LSYLib\lib\$(Configuration);../../UPGPokerBase/lib/$(Configuration);../../Framework_externals/library;../../Framework_externals/ExternalLib/library/lua;../../Framework_externals/Externallib/library/Compress;../../UPGCommon/externals/SSConnector/lib;../../UPGCommon/externals/Camel.Base/lib;../../UPGCommon/externals/GSConnector/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;libcmtd.lib;nafxcw.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\UPGLobby.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../lib/Release/UPGLobby.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>../lib/Release/UPGLobby.map</MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y $(TargetDir)$(TargetFileName) $(SolutionDir)bin\Release</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommMsg.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\CommUtil.cpp" />
+    <ClCompile Include="..\..\UPGCommon\externals\CommonFile\UserStruct.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="ImageLobbyDef.cpp" />
+    <ClCompile Include="Lobby.cpp" />
+    <ClCompile Include="LobbyProcess.cpp" />
+    <ClCompile Include="LobbyView.cpp" />
+    <ClCompile Include="Object\BuddyList\BlackBuddyListGroup.cpp" />
+    <ClCompile Include="Object\BuddyList\BlackBuddyListItem.cpp" />
+    <ClCompile Include="Object\BuddyList\BuddyListGroup.cpp" />
+    <ClCompile Include="Object\BuddyList\BuddyListItem.cpp" />
+    <ClCompile Include="Object\BuddyList\CafeListGroup.cpp" />
+    <ClCompile Include="Object\BuddyList\CafeListItem.cpp" />
+    <ClCompile Include="Object\BuddyList\ReverseBuddyListGroup.cpp" />
+    <ClCompile Include="Object\BuddyList\ReverseBuddyListItem.cpp" />
+    <ClCompile Include="Object\Captcha\CaptchaDlg.cpp" />
+    <ClCompile Include="Object\ChanceTooltip\ChanceTooltips.cpp" />
+    <ClCompile Include="Object\ChatGroup\ChatGroup.cpp" />
+    <ClCompile Include="Object\ChatGroup\WhisperlistCombo.cpp" />
+    <ClCompile Include="Object\Jackpot\JackpotCurrentInfoDlg.cpp" />
+    <ClCompile Include="Object\Jackpot\JackpotGroup.cpp" />
+    <ClCompile Include="Object\Jackpot\JackpotMoney.cpp" />
+    <ClCompile Include="Object\RoomInfoDlg\RoomInfoDialog.cpp" />
+    <ClCompile Include="Object\RoomInfoDlg\RoomInfoUserListItem.cpp" />
+    <ClCompile Include="Object\RoomList\CompareFunction.cpp" />
+    <ClCompile Include="Object\RoomList\RadGoldRoomListNormal.cpp" />
+    <ClCompile Include="Object\RoomList\RadGoldRoomListVIP.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListGroup.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeader.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeaderHoola.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeaderHoolaJoin.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeaderJoin.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeaderLowBD.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListHeaderLowBDJoin.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItem.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItemHoola.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItemHoolaJoin.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItemJoin.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItemLowBD.cpp" />
+    <ClCompile Include="Object\RoomList\RoomListItemLowBDJoin.cpp" />
+    <ClCompile Include="Object\ShopTab\ShopTabControl.cpp" />
+    <ClCompile Include="Object\TabGame\ChanceButton.cpp" />
+    <ClCompile Include="Object\TabGame\TabGame.cpp" />
+    <ClCompile Include="Object\TargetNotiGroup\CongNotiGroup.cpp" />
+    <ClCompile Include="Object\TargetNotiGroup\TargetNotiGroup.cpp" />
+    <ClCompile Include="Object\TileButton\TitleButton.cpp" />
+    <ClCompile Include="Object\UserInfo\UserInfoDetailDlg.cpp" />
+    <ClCompile Include="Object\UserInfo\UserInfoGroup.cpp" />
+    <ClCompile Include="Object\UserList\UserListGroup.cpp" />
+    <ClCompile Include="Object\UserList\UserListItem.cpp" />
+    <ClCompile Include="Object\VipJackpot\VipJackpotDlg.cpp" />
+    <ClCompile Include="Object\VipJackpot\VipJackpotGroup.cpp" />
+    <ClCompile Include="Object\VipJackpot\VipJackpotMoney.cpp" />
+    <ClCompile Include="PopupMemu.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UPGLobby.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsg.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Game.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommMsgDef_Tournament.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\CommUtil.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStruct.h" />
+    <ClInclude Include="..\..\UPGCommon\externals\CommonFile\UserStructDefine.h" />
+    <ClInclude Include="..\include\UPGLobby.h" />
+    <ClInclude Include="ImageLobbyDef.h" />
+    <ClInclude Include="Lobby.h" />
+    <ClInclude Include="LobbyProcess.h" />
+    <ClInclude Include="LobbyView.h" />
+    <ClInclude Include="objectid.h" />
+    <ClInclude Include="Object\BuddyList\BlackBuddyListGroup.h" />
+    <ClInclude Include="Object\BuddyList\BlackBuddyListItem.h" />
+    <ClInclude Include="Object\BuddyList\BuddyListGroup.h" />
+    <ClInclude Include="Object\BuddyList\BuddyListItem.h" />
+    <ClInclude Include="Object\BuddyList\CafeListGroup.h" />
+    <ClInclude Include="Object\BuddyList\CafeListItem.h" />
+    <ClInclude Include="Object\BuddyList\ReverseBuddyListGroup.h" />
+    <ClInclude Include="Object\BuddyList\ReverseBuddyListItem.h" />
+    <ClInclude Include="Object\Captcha\CaptchaDlg.h" />
+    <ClInclude Include="Object\ChanceTooltip\ChanceTooltips.h" />
+    <ClInclude Include="Object\ChatGroup\ChatGroup.h" />
+    <ClInclude Include="Object\ChatGroup\WhisperlistCombo.h" />
+    <ClInclude Include="Object\Jackpot\JackpotCurrentInfoDlg.h" />
+    <ClInclude Include="Object\Jackpot\JackpotGroup.h" />
+    <ClInclude Include="Object\Jackpot\JackpotMoney.h" />
+    <ClInclude Include="Object\RoomInfoDlg\RoomInfoDialog.h" />
+    <ClInclude Include="Object\RoomInfoDlg\RoomInfoUserListItem.h" />
+    <ClInclude Include="Object\RoomList\CompareFunction.h" />
+    <ClInclude Include="Object\RoomList\RadGoldRoomListNormal.h" />
+    <ClInclude Include="Object\RoomList\RadGoldRoomListVIP.h" />
+    <ClInclude Include="Object\RoomList\RoomListGroup.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeader.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeaderHoola.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeaderHoolaJoin.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeaderJoin.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeaderLowBD.h" />
+    <ClInclude Include="Object\RoomList\RoomListHeaderLowBDJoin.h" />
+    <ClInclude Include="Object\RoomList\RoomListItem.h" />
+    <ClInclude Include="Object\RoomList\RoomListItemHoola.h" />
+    <ClInclude Include="Object\RoomList\RoomListItemHoolaJoin.h" />
+    <ClInclude Include="Object\RoomList\RoomListItemJoin.h" />
+    <ClInclude Include="Object\RoomList\RoomListItemLowBD.h" />
+    <ClInclude Include="Object\RoomList\RoomListItemLowBDJoin.h" />
+    <ClInclude Include="Object\ShopTab\ShopTabControl.h" />
+    <ClInclude Include="Object\TabGame\ChanceButton.h" />
+    <ClInclude Include="Object\TabGame\TabGame.h" />
+    <ClInclude Include="Object\TargetNotiGroup\CongNotiGroup.h" />
+    <ClInclude Include="Object\TargetNotiGroup\TargetNotiGroup.h" />
+    <ClInclude Include="Object\TileButton\TitleButton.h" />
+    <ClInclude Include="Object\UserInfo\UserInfoDetailDlg.h" />
+    <ClInclude Include="Object\UserInfo\UserInfoGroup.h" />
+    <ClInclude Include="Object\UserList\UserListGroup.h" />
+    <ClInclude Include="Object\UserList\UserListItem.h" />
+    <ClInclude Include="Object\VipJackpot\VipJackpotDlg.h" />
+    <ClInclude Include="Object\VipJackpot\VipJackpotGroup.h" />
+    <ClInclude Include="Object\VipJackpot\VipJackpotMoney.h" />
+    <ClInclude Include="PopupMemu.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="WidgetID.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\UPGLobby.rc2" />
+    <None Include="UPGLobby.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPGLobby.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework_externals\NMAvatar\NMAvatar.vcxproj">
+      <Project>{711417ec-299a-45a0-9328-073172d73f2e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMGraphicGDI\NMGraphicGDI.vcxproj">
+      <Project>{7db017df-2635-457c-8b4d-bc451879ad15}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSkinGDI\NMSkinGDI.vcxproj">
+      <Project>{4f0488c1-7536-4578-8e3c-900c0e8d038d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSock\NMSock.vcxproj">
+      <Project>{27d620a4-28e1-4f41-8690-34781e38e602}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework_externals\NMSound\NMSound.vcxproj">
+      <Project>{50690e68-1a94-4ca4-bce4-c6280a0f47e6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lsylib\src\LSYLib.vcxproj">
+      <Project>{b1ba6ed8-a218-4299-9a49-8b9629983259}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGCommon\src\UPGCommon.vcxproj">
+      <Project>{ec51ae0e-6d15-4174-a589-ceb82eb54a25}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UPGPokerBase\src\UPGPokerBase.vcxproj">
+      <Project>{4b4eb56b-a280-4df4-993c-fc19a9a78a74}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPGLobby.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

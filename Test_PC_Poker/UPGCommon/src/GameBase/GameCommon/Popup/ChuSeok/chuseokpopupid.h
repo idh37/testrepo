@@ -1,0 +1,9 @@
+#pragma once
+
+//Scene ID
+#define ID_CHUSEOKPOPUP					0x0000001C
+
+//Scene Object ID
+#define ID_CHUSEOKPOPUP_TXT_DAY			0x00000000
+#define ID_CHUSEOKPOPUP_TXT_CHIP		0x00000001
+#define ID_CHUSEOKPOPUP_BTN_OK			0x00000002

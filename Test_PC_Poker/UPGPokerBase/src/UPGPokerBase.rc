@@ -1,0 +1,273 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\UPGPokerBase.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""l.KOR\\afxres.rc""      // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "UPGPokerBase.dll"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "UPGPokerBase.dll"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CREATEROOM_DIALOG DIALOGEX 0, 0, 519, 404
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE
+FONT 8, "돋움", 400, 0, 0x81
+BEGIN
+    EDITTEXT        IDC_EDIT_ROOMTITLE,331,41,151,12,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      "노말",IDC_BTN_MODE1,332,62,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "초이스",IDC_BTN_MODE2,370,62,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_MRMONEY_INPUT1,348,185,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT_MRMONEY_INPUT2,411,185,40,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER
+    COMBOBOX        IDC_COMBO_AUTOBET_SEED,329,206,151,62,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_MINIMUM_MONEY,329,223,151,81,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,359,313,39,16,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,412,313,39,16,NOT WS_TABSTOP
+    PUSHBUTTON      "스톱On",IDC_BTN_STOP1,343,110,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "스톱Off",IDC_BTN_STOP2,408,111,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "MAXOn",IDC_BTN_MAXROOM3,344,164,27,14,NOT WS_TABSTOP
+    PUSHBUTTON      "MAXOff",IDC_BTN_MAXROOM4,408,164,24,14,NOT WS_TABSTOP
+    PUSHBUTTON      "MAXDOn",IDC_BTN_OPEN_MAXDESC,344,297,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "MAXDOff",IDC_BTN_CLOSE_MAXDESC,408,296,50,14,NOT WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LIMIT_USER,329,241,151,202,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LIMIT_USER2,330,259,149,106,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "블라",IDC_BTN_BLIND1,331,80,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "일반",IDC_BTN_BLIND2,368,80,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "일반",IDC_BTN_NORMAL,259,63,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "포커칩",IDC_BTN_GOLD,259,79,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "친구",IDC_BTN_FRIEND,259,94,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "연합방On",IDC_BTN_UNION1,342,129,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "연합방Off",IDC_BTN_UNION2,406,127,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "아침벳on",IDC_BTN_BETRULE1,407,82,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "아침벳off",IDC_BTN_BETRULE2,445,82,33,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+END
+
+IDD_DIALOG_QUICKJOIN DIALOGEX 0, 0, 556, 147
+STYLE DS_SETFONT | DS_CENTER | WS_POPUP | WS_VISIBLE
+FONT 9, "굴림체", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "취소",IDCANCEL,500,125,49,15
+    PUSHBUTTON      "사용",IDC_BUTTON_SEARCHON,309,13,28,13
+    PUSHBUTTON      "사용X",IDC_BUTTON_SEARCHOFF,343,13,46,13
+    PUSHBUTTON      "적용",IDC_BUTTON_APPLY,393,125,68,15
+    PUSHBUTTON      "Mode1",IDC_BUTTON_MODE1,312,32,38,12
+    PUSHBUTTON      "Mode2",IDC_BUTTON_MODE2,354,32,38,12
+    PUSHBUTTON      "Mode3",IDC_BUTTON_MODE3,396,32,38,12
+    PUSHBUTTON      "Mode4",IDC_BUTTON_MODE4,311,47,38,12
+    COMBOBOX        IDC_COMBO_ROOMTYPE,401,47,88,13,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Mode5",IDC_BUTTON_MODE5,354,47,38,12
+    PUSHBUTTON      "Mode6",IDC_BUTTON_MODE6,311,62,38,12
+    PUSHBUTTON      "Mode7",IDC_BUTTON_MODE7,354,62,38,12
+    PUSHBUTTON      "Mode8",IDC_BUTTON_MODE8,396,62,38,12
+    COMBOBOX        IDC_COMBO_CARDSETING,401,78,88,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Mode9",IDC_BUTTON_MODE9,310,78,38,12
+    PUSHBUTTON      "Mode10",IDC_BUTTON_MODE10,352,78,38,12
+END
+
+IDD_DIALOG_TOURNAMENTNOTI DIALOGEX 0, 0, 203, 74
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",ID_TOURNAMENTNOTIOK,30,53,50,14
+    PUSHBUTTON      "취소",IDCANCEL,126,53,50,14
+END
+
+IDD_DIALOG_COMEBACK_PROMOTION DIALOGEX 0, 0, 286, 261
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",ID_COMEBACK_OK,30,240,50,14
+    PUSHBUTTON      "취소",IDCANCEL,126,240,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CREATEROOM_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_AUTOBET_SEED, 0x403, 5, 0
+0xf6bc, 0xbfb5, "\000" 
+    IDC_COMBO_AUTOBET_SEED, 0x403, 4, 0
+0x3934, 0x0031, 
+    IDC_COMBO_AUTOBET_SEED, 0x403, 4, 0
+0x3934, 0x0032, 
+    IDC_COMBO_AUTOBET_SEED, 0x403, 4, 0
+0x3935, 0x0031, 
+    IDC_COMBO_AUTOBET_SEED, 0x403, 4, 0
+0x3935, 0x0032, 
+    IDC_COMBO_LIMIT_USER, 0x403, 4, 0
+0xc032, 0x00ce, 
+    IDC_COMBO_LIMIT_USER, 0x403, 4, 0
+0xc033, 0x00ce, 
+    IDC_COMBO_LIMIT_USER, 0x403, 4, 0
+0xc034, 0x00ce, 
+    IDC_COMBO_LIMIT_USER, 0x403, 4, 0
+0xc035, 0x00ce, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CREATEROOM_DIALOG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 398
+    END
+
+    IDD_DIALOG_QUICKJOIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 549
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_DIALOG_TOURNAMENTNOTI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_DIALOG_COMEBACK_PROMOTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 254
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\UPGPokerBase.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "l.KOR\afxres.rc"      // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
