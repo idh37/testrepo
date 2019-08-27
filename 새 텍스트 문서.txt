@@ -1,1 +1,7 @@
+<<<<<<< HEAD
+master work master work master work master work master work master work 
+=======
 branch01 work  branch01 work branch01 work branch01 work branch01 work branch01 work branch01 work 
+>>>>>>> branch01
+
+branch01 work3 branch01 work3 branch01 work3 
